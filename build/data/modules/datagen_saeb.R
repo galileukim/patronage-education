@@ -28,4 +28,4 @@ saeb_student %>%
     "saeb_student_sample.rds"
   )
 
-reset(init_env)
+reset_env(init_env)

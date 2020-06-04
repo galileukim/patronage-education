@@ -33,4 +33,4 @@ finbra %>%
     "finbra", "finbra.rds"
   )
 
-reset(init_env)
+reset_env(init_env)

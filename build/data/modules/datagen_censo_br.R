@@ -34,4 +34,4 @@ for(i in seq_along(censo_files)){
     )
 }
 
-reset(init_env)
+reset_env(init_env)

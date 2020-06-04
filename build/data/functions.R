@@ -138,7 +138,7 @@ object_size <- function(object) {
   print(size, units = "MB")
 }
 
-reset <- function(init_env){
+reset_env <- function(init_env){
   final_env <- ls(.GlobalEnv)
 
   rm(

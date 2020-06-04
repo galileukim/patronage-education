@@ -254,4 +254,4 @@ censo_turnover_mun %>%
     "censo_mun_turnover.rds"
   )
 
-  reset(init_env)
+  reset_env(init_env)
