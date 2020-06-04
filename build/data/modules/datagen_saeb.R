@@ -1,6 +1,6 @@
 # generate municipal table
 saeb_exam_mun <- read_data(
-  "clean",
+  "raw",
   "saeb",
   "saeb_exam_mun.csv"
 ) %>% 
