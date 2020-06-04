@@ -33,11 +33,17 @@ write_data <- function(object, dir, file, type = "clean", compress = "gz") {
 }
 
 build_data <- function(module) {
+  print(
+    paste0("building data, module ", module, "...")
+  )
   source_file <- paste0("datagen_", module, ".R")
 
   path <- here("build", "data", "modules", source_file)
 
   source(path)
+  print(
+    paste("module", module, "complete!")
+  )
 }
 
 fread <- partial(
@@ -145,6 +151,8 @@ reset_env <- function(init_env){
     envir = .GlobalEnv,
     list = setdiff(final_env, init_env)
   )
+
+  gc()
 }
 
 # data manipulation -------------------------------------------------------
