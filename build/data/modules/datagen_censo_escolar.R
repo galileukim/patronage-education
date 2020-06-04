@@ -1,3 +1,5 @@
+init_env <- ls()
+
 # learn how to use summarise_at and gen. summarise_at
 # relacao logica entre os arquivos
 
@@ -251,3 +253,5 @@ censo_turnover_mun %>%
     "censo_escolar",
     "censo_mun_turnover.rds"
   )
+
+  reset(init_env)

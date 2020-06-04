@@ -1,4 +1,6 @@
 # finbra ------------------------------------------------------------------
+init_env <- ls()
+
 # budgetary expenditures for each municipality
 # unit of analysis: municipality-year
 
@@ -30,3 +32,5 @@ finbra %>%
   write_data(
     "finbra", "finbra.rds"
   )
+
+reset(init_env)

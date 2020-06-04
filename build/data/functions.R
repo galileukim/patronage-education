@@ -32,9 +32,10 @@ write_data <- function(object, dir, file, type = "clean", compress = "gz") {
   }
 }
 
-build_data <- function(dir, script = "datagen.R") {
-  source_file <- paste(dir, script, sep = "_")
-  path <- here("data", "build", source_file)
+build_data <- function(module) {
+  source_file <- paste0("datagen_", module, ".R")
+
+  path <- here("build", "data", "modules", source_file)
 
   source(path)
 }
@@ -135,6 +136,15 @@ object_size <- function(object) {
   size <- object.size(object)
 
   print(size, units = "MB")
+}
+
+reset <- function(init_env){
+  final_env <- ls(.GlobalEnv)
+
+  rm(
+    envir = .GlobalEnv,
+    list = setdiff(final_env, init_env)
+  )
 }
 
 # data manipulation -------------------------------------------------------

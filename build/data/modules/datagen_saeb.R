@@ -1,4 +1,6 @@
 # generate municipal table
+init_env <- ls()
+
 saeb_exam_mun <- read_data(
   "raw",
   "saeb",
@@ -25,3 +27,5 @@ saeb_student %>%
     "saeb",
     "saeb_student_sample.rds"
   )
+
+reset(init_env)
