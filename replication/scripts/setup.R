@@ -48,10 +48,6 @@ knitr::opts_chunk$set(
   # dev = "pdf"
 )
 
-source(
-  here("scripts/thesis_funs.R")
-)
-
 # connect to database
 con <- DBI::dbConnect(
   odbc::odbc(),
@@ -61,5 +57,25 @@ con <- DBI::dbConnect(
   PWD = 'gali1789!',
   port = 5432
 )
+
+p_file_here <- partial(
+  file_here,
+  paper = 'job_market'
+)
+
+ggsave <- partial(
+  ggplot2::ggsave,
+  width = 5,
+  height = 3
+)
+
+controls <- c(
+  "rais_permanent", "rais_size", "I(budget_education/censo_pop)", 
+  "censo_median_wage", "censo_log_pop", "mayor_edu", 
+  "mayor_coalition_size", "as.factor(mayor_party)"
+)
+
+rais_main_categories <- c("education", "administration", "services", "healthcare")
+
 
 set.seed(1789)
