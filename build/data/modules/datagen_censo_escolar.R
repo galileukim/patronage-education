@@ -102,6 +102,8 @@ censo_school_mun %>%
     "censo_escolar", "censo_school_mun.rds"
   )
 
+reset_env(init_env)
+
 # teacher aggregate stats by administration
 # note: missing data for the year 2009, in the south
 # missing data for rio grande do sul and santa catarina
@@ -150,6 +152,8 @@ teacher_summary %>%
     "censo_teacher_dep.rds"
   )
 
+reset_env(init_env)
+
 # student
 censo_class <- read_data(
   "raw",
@@ -191,12 +195,6 @@ censo_class_mun <- censo_class %>%
     num_enroll
   )
 
-censo_class_mun %>%
-  write_data(
-    "censo_escolar",
-    "censo_class_mun.rds"
-  )
-
 # break down classroom by department
 censo_class_dep <- censo_class %>%
   group_by(
@@ -213,6 +211,14 @@ censo_class_dep %>%
     "censo_escolar",
     "censo_class_dep.rds"
   )
+
+censo_class_mun %>%
+  write_data(
+    "censo_escolar",
+    "censo_class_mun.rds"
+  )
+
+reset_env(init_env)
 
 # teacher turnover
 # aggregate
@@ -254,4 +260,4 @@ censo_turnover_mun %>%
     "censo_mun_turnover.rds"
   )
 
-  reset_env(init_env)
+reset_env(init_env)

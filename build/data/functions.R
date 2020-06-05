@@ -36,11 +36,22 @@ build_data <- function(module) {
   print(
     paste0("building data, module ", module, "...")
   )
+
+  repo <- here("data", "clean", module)
+
+  if(!dir.exists(repo)){
+    dir.create(repo)
+  }else{
+    unlink(repo, recursive = T)
+    dir.create(repo)
+  }
+
   source_file <- paste0("datagen_", module, ".R")
 
   path <- here("build", "data", "modules", source_file)
 
   source(path)
+
   print(
     paste("module", module, "complete!")
   )

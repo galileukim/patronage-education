@@ -15,14 +15,13 @@ source(
   here("build", "data", "functions.R")
 )
 
-# build ----------------------------------------------------------------
+# build data repos
 repos <- c(
   "censo_br",
   "censo_escolar",
   "finbra",
   "rais",
   "saeb",
-  "spaece",
   "tse"
 )
 

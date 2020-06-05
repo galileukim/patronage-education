@@ -1,4 +1,4 @@
-# data wrangle
-# replication
-# publication
-# hello
+# data cleaning
+# replication (estimation, visualization)
+# publication (relatorio)
+# presentation
