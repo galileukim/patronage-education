@@ -4,7 +4,6 @@ packages <- c(
     "rgeos",
     "RColorBrewer",
     "viridis",
-    "scales",
     "rmapshaper"
 )
 
@@ -13,7 +12,13 @@ load_p(packages)
 
 # plot municipal map
 plot_map <- function(
-                     data, fill, breaks = 6, title = "", label = "", palette = "RdYlBu", legend_position = "bottom",
+                     data,
+                     fill,
+                     breaks = 6,
+                     title = "",
+                     label = "",
+                     palette = "RdYlBu",
+                     legend_position = "bottom",
                      limits = NULL) {
     plot <- ggplot() +
         geom_polygon(
@@ -28,22 +33,22 @@ plot_map <- function(
         ) +
         {
             if (is.factor(data[[fill]])) {
-                  scale_fill_manual(
-                      values = rev(
-                          brewer.pal(n = length(levels(data[[fill]])), name = palette)
-                      ),
-                      breaks = levels(data[[fill]]),
-                      na.value = "gray50"
-                  )
-              } else {
-                  scale_fill_distiller(
-                      palette = palette,
-                      breaks = pretty_breaks(breaks),
-                      direction = -1,
-                      na.value = "gray50",
-                      limits = limits
-                  )
-              }
+                scale_fill_manual(
+                    values = rev(
+                        brewer.pal(n = length(levels(data[[fill]])), name = palette)
+                    ),
+                    breaks = levels(data[[fill]]),
+                    na.value = "gray50"
+                )
+            } else {
+                scale_fill_distiller(
+                    palette = palette,
+                    breaks = pretty_breaks(breaks),
+                    direction = -1,
+                    na.value = "gray50",
+                    limits = limits
+                )
+            }
         } +
         guides(fill = guide_legend(reverse = T)) +
         labs(fill = label) +
@@ -65,12 +70,13 @@ plot_map <- function(
 
 # build map of average test scores by municipality
 saeb_exam_mun <- read_data(
+    "clean",
     "saeb",
     "saeb_exam_mun.rds"
 )
 
 map_br <- readOGR(
-    here("data/raw/maps/"),
+    here("data/clean/maps/"),
     "municipio"
 )
 
@@ -116,13 +122,14 @@ map_score <- map_br %>%
 
 map_grade <- plot_map(
     map_score,
-    fill = "mean_grade_exam_wgt",
+    fill = "mean_grade_exam",
     legend_position = "none",
     limits = c(100, 250)
 )
 
-ggsave(
-    p_file_here("figs", "saeb_map.pdf"),
+save_fig(
+    map_grade,
+    "saeb_map.pdf",
     width = 5,
     height = 5
 )

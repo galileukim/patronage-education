@@ -14,6 +14,16 @@ build_repo <- function(module){
   }
 }
 
+here_data <- function(type, dir, file) {
+  path <- here("data", type, dir, file)
+  
+  return(path)
+}
+
+object_size <- function(object){
+  size <- object.size(object)
+  print(size, units = "MB")
+}
 
 read_data <- function(type, dir, file) {
   file_path <- here_data(type, dir, file)
@@ -24,9 +34,12 @@ read_data <- function(type, dir, file) {
     data <- fread(file_path)
   }
   
+  print(
+    paste("file size is", object_size(data))
+  )
+
   return(data)
 }
-
 
 load_p <- function(packages){
   walk(
@@ -39,7 +52,7 @@ detach_p <- function(packages){
   packages %>%
     purrr::walk(
       ~detach(
-      paste("package:", .),
+      paste0("package:", .),
       character.only = T,
       unload = T
     )
@@ -61,15 +74,18 @@ clear_packages <- function(packages){
 
 }
 
-run_module <- function(module) {
+run_module <- function(domain, module) {
   print(
     paste0("running module ", module, "...")
   )
 
-  build_repo(module)
+  if(domain == "data"){
+    build_repo(module)
+  }
+  
+  module_script <- paste0(module, ".R")
 
-  source_file <- paste0("datagen_", module, ".R")
-  path <- here("build", "data", "modules", source_file)
+  path <- here(domain, "modules", module_script)
 
   init_env <- ls(.GlobalEnv)
   source(path)
@@ -80,6 +96,16 @@ run_module <- function(module) {
   )
 }
 
+save_fig <- function(pl, file, width = 5, height = 3, ...){
+  ggplot2::ggsave(
+    filename = here("replication", "figs", file),
+    pl,
+    width = width,
+    height = height,
+    ...
+  )
+}
+
 # data io -----------------------------------------------------------------
 fread <- partial(
   data.table::fread,
@@ -87,16 +113,16 @@ fread <- partial(
   integer64 = c("character")
 )
 
-list_files <- function(path, pattern){
-  files <- map2(
-    path,
-    pattern,
-    list.files
-  ) %>% 
-    flatten_chr
+# list_files <- function(path, pattern){
+#   files <- map2(
+#     path,
+#     pattern,
+#     list.files
+#   ) %>% 
+#     flatten_chr
   
-  return(files)
-}
+#   return(files)
+# }
 
 # import_data <- function(path, pattern, names = F){
 #   files <- list_files(
@@ -130,36 +156,21 @@ list_files <- function(path, pattern){
 #   )
 # }
 
-append_db <- function(path, pattern, conn, names = F){
-  data <- import(
-    files,
-    names
-  )
+# append_db <- function(path, pattern, conn, names = F){
+#   data <- import(
+#     files,
+#     names
+#   )
   
-  pwalk(
-    list(
-      name = names,
-      value = data
-    ),
-    RSQLite::dbWriteTable,
-    conn = con,
-    overwrite = T
-  )
-}
-
-# file_here <- function(paper = NULL, folder = NULL, file = NULL){
-#   if(is.null(file)){
-#     stop('no file name.')
-#   }
-  
-#   path <- here(paste0('papers/paper_', paper), folder, file)
-#   return(path)
-# }
-
-# object_size <- function(object){
-#   size <- object.size(object)
-  
-#   print(size, units = "MB")
+#   pwalk(
+#     list(
+#       name = names,
+#       value = data
+#     ),
+#     RSQLite::dbWriteTable,
+#     conn = con,
+#     overwrite = T
+#   )
 # }
 
 # data manipulation -------------------------------------------------------
@@ -185,56 +196,56 @@ round_integer <- function(number, digits) {
     round(digits)
 }
 
-calc_turnover <- function(data, group_vars){
-  years <- data %>% 
-    distinct(year) %>% 
-    pull
+# calc_turnover <- function(data, group_vars){
+#   years <- data %>% 
+#     distinct(year) %>% 
+#     pull
   
-  data %<>%
-    group_by_at(
-      vars(
-        group_vars
-      )
-    ) %>% 
-    summarise_at(
-      vars(starts_with("turnover_"), n),
-      sum,
-      na.rm = T
-    ) %>% 
-    ungroup()
+#   data %<>%
+#     group_by_at(
+#       vars(
+#         group_vars
+#       )
+#     ) %>% 
+#     summarise_at(
+#       vars(starts_with("turnover_"), n),
+#       sum,
+#       na.rm = T
+#     ) %>% 
+#     ungroup()
   
-  data %<>% 
-    mutate(
-      implicit = 0
-    ) %>% 
-    complete(
-      year = years,
-      fill = list(implicit = 1)
-    ) %>% 
-    group_by_at(
-      vars(
-        group_vars,
-        -year
-      )
-    ) %>% 
-    mutate(
-      n_lag = dplyr::lag(n, order_by = year),
-      percent_exit = turnover_exit/n_lag,
-      percent_transfer = turnover_transfer/n_lag,
-      percent_extinct = turnover_extinct/n_lag,
-      percent_entry = turnover_entry/n,
-      turnover_index = (turnover_exit + turnover_transfer + turnover_entry)/(n + n_lag)
-    ) %>% 
-    ungroup() %>% 
-    filter(
-      implicit != 1
-    ) %>% 
-    select(
-      -implicit
-    )
+#   data %<>% 
+#     mutate(
+#       implicit = 0
+#     ) %>% 
+#     complete(
+#       year = years,
+#       fill = list(implicit = 1)
+#     ) %>% 
+#     group_by_at(
+#       vars(
+#         group_vars,
+#         -year
+#       )
+#     ) %>% 
+#     mutate(
+#       n_lag = dplyr::lag(n, order_by = year),
+#       percent_exit = turnover_exit/n_lag,
+#       percent_transfer = turnover_transfer/n_lag,
+#       percent_extinct = turnover_extinct/n_lag,
+#       percent_entry = turnover_entry/n,
+#       turnover_index = (turnover_exit + turnover_transfer + turnover_entry)/(n + n_lag)
+#     ) %>% 
+#     ungroup() %>% 
+#     filter(
+#       implicit != 1
+#     ) %>% 
+#     select(
+#       -implicit
+#     )
   
-  return(data)
-}
+#   return(data)
+# }
 
 # tidy and ggcoef
 tidyfit <- function(fit, vars = '.'){
