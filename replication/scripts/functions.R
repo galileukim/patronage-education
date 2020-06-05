@@ -1,9 +1,8 @@
-# functions ---------------------------------------------------------------
+# functions to assist in establishing and executing workflow
 `%<>%` <- magrittr::`%<>%`
 ivreg <- AER::ivreg
 between <- data.table::between
 
-# functions to assist in establishing and executing workflow
 build_repo <- function(module){
   repo <- here("data", "clean", module)
 
@@ -13,6 +12,53 @@ build_repo <- function(module){
     unlink(repo, recursive = T)
     dir.create(repo)
   }
+}
+
+
+read_data <- function(type, dir, file) {
+  file_path <- here_data(type, dir, file)
+
+  if (str_detect(file, ".rds$")) {
+    data <- read_rds(file_path)
+  } else {
+    data <- fread(file_path)
+  }
+  
+  return(data)
+}
+
+
+load_p <- function(packages){
+  walk(
+    packages,
+    ~library(., character.only = T)
+  )
+}
+
+detach_p <- function(packages){
+  packages %>%
+    purrr::walk(
+      ~detach(
+      paste("package:", .),
+      character.only = T,
+      unload = T
+    )
+  )
+}
+
+reset_env <- function(init_env, packages){
+  final_env <- ls(.GlobalEnv)
+
+  rm(
+    envir = .GlobalEnv,
+    list = setdiff(final_env, init_env)
+  )
+
+  gc()
+}
+
+clear_packages <- function(packages){
+
 }
 
 run_module <- function(module) {
@@ -101,32 +147,20 @@ append_db <- function(path, pattern, conn, names = F){
   )
 }
 
-fwrite_gz <- function(data, filename, overwrite = T) {
-  data.table::fwrite(
-    data,  
-    filename
-  )
+# file_here <- function(paper = NULL, folder = NULL, file = NULL){
+#   if(is.null(file)){
+#     stop('no file name.')
+#   }
   
-  R.utils::gzip(
-    filename,
-    overwrite = overwrite
-  )
-}
+#   path <- here(paste0('papers/paper_', paper), folder, file)
+#   return(path)
+# }
 
-file_here <- function(paper = NULL, folder = NULL, file = NULL){
-  if(is.null(file)){
-    stop('no file name.')
-  }
+# object_size <- function(object){
+#   size <- object.size(object)
   
-  path <- here(paste0('papers/paper_', paper), folder, file)
-  return(path)
-}
-
-object_size <- function(object){
-  size <- object.size(object)
-  
-  print(size, units = "MB")
-}
+#   print(size, units = "MB")
+# }
 
 # data manipulation -------------------------------------------------------
 # sample groups
@@ -359,55 +393,6 @@ mandate_year <- function(years = seq(2005, 2013, 4)){
     linetype = "dotted",
     color = "grey65"
   )
-}
-
-# plot municipal map
-plot_map <- function(
-  data, fill, breaks = 6, title = "", label = "", palette = "RdYlBu", legend_position = "bottom",
-  limits = NULL
-) {
-  plot <- ggplot() +
-    geom_polygon(
-      data = data, 
-      aes(
-        x = long, 
-        y = lat, 
-        group = group, 
-        fill = get(fill)
-      ),
-      color = NA
-    ) +
-    {if(is.factor(data[[fill]])) 
-      scale_fill_manual(
-        values = rev(
-          brewer.pal(n = length(levels(data[[fill]])), name = palette)
-        ),
-        breaks = levels(data[[fill]]),
-        na.value = "gray50"
-      )else
-        scale_fill_distiller(
-          palette = palette,
-          breaks = pretty_breaks(breaks),
-          direction = -1,
-          na.value = "gray50",
-          limits = limits
-        )
-    } +
-    guides(fill = guide_legend(reverse = T)) +
-    labs(fill = label) +
-    theme_void(base_size = 17) +
-    xlim(range(data$long)) + ylim(range(data$lat)) +
-    coord_quickmap() +
-    theme(
-      legend.position = legend_position,
-      legend.text = element_text(size = 18),
-      text = element_text(size = 18),
-      legend.title = element_blank(),
-      plot.caption = element_text(size = 8)
-    ) +
-    ggtitle(title)
-  
-  return(plot)
 }
 
 # summarize by mun
