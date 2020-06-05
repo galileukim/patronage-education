@@ -1,15 +1,19 @@
 # data --------------------------------------------------------------------
+# global education indicators
+edu_global <- read_data(
+  "worldbank",
+  "edu_global.rds"
+)
 
-
-# saeb
 import_data(
   here("data/saeb"),
   "exam_mun|hierarchical|exam_school"
 ) %>%
   assign_data
 
-saeb_dep <- fread(
-  here("data/saeb/saeb_exam_dep.csv")
+saeb_exam_mun <- read_data(
+  "saeb",
+  "saeb_exam_mun.rds"
 )
 
 # rais

@@ -43,7 +43,6 @@ reset_env <- function(init_env){
   gc()
 }
 
-
 build_repo <- function(module){
   repo <- here("data", "clean", module)
 
@@ -52,12 +51,12 @@ build_repo <- function(module){
   }else{
     unlink(repo, recursive = T)
     dir.create(repo)
+    }
   }
-}
 
-build_data <- function(module) {
+run_module <- function(module) {
   print(
-    paste0("building data, module ", module, "...")
+    paste0("running module ", module, "...")
   )
 
   build_repo(module)

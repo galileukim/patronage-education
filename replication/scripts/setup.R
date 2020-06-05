@@ -69,6 +69,11 @@ ggsave <- partial(
   height = 3
 )
 
+read_data <- partial(
+  read_data,
+  type = "clean"
+)
+
 controls <- c(
   "rais_permanent", "rais_size", "I(budget_education/censo_pop)", 
   "censo_median_wage", "censo_log_pop", "mayor_edu", 

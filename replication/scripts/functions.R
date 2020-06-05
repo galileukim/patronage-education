@@ -3,16 +3,42 @@
 ivreg <- AER::ivreg
 between <- data.table::between
 
+# functions to assist in establishing and executing workflow
+build_repo <- function(module){
+  repo <- here("data", "clean", module)
+
+  if(!dir.exists(repo)){
+    dir.create(repo)
+  }else{
+    unlink(repo, recursive = T)
+    dir.create(repo)
+  }
+}
+
+run_module <- function(module) {
+  print(
+    paste0("running module ", module, "...")
+  )
+
+  build_repo(module)
+
+  source_file <- paste0("datagen_", module, ".R")
+  path <- here("build", "data", "modules", source_file)
+
+  init_env <- ls(.GlobalEnv)
+  source(path)
+  reset_env(init_env)
+
+  print(
+    paste("module", module, "complete!")
+  )
+}
+
 # data io -----------------------------------------------------------------
 fread <- partial(
   data.table::fread,
   nThread = parallel::detectCores(),
   integer64 = c("character")
-)
-
-list.files <- partial(
-  base::list.files,
-  full.names = T
 )
 
 list_files <- function(path, pattern){
@@ -26,37 +52,37 @@ list_files <- function(path, pattern){
   return(files)
 }
 
-import_data <- function(path, pattern, names = F){
-  files <- list_files(
-    path,
-    pattern
-  )
+# import_data <- function(path, pattern, names = F){
+#   files <- list_files(
+#     path,
+#     pattern
+#   )
   
-  if(names == F){
-    names <- basename(files) %>% 
-      str_remove_all(
-        "\\.csv|\\.gz"
-      )
-  }
+#   if(names == F){
+#     names <- basename(files) %>% 
+#       str_remove_all(
+#         "\\.csv|\\.gz"
+#       )
+#   }
   
-  data <- map(
-    files,
-    fread
-  )
+#   data <- map(
+#     files,
+#     fread
+#   )
   
-  names(data) <- names
+#   names(data) <- names
   
-  return(data)
-}
+#   return(data)
+# }
 
-assign_data <- function(data, rm = T){
-  walk2(
-    names(data),
-    data,
-    assign,
-    envir = globalenv()
-  )
-}
+# assign_data <- function(data, rm = T){
+#   walk2(
+#     names(data),
+#     data,
+#     assign,
+#     envir = globalenv()
+#   )
+# }
 
 append_db <- function(path, pattern, conn, names = F){
   data <- import(
