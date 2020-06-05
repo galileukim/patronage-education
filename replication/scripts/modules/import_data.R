@@ -1,9 +1,5 @@
 # data --------------------------------------------------------------------
 # global education indicators
-edu_global <- read_data(
-  "worldbank",
-  "edu_global.rds"
-)
 
 import_data(
   here("data/saeb"),

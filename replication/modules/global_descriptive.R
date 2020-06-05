@@ -1,3 +1,9 @@
+# create descriptive visualizations for educational data
+edu_global <- read_data(
+  "worldbank",
+  "edu_global.rds"
+)
+
 plot_enroll <- edu_global %>% 
   filter(!is.na(enrollment_rate_primary)) %>% 
   ggplot(
