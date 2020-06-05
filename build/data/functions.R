@@ -28,15 +28,23 @@ write_data <- function(object, dir, file, type = "clean", compress = "gz") {
   if (str_detect(file, ".rds$")) {
     write_rds(object, file_path, compress = compress)
   } else {
-    write_csv(object, file_path)
+    fwrite(object, file_path, compress = "gz")
   }
 }
 
-build_data <- function(module) {
-  print(
-    paste0("building data, module ", module, "...")
+reset_env <- function(init_env){
+  final_env <- ls(.GlobalEnv)
+
+  rm(
+    envir = .GlobalEnv,
+    list = setdiff(final_env, init_env)
   )
 
+  gc()
+}
+
+
+build_repo <- function(module){
   repo <- here("data", "clean", module)
 
   if(!dir.exists(repo)){
@@ -45,12 +53,21 @@ build_data <- function(module) {
     unlink(repo, recursive = T)
     dir.create(repo)
   }
+}
+
+build_data <- function(module) {
+  print(
+    paste0("building data, module ", module, "...")
+  )
+
+  build_repo(module)
 
   source_file <- paste0("datagen_", module, ".R")
-
   path <- here("build", "data", "modules", source_file)
 
+  init_env <- ls(.GlobalEnv)
   source(path)
+  reset_env(init_env)
 
   print(
     paste("module", module, "complete!")
@@ -153,17 +170,6 @@ object_size <- function(object) {
   size <- object.size(object)
 
   print(size, units = "MB")
-}
-
-reset_env <- function(init_env){
-  final_env <- ls(.GlobalEnv)
-
-  rm(
-    envir = .GlobalEnv,
-    list = setdiff(final_env, init_env)
-  )
-
-  gc()
 }
 
 # data manipulation -------------------------------------------------------

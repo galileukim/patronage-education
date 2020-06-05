@@ -1,6 +1,4 @@
 # rais --------------------------------------------------------------------
-init_env <- ls()
-
 # municipal bureaucracy data
 # output: municipal tables of teachers, school principals, and bureaucrats
 rais_mun <- read_data(
@@ -63,5 +61,3 @@ rais_edu_mun %>%
     write_data(
         "rais", "rais_mun_edu.rds"
     )
-
-reset_env(init_env)

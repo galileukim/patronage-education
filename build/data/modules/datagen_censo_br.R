@@ -1,5 +1,3 @@
-init_env <- ls()
-
 censo_files <- list.files(
   here("data", "raw", "censo_br")
 )
@@ -33,5 +31,3 @@ for(i in seq_along(censo_files)){
       paste0("censo_", c(2000, 2010)[i], ".rds")
     )
 }
-
-reset_env(init_env)
