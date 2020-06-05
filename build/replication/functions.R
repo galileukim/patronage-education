@@ -85,7 +85,7 @@ run_module <- function(domain, module) {
   
   module_script <- paste0(module, ".R")
 
-  path <- here(domain, "modules", module_script)
+  path <- here("build", domain, "modules", module_script)
 
   init_env <- ls(.GlobalEnv)
   source(path)

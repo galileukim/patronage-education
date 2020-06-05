@@ -56,15 +56,9 @@ con <- DBI::dbConnect(
   port = 5432
 )
 
-p_file_here <- partial(
-  file_here,
-  paper = 'job_market'
-)
-
-ggsave <- partial(
-  ggplot2::ggsave,
-  width = 5,
-  height = 3
+run_module <- partial(
+  run_module,
+  domain = "replication"
 )
 
 read_data <- partial(

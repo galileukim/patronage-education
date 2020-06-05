@@ -43,7 +43,7 @@ plot_map <- function(
             } else {
                 scale_fill_distiller(
                     palette = palette,
-                    breaks = pretty_breaks(breaks),
+                    breaks = scales::pretty_breaks(breaks),
                     direction = -1,
                     na.value = "gray50",
                     limits = limits
