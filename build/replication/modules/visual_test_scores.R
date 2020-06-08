@@ -1,10 +1,10 @@
 # test scores -------------------------------------------------------------
 saeb_dep <- read_data(
     "saeb",
-    "saeb_student_sample.rds"
+    "saeb_school.rds"
 )
 
-saeb_public <- saeb_dep %>%
+saeb_public <- saeb_school %>%
   filter(
     dep != "",
     !is.na(grade),
@@ -15,6 +15,11 @@ saeb_public <- saeb_dep %>%
     year = as.factor(year)
   )
 
+saeb_public %>%
+    gg_summary(
+      year,
+      grade_mean
+    )
 saeb_public %>% 
   ggplot(
     aes(

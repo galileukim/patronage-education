@@ -19,6 +19,36 @@ saeb_student <- read_data(
   "saeb_student.csv.gz"
 )
 
+# breakdown by administrative department
+saeb_school <- saeb_student %>%
+  filter(year >= 2007) %>%
+  mutate(
+    brown_black_student = if_else(race_student %in% c("brown", "black"), 1, 0)
+  ) %>%
+  group_by(
+    cod_ibge_6,
+    year,
+    dep,
+    cod_school
+  ) %>%
+  summarise(
+    across(
+      c(
+        failed_school_year_student,
+        fridge_student,
+        housekeeper_student,
+        father_home_student,
+        mother_home_student,
+        pc_student,
+        age_student,
+        brown_black_student,
+        grade_exam
+      ),
+      ~mean(as.numeric(.x), na.rm = T)
+    ),
+    .groups = "drop"
+  )
+
 saeb_student %>%
   sample_frac(0.25) %>%
   write_data(
@@ -26,15 +56,12 @@ saeb_student %>%
     "saeb_student_sample.rds"
   )
 
-# breakdown by sphere
-saeb_student %>%
-  group_by(
-    cod_ibge_6,
-    year,
-    cod_school
-    dep
-  ) %>%
-  
+saeb_school %>%
+  write_data(
+    "saeb",
+    "saeb_school.rds"
+  )
+
 
 # hierarchical model
 saeb_hierarchical <- read_data(
