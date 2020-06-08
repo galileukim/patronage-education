@@ -1,6 +1,7 @@
 # test scores -------------------------------------------------------------
 saeb_dep <- read_data(
-    
+    "saeb",
+    "saeb_student_sample.rds"
 )
 
 saeb_public <- saeb_dep %>%
