@@ -82,7 +82,8 @@ read_data <- partial(
 modules <- c(
   "visual_map"
   "visual_global_edu",
-  "visual_budget"
+  "visual_budget",
+  "visual_bureaucracy"
   )
 
 walk(

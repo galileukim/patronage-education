@@ -53,21 +53,6 @@ detach_p <- function(packages){
   )
 }
 
-reset_env <- function(init_env, packages){
-  final_env <- ls(.GlobalEnv)
-
-  rm(
-    envir = .GlobalEnv,
-    list = setdiff(final_env, init_env)
-  )
-
-  gc()
-}
-
-clear_packages <- function(packages){
-
-}
-
 run_module <- function(domain, module) {
   print(
     paste0("running module ", module, "...")
@@ -88,6 +73,17 @@ run_module <- function(domain, module) {
   print(
     paste("module", module, "complete!")
   )
+}
+
+reset_env <- function(init_env, packages){
+  final_env <- ls(.GlobalEnv)
+
+  rm(
+    envir = .GlobalEnv,
+    list = setdiff(final_env, init_env)
+  )
+
+  gc()
 }
 
 save_fig <- function(pl, file, width = 5, height = 3, ...){

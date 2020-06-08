@@ -1,15 +1,3 @@
-# set-up
-packages <- c(
-    "rgdal",
-    "rgeos",
-    "RColorBrewer",
-    "viridis",
-    "rmapshaper"
-)
-
-load_p(packages)
-
-
 # plot municipal map
 plot_map <- function(
                      data,
@@ -35,7 +23,7 @@ plot_map <- function(
             if (is.factor(data[[fill]])) {
                 scale_fill_manual(
                     values = rev(
-                        brewer.pal(n = length(levels(data[[fill]])), name = palette)
+                        RColorBrewer::brewer.pal(n = length(levels(data[[fill]])), name = palette)
                     ),
                     breaks = levels(data[[fill]]),
                     na.value = "gray50"
@@ -70,18 +58,17 @@ plot_map <- function(
 
 # build map of average test scores by municipality
 saeb_exam_mun <- read_data(
-    "clean",
     "saeb",
     "saeb_exam_mun.rds"
 )
 
-map_br <- readOGR(
+map_br <- rgdal::readOGR(
     here("data/clean/maps/"),
     "municipio"
 )
 
-map_br <- SpatialPolygonsDataFrame(
-    gSimplify(map_br, tol = 0.01, topologyPreserve = T),
+map_br <- sp::SpatialPolygonsDataFrame(
+    rgeos::gSimplify(map_br, tol = 0.01, topologyPreserve = T),
     data = map_br@data
 )
 
