@@ -635,8 +635,8 @@ gg_summary <- function(data, x, y, fun = 'mean', size = 2, geom = 'point', color
 }
 
 # change default ggplot settings
-scale_colour_discrete <- function(...) scale_color_brewer(palette = "OrRd", direction = -1)
-scale_fill_discrete <- function(...) scale_fill_brewer(palette = "OrRd", direction = -1)
+scale_colour_discrete <- function(...) scale_color_brewer(palette = "OrRd", direction = -1, ...)
+scale_fill_discrete <- function(...) scale_fill_brewer(palette = "OrRd", direction = -1, ...)
 
 matte_indigo <- "#375b7c"
 tulip_red <- "#E64538"
