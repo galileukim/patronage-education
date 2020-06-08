@@ -78,169 +78,17 @@ read_data <- partial(
 #   "mayor_coalition_size", "as.factor(mayor_party)"
 # )
 
-rais_main_categories <- c("education", "administration", "services", "healthcare")
-
 # run tasks
 modules <- c(
-  "visualization_map"
-  "descriptive_global_edu",
+  "visual_map"
+  "visual_global_edu",
+  "visual_budget"
   )
 
 walk(
   modules,
   ~run_module(.)
 )
-
-# descriptive statistics --------------------------------------------------
-
-
-# student coverage by administratioon
-plot_dep <- censo_class %>% 
-  mutate(
-    stage = case_when(
-      between(grade_level, 1, 4) ~ "lower school",
-      between(grade_level, 5, 9) ~ "middle school",
-      T ~ NA_character_
-    )
-  ) %>% 
-  filter(
-    !is.na(stage), 
-    dep != "federal"
-  ) %>% 
-  group_by(
-    stage,
-    year,
-    dep
-  ) %>% 
-  summarise(
-    n = sum(num_enroll)
-  ) %>% 
-  mutate(
-    freq = n/sum(n)
-  ) %>% 
-  ggplot(
-    aes(
-      year,
-      freq,
-      col = dep
-    )
-  ) +
-  geom_line() +
-  geom_point(
-    size = 2
-  ) +
-  facet_wrap(
-    . ~ stage,
-    nrow = 1
-  ) +
-  labs(
-    x = 'Enrollment (percentage)',
-    y = 'Year'
-  )
-
-ggsave(
-  p_file_here('figs', 'enrollment_dep.pdf')
-)
-
-# rais by category
-rais_category <- rais_mun %>% 
-  filter(
-    cbo_category != "",
-    !is.na(cbo_category),
-    year >= 2003
-  ) %>% 
-  mutate(
-    cbo_category = if_else(
-      cbo_category %in% rais_main_categories,
-      cbo_category,
-      'other'
-    )
-  ) %>% 
-  group_by(
-    year,
-    cbo_category
-  ) %>% 
-  summarise(
-    total_sum = sum(total),
-    hired = sum(mean_hired*total)/total_sum*100,
-    fired = sum(mean_fired*total)/total_sum*100
-  ) %>%
-  rename(
-    total = total_sum
-  ) %>% 
-  pivot_longer(
-    cols = c(-year, -cbo_category),
-    "type",
-    "value"
-  ) %>% 
-  mutate(
-    cbo_category = fct_relevel(cbo_category, c(rais_main_categories, 'other'))
-  ) %>% 
-  ungroup()
-
-plot_cat_total <- rais_category %>% 
-  filter(
-    type == 'total',
-    year >= 2003
-  ) %>% 
-  ggplot(
-    aes(
-      year,
-      value/1e6,
-      fill = cbo_category
-    )
-  ) +
-  geom_bar(
-    stat = 'identity',
-    position = 'stack'
-  ) +
-  # mandate_year(
-  #   seq(2005, 2013, 4)
-  # ) +
-  labs(
-    x = 'Year',
-    y = 'Total (millions)'
-  ) +
-  theme(legend.title = element_blank()) +
-  ggsave(
-    filename = p_file_here('figs', 'rais_cat_total.pdf')
-  )
-
-plot_cat_turnover <- rais_category %>% 
-  filter(
-    type != 'total',
-    year >= 2003,
-    cbo_category %in% rais_main_categories
-  ) %>% 
-  mutate(
-    type = fct_relevel(type, 'hired')
-  ) %>% 
-  gg_point_line(
-    aes(
-      year,
-      value,
-      color = type
-    )
-  ) + 
-  mandate_year(
-    seq(2005, 2013, 4)
-  ) +
-  facet_wrap(
-    cbo_category ~ .
-  ) +
-  labs(
-    x = "Year",
-    y = "Percentage"
-  ) +
-  scale_x_continuous(
-    breaks = seq(2005, 2013, 4)
-  ) +
-  theme(
-    legend.title = element_blank()
-  ) +
-  ggsave(
-    filename = p_file_here('figs', "turnover_cat.pdf")
-  )
 
 # test scores -------------------------------------------------------------
 saeb_public <- saeb_dep %>%
