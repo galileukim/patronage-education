@@ -25,3 +25,10 @@ saeb_student %>%
     "saeb",
     "saeb_student_sample.rds"
   )
+
+# hierarchical model
+saeb_hierarchical <- read_data(
+  "raw",
+  "saeb",
+  "saeb_hierarchical.csv.gz"
+)
