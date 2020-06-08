@@ -32,3 +32,9 @@ saeb_hierarchical <- read_data(
   "saeb",
   "saeb_hierarchical.csv.gz"
 )
+
+saeb_hierarchical %>%
+  write_data(
+    "saeb",
+    "saeb_hierarchical.rds"
+  )
