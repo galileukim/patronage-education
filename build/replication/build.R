@@ -56,6 +56,12 @@ con <- DBI::dbConnect(
   port = 5432
 )
 
+set.seed(1789)
+
+source(
+  here("build", "replication", "functions.R")
+)
+
 run_module <- partial(
   run_module,
   domain = "replication"
@@ -74,12 +80,6 @@ read_data <- partial(
 
 rais_main_categories <- c("education", "administration", "services", "healthcare")
 
-
-set.seed(1789)
-source(
-  here("replication", "scripts", "functions.R")
-)
-
 # run tasks
 modules <- c(
   "visualization_map"
@@ -92,37 +92,7 @@ walk(
 )
 
 # descriptive statistics --------------------------------------------------
-plot_budget <- finbra %>%
-  pivot_longer(
-    -c(cod_ibge_6, year),
-    names_to = "category",
-    values_to = "value"
-  ) %>% 
-  group_by(year, category) %>% 
-  summarise(
-    value = sum(value, na.rm = T)/1e9
-  ) %>% 
-  filter(
-    !str_detect(category,"total|legislative|industry") 
-  ) %>% 
-  ggplot() +
-  geom_area(
-    aes(
-      year,
-      value,
-      fill = category,
-      group = category
-    )
-  ) +
-  labs(
-    x = "Year",
-    y = "Total (billions)"
-  )
 
-plot_budget %>% 
-  ggsave(
-    filename = p_file_here('figs', "budget.pdf")
-  )
 
 # student coverage by administratioon
 plot_dep <- censo_class %>% 

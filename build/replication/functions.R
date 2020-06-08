@@ -20,11 +20,6 @@ here_data <- function(type, dir, file) {
   return(path)
 }
 
-object_size <- function(object){
-  size <- object.size(object)
-  print(size, units = "MB")
-}
-
 read_data <- function(type, dir, file) {
   file_path <- here_data(type, dir, file)
 
@@ -34,9 +29,8 @@ read_data <- function(type, dir, file) {
     data <- fread(file_path)
   }
   
-  print(
-    paste("file size is", object_size(data))
-  )
+  obj_size <- object.size(data)
+  print(obj_size, units = "MB")
 
   return(data)
 }
