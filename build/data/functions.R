@@ -194,7 +194,6 @@ round_integer <- function(number, digits) {
     round(digits)
 }
 
-
 calc_turnover <- function(data, group_vars){
   years <- data %>% 
     distinct(year) %>% 
@@ -245,7 +244,6 @@ calc_turnover <- function(data, group_vars){
   
   return(data)
 }
-
 
 # tidy and ggcoef
 tidyfit <- function(fit, vars = ".") {

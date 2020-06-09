@@ -222,13 +222,13 @@ reset_env(init_env)
 
 # teacher turnover
 # aggregate
-censo_turnover <- read_data(
+censo_teacher_turnover <- read_data(
   "raw",
   "censo_escolar",
   "censo_teacher_turnover.csv.gz"
 )
 
-censo_turnover <- censo_turnover %>%
+censo_teacher_turnover <- censo_teacher_turnover %>%
   mutate_at(
     vars(
       starts_with("turnover"),
@@ -238,7 +238,7 @@ censo_turnover <- censo_turnover %>%
     as.numeric
   )
 
-censo_turnover_school <- censo_turnover %>%
+censo_turnover_school <- censo_teacher_turnover %>%
   head(1e5) %>%
   calc_turnover(
     c("state", "cod_ibge_6", "year", "school_id", "grade_level", "location")
@@ -250,7 +250,7 @@ censo_turnover_school %>%
     "censo_school_turnover.rds"
   )
 
-censo_turnover_mun <- censo_turnover %>%
+censo_turnover_mun <- censo_teacher_turnover %>%
   calc_turnover(
     c("state", "cod_ibge_6", "year", "grade_level")
   )
