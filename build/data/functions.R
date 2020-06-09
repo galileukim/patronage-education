@@ -194,56 +194,58 @@ round_integer <- function(number, digits) {
     round(digits)
 }
 
-calc_turnover <- function(data, group_vars) {
-  years <- data %>%
-    distinct(year) %>%
-    pull()
 
+calc_turnover <- function(data, group_vars){
+  years <- data %>% 
+    distinct(year) %>% 
+    pull
+  
   data %<>%
     group_by_at(
       vars(
         group_vars
       )
-    ) %>%
+    ) %>% 
     summarise_at(
       vars(starts_with("turnover_"), n),
       sum,
       na.rm = T
-    ) %>%
+    ) %>% 
     ungroup()
-
-  data %<>%
+  
+  data %<>% 
     mutate(
       implicit = 0
-    ) %>%
+    ) %>% 
     complete(
       year = years,
       fill = list(implicit = 1)
-    ) %>%
+    ) %>% 
     group_by_at(
       vars(
         group_vars,
         -year
       )
-    ) %>%
+    ) %>% 
     mutate(
       n_lag = dplyr::lag(n, order_by = year),
-      percent_exit = turnover_exit / n_lag,
-      percent_transfer = turnover_transfer / n_lag,
-      percent_extinct = turnover_extinct / n_lag,
-      percent_entry = turnover_entry / n,
-      turnover_index = (turnover_exit + turnover_transfer + turnover_entry) / (n + n_lag)
-    ) %>%
-    ungroup() %>%
+      percent_exit = turnover_exit/n_lag,
+      percent_transfer = turnover_transfer/n_lag,
+      percent_extinct = turnover_extinct/n_lag,
+      percent_entry = turnover_entry/n,
+      turnover_index = (turnover_exit + turnover_transfer + turnover_entry)/(n + n_lag)
+    ) %>% 
+    ungroup() %>% 
     filter(
       implicit != 1
-    ) %>%
+    ) %>% 
     select(
       -implicit
     )
-
+  
   return(data)
 }
+
 
 # tidy and ggcoef
 tidyfit <- function(fit, vars = ".") {

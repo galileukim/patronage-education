@@ -14,6 +14,13 @@ build_repo <- function(module){
   }
 }
 
+list_data <- function(dir){
+  path <- here("data", "clean", dir)
+  files <- list.files(path)
+
+  return(files)
+}
+
 here_data <- function(type, dir, file) {
   path <- here("data", type, dir, file)
   

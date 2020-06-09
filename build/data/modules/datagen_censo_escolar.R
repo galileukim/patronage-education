@@ -239,6 +239,7 @@ censo_turnover <- censo_turnover %>%
   )
 
 censo_turnover_school <- censo_turnover %>%
+  head(1e5) %>%
   calc_turnover(
     c("state", "cod_ibge_6", "year", "school_id", "grade_level", "location")
   )
