@@ -317,7 +317,8 @@ group_summarise <- function(data, group_vars, summarise_vars, ...){
     summarise(
       across({{summarise_vars}},
       ...
-      )
+      ),
+      .groups = 'drop'
     )
 
     return(out)
