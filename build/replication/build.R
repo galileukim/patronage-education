@@ -85,22 +85,6 @@ walk(
   ~run_module(.)
 )
 
-# electoral ---------------------------------------------------------------
-# coalitions
-election %>% 
-  gg_histogram(
-    aes(coalition_share*100),
-    bins = 20
-  ) +
-  labs(
-    x = "Share of seats (percentage)",
-    y = 'Count'
-  )
-
-ggsave(
-  filename = p_file_here('figs', "hist_coalition.pdf")
-)
-
 # hierarchical model ------------------------------------------------------
 mods <- list()
 

@@ -308,6 +308,21 @@ summarise_stats <- function(data, ...){
   return(data)
 }
 
+# create group summary
+group_summarise <- function(data, group_vars, summarise_vars, ...){
+  out <- data %>%
+    group_by(
+      across({{group_vars}})
+    ) %>%
+    summarise(
+      across({{summarise_vars}},
+      ...
+      )
+    )
+
+    return(out)
+}
+
 count_freq <- function(data, ...){
   vars <- enquos(...)
   
@@ -508,21 +523,21 @@ add_election <- function(data){
 join_covariate <- function(data){
   data %>% 
     left_join(
-      fread(
-        here("data/finbra/finbra.csv")
+      read_rds(
+        here("data/clean/finbra/finbra.rds")
       ),
       by = c("cod_ibge_6", "year")
     ) %>% 
     left_join(
-      fread(
-        here("data/censo_br/censo_2000.csv")
+      read_rds(
+        here("data/clean/censo_br/censo_2000.rds")
       ),
       by = c("cod_ibge_6")
     ) %>% 
     add_election() %>% 
     left_join(
-      fread(
-        here("data/tse/election.csv")
+      read_rds(
+        here("data/clean/tse/election.rds")
       ),
       by = c("cod_ibge_6", "election_year")
     )
