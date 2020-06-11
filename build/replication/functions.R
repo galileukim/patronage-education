@@ -2,7 +2,7 @@
 # workflow functions
 # ==============================================================================
 `%<>%` <- magrittr::`%<>%`
-ivreg <- AER::ivreg
+
 between <- data.table::between
 
 build_repo <- function(module){
@@ -42,6 +42,19 @@ read_data <- function(type, dir, file) {
   print(obj_size, units = "MB")
 
   return(data)
+}
+
+ls_data <- function(env = .GlobalEnv){
+  obj <- ls(env)
+
+  is_data <- map_lgl(
+    obj,
+    ~is.data.frame(get(.))
+  )
+
+  data_obj <- obj[is_data]
+
+  return(data_obj)
 }
 
 load_p <- function(packages){
@@ -458,6 +471,8 @@ summarise_fun <- function(data, var){
 # ==============================================================================
 # estimation aux. functions
 # ==============================================================================
+ivreg <- AER::ivreg
+
 fm <- function(dv, predictor,...){
   covariate <- fm_cov(...)
   
