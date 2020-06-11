@@ -156,9 +156,53 @@ mstar(
 sink()
 
 # ==============================================================================
-# spaece
+# spaece: annual standardized test data for the state of ceara
 # ==============================================================================
-spaece <- 
+spaece <- fread(
+  here("data/spaece/spaece.csv")
+)
+
+censo_turnover_ce <- censo_school_turnover %>% 
+  filter(
+    str_sub(cod_ibge_6, 1, 2) == "23",
+    grade_level %in% c(2, 5, 9)
+  )
+
+censo_turnover_score <- censo_turnover_ce %>% 
+  left_join(
+    censo_school %>% 
+      filter(dep == 'municipal', year >= 2007) %>% 
+      transmute(school_id = as.integer(school_id), year, toilet, meal),
+    by = c('school_id', 'year')
+  ) %>% 
+  left_join(
+    spaece,
+    by = c("cod_ibge_6", "school_id", "year", "grade_level" = "grade")
+  ) %>% 
+  left_join(
+    saeb_exam_school,
+    by = c("cod_ibge_6", "school_id", "year", "grade_level" = "grade")
+  ) %>% 
+  join_covariate() %>% 
+  mutate(
+    mandate_year = if_else(
+      year %in% seq(2005, 2013, 4), 1, 0
+    )
+  )
+
+censo_turnover_score <- censo_turnover_score %>% 
+  mutate(
+    state = str_sub(cod_ibge_6, 1, 2)
+  ) %>% 
+  mutate_at(
+    vars(grade_level, year, state),
+    as.factor
+  ) %>% 
+  mutate_if(
+    is.double,
+    scale
+  )
+
 formulae_spaece <- c(
   as.formula(
     spaece_mean ~ turnover_index * grade + as.factor(year)

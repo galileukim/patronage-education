@@ -26,7 +26,8 @@ repos <- c(
   "finbra",
   "rais",
   "saeb",
-  "tse"
+  "tse",
+  "spaece"
 )
 
 walk(
