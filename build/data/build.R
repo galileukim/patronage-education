@@ -27,5 +27,5 @@ repos <- c(
 
 walk(
   repos,
-  ~run_module(.)
+  ~ run_module(.)
 )

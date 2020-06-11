@@ -44,7 +44,7 @@ saeb_school <- saeb_student %>%
         brown_black_student,
         grade_exam
       ),
-      ~mean(as.numeric(.x), na.rm = T)
+      ~ mean(as.numeric(.x), na.rm = T)
     ),
     .groups = "drop"
   )

@@ -455,29 +455,38 @@ summarise_fun <- function(data, var){
 fm <- function(dv, predictor,...){
   covariate <- fm_cov(...)
   
-  fm <- as.formula(
-    paste(substitute(dv), covariate, sep = '~')
+  fm_main <- as.formula(
+    paste(substitute(dv), substitute(predictor), sep = ' ~ ')
+  )
+
+  fm <- update(
+    fm_main,
+    covariate
   )
   
   return(fm)
 }
 
 fm_cov <- function(...){
-    controls <- enquos(...) %>% 
-      purrr::map_chr(
-      rlang::as_label
-    )
+  controls <- enquos(...) %>% 
+    purrr::map_chr(
+    rlang::as_label
+  )
 
   covariate <- paste0(
-    c(substitute(predictor), controls), 
-    collapse = '+'
+    controls, 
+    collapse = ' + '
   )
-}
 
-deparse <- partial(
-  base::deparse,
-  width.cutoff = 500
-)
+  formula <- as.formula(
+    paste0(
+      ". ~ . + ",
+      covariate
+    )
+  )
+
+  return(formula)
+}
 
 # ols
 fit_felm <- function(
