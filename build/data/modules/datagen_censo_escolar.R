@@ -4,6 +4,8 @@
 # 3) municipal classrooms.
 # 4) all classrooms.
 # 5) teacher turnover (municipal and all)
+init_env <- ls()
+
 censo_school <- read_data(
   "raw",
   "censo_escolar",
@@ -95,6 +97,27 @@ censo_school_mun <- censo_school_mun %>%
 censo_school_mun %>%
   write_data(
     "censo_escolar", "censo_school_mun.rds"
+  )
+
+censo_school %>%
+  transmute(
+    cod_ibge_6,
+    year,
+    dep,
+    school_id,
+    school_name,
+    active,
+    association_parents_tchrs,
+    access_electricity = 1 - electricity_inexistent,
+    access_water = 1 - water_inexistent,
+    library,
+    lab_info,
+    meal,
+    toilet
+  ) %>%
+  write_data(
+    "censo_escolar",
+    "censo_school.rds"
   )
 
 reset_env(init_env)

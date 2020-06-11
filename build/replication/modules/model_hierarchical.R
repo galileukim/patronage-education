@@ -1,7 +1,7 @@
 # hierarchical model ------------------------------------------------------
 f <- stats::as.formula
 
-saeb_hierarchical <- read_data(
+saeb <- read_data(
   "saeb",
   "saeb_hierarchical.rds"
 )
@@ -11,99 +11,55 @@ finbra <- read_data(
   "finbra.rds"
 )
 
-# censo_school <- read_data(
-#   "censo_escolar",
-#   "censo_school_mun.rds"
-# )
+censo_school <- read_data(
+  "censo_escolar",
+  "censo_school.rds"
+) %>%
+  mutate(
+    school_id = as.integer(school_id)
+  )
 
 censo_school_turnover <- read_data(
   "censo_escolar",
   "censo_school_turnover.rds"
-)
+) %>%
+  select(
+    cod_ibge_6,
+    year,
+    school_id,
+    grade_level,
+    turnover_index,
+    starts_with("percent"),
+    n_teacher = n
+  ) %>%
+  filter(
+    n_teacher >= 5
+  )
 
 # prepare data for estimation
-saeb_hierarchical <- list(
-  saeb_hierarchical,
+saeb_hierarchical <- lst(
+  saeb,
   finbra,
+  censo_school,
+  censo_school_turnover
 ) %>%
   reduce(
     left_join
   ) %>%
   mutate(
+    saeb_teacher_work_school = fct_relevel(saeb_teacher_work_school, "2 to 10"),
+    censo_log_pop = log(censo_pop),
     budget_education_capita = budget_education / censo_pop
   )
 
-# join school covariates
-# censo_school %<>% 
-#   filter(
-#     dep == "municipal", year >= 2001
-#   ) %>%
-#   select(
-#     state,
-#     cod_ibge_6,
-#     year,
-#     location,
-#     school_id,
-#     school_name,
-#     internet,
-#     kitchen,
-#     library,
-#     lab_info,
-#     meal,
-#     starts_with('principal'),
-#     sewer_grid,
-#     toilet,
-#     water_grid
-#   )
-
-# join_cols <- c("state", "cod_ibge_6", "school_id", "year")
-
-# saeb_hlm %<>%
-#   mutate(state = str_sub(cod_ibge_6, 1, 2)) %>% 
-#   rename(school_id = cod_school) %>% 
-#   mutate_at(join_cols, as.character) %>% 
-#   left_join(
-#     censo_school %>%
-#       mutate_at(join_cols, as.character) %>% 
-#       select(-location),
-#     by = join_cols
-#   )
-
-# turnover
-censo_school_turnover <- fread(
-  here("data/censo_escolar/censo_school_turnover.csv.gz")
-) %>% 
-  rename(
-    grade = grade_level,
-    n_teacher = n,
-    n_teacher_lag = n_lag
-  )
-
-join_cols <- c(join_cols, "grade")
-
-saeb_hlm %<>%
-  mutate_at(join_cols, as.character) %>%
-  tidylog::left_join(
-    censo_school_turnover %>% mutate_at(join_cols, as.character),
-    by = join_cols
-  )
-
-# create log pop
-saeb_hlm %<>%
-  mutate(
-    censo_log_pop = log(censo_pop)
-  )
-
-# break down teacher wages into quantiles
-saeb_hlm %<>%
-  mutate(
-    saeb_teacher_work_school = if_else(year_working_school_teacher == "", NA_character_, year_working_school_teacher),
-    grade = recode(grade, `4` = "5", `8` = "9")
-  )
-
-saeb_hlm %>% 
-  fwrite_gz(
-    here("data/saeb/saeb_hierarchical.csv")
+# fix blank strings
+saeb_hierarchical <- saeb_hierarchical %>%
+  mutate_all(
+    ~ na_if(., "")
+  ) %>%
+  mutate_if(
+    is.double,
+    scale
   )
 
 # estimation of hierarchical linear models to assess effect of teacher turnover on student learning
@@ -115,24 +71,25 @@ fe <- c(
 teacher_cov <- c(
   "saeb_wage_teacher",
   "education_teacher",
-  "year_as_teacher"
+  "gender_teacher"
+  # "year_as_teacher"
 )
 
 principal_cov <- c(
   "saeb_principal_female",
-  "saeb_principal_education",
-  "saeb_principal_appointment"
+  "saeb_principal_education"
+  # "saeb_principal_appointment"
 )
 
 student_cov <- c(
   "parent_attend_college_student",
-  "parents_school_meeting_student",
-  "fridge_student",
   "failed_school_year_student"
 )
 
 school_cov <- c(
-  "toilet",
+  "access_water",
+  "access_electricity",
+  "library",
   "meal"
 )
 
@@ -160,7 +117,7 @@ fm_hierarchical <- purrr::partial(
 
 formulae <- c(
   fm_hierarchical(
-    c("turnover_index*grade", fe)
+    c("turnover_index*grade_level", fe)
   ),
   fm_hierarchical(
     c("turnover_index*grade_level", controls)
@@ -181,7 +138,9 @@ fit_lmer <- map(
   )
 )
 
-sink(p_file_here("results", "hlm_result.tex"))
+sink(
+  here("replication", "results", "model_hierarchical.tex")
+)
 mstar(
   fit_lmer,
   keep = c("turnover_index", "saeb_principal_experience", "saeb_teacher_work_school"),
@@ -196,6 +155,10 @@ mstar(
 )
 sink()
 
+# ==============================================================================
+# spaece
+# ==============================================================================
+spaece <- 
 formulae_spaece <- c(
   as.formula(
     spaece_mean ~ turnover_index * grade + as.factor(year)
