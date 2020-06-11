@@ -453,21 +453,25 @@ summarise_fun <- function(data, var){
 
 # estimation --------------------------------------------------------------
 fm <- function(dv, predictor,...){
-  controls <- enquos(...) %>% 
-    purrr::map_chr(
-      rlang::as_label
-    )
-  
-  covariate <- paste0(
-    c(substitute(predictor), controls), 
-    collapse = '+'
-  )
+  covariate <- fm_cov(...)
   
   fm <- as.formula(
     paste(substitute(dv), covariate, sep = '~')
   )
   
   return(fm)
+}
+
+fm_cov <- function(...){
+    controls <- enquos(...) %>% 
+      purrr::map_chr(
+      rlang::as_label
+    )
+
+  covariate <- paste0(
+    c(substitute(predictor), controls), 
+    collapse = '+'
+  )
 }
 
 deparse <- partial(
