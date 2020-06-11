@@ -1,8 +1,3 @@
-init_env <- ls()
-
-# learn how to use summarise_at and gen. summarise_at
-# relacao logica entre os arquivos
-
 # use school census data to produce set of tables
 # 1) all municipal schools
 # 2) all teachers
@@ -239,7 +234,6 @@ censo_teacher_turnover <- censo_teacher_turnover %>%
   )
 
 censo_turnover_school <- censo_teacher_turnover %>%
-  head(1e5) %>%
   calc_turnover(
     c("state", "cod_ibge_6", "year", "school_id", "grade_level", "location")
   )
@@ -260,5 +254,3 @@ censo_turnover_mun %>%
     "censo_escolar",
     "censo_mun_turnover.rds"
   )
-
-reset_env(init_env)

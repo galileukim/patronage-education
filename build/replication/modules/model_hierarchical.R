@@ -11,20 +11,105 @@ finbra <- read_data(
   "finbra.rds"
 )
 
-saeb_hierarchical <- saeb_hierarchical %>%
-  left_join(
-    finbra,
-    by = c("cod_ibge_6", "year")
+# censo_school <- read_data(
+#   "censo_escolar",
+#   "censo_school_mun.rds"
+# )
+
+censo_school_turnover <- read_data(
+  "censo_escolar",
+  "censo_school_turnover.rds"
+)
+
+# prepare data for estimation
+saeb_hierarchical <- list(
+  saeb_hierarchical,
+  finbra,
+) %>%
+  reduce(
+    left_join
   ) %>%
   mutate(
     budget_education_capita = budget_education / censo_pop
   )
 
-fm_baseline <- fm(
-  grade_exam,
-  turnover_index * grade,
-  (1 | year),
-  (1 | state)
+# join school covariates
+# censo_school %<>% 
+#   filter(
+#     dep == "municipal", year >= 2001
+#   ) %>%
+#   select(
+#     state,
+#     cod_ibge_6,
+#     year,
+#     location,
+#     school_id,
+#     school_name,
+#     internet,
+#     kitchen,
+#     library,
+#     lab_info,
+#     meal,
+#     starts_with('principal'),
+#     sewer_grid,
+#     toilet,
+#     water_grid
+#   )
+
+# join_cols <- c("state", "cod_ibge_6", "school_id", "year")
+
+# saeb_hlm %<>%
+#   mutate(state = str_sub(cod_ibge_6, 1, 2)) %>% 
+#   rename(school_id = cod_school) %>% 
+#   mutate_at(join_cols, as.character) %>% 
+#   left_join(
+#     censo_school %>%
+#       mutate_at(join_cols, as.character) %>% 
+#       select(-location),
+#     by = join_cols
+#   )
+
+# turnover
+censo_school_turnover <- fread(
+  here("data/censo_escolar/censo_school_turnover.csv.gz")
+) %>% 
+  rename(
+    grade = grade_level,
+    n_teacher = n,
+    n_teacher_lag = n_lag
+  )
+
+join_cols <- c(join_cols, "grade")
+
+saeb_hlm %<>%
+  mutate_at(join_cols, as.character) %>%
+  tidylog::left_join(
+    censo_school_turnover %>% mutate_at(join_cols, as.character),
+    by = join_cols
+  )
+
+# create log pop
+saeb_hlm %<>%
+  mutate(
+    censo_log_pop = log(censo_pop)
+  )
+
+# break down teacher wages into quantiles
+saeb_hlm %<>%
+  mutate(
+    saeb_teacher_work_school = if_else(year_working_school_teacher == "", NA_character_, year_working_school_teacher),
+    grade = recode(grade, `4` = "5", `8` = "9")
+  )
+
+saeb_hlm %>% 
+  fwrite_gz(
+    here("data/saeb/saeb_hierarchical.csv")
+  )
+
+# estimation of hierarchical linear models to assess effect of teacher turnover on student learning
+fe <- c(
+  "(1 | year)",
+  "(1 | state)"
 )
 
 teacher_cov <- c(
@@ -64,17 +149,33 @@ controls <- c(
   principal_cov,
   student_cov,
   school_cov,
-  mun_cov
+  mun_cov,
+  fe
+)
+
+fm_hierarchical <- purrr::partial(
+  stats::reformulate,
+  response = "grade_exam"
 )
 
 formulae <- c(
-  # response: turnover_index
-  # response: sae_teacher_work_school
+  fm_hierarchical(
+    c("turnover_index*grade", fe)
+  ),
+  fm_hierarchical(
+    c("turnover_index*grade_level", controls)
+  ),
+  fm_hierarchical(
+    c("saeb_teacher_work_school*grade_level", fe)
+  ),
+  fm_hierarchical(
+    c("saeb_teacher_work_school*grade_level", controls)
+  )
 )
 
 fit_lmer <- map(
-  formulae_hlm,
-  ~ lmer(
+  formulae,
+  ~ lme4::lmer(
     formula = .x,
     data = saeb_hierarchical
   )

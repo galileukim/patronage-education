@@ -70,6 +70,12 @@ saeb_hierarchical <- read_data(
   "saeb_hierarchical.csv.gz"
 )
 
+saeb_hierarchical <- saeb_hierarchical %>%
+  rename(
+    school_id = cod_school,
+    grade_level = grade
+  )
+  
 saeb_hierarchical %>%
   write_data(
     "saeb",
