@@ -83,7 +83,9 @@ modules <- c(
   "visual_map"
   "visual_global_edu",
   "visual_budget",
-  "visual_bureaucracy"
+  "visual_bureaucracy",
+  "model_hierarchical",
+  "model_saeb"
   )
 
 walk(

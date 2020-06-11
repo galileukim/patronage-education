@@ -38,13 +38,17 @@ read_data <- function(type, dir, file) {
     data <- fread(file_path)
   }
   
-  obj_size <- object.size(data)
-  print(obj_size, units = "MB")
+  print_obj_size(data)
 
   return(data)
 }
 
-ls_data <- function(env = .GlobalEnv){
+print_obj_size <- function(obj) {
+  obj_size <- object.size(obj)
+  print(obj_size, units = "MB")
+}
+
+ls_data <- function(env = .GlobalEnv) {
   obj <- ls(env)
 
   is_data <- map_lgl(
@@ -55,6 +59,25 @@ ls_data <- function(env = .GlobalEnv){
   data_obj <- obj[is_data]
 
   return(data_obj)
+}
+
+read_model <- function(file){
+  fit <- read_rds(
+    here("replication", "models", file)
+  )
+
+  print_obj_size(fit)
+
+  return(fit)
+}
+
+write_model <- function(model, file) {
+  print_obj_size(model)
+  
+  write_rds(
+    model,
+    here("replication", "models", file)
+  )
 }
 
 load_p <- function(packages){
@@ -263,7 +286,7 @@ round_integer <- function(number, digits) {
 
 # tidy and ggcoef
 tidyfit <- function(fit, vars = '.'){
-  tidy(fit) %>%
+  broom::tidy(fit) %>%
     filter(
       !str_detect(term, "Intercept|as.factor|Observation.Residual"),
       str_detect(term, vars)
