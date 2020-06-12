@@ -10,6 +10,11 @@ spaece <- read_data(
   "spaece.rds"
 )
 
+finbra <- read_data(
+  "finbra",
+  "finbra.rds"
+)
+
 censo_school <- read_data(
   "censo_escolar",
   "censo_school.rds"
@@ -45,7 +50,7 @@ spaece_turnover <- censo_school_ceara %>%
   left_join(
     censo_school %>% 
       filter(dep == 'municipal', year >= 2007),
-    by = c('school_id', 'year')
+    by = c('cod_ibge_6', 'school_id', 'year')
   ) %>% 
   left_join(
     spaece,
@@ -60,7 +65,8 @@ spaece_turnover <- censo_school_ceara %>%
 
 spaece_turnover <- spaece_turnover %>% 
   mutate(
-    state = str_sub(cod_ibge_6, 1, 2)
+    state = str_sub(cod_ibge_6, 1, 2),
+    budget_education_capita = budget_education / censo_pop
   ) %>% 
   mutate_at(
     vars(grade_level, year, state),

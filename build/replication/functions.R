@@ -122,10 +122,6 @@ run_module <- function(domain, module) {
   )
 }
 
-source_setup <- function(domain){
-  source(here("build", domain, "setup.R"))
-}
-
 reset_env <- function(init_env, packages){
   final_env <- ls(.GlobalEnv)
 

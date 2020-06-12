@@ -1,7 +1,9 @@
 # ==============================================================================
 # visualize combined results from saeb hierarchical and spaece models
 # ==============================================================================
-source_setup("replication")
+source(
+  here::here("build", "replication", "setup.R")
+)
 
 fit_lmer <- read_model("fit_saeb_hierarchical.rds")
 fit_spaece <- read_model("fit_spaece.rds")
@@ -26,14 +28,12 @@ mstar(
 sink()
 
 # visualization
-specs <- paste0(c("turnover", "principal", "teacher"), "_controls")
-
 mods <- c(
-  fit_lmer[specs],
+  fit_lmer[c("turnover_controls", "principal_teacher_controls")],
   fit_spaece["turnover_controls"]
 )
 
-names(mods) <- c("model turnover index", "model teacher and principal", "model spaece")
+names(mods) <- c("model turnover saeb", "model principal_teacher", "model turnover_spaece")
 
 estimate_hlm <- map2_dfr(
   mods,
@@ -54,11 +54,10 @@ estimate_hlm <- map2_dfr(
   ) %>%
     mutate(
       type = .y
-    ),
-  .id = "model"
+    )
 )
 
-plot_hlm <- estimate_hlm %>%
+plot_model_turnover <- estimate_hlm %>%
   ggplot(
     aes(
       y = term,
@@ -78,33 +77,34 @@ plot_hlm <- estimate_hlm %>%
   ) +
   geom_vline(xintercept = 0) +
   scale_y_discrete(
-    limits = rev(c(
+    limits = c(
       "turnover_index",
       "saeb_principal_experienceless than 2 years",
       "saeb_teacher_work_schoolless than 2",
-      "censo_rural",
-      "censo_log_pop",
+      "saeb_principal_appointmentpublic exam",
+      "saeb_principal_educationhigher education",
       "education_teacherhigher education",
       "saeb_wage_teachermore than 3000"
-    )),
+    ),
     labels = c(
-      "turnover_index" = "Teacher turnover index",
-      "saeb_principal_experienceless than 2 years" = "Principal: less than 2 years of exp.",
-      "saeb_teacher_work_schoolless than 2" = "Teacher: less than 2 years in school",
-      "censo_rural" = "Rural population",
-      "censo_log_pop" = "Logged population",
-      "education_teacherhigher education" = "Teacher: higher education",
-      "saeb_wage_teachermore than 3000" = "Teacher: wage more than $750"
+      "turnover_index" = "Turnover index",
+      "saeb_principal_experienceless than 2 years" = "Principal rotation",
+      "saeb_teacher_work_schoolless than 2" = "Teacher rotation",
+      "saeb_principal_appointmentpublic exam" = "Principal public exam",
+      "saeb_principal_educationhigher education" = "Principal higher education",
+      "education_teacherhigher education" = "Teacher higher education",
+      "saeb_wage_teachermore than 3000" = "Teacher wage more than $750"
     )
   ) +
-  coord_cartesian(
-    xlim = c(-.25, .25)
+  coord_flip(
+    xlim = c(-0.2, 0.2)
   )
 
-ggsave(
-  plot_hlm,
-  filename = p_file_here("figs", "turnover_fit.pdf")
+save_fig(
+  plot_model_turnover,
+  file = "model_turnover_learning.pdf"
 )
+
 #
 # fit_hlm <- invoke_map(
 #   list(

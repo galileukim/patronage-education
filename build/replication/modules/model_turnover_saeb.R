@@ -1,4 +1,6 @@
-# hierarchical model ------------------------------------------------------
+# ==============================================================================
+# hierarchical estimation
+# ==============================================================================
 f <- stats::as.formula
 
 saeb <- read_data(
@@ -78,8 +80,8 @@ teacher_cov <- c(
 
 principal_cov <- c(
   "saeb_principal_female",
-  "saeb_principal_education"
-  # "saeb_principal_appointment"
+  "saeb_principal_education",
+  "saeb_principal_appointment"
 )
 
 student_cov <- c(
@@ -111,21 +113,20 @@ controls <- c(
   fe
 )
 
-predictors <- paste0(
-  c("turnover_index", "saeb_principal_experience", "saeb_teacher_work_school"),
-  " * grade_level"
-)
-
-formulae <- map(
-  predictors,
-  ~ formulate_models(
-    .,
+formulae <- c(
+  formulate_models(
+    "turnover_index * grade_level",
+    response = "grade_exam",
+    fe = fe,
+    controls = controls
+  ),
+  formulate_models(
+    "saeb_principal_experience * grade_level + saeb_teacher_work_school * grade_level",
     response = "grade_exam",
     fe = fe,
     controls = controls
   )
-) %>%
-flatten
+)
 
 fit_lmer <- map(
   formulae,
@@ -136,7 +137,7 @@ fit_lmer <- map(
 )
 
 names(fit_lmer) <- map(
-  c("turnover", "principal", "teacher"),
+  c("turnover", "principal_teacher"),
   ~paste(., c("baseline", "controls"), sep = "_")
 ) %>%
 flatten_chr
@@ -146,19 +147,19 @@ fit_lmer %>%
     "fit_saeb_hierarchical.rds"
   )
 
-sink(
-  here("replication", "results", "model_hierarchical.tex")
-)
-mstar(
-  fit_lmer,
-  keep = c("turnover_index", "saeb_principal_experience", "saeb_teacher_work_school"),
-  add.lines = list(c("Controls", rep(c("\\_", "\\checkmark"), 2))),
-  covariate.labels = c(
-    "Turnover index", "Turnover index $\\times$ Grade 9",
-    "Teacher experience (2 years)", "Teacher experience (10 years)",
-    "School principal experience (2 years)", "School principal experience (10 years)"
-  ),
-  dep.var.caption = "Student learning",
-  dep.var.labels = "SAEB average test scores"
-)
-sink()
+# sink(
+#   here("replication", "results", "model_hierarchical.tex")
+# )
+# mstar(
+#   fit_lmer,
+#   keep = c("turnover_index", "saeb_principal_experience", "saeb_teacher_work_school"),
+#   add.lines = list(c("Controls", rep(c("\\_", "\\checkmark"), 2))),
+#   covariate.labels = c(
+#     "Turnover index", "Turnover index $\\times$ Grade 9",
+#     "Teacher experience (2 years)", "Teacher experience (10 years)",
+#     "School principal experience (2 years)", "School principal experience (10 years)"
+#   ),
+#   dep.var.caption = "Student learning",
+#   dep.var.labels = "SAEB average test scores"
+# )
+# sink()
