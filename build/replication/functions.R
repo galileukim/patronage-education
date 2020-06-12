@@ -103,6 +103,8 @@ run_module <- function(domain, module) {
     paste0("running module ", module, "...")
   )
 
+  source_setup(domain)
+
   if(domain == "data"){
     build_repo(module)
   }
@@ -118,6 +120,10 @@ run_module <- function(domain, module) {
   print(
     paste("module", module, "complete!")
   )
+}
+
+source_setup <- function(domain){
+  source(here("build", domain, "setup.R"))
 }
 
 reset_env <- function(init_env, packages){
@@ -148,16 +154,16 @@ fread <- partial(
   integer64 = c("character")
 )
 
-# list_files <- function(path, pattern){
-#   files <- map2(
-#     path,
-#     pattern,
-#     list.files
-#   ) %>% 
-#     flatten_chr
+list_files <- function(path, pattern){
+  files <- map2(
+    path,
+    pattern,
+    list.files
+  ) %>% 
+    flatten_chr
   
-#   return(files)
-# }
+  return(files)
+}
 
 # import_data <- function(path, pattern, names = F){
 #   files <- list_files(
@@ -231,6 +237,15 @@ round_integer <- function(number, digits) {
   number %>% 
     as.integer %>% 
     round(digits)
+}
+
+select_starts <- function(data, pattern){
+  out <- data %>%
+    select(
+      starts_with(pattern)
+    )
+
+  return(out)
 }
 
 # calc_turnover <- function(data, group_vars){
@@ -496,40 +511,17 @@ summarise_fun <- function(data, var){
 # ==============================================================================
 ivreg <- AER::ivreg
 
-fm <- function(dv, predictor,...){
-  covariate <- fm_cov(...)
-  
-  fm_main <- as.formula(
-    paste(substitute(dv), substitute(predictor), sep = ' ~ ')
-  )
-
-  fm <- update(
-    fm_main,
-    covariate
-  )
-  
-  return(fm)
-}
-
-fm_cov <- function(...){
-  controls <- enquos(...) %>% 
-    purrr::map_chr(
-    rlang::as_label
-  )
-
-  covariate <- paste0(
-    controls, 
-    collapse = ' + '
-  )
-
-  formula <- as.formula(
-    paste0(
-      ". ~ . + ",
-      covariate
+formulate_models <- function(response, predictor, fe, controls) {
+  formulae <- c(
+    reformulate(
+      c(predictor, fe), response
+    ),
+    reformulate(
+      c(predictor, controls), response
     )
   )
 
-  return(formula)
+  return(formulae)
 }
 
 # ols

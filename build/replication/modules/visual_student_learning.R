@@ -1,6 +1,8 @@
 # ==============================================================================
 # visualize combined results from saeb hierarchical and spaece models
 # ==============================================================================
+source_setup("replication")
+
 fit_lmer <- read_model("fit_saeb_hierarchical.rds")
 fit_spaece <- read_model("fit_spaece.rds")
 
@@ -24,9 +26,11 @@ mstar(
 sink()
 
 # visualization
+specs <- paste0(c("turnover", "principal", "teacher"), "_controls")
+
 mods <- c(
-  fit_lmer[c(2, 4)],
-  fit_spaece[2]
+  fit_lmer[specs],
+  fit_spaece["turnover_controls"]
 )
 
 names(mods) <- c("model turnover index", "model teacher and principal", "model spaece")
@@ -50,7 +54,8 @@ estimate_hlm <- map2_dfr(
   ) %>%
     mutate(
       type = .y
-    )
+    ),
+  .id = "model"
 )
 
 plot_hlm <- estimate_hlm %>%
@@ -91,11 +96,10 @@ plot_hlm <- estimate_hlm %>%
       "education_teacherhigher education" = "Teacher: higher education",
       "saeb_wage_teachermore than 3000" = "Teacher: wage more than $750"
     )
-  ) 
-#   +
-#   coord_cartesian(
-#     xlim = c(-.1, .1)
-#   )
+  ) +
+  coord_cartesian(
+    xlim = c(-.25, .25)
+  )
 
 ggsave(
   plot_hlm,

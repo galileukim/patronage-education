@@ -47,6 +47,7 @@ saeb_hierarchical <- lst(
     left_join
   ) %>%
   mutate(
+    saeb_principal_experience = fct_relevel(saeb_principal_experience, "2 to 10"),
     saeb_teacher_work_school = fct_relevel(saeb_teacher_work_school, "2 to 10"),
     censo_log_pop = log(censo_pop),
     budget_education_capita = budget_education / censo_pop
@@ -110,25 +111,21 @@ controls <- c(
   fe
 )
 
-fm_hierarchical <- purrr::partial(
-  stats::reformulate,
-  response = "grade_exam"
+predictors <- paste0(
+  c("turnover_index", "saeb_principal_experience", "saeb_teacher_work_school"),
+  " * grade_level"
 )
 
-formulae <- c(
-  fm_hierarchical(
-    c("turnover_index*grade_level", fe)
-  ),
-  fm_hierarchical(
-    c("turnover_index*grade_level", controls)
-  ),
-  fm_hierarchical(
-    c("saeb_teacher_work_school*grade_level", fe)
-  ),
-  fm_hierarchical(
-    c("saeb_teacher_work_school*grade_level", controls)
+formulae <- map(
+  predictors,
+  ~ formulate_models(
+    .,
+    response = "grade_exam",
+    fe = fe,
+    controls = controls
   )
-)
+) %>%
+flatten
 
 fit_lmer <- map(
   formulae,
@@ -137,6 +134,12 @@ fit_lmer <- map(
     data = saeb_hierarchical
   )
 )
+
+names(fit_lmer) <- map(
+  c("turnover", "principal", "teacher"),
+  ~paste(., c("baseline", "controls"), sep = "_")
+) %>%
+flatten_chr
 
 fit_lmer %>%
   write_model(

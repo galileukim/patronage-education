@@ -1,6 +1,10 @@
 # ==============================================================================
 # spaece: annual standardized test data for the state of ceara
 # ==============================================================================
+source(
+  here::here("build", "replication", "setup.R")
+)
+
 spaece <- read_data(
   "spaece",
   "spaece.rds"
@@ -40,8 +44,7 @@ censo_school_ceara <- censo_school_turnover %>%
 spaece_turnover <- censo_school_ceara %>% 
   left_join(
     censo_school %>% 
-      filter(dep == 'municipal', year >= 2007) %>% 
-      transmute(school_id = as.integer(school_id), year, toilet, meal),
+      filter(dep == 'municipal', year >= 2007),
     by = c('school_id', 'year')
   ) %>% 
   left_join(
@@ -68,14 +71,28 @@ spaece_turnover <- spaece_turnover %>%
     scale
   )
 
-formulae_spaece <- c(
-  as.formula(
-    spaece_mean ~ turnover_index * grade + as.factor(year)
-  ),
-  as.formula(
-    spaece_mean ~ turnover_index * grade + as.factor(year) + toilet + meal +
-      censo_rural + censo_log_pop + censo_lit_rate
-  )
+school_cov <- c(
+  "access_water",
+  "access_electricity",
+  "library",
+  "meal"
+)
+
+mun_cov <- c(
+  "censo_median_wage",
+  "censo_log_pop",
+  "censo_rural",
+  "censo_lit_rate",
+  "budget_education_capita"
+)
+
+controls <- c(school_cov, mun_cov)
+
+formulae_spaece <- formulate_models(
+  "spaece_mean",
+  "turnover_index * grade",
+  fe = "as.factor(year)",
+  controls
 )
 
 fit_spaece <- map(
@@ -89,18 +106,23 @@ fit_spaece <- map(
   )
 )
 
+names(fit_spaece) <- c(
+  "turnover_baseline",
+  "turnover_controls"
+)
+
 fit_spaece %>%
     write_model(
         "fit_spaece.rds"
     )
 
-sink(here("replication", "results", "spaece_result.tex"))
-mstar(
-  fit_spaece,
-  keep = c("turnover_index"),
-  add.lines = list(c("Controls", rep(c("\\_", "\\checkmark"), 1))),
-  covariate.labels = c("Turnover index", "Turnover index $\\times$ Grade 9"),
-  dep.var.caption = "Student learning",
-  dep.var.labels = "SPAECE average test scores"
-)
-sink()
+# sink(here("replication", "results", "spaece_result.tex"))
+# mstar(
+#   fit_spaece,
+#   keep = c("turnover_index"),
+#   add.lines = list(c("Controls", rep(c("\\_", "\\checkmark"), 1))),
+#   covariate.labels = c("Turnover index", "Turnover index $\\times$ Grade 9"),
+#   dep.var.caption = "Student learning",
+#   dep.var.labels = "SPAECE average test scores"
+# )
+# sink()
