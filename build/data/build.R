@@ -27,7 +27,8 @@ repos <- c(
   "rais",
   "saeb",
   "tse",
-  "spaece"
+  "spaece",
+  "worldbank"
 )
 
 walk(

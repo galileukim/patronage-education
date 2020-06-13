@@ -125,6 +125,8 @@ reset_env(init_env)
 # teacher aggregate stats by administration
 # note: missing data for the year 2009, in the south
 # missing data for rio grande do sul and santa catarina
+init_env <- ls()
+
 teacher <- read_data(
   "raw",
   "censo_escolar",
@@ -173,6 +175,8 @@ teacher_summary %>%
 reset_env(init_env)
 
 # student
+init_env <- ls()
+
 censo_class <- read_data(
   "raw",
   "censo_escolar",
@@ -240,6 +244,8 @@ reset_env(init_env)
 
 # teacher turnover
 # aggregate
+init_env <- ls()
+
 censo_teacher_turnover <- read_data(
   "raw",
   "censo_escolar",

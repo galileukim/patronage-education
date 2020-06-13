@@ -62,7 +62,6 @@ saeb_school %>%
     "saeb_school.rds"
   )
 
-
 # hierarchical model
 saeb_hierarchical <- read_data(
   "raw",
