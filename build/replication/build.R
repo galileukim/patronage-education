@@ -17,10 +17,10 @@ modules <- c(
   "model_turnover_spaece",
   "visual_model_turnover"
   )
-  
+
 walk(
   modules,
-  ~run_module("replication", .)
+  ~run_module(.)
 )
 
 # turnover spaece ---------------------------------------------------------
