@@ -2,22 +2,25 @@
 # run modules
 # ==============================================================================
 source(
-  here("build", domain, "setup.R")
+  here::here("build", "replication", "setup.R")
 )
 
 # run tasks
 modules <- c(
-  "visual_map"
+  "visual_map",
   "visual_global_edu",
   "visual_budget",
   "visual_bureaucracy",
-  "model_hierarchical",
-  "model_saeb"
+  "visual_electoral",
+  "visual_turnover",
+  "model_turnover_saeb",
+  "model_turnover_spaece",
+  "visual_model_turnover"
   )
-
+  
 walk(
   modules,
-  ~run_module(.)
+  ~run_module("replication", .)
 )
 
 # turnover spaece ---------------------------------------------------------

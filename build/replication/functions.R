@@ -103,8 +103,6 @@ run_module <- function(domain, module) {
     paste0("running module ", module, "...")
   )
 
-  source_setup(domain)
-
   if(domain == "data"){
     build_repo(module)
   }

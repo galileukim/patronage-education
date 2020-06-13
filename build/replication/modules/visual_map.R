@@ -120,5 +120,3 @@ save_fig(
     width = 5,
     height = 5
 )
-
-detach_p(packages)

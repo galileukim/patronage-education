@@ -74,9 +74,9 @@ plot_global <- cowplot::plot_grid(
   ncol = 2
 )
 
-ggsave(
+save_fig(
   plot_global,
-  filename = p_file_here('figs', 'plot_global.pdf')
+  "plot_global.pdf"
 )
 
 plot_enroll <- edu_global %>%
@@ -150,9 +150,9 @@ plot_edu_1 <- cowplot::plot_grid(
   ncol = 2
 )
 
-ggsave(
+save_fig(
   plot_edu_1,
-  filename = p_file_here('figs', 'plot_global_1.pdf')
+   'plot_global_1.pdf'
 )
 
 plot_enroll_type <- edu_global %>%
@@ -245,7 +245,7 @@ plot_edu_2 <- cowplot::plot_grid(
   ncol = 2
 )
 
-ggsave(
+save_fig(
   plot_edu_2,
-  filename = p_file_here('figs', 'plot_global_2.pdf')
+  "plot_global_2.pdf"
 )
