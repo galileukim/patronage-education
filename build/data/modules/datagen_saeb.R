@@ -73,6 +73,9 @@ saeb_hierarchical <- saeb_hierarchical %>%
   rename(
     school_id = cod_school,
     grade_level = grade
+  ) %>%
+  mutate(
+    grade_level = grade + 1
   )
   
 saeb_hierarchical %>%

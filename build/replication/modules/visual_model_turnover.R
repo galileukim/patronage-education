@@ -1,10 +1,6 @@
 # ==============================================================================
 # visualize combined results from saeb hierarchical and spaece models
 # ==============================================================================
-source(
-  here::here("build", "replication", "setup.R")
-)
-
 fit_lmer <- read_model("fit_saeb_hierarchical.rds")
 fit_spaece <- read_model("fit_spaece.rds")
 
@@ -104,27 +100,3 @@ save_fig(
   plot_model_turnover,
   file = "model_turnover_learning.pdf"
 )
-
-#
-# fit_hlm <- invoke_map(
-#   list(
-#     lm,
-#     lmer
-#   ),
-#   list(
-#     list(
-#       formula = update.formula(
-#         formula_hlm,
-#         . ~ percent_entry + percent_exit + as.factor(uf) + as.factor(year) + .
-#       ),
-#     data = saeb_hierarchical
-#     ),
-#     list(
-#       formula = update.formula(
-#         formula_hlm,
-#         . ~ percent_entry + percent_exit + (1|uf) + (1|year) + .
-#     ),
-#     data = saeb_hierarchical
-#     )
-#   )
-# )

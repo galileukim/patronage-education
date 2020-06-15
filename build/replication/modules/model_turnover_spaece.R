@@ -8,7 +8,11 @@ source(
 spaece <- read_data(
   "spaece",
   "spaece.rds"
-)
+) %>%
+  filter(
+    dep == "municipal",
+    grade_level != 2
+  )
 
 finbra <- read_data(
   "finbra",
@@ -42,7 +46,7 @@ censo_school_turnover <- read_data(
 
 censo_school_ceara <- censo_school_turnover %>% 
   filter(
-    str_sub(cod_ibge_6, 1, 2) == "23",
+    str_sub(cod_ibge_6, 1, 2) == "23", # state of ceara
     grade_level %in% c(2, 5, 9)
   )
 
@@ -75,6 +79,9 @@ spaece_turnover <- spaece_turnover %>%
   mutate_if(
     is.double,
     scale
+  ) %>%
+  filter(
+    grade_level != 2
   )
 
 school_cov <- c(
@@ -105,10 +112,7 @@ fit_spaece <- map(
   formulae_spaece,
   ~ lm(
     formula = .,
-    data = spaece_turnover %>%
-      mutate_if(is.double, scale) %>%
-      rename(grade = grade_level) %>%
-      filter(grade != 2)
+    data = spaece_turnover
   )
 )
 

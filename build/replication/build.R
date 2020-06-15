@@ -7,74 +7,21 @@ source(
 
 # run tasks
 modules <- c(
-  "visual_map",
-  "visual_global_edu",
-  "visual_budget",
-  "visual_bureaucracy",
-  "visual_electoral",
-  "visual_turnover",
-  "model_turnover_saeb",
-  "model_turnover_spaece",
-  "visual_model_turnover"
+  # "visual_map",
+  # "visual_global_edu",
+  # "visual_budget",
+  # "visual_bureaucracy",
+  # "visual_electoral",
+  # "visual_turnover",
+  "visual_turnover_score"
+  # "model_turnover_saeb",
+  # "model_turnover_spaece",
+  # "visual_model_turnover"
   )
 
 walk(
   modules,
   ~run_module(.)
-)
-
-# turnover spaece ---------------------------------------------------------
-plot_spaece <- censo_turnover_score %>% 
-  filter(
-    n >= 5
-  ) %>% 
-  mutate(
-    grade_level = as.factor(grade_level)
-  ) %>% 
-  ggplot(
-    aes(
-      turnover_index,
-      spaece_mean,
-      group = as.factor(grade_level),
-      col = as.factor(grade_level)
-    )
-  ) +
-  geom_smooth(
-    method = lm, formula = y ~ splines::bs(x, 3),
-    se = F
-  ) +
-  annotate(
-    "text",
-    label = "2nd grade",
-    size = 2,
-    col = "grey65",
-    0.45, 165
-  ) +
-  annotate(
-    "text",
-    label = "5th grade",
-    size = 2,
-    col = "grey65",
-    0.6, 200
-  ) +
-  annotate(
-    "text",
-    label = "9th grade",
-    size = 2,
-    col = "grey65",
-    0.7, 225
-  ) +
-  labs(
-    x = "Teacher turnover (index)",
-    y = "Test scores (SPAECE)"
-  ) +
-  theme(
-    legend.position = "none"
-  )
-
-ggsave(
-  plot_spaece,
-  filename = p_file_here('figs', "turnover_spaece.pdf")
 )
 
 # explaining turnover -----------------------------------------------------
