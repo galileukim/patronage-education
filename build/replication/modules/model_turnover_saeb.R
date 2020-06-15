@@ -142,7 +142,7 @@ formulae <- c(
     controls = controls
   ),
   formulate_models(
-    "saeb_principal_experience + saeb_teacher_work_school + grade_level",
+    "saeb_principal_experience * grade_level + saeb_teacher_work_school * grade_level",
     response = "grade_exam",
     fe = fe,
     controls = controls

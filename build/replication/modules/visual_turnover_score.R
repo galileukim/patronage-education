@@ -31,7 +31,7 @@ censo_school_turnover <- read_data(
   ) %>%
   filter(
     grade_level %in% c(5, 9) &
-    n_teacher >= 5
+      n_teacher >= 5
   )
 
 saeb_turnover <- saeb %>%
@@ -50,61 +50,102 @@ spaece_turnover <- spaece %>%
     by = c("cod_ibge_6", "year", "school_id", "grade_level")
   )
 
-
-plot_turnover_saeb <- censo_school_turnover %>%
-  left_join(
-    by = c("")
-  )
-
-plot_turnover_spaece <- censo_turnover_score %>% 
-  filter(
-    n >= 5
-  ) %>% 
-  mutate(
+plot_turnover_score <- map2(
+  list(
+    spaece_turnover,
+    saeb_turnover
+  ),
+  c("spaece_mean"),
+  ~ mutate(
+    .x,
     grade_level = as.factor(grade_level)
-  ) %>% 
-  ggplot(
-    aes(
-      turnover_index,
-      spaece_mean,
-      group = as.factor(grade_level),
-      col = as.factor(grade_level)
+  ) %>%
+    ggplot(
+      aes_string(
+        "turnover_index",
+        .y,
+        group = "grade_level",
+        col = "grade_level"
+      )
+    ) +
+    geom_smooth(
+      method = lm, formula = y ~ splines::bs(x, 3),
+      se = F
+    ) +
+    annotate(
+      "text",
+      label = "2nd grade",
+      size = 2,
+      col = "grey65",
+      0.45, 165
+    ) +
+    annotate(
+      "text",
+      label = "5th grade",
+      size = 2,
+      col = "grey65",
+      0.6, 200
+    ) +
+    annotate(
+      "text",
+      label = "9th grade",
+      size = 2,
+      col = "grey65",
+      0.7, 225
+    ) +
+    labs(
+      x = "Teacher turnover (index)",
+      y = "Test scores (SPAECE)"
+    ) +
+    theme(
+      legend.position = "none"
     )
-  ) +
-  geom_smooth(
-    method = lm, formula = y ~ splines::bs(x, 3),
-    se = F
-  ) +
-  annotate(
-    "text",
-    label = "2nd grade",
-    size = 2,
-    col = "grey65",
-    0.45, 165
-  ) +
-  annotate(
-    "text",
-    label = "5th grade",
-    size = 2,
-    col = "grey65",
-    0.6, 200
-  ) +
-  annotate(
-    "text",
-    label = "9th grade",
-    size = 2,
-    col = "grey65",
-    0.7, 225
-  ) +
-  labs(
-    x = "Teacher turnover (index)",
-    y = "Test scores (SPAECE)"
-  ) +
-  theme(
-    legend.position = "none"
-  )
+)
 
+spaece_turnover %>% mutate(
+    grade_level = as.factor(grade_level)
+  ) %>%
+    ggplot(
+      aes_string(
+        "turnover_index",
+        "spaece_mean",
+        group = "grade_level",
+        col = "grade_level"
+      )
+    ) +
+    geom_smooth(
+      method = lm, formula = y ~ splines::bs(x, 3),
+      se = F
+    ) +
+    annotate(
+      "text",
+      label = "2nd grade",
+      size = 2,
+      col = "grey65",
+      0.45, 165
+    ) +
+    annotate(
+      "text",
+      label = "5th grade",
+      size = 2,
+      col = "grey65",
+      0.6, 200
+    ) +
+    annotate(
+      "text",
+      label = "9th grade",
+      size = 2,
+      col = "grey65",
+      0.7, 225
+    ) +
+    labs(
+      x = "Teacher turnover (index)",
+      y = "Test scores (SPAECE)"
+    ) +
+    theme(
+      legend.position = "none"
+    )
 ggsave(
   plot_spaece,
-  filename = p_file_here('figs', "turnover_spaece.pdf")
+  filename = p_file_here("figs", "turnover_spaece.pdf")
 )
