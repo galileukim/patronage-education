@@ -9,7 +9,8 @@ saeb <- read_data(
 ) %>%
   filter(
     year >= 2007
-  )
+  ) %>%
+  sample_frac(0.2)
 
 finbra <- read_data(
   "finbra",
@@ -38,7 +39,6 @@ censo_school_turnover <- read_data(
     n_teacher = n
   ) %>%
   filter(
-    n_teacher >= 5,
     grade_level %in% c(5, 9)
   )
 
@@ -68,6 +68,8 @@ saeb_hierarchical <- saeb_hierarchical %>%
     is.double,
     scale_z
   )
+
+saeb_hierarchical %>% gg_miss_var()
 
 # fix problem with turnover index: why is there so much missingness
 turnover_test <- censo_school_turnover %>%

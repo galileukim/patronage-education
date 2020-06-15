@@ -262,15 +262,20 @@ censo_teacher_turnover <- censo_teacher_turnover %>%
     as.numeric
   )
 
-future::plan(future::multiprocess)
+future::plan(future::multiprocess, workers = 6)
 
 censo_turnover_school <- censo_teacher_turnover %>%
-  group_split(state, year) %>%
+  split(.$state) %>%
   furrr::future_map_dfr(
     ~ calc_turnover(
       .,
       c("state", "cod_ibge_6", "year", "school_id", "grade_level")
     )
+  ) %>%
+  arrange(
+    cod_ibge_6, 
+    year,
+    school_id
   )
 
 censo_turnover_school %>%
@@ -280,8 +285,17 @@ censo_turnover_school %>%
   )
 
 censo_turnover_mun <- censo_teacher_turnover %>%
-  calc_turnover(
-    c("state", "cod_ibge_6", "year", "grade_level")
+  split(.$state) %>%
+  furrr::future_map_dfr(
+    ~ calc_turnover(
+      .,
+      c("state", "cod_ibge_6", "year", "grade_level")
+    )
+  ) %>%
+  arrange(
+    cod_ibge_6, 
+    year,
+    school_id
   )
 
 censo_turnover_mun %>%
