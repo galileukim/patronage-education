@@ -6,10 +6,7 @@ f <- stats::as.formula
 saeb <- read_data(
   "saeb",
   "saeb_hierarchical.rds"
-) %>%
-  mutate(
-    grade_level = grade_level + 1
-  )
+)
 
 finbra <- read_data(
   "finbra",
@@ -38,40 +35,9 @@ censo_school_turnover <- read_data(
     n_teacher = n
   ) %>%
   filter(
-    n_teacher >= 5
+    n_teacher >= 5,
+    grade_level %in% c(5, 9)
   )
-
-# # fix problem with turnover index: why is there so much missingness
-# turnover_test <- censo_school_turnover %>%
-#   filter(year == 2007) %>%
-#   select(
-#     cod_ibge_6,
-#     school_id,
-#     year,
-#     grade_level
-#   )
-
-# saeb_test  <- saeb %>%
-#   filter(year == 2007) %>%
-#   select(
-#     cod_ibge_6,
-#     school_id,
-#     year,
-#     grade_level
-#   )
-
-# list(turnover_test, saeb_test) %>%
-# map(
-#   ~filter(., cod_ibge_6 == 110002) %>%
-#   distinct(school_id) %>% 
-#   arrange(school_id)%>%
-#   head
-# )
-
-# # check how many school ids are present
-# turnover_test %>% 
-#   distinct(school_id) %>% 
-#   anti_join(saeb_test %>% distinct(school_id))
 
 # prepare data for estimation
 saeb_hierarchical <- lst(
@@ -89,9 +55,6 @@ saeb_hierarchical <- lst(
     censo_log_pop = log(censo_pop),
     budget_education_capita = budget_education / censo_pop
   )
-
-saeb_hierarchical %>%
-  gg_miss_var()
 
 # fix blank strings
 saeb_hierarchical <- saeb_hierarchical %>%

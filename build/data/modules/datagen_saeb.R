@@ -75,7 +75,7 @@ saeb_hierarchical <- saeb_hierarchical %>%
     grade_level = grade
   ) %>%
   mutate(
-    grade_level = grade + 1
+    grade_level = grade_level + 1
   )
   
 saeb_hierarchical %>%

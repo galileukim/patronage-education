@@ -49,6 +49,40 @@ spaece_turnover <- spaece %>%
     by = c("cod_ibge_6", "year", "school_id", "grade_level")
   )
 
+
+# # fix problem with turnover index: why is there so much missingness
+# turnover_test <- censo_school_turnover %>%
+#   filter(year == 2007) %>%
+#   select(
+#     cod_ibge_6,
+#     school_id,
+#     year,
+#     grade_level
+#   )
+
+# saeb_test  <- saeb %>%
+#   filter(year == 2007) %>%
+#   select(
+#     cod_ibge_6,
+#     school_id,
+#     year,
+#     grade_level
+#   )
+
+# list(turnover_test, saeb_test) %>%
+# map(
+#   ~filter(., cod_ibge_6 == 110002) %>%
+#   distinct(school_id) %>% 
+#   arrange(school_id)%>%
+#   head
+# )
+
+# # check how many school ids are present
+# turnover_test %>% 
+#   distinct(school_id) %>% 
+#   anti_join(saeb_test %>% distinct(school_id))
+
+
 plot_turnover_saeb <- censo_school_turnover %>%
   left_join(
     by = c("")
