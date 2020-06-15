@@ -4,7 +4,8 @@
 pacman::p_load(
   tidyverse,
   data.table,
-  here
+  here,
+  furrr
   # GGally,
   # lfe,
   # lme4,

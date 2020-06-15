@@ -526,7 +526,7 @@ formulate_models <- function(response, predictor, fe, controls) {
       c(predictor, fe), response
     ),
     reformulate(
-      c(predictor, controls), response
+      c(predictor, controls, fe), response
     )
   )
 

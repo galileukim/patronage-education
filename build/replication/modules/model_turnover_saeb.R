@@ -1,6 +1,8 @@
 # ==============================================================================
 # hierarchical estimation
 # ==============================================================================
+print("loading datasets")
+
 f <- stats::as.formula
 
 saeb <- read_data(
@@ -9,8 +11,7 @@ saeb <- read_data(
 ) %>%
   filter(
     year >= 2007
-  ) %>%
-  sample_frac(0.2)
+  )
 
 finbra <- read_data(
   "finbra",
@@ -43,6 +44,7 @@ censo_school_turnover <- read_data(
   )
 
 # prepare data for estimation
+print("joining datasets")
 saeb_hierarchical <- list(
   saeb,
   finbra,
@@ -52,11 +54,23 @@ saeb_hierarchical <- list(
   reduce(
     left_join
   ) %>%
+  mutate_at(
+    vars(
+      state, year, grade_level,
+      starts_with("access")
+      ),
+      as.factor
+  ) %>%
   mutate(
-    cod_ibge_6 = as.factor(cod_ibge_6),
-    year = as.factor(year),
-    saeb_principal_experience = fct_relevel(saeb_principal_experience, "2 to 10"),
-    saeb_teacher_work_school = fct_relevel(saeb_teacher_work_school, "2 to 10"),
+    saeb_principal_higher_education = if_else(
+      saeb_principal_education == "higher education", 1L, 0L
+    ) %>% as.factor,
+    saeb_principal_experience = fct_relevel(
+      saeb_principal_experience, "2 to 10"
+    ),
+    saeb_teacher_work_school = fct_relevel(
+      saeb_teacher_work_school, "2 to 10"
+    ),
     censo_log_pop = log(censo_pop),
     budget_education_capita = budget_education / censo_pop
   )
@@ -69,45 +83,12 @@ saeb_hierarchical <- saeb_hierarchical %>%
     scale_z
   )
 
-saeb_hierarchical %>% gg_miss_var()
+# ==============================================================================
+# estimation of hierarchical linear models to assess effect of teacher 
+# turnover on student learning
+# ==============================================================================
+print("begin estimation of hierarchical linear model")
 
-# fix problem with turnover index: why is there so much missingness
-turnover_test <- censo_school_turnover %>%
-  # filter(year == 2007) %>%
-  select(
-    cod_ibge_6,
-    school_id,
-    year,
-    grade_level
-  )
-
-saeb_test  <- saeb %>%
-  # filter(year == 2007) %>%
-  select(
-    cod_ibge_6,
-    school_id,
-    cod_classroom,
-    year,
-    grade_level
-  )
-
-list(turnover_test, saeb_test) %>%
-map(
-  ~distinct(., school_id) %>% 
-  arrange(school_id)
-) %>%
-  reduce(
-    inner_join
-  )
-
-# check how many school ids are present
-unjoin  <- saeb_test %>% 
-  distinct(cod_ibge_6, school_id, grade_level) %>% 
-  anti_join(turnover_test %>% distinct(cod_ibge_6, school_id, grade_level))
-
-saeb_test %>% inner_join(unjoin) %>% glimpse
-
-# estimation of hierarchical linear models to assess effect of teacher turnover on student learning
 fe <- c(
   "(1 | year)",
   "(1 | state)"
@@ -117,12 +98,11 @@ teacher_cov <- c(
   "saeb_wage_teacher",
   "education_teacher",
   "gender_teacher"
-  # "year_as_teacher"
 )
 
 principal_cov <- c(
   "saeb_principal_female",
-  "saeb_principal_education",
+  "saeb_principal_higher_education",
   "saeb_principal_appointment"
 )
 
@@ -151,19 +131,18 @@ controls <- c(
   principal_cov,
   student_cov,
   school_cov,
-  mun_cov,
-  fe
+  mun_cov
 )
 
 formulae <- c(
   formulate_models(
-    "turnover_index * grade_level",
+    "turnover_index",
     response = "grade_exam",
     fe = fe,
     controls = controls
   ),
   formulate_models(
-    "saeb_principal_experience * grade_level + saeb_teacher_work_school * grade_level",
+    "saeb_principal_experience + saeb_teacher_work_school + grade_level",
     response = "grade_exam",
     fe = fe,
     controls = controls
@@ -182,7 +161,7 @@ names(fit_lmer) <- map(
   c("turnover", "principal_teacher"),
   ~paste(., c("baseline", "controls"), sep = "_")
 ) %>%
-flatten_chr
+  flatten_chr
 
 fit_lmer %>%
   write_model(

@@ -42,7 +42,7 @@ saeb_school <- saeb_student %>%
         pc_student,
         age_student,
         brown_black_student,
-        grade_exam
+      grade_exam
       ),
       ~ mean(as.numeric(.x), na.rm = T)
     ),
@@ -76,8 +76,8 @@ saeb_hierarchical <- saeb_hierarchical %>%
   ) %>%
   mutate(
     grade_level = case_when(
-      grade_level <= 5 ~ 5,
-      T ~ 9
+      grade_level <= 5 ~ 5L,
+      T ~ 9L
     )
   )
   
