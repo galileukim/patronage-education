@@ -244,6 +244,19 @@ select_starts <- function(data, pattern){
   return(out)
 }
 
+scale_z <- function(col){
+  as.vector(scale(col))
+}
+
+fix_na <- function(data){
+  data_na_fix <- data %>%
+    mutate_all(
+      ~ na_if(., "")
+    )
+
+  return(data_na_fix)
+}
+
 # calc_turnover <- function(data, group_vars){
 #   years <- data %>% 
 #     distinct(year) %>% 

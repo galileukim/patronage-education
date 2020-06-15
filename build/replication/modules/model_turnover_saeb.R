@@ -6,7 +6,10 @@ f <- stats::as.formula
 saeb <- read_data(
   "saeb",
   "saeb_hierarchical.rds"
-)
+) %>%
+  filter(
+    year >= 2007
+  )
 
 finbra <- read_data(
   "finbra",
@@ -60,13 +63,47 @@ saeb_hierarchical <- list(
 
 # fix blank strings
 saeb_hierarchical <- saeb_hierarchical %>%
-  mutate_all(
-    ~ na_if(., "")
-  ) %>%
+  fix_na %>%
   mutate_if(
     is.double,
-    scale
+    scale_z
   )
+
+# fix problem with turnover index: why is there so much missingness
+turnover_test <- censo_school_turnover %>%
+  # filter(year == 2007) %>%
+  select(
+    cod_ibge_6,
+    school_id,
+    year,
+    grade_level
+  )
+
+saeb_test  <- saeb %>%
+  # filter(year == 2007) %>%
+  select(
+    cod_ibge_6,
+    school_id,
+    cod_classroom,
+    year,
+    grade_level
+  )
+
+list(turnover_test, saeb_test) %>%
+map(
+  ~distinct(., school_id) %>% 
+  arrange(school_id)
+) %>%
+  reduce(
+    inner_join
+  )
+
+# check how many school ids are present
+unjoin  <- saeb_test %>% 
+  distinct(cod_ibge_6, school_id, grade_level) %>% 
+  anti_join(turnover_test %>% distinct(cod_ibge_6, school_id, grade_level))
+
+saeb_test %>% inner_join(unjoin) %>% glimpse
 
 # estimation of hierarchical linear models to assess effect of teacher turnover on student learning
 fe <- c(
