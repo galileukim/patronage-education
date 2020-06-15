@@ -40,7 +40,7 @@ censo_school_turnover <- read_data(
   )
 
 # prepare data for estimation
-saeb_hierarchical <- lst(
+saeb_hierarchical <- list(
   saeb,
   finbra,
   censo_school,
@@ -50,6 +50,8 @@ saeb_hierarchical <- lst(
     left_join
   ) %>%
   mutate(
+    cod_ibge_6 = as.factor(cod_ibge_6),
+    year = as.factor(year),
     saeb_principal_experience = fct_relevel(saeb_principal_experience, "2 to 10"),
     saeb_teacher_work_school = fct_relevel(saeb_teacher_work_school, "2 to 10"),
     censo_log_pop = log(censo_pop),
@@ -147,20 +149,3 @@ fit_lmer %>%
   write_model(
     "fit_saeb_hierarchical.rds"
   )
-
-# sink(
-#   here("replication", "results", "model_hierarchical.tex")
-# )
-# mstar(
-#   fit_lmer,
-#   keep = c("turnover_index", "saeb_principal_experience", "saeb_teacher_work_school"),
-#   add.lines = list(c("Controls", rep(c("\\_", "\\checkmark"), 2))),
-#   covariate.labels = c(
-#     "Turnover index", "Turnover index $\\times$ Grade 9",
-#     "Teacher experience (2 years)", "Teacher experience (10 years)",
-#     "School principal experience (2 years)", "School principal experience (10 years)"
-#   ),
-#   dep.var.caption = "Student learning",
-#   dep.var.labels = "SAEB average test scores"
-# )
-# sink()

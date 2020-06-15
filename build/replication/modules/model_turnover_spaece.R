@@ -41,19 +41,21 @@ censo_school_turnover <- read_data(
     n_teacher = n
   ) %>%
   filter(
-    n_teacher >= 5
+    n_teacher >= 5,
+    grade_level %in% c(5, 9)
   )
 
 censo_school_ceara <- censo_school_turnover %>% 
   filter(
     str_sub(cod_ibge_6, 1, 2) == "23", # state of ceara
-    grade_level %in% c(2, 5, 9)
+    grade_level %in% c(5, 9)
   )
 
 spaece_turnover <- censo_school_ceara %>% 
   left_join(
     censo_school %>% 
-      filter(dep == 'municipal', year >= 2007),
+      filter(dep == 'municipal', year >= 2007) %>%
+      select(-dep),
     by = c('cod_ibge_6', 'school_id', 'year')
   ) %>% 
   left_join(
@@ -84,6 +86,8 @@ spaece_turnover <- spaece_turnover %>%
     grade_level != 2
   )
 
+spaece_turnover %>% select(turnover_index)%>% gg_miss_var()
+
 school_cov <- c(
   "access_water",
   "access_electricity",
@@ -103,7 +107,7 @@ controls <- c(school_cov, mun_cov)
 
 formulae_spaece <- formulate_models(
   "spaece_mean",
-  "turnover_index * grade",
+  "turnover_index * grade_level",
   fe = "as.factor(year)",
   controls
 )
@@ -125,14 +129,3 @@ fit_spaece %>%
     write_model(
         "fit_spaece.rds"
     )
-
-# sink(here("replication", "results", "spaece_result.tex"))
-# mstar(
-#   fit_spaece,
-#   keep = c("turnover_index"),
-#   add.lines = list(c("Controls", rep(c("\\_", "\\checkmark"), 1))),
-#   covariate.labels = c("Turnover index", "Turnover index $\\times$ Grade 9"),
-#   dep.var.caption = "Student learning",
-#   dep.var.labels = "SPAECE average test scores"
-# )
-# sink()
