@@ -20,28 +20,18 @@ knitr::opts_chunk$set(
   fig.align = "center"
 )
 
-# connect to database
-con <- DBI::dbConnect(
-  odbc::odbc(),
-  driver = "PostgreSQL Unicode",
-  database = "rais",
-  UID = "gali",
-  PWD = 'gali1789!',
-  port = 5432
-)
-
 set.seed(1789)
 
 # ==============================================================================
 # load auxiliary utils
 # ==============================================================================
 source(
-  here("source", "replication", "utils.R")
+  here("source", "models", "utils.R")
 )
 
 run_module <- partial(
   run_module,
-  domain = "replication"
+  domain = "models"
 )
 
 read_data <- partial(
@@ -52,4 +42,39 @@ read_data <- partial(
 theme_set(
   theme_minimal() +
     theme_clean
+)
+
+# ==============================================================================
+# covariates
+# ==============================================================================
+teacher_cov <- c(
+  "saeb_wage_teacher",
+  "education_teacher",
+  "gender_teacher"
+)
+
+principal_cov <- c(
+  "saeb_principal_female",
+  "saeb_principal_higher_education",
+  "saeb_principal_appointment"
+)
+
+student_cov <- c(
+  "parent_attend_college_student", # both proportion of classroom
+  "failed_school_year_student"
+)
+
+school_cov <- c(
+  "access_water", # all dummies for school
+  "access_electricity",
+  "library",
+  "meal"
+)
+
+mun_cov <- c(
+  "censo_median_wage",
+  "censo_log_pop",
+  "censo_rural",
+  "censo_lit_rate",
+  "budget_education_capita"
 )

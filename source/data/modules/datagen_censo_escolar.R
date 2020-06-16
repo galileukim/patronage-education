@@ -293,9 +293,8 @@ censo_turnover_mun <- censo_teacher_turnover %>%
     )
   ) %>%
   arrange(
-    cod_ibge_6, 
-    year,
-    school_id
+    cod_ibge_6,
+    year
   )
 
 censo_turnover_mun %>%

@@ -3,7 +3,7 @@
 ivreg <- AER::ivreg
 between <- data.table::between
 
-list.files <- partial(
+list.files <- purrr::partial(
   base::list.files,
   full.names = T
 )
@@ -78,7 +78,7 @@ run_module <- function(module, domain) {
   )
 }
 
-fread <- partial(
+fread <- purrr::partial(
   data.table::fread,
   nThread = parallel::detectCores(),
   integer64 = c("character")

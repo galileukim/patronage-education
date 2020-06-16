@@ -2,7 +2,7 @@
 # spaece: annual standardized test data for the state of ceara
 # ==============================================================================
 source(
-  here::here("source", "replication", "setup.R")
+  here::here("source", "models", "setup.R")
 )
 
 spaece <- read_data(
@@ -86,23 +86,9 @@ spaece_turnover <- spaece_turnover %>%
     grade_level != 2
   )
 
-spaece_turnover %>% select(turnover_index)%>% gg_miss_var()
-
-school_cov <- c(
-  "access_water",
-  "access_electricity",
-  "library",
-  "meal"
-)
-
-mun_cov <- c(
-  "censo_median_wage",
-  "censo_log_pop",
-  "censo_rural",
-  "censo_lit_rate",
-  "budget_education_capita"
-)
-
+# ==============================================================================
+# estimate effect of turnover on mean student test scores
+# ==============================================================================
 controls <- c(school_cov, mun_cov)
 
 formulae_spaece <- formulate_models(
@@ -114,7 +100,7 @@ formulae_spaece <- formulate_models(
 
 fit_spaece <- map(
   formulae_spaece,
-  ~ lm(
+  ~ felm(
     formula = .,
     data = spaece_turnover
   )
