@@ -1,6 +1,8 @@
 # ==============================================================================
 # set-up
 # ==============================================================================
+random_seed <- 1789
+
 pacman::p_load(
   "tidyverse",
   "purrr",
@@ -11,7 +13,7 @@ pacman::p_load(
   "magrittr"
 )
 
-set.seed(1789)
+set.seed(random_seed)
 
 source(
   here("source", "data", "utils.R")

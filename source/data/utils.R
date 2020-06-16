@@ -27,6 +27,16 @@ read_data <- function(type, dir, file) {
   return(data)
 }
 
+get_data <- function(type, dir, file, cols){
+  data <- read_data(type, dir, file)
+
+  data_subset <- select(data, cols)
+
+  return(data_subset)
+}
+
+clean_data <- function(data)
+
 write_data <- function(object, dir, file, type = "clean", compress = "gz") {
   file_path <- here_data(type, dir, file)
 

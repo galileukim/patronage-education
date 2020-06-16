@@ -48,6 +48,7 @@ f_logit <- formulate(
   controls_logit,
   fe = c("state", "year")
 )
+
 fit_turnover <- c(
   f_logit,
   update(f_logit, rais_fired ~ .)

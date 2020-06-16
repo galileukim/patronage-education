@@ -1,7 +1,6 @@
 # finbra ------------------------------------------------------------------
 # budgetary expenditures for each municipality
 # unit of analysis: municipality-year
-
 finbra <- read_data("raw", "finbra", "despesa_mun.csv") %>%
   filter(
     year >= 2000
