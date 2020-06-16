@@ -2,7 +2,7 @@
 # run modules
 # ==============================================================================
 source(
-  here::here("build", "replication", "setup.R")
+  here::here("source", "replication", "setup.R")
 )
 
 # run tasks

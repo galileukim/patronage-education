@@ -6,34 +6,6 @@ pacman::p_load(
   data.table,
   here,
   furrr
-  # GGally,
-  # lfe,
-  # lme4,
-  # plm,
-  # broom,
-  # extrafont,
-  # rprojroot,
-  # tmap,
-  # gridExtra,
-  # cowplot,
-  # ggdag,
-  # scales,
-  # kableExtra,
-  # RColorBrewer,
-  # gghighlight,
-  # parallel,
-  # foreach,
-  # gridExtra,
-  # naniar,
-  # knitr,
-  # gghighlight,
-  # egg,
-  # WeightIt,
-  # cobalt,
-  # boot,
-  # rdrobust,
-  # magrittr,
-  # sjPlot
 )
 
 knitr::opts_chunk$set(
@@ -46,7 +18,6 @@ knitr::opts_chunk$set(
   fig.height = 3,
   fig.width = 4,
   fig.align = "center"
-  # dev = "pdf"
 )
 
 # connect to database
@@ -61,8 +32,11 @@ con <- DBI::dbConnect(
 
 set.seed(1789)
 
+# ==============================================================================
+# load auxiliary utils
+# ==============================================================================
 source(
-  here("build", "replication", "utils.R")
+  here("source", "replication", "utils.R")
 )
 
 run_module <- partial(
@@ -73,4 +47,9 @@ run_module <- partial(
 read_data <- partial(
   read_data,
   type = "clean"
+)
+
+theme_set(
+  theme_minimal() +
+    theme_clean
 )

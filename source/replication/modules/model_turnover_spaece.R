@@ -2,7 +2,7 @@
 # spaece: annual standardized test data for the state of ceara
 # ==============================================================================
 source(
-  here::here("build", "replication", "setup.R")
+  here::here("source", "replication", "setup.R")
 )
 
 spaece <- read_data(

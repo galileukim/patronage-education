@@ -80,24 +80,6 @@ write_model <- function(model, file) {
   )
 }
 
-load_p <- function(packages){
-  walk(
-    packages,
-    ~library(., character.only = T)
-  )
-}
-
-detach_p <- function(packages){
-  packages %>%
-    purrr::walk(
-      ~detach(
-      paste0("package:", .),
-      character.only = T,
-      unload = T
-    )
-  )
-}
-
 run_module <- function(domain, module) {
   print(
     paste0("running module ", module, "...")
@@ -109,7 +91,7 @@ run_module <- function(domain, module) {
   
   module_script <- paste0(module, ".R")
 
-  path <- here("build", domain, "modules", module_script)
+  path <- here("source", domain, "modules", module_script)
 
   init_env <- ls(.GlobalEnv)
   source(path)
@@ -161,67 +143,9 @@ list_files <- function(path, pattern){
   return(files)
 }
 
-# import_data <- function(path, pattern, names = F){
-#   files <- list_files(
-#     path,
-#     pattern
-#   )
-  
-#   if(names == F){
-#     names <- basename(files) %>% 
-#       str_remove_all(
-#         "\\.csv|\\.gz"
-#       )
-#   }
-  
-#   data <- map(
-#     files,
-#     fread
-#   )
-  
-#   names(data) <- names
-  
-#   return(data)
-# }
-
-# assign_data <- function(data, rm = T){
-#   walk2(
-#     names(data),
-#     data,
-#     assign,
-#     envir = globalenv()
-#   )
-# }
-
-# append_db <- function(path, pattern, conn, names = F){
-#   data <- import(
-#     files,
-#     names
-#   )
-  
-#   pwalk(
-#     list(
-#       name = names,
-#       value = data
-#     ),
-#     RSQLite::dbWriteTable,
-#     conn = con,
-#     overwrite = T
-#   )
-# }
-
 # ==============================================================================
 # data cleaning
 # ==============================================================================
-select_starts <- function(data, pattern){
-  out <- data %>%
-    select(
-      starts_with(pattern)
-    )
-
-  return(out)
-}
-
 scale_z <- function(col){
   as.vector(scale(col))
 }
@@ -234,57 +158,6 @@ fix_na <- function(data){
 
   return(data_na_fix)
 }
-
-# calc_turnover <- function(data, group_vars){
-#   years <- data %>% 
-#     distinct(year) %>% 
-#     pull
-  
-#   data %<>%
-#     group_by_at(
-#       vars(
-#         group_vars
-#       )
-#     ) %>% 
-#     summarise_at(
-#       vars(starts_with("turnover_"), n),
-#       sum,
-#       na.rm = T
-#     ) %>% 
-#     ungroup()
-  
-#   data %<>% 
-#     mutate(
-#       implicit = 0
-#     ) %>% 
-#     complete(
-#       year = years,
-#       fill = list(implicit = 1)
-#     ) %>% 
-#     group_by_at(
-#       vars(
-#         group_vars,
-#         -year
-#       )
-#     ) %>% 
-#     mutate(
-#       n_lag = dplyr::lag(n, order_by = year),
-#       percent_exit = turnover_exit/n_lag,
-#       percent_transfer = turnover_transfer/n_lag,
-#       percent_extinct = turnover_extinct/n_lag,
-#       percent_entry = turnover_entry/n,
-#       turnover_index = (turnover_exit + turnover_transfer + turnover_entry)/(n + n_lag)
-#     ) %>% 
-#     ungroup() %>% 
-#     filter(
-#       implicit != 1
-#     ) %>% 
-#     select(
-#       -implicit
-#     )
-  
-#   return(data)
-# }
 
 # tidy and ggcoef
 tidyfit <- function(fit, vars = '.'){
@@ -322,34 +195,6 @@ summarise_prop <- function(data, var){
   )
 }
 
-# tailored summarise
-summarise_stats <- function(data, ...){
-  vars <- enquos(...)
-  
-  data_count <- data %>% 
-    count
-  
-  data %<>% 
-    summarise_at(
-      .vars = vars(!!!vars),
-      .funs = list(
-        mean = mean,
-        sum = sum, 
-        med = median, 
-        sd = sd
-      ),
-      na.rm = T
-    ) %>% 
-    ungroup()
-  
-  data %<>%
-    left_join(
-      data_count
-    )
-  
-  return(data)
-}
-
 # create group summary
 group_summarise <- function(data, group_vars, summarise_vars, ...){
   out <- data %>%
@@ -377,40 +222,6 @@ count_freq <- function(data, ...){
   return(data)
 }
 
-filter_if_n <- function(data, predicate){
-  predicate <- enquo(predicate)
-  
-  data %<>%
-    mutate(n = n()) %>% 
-    filter(!!predicate) %>% 
-    ungroup() %>% 
-    select(-n)
-  
-  return(data)
-}
-
-# standardize
-standardize <- function(data) {
-  out <- data %>% 
-    mutate_if(
-      is.double,
-      scale
-    )
-  
-  return(out)
-}
-
-# create first and last year
-bind_electoral_term <- function(data) {
-  out <- data %>% 
-    mutate(
-      first_term = if_else(
-        year %% 4 == 1,
-        1, 0
-      )
-    )
-}
-
 # visualization -----------------------------------------------------------
 theme_clean <- theme(
   panel.background = element_blank(),
@@ -429,10 +240,6 @@ theme_clean <- theme(
   plot.margin = unit(rep(0.25, 4), "cm")
 )
 
-theme_set(
-  theme_minimal() +
-    theme_clean
-)
 
 tidycoef <- function(fit, vars = ".", ...){
   tidyfit(fit, vars) %>%

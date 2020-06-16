@@ -3,6 +3,11 @@
 ivreg <- AER::ivreg
 between <- data.table::between
 
+list.files <- partial(
+  base::list.files,
+  full.names = T
+)
+
 # io ----------------------------------------------------------------------
 here_data <- function(type, dir, file) {
   path <- here("data", type, dir, file)
@@ -54,7 +59,7 @@ build_repo <- function(module){
     }
   }
 
-run_module <- function(module) {
+run_module <- function(module, domain) {
   print(
     paste0("running module ", module, "...")
   )
@@ -62,7 +67,7 @@ run_module <- function(module) {
   build_repo(module)
 
   source_file <- paste0("datagen_", module, ".R")
-  path <- here("build", "data", "modules", source_file)
+  path <- here("source", domain, "modules", source_file)
 
   init_env <- ls(.GlobalEnv)
   source(path)

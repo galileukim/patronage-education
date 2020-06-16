@@ -14,9 +14,13 @@ pacman::p_load(
 set.seed(1789)
 
 source(
-  here("build", "data", "functions.R")
+  here("source", "data", "utils.R")
 )
 
+run_module <- partial(
+  run_module,
+  domain = 'data'
+)
 # ==============================================================================
 # build data repos
 # ==============================================================================
