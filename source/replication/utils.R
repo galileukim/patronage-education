@@ -213,28 +213,6 @@ list_files <- function(path, pattern){
 # ==============================================================================
 # data cleaning
 # ==============================================================================
-# sample groups
-sample_group <- function(data, n, ...){
-  grouping_vars <- enquos(...)
-  
-  data %<>%
-    nest(
-      cols = -c(!!!grouping_vars)
-    ) %>% 
-    sample_n(n) %>% 
-    unnest(
-      cols = -c(!!!grouping_vars)
-    )
-  
-  return(data)
-}
-
-round_integer <- function(number, digits) {
-  number %>% 
-    as.integer %>% 
-    round(digits)
-}
-
 select_starts <- function(data, pattern){
   out <- data %>%
     select(

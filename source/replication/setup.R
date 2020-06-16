@@ -62,7 +62,7 @@ con <- DBI::dbConnect(
 set.seed(1789)
 
 source(
-  here("build", "replication", "functions.R")
+  here("build", "replication", "utils.R")
 )
 
 run_module <- partial(
