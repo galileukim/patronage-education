@@ -106,23 +106,26 @@ list_files <- function(path, pattern) {
 }
 
 # data manipulation -------------------------------------------------------
+# groups and summarises data
+group_summarise <- function(data, .group_vars, .vars, .fun){
+  data %>%
+    group_by_at(
+      vars(
+       .group_vars
+      )
+    ) %>% 
+    summarise(
+      across(.vars, .fun, na.rm = T),
+      .groups = "drop"
+    )
+}
+
 calc_turnover <- function(data, group_vars){
   years <- data %>% 
     distinct(year) %>% 
     pull
   
-  data %<>%
-    group_by_at(
-      vars(
-        group_vars
-      )
-    ) %>% 
-    summarise_at(
-      vars(starts_with("turnover_"), n),
-      sum,
-      na.rm = T
-    ) %>% 
-    ungroup()
+  
   
   data %<>% 
     mutate(
