@@ -482,7 +482,7 @@ add_felm <- function(formula, fe, instrument = 0, cluster){
 formulate_models <- function(response, predictor, fe, controls) {
   formulae <- c(
     formulate(
-      response, predictor, controls, fe = NULL
+      response, predictor, controls = NULL, fe = NULL
     ),
     formulate(
       response, predictor, controls, fe

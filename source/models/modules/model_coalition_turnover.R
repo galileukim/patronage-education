@@ -1,20 +1,14 @@
 # ==============================================================================
 # explaining staff turnover as a result of executive-legislative bargain
 # ==============================================================================
-# show that irrespective of level of economic development, the same dynamic is present
-# turnover index on coalition
-
-# ==============================================================================
-# import data
-# ==============================================================================
 source(
   here::here("source", "models", "setup.R")
 )
 
 # construct data for estimation of effect of coalition on teacher turnover
 censo_school_turnover <- read_data(
-    "censo_escolar",
-    "censo_school_turnover.rds"
+  "censo_escolar",
+  "censo_school_turnover.rds"
 )
 
 censo_school <- read_data(
@@ -22,7 +16,7 @@ censo_school <- read_data(
   "censo_school.rds"
 )
 
-model_school_turnover <- censo_school_turnover %>% 
+model_school_turnover <- censo_school_turnover %>%
   left_join(
     censo_school %>%
       mutate(
@@ -53,10 +47,14 @@ formulae_turnover <- formulate_models(
     .,
     fe = "year + state",
     cluster = "cod_ibge_6"
-  )
-  )
+  ))
 
 fit_turnover <- map(
   formulae_turnover,
-  ~lfe::felm(., data = model_school_turnover)
+  ~ lfe::felm(., data = model_school_turnover)
+)
+
+write_model(
+  fit_turnover,
+  "fit_turnover.rds"
 )

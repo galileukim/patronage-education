@@ -1,6 +1,11 @@
-
-# logit model
+# ==============================================================================
+# set-up
+# ==============================================================================
 # construct data to estimate effect of coalition on edu staff turnover
+source(
+    here::here("source", "models", "setup.R")
+)
+
 rais_edu <- read_data(
   "rais",
   "rais_edu.rds"
@@ -29,7 +34,10 @@ model_rais_mun <- rais_edu %>%
     state = str_sub(cod_ibge_6, 1, 2),
     rais_category = fct_relevel(rais_category, "teacher")
   )
-  
+
+# ==============================================================================
+# estimation of effect of coalition share on staff turnover
+# ============================================================================== 
 controls_logit <- c(
   mun_cov, rais_cov, mayor_cov, chamber_cov
 )
