@@ -78,3 +78,20 @@ mun_cov <- c(
   "censo_lit_rate",
   "budget_education_capita"
 )
+
+mayor_cov <- c(
+  "mayor_reelected",
+  "mayor_campaign",
+  "mayor_coalition_size"
+)
+
+chamber_cov <- c(
+  "chamber_size"
+)
+
+rais_cov <- c(
+  "rais_edu",
+  "rais_wage",
+  "rais_permanent",
+  "rais_time"
+)

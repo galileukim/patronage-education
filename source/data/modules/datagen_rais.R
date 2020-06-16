@@ -25,6 +25,12 @@ rais_edu <- read_data(
     "raw", "rais", "rais_edu.csv.gz"
 )
 
+rais_edu %>%
+    write_data(
+        "rais",
+        "rais_edu.rds"
+    )
+
 # create municipal level data
 rais_edu_mun <- rais_edu %>%
     group_by(

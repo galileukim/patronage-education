@@ -5,17 +5,6 @@
 
 between <- data.table::between
 
-build_repo <- function(module){
-  repo <- here("data", "clean", module)
-
-  if(!dir.exists(repo)){
-    dir.create(repo)
-  }else{
-    unlink(repo, recursive = T)
-    dir.create(repo)
-  }
-}
-
 list_data <- function(dir){
   path <- here("data", "clean", dir)
   files <- list.files(path)
@@ -125,7 +114,16 @@ save_fig <- function(pl, file, width = 5, height = 3, ...){
   )
 }
 
-# data io -----------------------------------------------------------------
+# ==============================================================================
+# data io
+# ==============================================================================
+show_cols <- function(data){
+  cols <- colnames(data) %>% 
+    sort()
+
+  return(cols)
+}
+
 fread <- partial(
   data.table::fread,
   nThread = parallel::detectCores(),
@@ -148,6 +146,16 @@ list_files <- function(path, pattern){
 # ==============================================================================
 scale_z <- function(col){
   as.vector(scale(col))
+}
+
+fix_scale <- function(data){
+  scaled_data <- data %>% 
+  mutate_if(
+    is.double,
+    scale_z
+  )
+
+  return(scaled_data)
 }
 
 fix_na <- function(data){
@@ -249,7 +257,9 @@ count_freq <- function(data, ...){
   return(data)
 }
 
-# visualization -----------------------------------------------------------
+# ==============================================================================
+# visualization
+# ==============================================================================
 theme_clean <- theme(
   panel.background = element_blank(),
   # panel.border = element_blank(),
@@ -266,6 +276,22 @@ theme_clean <- theme(
   axis.title = element_text(size = 10),
   plot.margin = unit(rep(0.25, 4), "cm")
 )
+
+group_split <- function(data, ...) {
+  vars <- enquos(...)
+  
+  data <- data %>% 
+    group_by(!!!vars)
+  
+  group_names <- group_keys(data) %>% 
+    pull()
+  
+  data %>% 
+    dplyr::group_split() %>% 
+    set_names(
+      group_names
+    )
+}
 
 
 tidycoef <- function(fit, vars = ".", ...){
@@ -327,120 +353,6 @@ summarise_fun <- function(data, var){
     )
 }
 
-# ==============================================================================
-# estimation aux. functions
-# ==============================================================================
-ivreg <- AER::ivreg
-
-formulate_models <- function(response, predictor, fe, controls) {
-  formulae <- c(
-    reformulate(
-      c(predictor, fe), response
-    ),
-    reformulate(
-      c(predictor, controls, fe), response
-    )
-  )
-
-  return(formulae)
-}
-
-# ols
-fit_felm <- function(
-  repo,
-  dv,
-  predictor = c("coalition_share"),
-  control = c("mayor_age", "as.factor(mayor_party)", "mayor_coalition_size", "mayor_campaign", "median_wage", "rais_mun_size", "rais_permanent", "mean_edu", "effective_parties"),
-  cluster = c("state + year"),
-  data
-){
-  fit <- data %>%
-    felm(
-      formula = formula(
-        paste(
-          dv, "~", predictor, "+", str_c(control, collapse = "+"),
-          "|", cluster, "| 0"
-        )
-      ),
-      data = .
-    )
-  
-  return(fit)
-}
-
-# logit
-logit <- function(f, data){
-  fit <- glm(
-    formula = f,
-    data = data,
-    family = 'binomial'
-  )
-}
-
-# election years
-add_election <- function(data){
-  data %>% 
-    mutate(
-      election_year = case_when(
-        between(year, 2001, 2004) ~ 2000,
-        between(year, 2005, 2008) ~ 2004,
-        between(year, 2009, 2012) ~ 2008,
-        between(year, 2013, 2016) ~ 2012
-      )
-    )
-}
-
-# covariates
-join_covariate <- function(data){
-  data %>% 
-    left_join(
-      read_rds(
-        here("data/clean/finbra/finbra.rds")
-      ),
-      by = c("cod_ibge_6", "year")
-    ) %>% 
-    left_join(
-      read_rds(
-        here("data/clean/censo_br/censo_2000.rds")
-      ),
-      by = c("cod_ibge_6")
-    ) %>% 
-    add_election() %>% 
-    left_join(
-      read_rds(
-        here("data/clean/tse/election.rds")
-      ),
-      by = c("cod_ibge_6", "election_year")
-    )
-}
-
-## ggplot aux
-gg_point_smooth <- function(data, mapping = aes(),...){
-  ggplot(
-    data = data,
-    mapping
-  ) +
-    geom_point(
-      alpha = 0.25
-    ) +
-    geom_smooth(
-      method = "lm",
-      col = "coral3"
-    ) 
-}
-
-gg_point_line <- function(data, mapping = aes(), ...) {
-  ggplot(
-    data = data,
-    mapping
-  ) +
-    geom_point(
-      ...
-    ) +
-    geom_line(
-      ...
-    )
-}
 
 geom_errorbar_tidy <- geom_errorbarh(
     aes(
@@ -550,23 +462,86 @@ update_geom_defaults(
   list(color = tulip_red)
 )
 
-group_split <- function(data, ...) {
-  vars <- enquos(...)
+# ==============================================================================
+# models aux. functions
+# ==============================================================================
+ivreg <- AER::ivreg
+
+add_felm <- function(formula, fe, instrument = 0, cluster){
+  felm_formula <- paste(
+    deparse(formula, width.cutoff = 500),
+    fe,
+    instrument,
+    cluster,
+    sep = "|") %>%
+    as.formula
   
-  data <- data %>% 
-    group_by(!!!vars)
-  
-  group_names <- group_keys(data) %>% 
-    pull()
-  
+  return(felm_formula)
+}
+
+formulate_models <- function(response, predictor, fe, controls) {
+  formulae <- c(
+    formulate(
+      response, predictor, controls, fe = NULL
+    ),
+    formulate(
+      response, predictor, controls, fe
+    )
+  )
+
+  return(formulae)
+}
+
+formulate <- function(response, predictor, controls, fe){
+  formula <- reformulate(
+      c(predictor, controls, fe), response
+    )
+
+  return(formula)
+}
+
+# logit
+logit <- function(f, data){
+  fit <- glm(
+    formula = f,
+    data = data,
+    family = 'binomial'
+  )
+}
+
+# election years
+add_election <- function(data){
   data %>% 
-    dplyr::group_split() %>% 
-    set_names(
-      group_names
+    mutate(
+      election_year = case_when(
+        between(year, 2001, 2004) ~ 2000,
+        between(year, 2005, 2008) ~ 2004,
+        between(year, 2009, 2012) ~ 2008,
+        between(year, 2013, 2016) ~ 2012
+      )
     )
 }
 
-# reset
-# rm(
-#   list = setdiff(ls(), c(lsf.str(),"theme_clean"))
-# )
+# covariates
+join_covariate <- function(data){
+  data %>% 
+    left_join(
+      read_rds(
+        here("data/clean/finbra/finbra.rds")
+      ),
+      by = c("cod_ibge_6", "year")
+    ) %>% 
+    left_join(
+      read_rds(
+        here("data/clean/censo_br/censo_2000.rds")
+      ),
+      by = c("cod_ibge_6")
+    ) %>% 
+    add_election() %>% 
+    left_join(
+      read_rds(
+        here("data/clean/tse/election.rds")
+      ),
+      by = c("cod_ibge_6", "election_year")
+    )
+}

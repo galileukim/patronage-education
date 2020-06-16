@@ -41,7 +41,6 @@ censo_school_turnover <- read_data(
     n_teacher = n
   ) %>%
   filter(
-    n_teacher >= 5,
     grade_level %in% c(5, 9)
   )
 
@@ -93,14 +92,17 @@ controls <- c(school_cov, mun_cov)
 
 formulae_spaece <- formulate_models(
   "spaece_mean",
-  "turnover_index * grade_level",
-  fe = "as.factor(year)",
+  "turnover_index * grade_level + participation_rate",
+  fe = NULL,
   controls
-)
+) %>%
+  map(
+    ~add_felm(., fe = "year", cluster = "cod_ibge_6" )
+  )
 
 fit_spaece <- map(
   formulae_spaece,
-  ~ felm(
+  ~ lfe::felm(
     formula = .,
     data = spaece_turnover
   )
