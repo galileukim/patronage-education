@@ -211,6 +211,33 @@ group_summarise <- function(data, group_vars, summarise_vars, ...){
     return(out)
 }
 
+summarise_stats <- function(data, ...){
+  vars <- enquos(...)
+  
+  data_count <- data %>% 
+    count
+  
+  data %<>% 
+    summarise_at(
+      .vars = vars(!!!vars),
+      .funs = list(
+        mean = mean,
+        sum = sum, 
+        med = median, 
+        sd = sd
+      ),
+      na.rm = T
+    ) %>% 
+    ungroup()
+  
+  data %<>%
+    left_join(
+      data_count
+    )
+  
+  return(data)
+}
+
 count_freq <- function(data, ...){
   vars <- enquos(...)
   

@@ -147,6 +147,33 @@ calc_turnover <- function(data, group_vars){
   return(data)
 }
 
+summarise_stats <- function(data, ...){
+  vars <- enquos(...)
+  
+  data_count <- data %>% 
+    count
+  
+  data %<>% 
+    summarise_at(
+      .vars = vars(!!!vars),
+      .funs = list(
+        mean = mean,
+        sum = sum, 
+        med = median, 
+        sd = sd
+      ),
+      na.rm = T
+    ) %>% 
+    ungroup()
+  
+  data %<>%
+    left_join(
+      data_count
+    )
+  
+  return(data)
+}
+
 add_election_year <- function(data) {
   data <- data %>%
     mutate(
