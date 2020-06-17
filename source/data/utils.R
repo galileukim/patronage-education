@@ -149,20 +149,21 @@ complete_year_by_group <- function(data, .group_vars, complete_years){
 }
 
 calc_turnover_by_group <- function(data, .group_vars) {
+   .group_vars_minus_year <- str_subset(.group_vars, "year", negate = T)
+
   turnover_data  <- data %>%
     group_by_at(
       vars(
-        .group_vars,
-        -year
+        all_of(.group_vars_minus_year)
       )
     ) %>% 
     mutate(
-      n_lag = dplyr::lag(n, order_by = year),
-      total_turnover = turnover_exit + turnover_transfer + turnover_entry,
-      total_n = n + n_lag
+      n_lag = dplyr::lag(n, order_by = year)
     ) %>%
     ungroup() %>%
     mutate(
+      total_turnover = turnover_exit + turnover_transfer + turnover_entry,
+      total_n = n + n_lag,
       turnover_index = ratio(total_turnover, total_n)
     )
 

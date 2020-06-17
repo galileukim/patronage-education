@@ -5,16 +5,17 @@ context("testing turnover utils")
 
 nrows <- 2
 complete_years <- 2005:2008
-.group_vars <- c("school", "year")
-.vars <- c("turnover_exit", "turnover_transfer", "turnover_entry", "n")
+.group_vars <- c("school_id", "year")
+.vars <- c("turnover_exit", "turnover_transfer", "turnover_extinct", "turnover_entry", "n")
 
 
 turnover_data <- tibble(
-    school = "a",
+    school_id = "a",
     year = c(2005:2006, 2008),
     n = c(2, 5, 6),
     n_lag = lag(n),
     turnover_exit = c(2, 2, 3),
+    turnover_extinct = 0,
     turnover_transfer = 0,
     turnover_entry = c(0, 2, 4)
 )
@@ -27,7 +28,7 @@ turnover_sum <- turnover_data %>%
 
 completed_data <- turnover_sum %>%
     complete_year_by_group(
-        "school",
+        "school_id",
         complete_years
     )
 
