@@ -69,9 +69,7 @@ test_that("check if calc_turnover returns correct dims", {
         dim(turnover_data_calculated), 
         c(length(.group_vars), length(.vars) + length(.group_vars))
     )
-    expect_equal(
-        complete_data(turnover_data, year),
-    )
+    
 })
 
 
