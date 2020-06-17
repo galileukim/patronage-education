@@ -47,31 +47,31 @@ theme_set(
 # ==============================================================================
 # covariates
 # ==============================================================================
-teacher_cov <- c(
+teacher_covariates <- c(
   "saeb_wage_teacher",
   "education_teacher",
   "gender_teacher"
 )
 
-principal_cov <- c(
+principal_covariates <- c(
   "saeb_principal_female",
   "saeb_principal_higher_education",
   "saeb_principal_appointment"
 )
 
-student_cov <- c(
+student_covariates <- c(
   "parent_attend_college_student", # both proportion of classroom
   "failed_school_year_student"
 )
 
-school_cov <- c(
+school_covariates <- c(
   "access_water", # all dummies for school
   "access_electricity",
   "library",
   "meal"
 )
 
-mun_cov <- c(
+mun_covariates <- c(
   "censo_median_wage",
   "censo_log_pop",
   "censo_rural",
@@ -79,17 +79,17 @@ mun_cov <- c(
   "budget_education_capita"
 )
 
-mayor_cov <- c(
+mayor_covariates <- c(
   "mayor_reelected",
   "mayor_campaign",
   "mayor_coalition_size"
 )
 
-chamber_cov <- c(
+chamber_covariates <- c(
   "chamber_size"
 )
 
-rais_cov <- c(
+rais_covariates <- c(
   "rais_edu",
   "rais_wage",
   "rais_permanent",

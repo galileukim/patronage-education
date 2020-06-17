@@ -5,6 +5,15 @@
 
 between <- data.table::between
 
+ls_sub <- function(pattern, .negate = F){
+  objects <- ls(.GlobalEnv)
+  objects_sub <- objects %>%
+    str_subset(pattern, .negate) %>%
+    sort
+
+  return(objects_sub)
+}
+
 list_data <- function(dir){
   path <- here("data", "clean", dir)
   files <- list.files(path)
@@ -482,7 +491,7 @@ add_felm <- function(formula, fe, instrument = 0, cluster){
 formulate_models <- function(response, predictor, fe, controls) {
   formulae <- c(
     formulate(
-      response, predictor, controls = NULL, fe = NULL
+      response, predictor, controls = NULL, fe
     ),
     formulate(
       response, predictor, controls, fe

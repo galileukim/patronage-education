@@ -35,22 +35,17 @@ censo_school_turnover <- read_data(
     cod_ibge_6,
     year,
     school_id,
-    grade_level,
     turnover_index,
     starts_with("percent"),
     n_teacher = n
-  ) %>%
-  filter(
-    grade_level %in% c(5, 9)
   )
 
 censo_school_ceara <- censo_school_turnover %>% 
   filter(
-    str_sub(cod_ibge_6, 1, 2) == "23", # state of ceara
-    grade_level %in% c(5, 9)
+    str_sub(cod_ibge_6, 1, 2) == "23" # state of ceara
   )
 
-spaece_turnover <- censo_school_ceara %>% 
+spaece_turnover <- spaece %>% 
   left_join(
     censo_school %>% 
       filter(dep == 'municipal', year >= 2007) %>%
@@ -58,8 +53,8 @@ spaece_turnover <- censo_school_ceara %>%
     by = c('cod_ibge_6', 'school_id', 'year')
   ) %>% 
   left_join(
-    spaece,
-    by = c("cod_ibge_6", "school_id", "year", "grade_level")
+    censo_school_ceara,
+    by = c("cod_ibge_6", "school_id", "year")
   ) %>% 
   join_covariate() %>% 
   mutate(
@@ -88,11 +83,11 @@ spaece_turnover <- spaece_turnover %>%
 # ==============================================================================
 # estimate effect of turnover on mean student test scores
 # ==============================================================================
-controls <- c(school_cov, mun_cov)
+controls <- c(school_covariates mun_cov)
 
 formulae_spaece <- formulate_models(
   "spaece_mean",
-  "turnover_index * grade_level + participation_rate",
+  "turnover_index + grade_level + participation_rate",
   fe = NULL,
   controls
 ) %>%

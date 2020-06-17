@@ -11,6 +11,11 @@ mayor <- read_data(
     "mayor.rds"
 )
 
+censo_demographic <- read_data(
+  "censo_br",
+  "censo_2000.rds"
+)
+
 saeb_election <- saeb_exam_mun %>% 
   group_by(
     cod_ibge_6,
@@ -29,8 +34,6 @@ saeb_election <- saeb_exam_mun %>%
   ) %>% 
   ungroup()
 
-mayor %>% check_if_id_unique(cpf_candidate, election_year)
-
 mayor <- mayor %>% 
 arrange(
     desc(election_year)
@@ -43,7 +46,7 @@ arrange(
   ) %>% 
   ungroup() 
 
-accountability %<>% 
+accountability <- mayor %>% 
   group_by(
     cod_ibge_6,
     election_year
@@ -68,30 +71,40 @@ accountability %<>%
     elected = if_else(outcome == "eleito", 1, 0),
     vote_share = vote/total_vote*100
   ) %>% 
-  left_join(censo)
+  left_join(censo_demographic)
 
 # ==============================================================================
 # accountability
 # ==============================================================================
-fit_acc <- list()
+mayor_covariates_accountability <- c(
+  "gender",
+  "edu"
+  )
 
-fit_acc$lm <- lm(
-  vote_share ~ delta_mean_grade_exam + edu_desc + gender + occupation + 
-    as.factor(party) + vote_lag + delta_mean_grade_exam + 
-    censo_rural + censo_log_pop + censo_student_age,
-  data = accountability
-)
+mun_covariates_accountability <- mun_covariates %>%
+  str_subset("education_capita", negate = T)
 
-fit_acc$felm <- fit_felm(
-  fit_acc,
+controls <- c(
+    mayor_covariates_accountability,
+    mun_covariates_accountability
+  )
+
+formulae_accountability <- formulate_models(
   "vote_share",
-  predictor = "delta_mean_grade_exam",
-  control = c(
-    "edu_desc", "gender", "occupation", "as.factor(party)", "vote_lag", 
-    "delta_mean_grade_exam", "censo_rural", "censo_log_pop", "censo_student_age"
-  ),
-  data = accountability,
-  cluster = c("state + election_year")
+  "delta_mean_grade_exam",
+  fe = NULL,
+  controls
+) %>%
+  map(
+    ~add_felm(., fe = "state + election_year", cluster = "cod_ibge_6" )
+  )
+
+fit_accountability <- map(
+  formulae_accountability,
+  ~ lfe::felm(
+    .,
+    data = accountability
+    )
 )
 
 plot_accountability <- fit_acc %>% 

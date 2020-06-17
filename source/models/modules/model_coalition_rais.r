@@ -39,7 +39,7 @@ model_rais_mun <- rais_edu %>%
 # estimation of effect of coalition share on staff turnover
 # ============================================================================== 
 controls_logit <- c(
-  mun_cov, rais_cov, mayor_cov, chamber_cov
+  mun_covariates rais_covariates mayor_covariates chamber_covariates
 )
 
 f_logit <- formulate(

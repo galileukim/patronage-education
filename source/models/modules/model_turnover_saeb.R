@@ -34,13 +34,9 @@ censo_school_turnover <- read_data(
     cod_ibge_6,
     year,
     school_id,
-    grade_level,
     turnover_index,
     starts_with("percent"),
     n_teacher = n
-  ) %>%
-  filter(
-    grade_level %in% c(5, 9)
   )
 
 # prepare data for estimation
@@ -95,11 +91,11 @@ fe <- c(
 )
 
 controls <- c(
-  teacher_cov,
-  principal_cov,
-  student_cov,
-  school_cov,
-  mun_cov
+  teacher_covariates
+  principal_covariates
+  student_covariates
+  school_covariates
+  mun_covariates
 )
 
 formulae <- c(
