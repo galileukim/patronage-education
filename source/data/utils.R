@@ -30,7 +30,7 @@ read_data <- function(type, dir, file) {
 get_data <- function(type, dir, file, cols){
   data <- read_data(type, dir, file)
 
-  data_subset <- select(data, cols)
+  data_subset <- select(data, all_of(cols))
 
   return(data_subset)
 }
@@ -110,12 +110,12 @@ list_files <- function(path, pattern) {
 group_sum <- function(data, .group_vars, .vars){
   data %>%
     group_by_at(
-      vars(
+      all_of(
        .group_vars
       )
     ) %>% 
     summarise(
-      across({{.vars}}, sum, na.rm = T),
+      across(all_of({{.vars}}), sum, na.rm = T),
       .groups = "drop"
     )
 }
