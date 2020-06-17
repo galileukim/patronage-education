@@ -46,52 +46,60 @@ test_that("check if get_data returns correct dimensions", {
 # ==============================================================================
 # teacher turnover calculation
 # ==============================================================================
-nrows <- 10
+nrows <- 2
 
 turnover_data <- tibble(
-    school = rep(c("a", "b"), each = nrows/2),
-    year = rep(c(2006:2007), each = nrows/2),
-    n = 5
-    # turnover_index = 
+    school = "a",
+    year = c(2005:2006, 2008),
+    n = c(2, 5, 6),
+    n_lag = lag(n),
+    turnover_exit = c(2, 2, 3),
+    turnover_transfer = 0,
+    turnover_entry = c(0, 2, 4)
 )
 
-.group_vars <- c("school")
-.vars <- c("n")
+.group_vars <- c("school", "year")
 
-turnover_data_calculated <- calc_turnover(
-    turnover_data,
-    .group_vars,
-    .vars
+turnover_sum <- turnover_data %>%
+    group_sum(
+        .group_vars,
+        c(starts_with("turnover"), n)
+    )
+    
+completed_data <- turnover_sum %>%
+    complete_year_data(
+        "school",
+        2005:2008
+    )
+
+turnover_index_data  <- calc_turnover(
+    completed_data,
+    c("school", "year")
 )
 
-test_that("check if calc_turnover returns correct dims", {
+test_that("check if calc_turnover returns correct object", {
     expect_equal(
         dim(turnover_data_calculated), 
         c(length(.group_vars), length(.vars) + length(.group_vars))
     )
     
+    expect_identical(
+        summed_data,
+        turnover_data %>%
+            select(.group_vars, starts_with("turnover"))
+    )
+
+    expect_equal(
+        sort(completed_data$year),
+        2005:2008
+    )
+    
+    expect_equal(
+        turnover_index_data %>% 
+        filter(year == 2006) %>% 
+        select(turnover_index),
+        turnover_data %>% 
+        filter(year == 2006) %>% 
+        summarise(turnover_index = (turnover_exit + turnover_transfer + turnover_entry)/(n + n_lag))
+    )
 })
-
-
-     df <- tibble(
-       group = c(1:2, 1),
-       item_id = c(1:2, 2),
-       item_name = c("a", "b", "b"),
-       value1 = 1:3,
-       value2 = 4:6
-     )
-
-     df %>% complete(group, nesting(item_id, item_name))
-
-     df %>% group_by(item_name) %>% complete(group = 1:2)
-     df %>% complete_grouped_data("item_name", group, 1:2)
-     
-     # You can also choose to fill in missing values
-     df %>% complete(group, nesting(item_id, item_name), fill = list(value1 = 0))
-
-calc_turnover(
-    turnover_data,
-    "year",
-    "n"
-)
-

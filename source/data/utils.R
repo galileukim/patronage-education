@@ -107,7 +107,7 @@ list_files <- function(path, pattern) {
 
 # data manipulation -------------------------------------------------------
 # groups and summarises data
-group_summarise <- function(data, .group_vars, .vars, .fun){
+group_sum <- function(data, .group_vars, .vars){
   data %>%
     group_by_at(
       vars(
@@ -115,25 +115,29 @@ group_summarise <- function(data, .group_vars, .vars, .fun){
       )
     ) %>% 
     summarise(
-      across(.vars, .fun, na.rm = T),
+      across({{.vars}}, sum, na.rm = T),
       .groups = "drop"
     )
 }
 
 complete_year_data <- function(data, .group_vars, complete_years){
   complete_data <- data %>%
+    mutate(
+      completed = 0
+    ) %>%
     group_by_at(
       .group_vars
     ) %>%
     complete(
-      year = complete_year
+      year = complete_years,
+      fill = list(completed = 1)
     )
 
     return(complete_data)
 }
 
-calc_turnover <- function(data, .group_vars, .vars = starts_with("turnover"), complete_years){
-  data %>% 
+calc_turnover <- function(data, .group_vars, .vars = "total_turnover", denominator = "total_n") {
+  turnover_data  <- data %>%
     group_by_at(
       vars(
         .group_vars,
@@ -142,21 +146,21 @@ calc_turnover <- function(data, .group_vars, .vars = starts_with("turnover"), co
     ) %>% 
     mutate(
       n_lag = dplyr::lag(n, order_by = year),
-      percent_exit = turnover_exit/n_lag,
-      percent_transfer = turnover_transfer/n_lag,
-      percent_extinct = turnover_extinct/n_lag,
-      percent_entry = turnover_entry/n,
-      turnover_index = (turnover_exit + turnover_transfer + turnover_entry)/(n + n_lag)
-    ) %>% 
-    ungroup() %>% 
-    filter(
-      implicit != 1
-    ) %>% 
-    select(
-      -implicit
+      total_turnover = turnover_exit + turnover_transfer + turnover_entry,
+      total_n = n + n_lag
+    ) %>%
+    ungroup() %>%
+    mutate(
+      turnover_index = ratio(total_turnover, total_n)
     )
+
+  return(turnover_data)
+}
+
+ratio <- function(numerator, denominator){
+  ratio <- numerator/denominator
   
-  # return(data)
+  return(ratio)
 }
 
 summarise_stats <- function(data, ...){
