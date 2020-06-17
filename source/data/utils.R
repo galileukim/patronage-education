@@ -120,24 +120,50 @@ group_summarise <- function(data, .group_vars, .vars, .fun){
     )
 }
 
-calc_turnover <- function(data, group_vars){
-  years <- data %>% 
-    distinct(year) %>% 
-    pull
-  
-  
-  
-  data %<>% 
-    mutate(
-      implicit = 0
-    ) %>% 
+complete_year_data <- function(data, .group_vars, complete_years){
+  complete_data <- data %>%
+    group_by_at(
+      .group_vars
+    ) %>%
     complete(
-      year = years,
-      fill = list(implicit = 1)
-    ) %>% 
+      year = complete_year
+    )
+
+    return(complete_data)
+}
+
+# complete_data <- function(){
+#   complete_data <- data %>% 
+#     distinct(var)
+    
+#   data %>% 
+#     full_join(
+#       complete_data
+#     ) %>%
+#     mutate_at(
+#       implicit,
+#       if_else(is.na(var), 0, 1)
+#     )
+# }
+
+calc_turnover <- function(data, .group_vars, .vars = starts_with("turnover")){
+  turnover_data <- data %>%
+    group_summarise(
+      .group_vars,
+      .vars,
+      sum
+    )
+    
+    complete_turnover_data <- turnover_data %>%
+      complete(
+                
+      )
+
+
+    %>% 
     group_by_at(
       vars(
-        group_vars,
+        .group_vars,
         -year
       )
     ) %>% 
@@ -157,7 +183,7 @@ calc_turnover <- function(data, group_vars){
       -implicit
     )
   
-  return(data)
+  # return(data)
 }
 
 summarise_stats <- function(data, ...){

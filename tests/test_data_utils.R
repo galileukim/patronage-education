@@ -49,8 +49,51 @@ test_that("check if get_data returns correct dimensions", {
 nrows <- 10
 
 turnover_data <- tibble(
-    school = rep("a", nrows),
+    school = rep(c("a", "b"), each = nrows/2),
     year = rep(c(2006:2007), each = nrows/2),
     n = 5
+    # turnover_index = 
+)
+
+.group_vars <- c("school")
+.vars <- c("n")
+
+turnover_data_calculated <- calc_turnover(
+    turnover_data,
+    .group_vars,
+    .vars
+)
+
+test_that("check if calc_turnover returns correct dims", {
+    expect_equal(
+        dim(turnover_data_calculated), 
+        c(length(.group_vars), length(.vars) + length(.group_vars))
+    )
+    expect_equal(
+        complete_data(turnover_data, year),
+    )
+})
+
+
+     df <- tibble(
+       group = c(1:2, 1),
+       item_id = c(1:2, 2),
+       item_name = c("a", "b", "b"),
+       value1 = 1:3,
+       value2 = 4:6
+     )
+
+     df %>% complete(group, nesting(item_id, item_name))
+
+     df %>% group_by(item_name) %>% complete(group = 1:2)
+     df %>% complete_grouped_data("item_name", group, 1:2)
+     
+     # You can also choose to fill in missing values
+     df %>% complete(group, nesting(item_id, item_name), fill = list(value1 = 0))
+
+calc_turnover(
+    turnover_data,
+    "year",
+    "n"
 )
 
