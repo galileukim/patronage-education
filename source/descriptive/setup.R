@@ -36,7 +36,7 @@ set.seed(1789)
 # load auxiliary utils
 # ==============================================================================
 source(
-  here("source", "replication", "utils.R")
+  here("source", "descriptive", "utils.R")
 )
 
 run_module <- partial(

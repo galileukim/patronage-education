@@ -242,8 +242,9 @@ censo_class_mun %>%
 
 reset_env(init_env)
 
-# teacher turnover
-# aggregate
+# ==============================================================================
+# create teacher turnover index by school and municipality
+# ==============================================================================
 init_env <- ls()
 
 censo_teacher_turnover <- read_data(
@@ -252,7 +253,7 @@ censo_teacher_turnover <- read_data(
   "censo_teacher_turnover.csv.gz"
 )
 
-.group_vars <- c("state", "cod_ibge_6", "year", "school_id", "grade_level")
+.group_vars <- c("state", "cod_ibge_6", "year", "school_id")
 .vars <- c("turnover_entry", "turnover_exit", "turnover_transfer", "n")
 complete_years <- 2007:2016
 
@@ -264,7 +265,7 @@ censo_teacher_turnover <- censo_teacher_turnover %>%
     )
   )
 
-future::plan(future::multiprocess, workers = 6)
+future::plan(future::multiprocess, workers = 8)
 
 censo_turnover_school <- censo_teacher_turnover %>%
   split(.$state) %>%

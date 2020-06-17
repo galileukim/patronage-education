@@ -35,8 +35,6 @@ get_data <- function(type, dir, file, cols){
   return(data_subset)
 }
 
-clean_data <- function(data)
-
 write_data <- function(object, dir, file, type = "clean", compress = "gz") {
   file_path <- here_data(type, dir, file)
 
@@ -106,12 +104,40 @@ list_files <- function(path, pattern) {
 }
 
 # data manipulation -------------------------------------------------------
+# check if vector of ids is unique
+check_if_id_unique <- function(data, .group_vars) {
+  data_count <- data %>%
+    group_by(
+      across(
+        all_of({{.group_vars}})
+      )
+    ) %>%
+    summarise(
+      n = n(),
+      .groups = "drop"
+    )
+
+  if(max(data_count$n) > 1) {
+    print("id_vars are not unique. printing duplicates...")
+    duplicated_groups <- data_count %>%
+      filter(n > 1) %>%
+      arrange(desc(n))
+
+    return(duplicated_groups)
+  }else {
+    print("id_vars are unique.")
+  }
+}
+
 # groups and summarises data
 create_teacher_turnover_index <- function(data, .group_vars, .vars, complete_years){
   turnover_data <- data %>%
     grouped_sum(.group_vars, .vars) %>%
     complete_year_by_group(.group_vars, complete_years) %>%
-    calc_turnover_by_group(.group_vars)
+    calc_turnover_by_group(.group_vars) %>%
+    filter(
+      completed != 1 # remove completed entries
+    )
 
     return(turnover_data)
 }

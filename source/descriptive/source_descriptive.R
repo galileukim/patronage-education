@@ -2,7 +2,7 @@
 # run modules
 # ==============================================================================
 source(
-  here::here("source", "replication", "setup.R")
+  here::here("source", "descriptive", "setup.R")
 )
 
 # run tasks
@@ -28,64 +28,6 @@ walk(
 # and ensure that the entire source code compiles
 
 # # explaining turnover -----------------------------------------------------
-
-
-# # accountability ----------------------------------------------------------
-# fit_acc <- list()
-
-# fit_acc$lm <- lm(
-#   vote_share ~ delta_mean_grade_exam + edu_desc + gender + occupation + 
-#     as.factor(party) + vote_lag + delta_mean_grade_exam + 
-#     censo_rural + censo_log_pop + censo_student_age,
-#   data = accountability
-# )
-
-# fit_acc$felm <- fit_felm(
-#   fit_acc,
-#   "vote_share",
-#   predictor = "delta_mean_grade_exam",
-#   control = c(
-#     "edu_desc", "gender", "occupation", "as.factor(party)", "vote_lag", 
-#     "delta_mean_grade_exam", "censo_rural", "censo_log_pop", "censo_student_age"
-#   ),
-#   data = accountability,
-#   cluster = c("state + election_year")
-# )
-
-# plot_accountability <- fit_acc %>% 
-#   map2_df(
-#     names(.),
-#     ~tidy(.x, conf.int = T) %>% 
-#       filter(
-#         str_detect(
-#           term,
-#           "delta|censo_log_pop|censo_rural|gender|vote_lag"
-#         )
-#       ) %>% 
-#       mutate(
-#         name = .y
-#       )
-#   )
-
-# plot_accountability <- ggplot(
-#   data = plot_accountability,
-#   mapping = aes(
-#     y = term, 
-#     x = estimate,
-#     color = name,
-#     group = name
-#   ),
-#   conf.int = T
-# ) +
-#   geom_point(
-#     position = ggstance::position_dodgev(height=0.3)
-#   ) +
-#   geom_errorbar_tidy
-
-# ggsave(
-#   plot_accountability,
-#   filename = p_file_here('figs', "accountability_fit.pdf")
-# )
 
 # # covariate balance -------------------------------------------------------
 # weight_out <- weightit(
