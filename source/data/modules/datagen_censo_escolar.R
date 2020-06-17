@@ -36,12 +36,16 @@ censo_school_mun <- censo_school %>%
       high_sch_normal,
       na.rm = T
     ),
-    prop_meal = mean(
-      meal,
+     prop_electricity = 1 - mean(
+      electricity_inexistent,
       na.rm = T
     ),
-    prop_electricity = 1 - mean(
-      electricity_inexistent,
+    prop_sewer = 1 - mean(
+      sewer_inexistent,
+      na.rm = T
+    ),
+    prop_meal = mean(
+      meal,
       na.rm = T
     ),
     prop_internet = mean(
@@ -51,11 +55,7 @@ censo_school_mun <- censo_school %>%
     prop_kitchen = mean(
       kitchen,
       na.rm = T
-    ),
-    prop_sewer = 1 - mean(
-      sewer_inexistent,
-      na.rm = T
-    ),
+    ),    
     prop_rural = mean(
       location == "rural",
       na.rm = T
@@ -252,14 +252,16 @@ censo_teacher_turnover <- read_data(
   "censo_teacher_turnover.csv.gz"
 )
 
+.group_vars <- c("state", "cod_ibge_6", "year", "school_id", "grade_level")
+.vars <- c("turnover_entry", "turnover_exit", "turnover_transfer", "n")
+complete_years <- 2007:2016
+
 censo_teacher_turnover <- censo_teacher_turnover %>%
-  mutate_at(
-    vars(
-      starts_with("turnover"),
-      starts_with("percent"),
-      n
-    ),
-    as.numeric
+  mutate(
+    across(
+      all_of(.vars),
+      as.numeric
+    )
   )
 
 future::plan(future::multiprocess, workers = 6)
@@ -267,35 +269,39 @@ future::plan(future::multiprocess, workers = 6)
 censo_turnover_school <- censo_teacher_turnover %>%
   split(.$state) %>%
   furrr::future_map_dfr(
-    ~ calc_turnover(
+    ~ create_teacher_turnover_index(
       .,
-      c("state", "cod_ibge_6", "year", "school_id", "grade_level")
+      .group_vars,
+      .vars,
+      complete_years
     )
-  ) %>%
+  ) 
+
+censo_turnover_school_arranged <- censo_turnover_school %>%
   arrange(
     cod_ibge_6, 
     year,
     school_id
   )
 
-censo_turnover_school %>%
+censo_turnover_school_arranged %>%
   write_data(
     "censo_escolar",
     "censo_school_turnover.rds"
   )
 
+.mun_group_vars <- str_subset(.group_vars, "school_id", negate = T)
+
 censo_turnover_mun <- censo_teacher_turnover %>%
   split(.$state) %>%
   furrr::future_map_dfr(
-    ~ calc_turnover(
+    ~ create_teacher_turnover_index(
       .,
-      c("state", "cod_ibge_6", "year", "grade_level")
+      .mun_group_vars,
+      .vars,
+      complete_years
     )
-  ) %>%
-  arrange(
-    cod_ibge_6,
-    year
-  )
+  ) 
 
 censo_turnover_mun %>%
   write_data(

@@ -107,7 +107,16 @@ list_files <- function(path, pattern) {
 
 # data manipulation -------------------------------------------------------
 # groups and summarises data
-group_sum <- function(data, .group_vars, .vars){
+create_teacher_turnover_index <- function(data, .group_vars, .vars, complete_years){
+  turnover_data <- data %>%
+    grouped_sum(.group_vars, .vars) %>%
+    complete_year_by_group(.group_vars, complete_years) %>%
+    calc_turnover_by_group(.group_vars)
+
+    return(turnover_data)
+}
+
+grouped_sum <- function(data, .group_vars, .vars){
   data %>%
     group_by_at(
       all_of(
@@ -120,23 +129,26 @@ group_sum <- function(data, .group_vars, .vars){
     )
 }
 
-complete_year_data <- function(data, .group_vars, complete_years){
+complete_year_by_group <- function(data, .group_vars, complete_years){
+  .group_vars_minus_year <- str_subset(.group_vars, "year", negate = T)
+  
   complete_data <- data %>%
     mutate(
       completed = 0
     ) %>%
     group_by_at(
-      .group_vars
+      all_of(.group_vars_minus_year)
     ) %>%
     complete(
       year = complete_years,
       fill = list(completed = 1)
-    )
+    ) %>%
+    ungroup()
 
     return(complete_data)
 }
 
-calc_turnover <- function(data, .group_vars, .vars = "total_turnover", denominator = "total_n") {
+calc_turnover_by_group <- function(data, .group_vars) {
   turnover_data  <- data %>%
     group_by_at(
       vars(

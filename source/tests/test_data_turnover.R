@@ -1,4 +1,3 @@
-
 # ==============================================================================
 # teacher turnover calculation
 # ==============================================================================
@@ -21,23 +20,30 @@ turnover_data <- tibble(
 )
 
 turnover_sum <- turnover_data %>%
-    group_sum(
+    grouped_sum(
         .group_vars,
         .vars
     )
 
 completed_data <- turnover_sum %>%
-    complete_year_data(
+    complete_year_by_group(
         "school",
         complete_years
     )
 
-turnover_index_data <- calc_turnover(
+turnover_index_data <- calc_turnover_by_group(
     completed_data,
-    c("school", "year")
+    .group_vars
 )
 
-test_that("check if calc_turnover returns correct object", {
+turnover_complete  <- create_teacher_turnover_index(
+    turnover_data,
+    .group_vars,
+    .vars,
+    complete_years
+)
+
+test_that("check if calc_turnover_by_group returns correct object", {
     n_groupings <- nrow(distinct(turnover_data, across(.group_vars)))
     n_cols <- length(.vars) + length(.group_vars)
 
@@ -68,5 +74,10 @@ test_that("check if calc_turnover returns correct object", {
     expect_equal(
         ceiling(max_turnover),
         1
+    )
+
+    expect_equal(
+        nrow(turnover_complete),
+        nrow(turnover_data) + 1
     )
 })
