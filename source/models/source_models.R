@@ -7,9 +7,10 @@ source(
 
 # run tasks
 modules <- c(
+  "model_turnover_saeb",
+  "model_turnover_spaece",
+  "visual_model_turnover",
   "model_coalition_turnover"
-  # "model_turnover_spaece",
-  # "model_coalition_turnover"
   )
 
 walk(

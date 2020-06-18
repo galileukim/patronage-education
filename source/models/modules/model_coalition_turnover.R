@@ -33,7 +33,7 @@ model_school_turnover <- censo_school_turnover %>%
 # estimation of the effect of coalition share on staff turnover
 # ==============================================================================
 controls_turnover <- c(
-  mun_covariates school_covariates
+  mun_covariates, school_covariates
 )
 
 formulae_turnover <- formulate_models(

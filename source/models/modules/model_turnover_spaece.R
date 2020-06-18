@@ -5,6 +5,8 @@ source(
   here::here("source", "models", "setup.R")
 )
 
+print("pre-processing data")
+
 spaece <- read_data(
   "spaece",
   "spaece.rds"
@@ -74,16 +76,18 @@ spaece_turnover <- spaece_turnover %>%
   ) %>% 
   mutate_if(
     is.double,
-    scale
+    scale_z
   ) %>%
   filter(
     grade_level != 2
   )
 
+  print("pre-processing complete!")
+
 # ==============================================================================
 # estimate effect of turnover on mean student test scores
 # ==============================================================================
-controls <- c(school_covariates mun_cov)
+controls <- c(school_covariates, mun_covariates)
 
 formulae_spaece <- formulate_models(
   "spaece_mean",
@@ -92,7 +96,7 @@ formulae_spaece <- formulate_models(
   controls
 ) %>%
   map(
-    ~add_felm(., fe = "year", cluster = "cod_ibge_6" )
+    ~add_felm(., fe = "year", cluster = "0" )
   )
 
 fit_spaece <- map(
