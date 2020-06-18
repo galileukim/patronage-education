@@ -39,6 +39,11 @@ read_data <- partial(
   type = "clean"
 )
 
+save_fig <- partial(
+  save_fig,
+  domain = "models"
+)
+
 theme_set(
   theme_minimal() +
     theme_clean
