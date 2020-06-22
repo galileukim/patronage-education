@@ -5,16 +5,16 @@
 
 between <- data.table::between
 
-ls_sub <- function(pattern, .negate = F){
+ls_sub <- function(pattern, .negate = F) {
   objects <- ls(.GlobalEnv)
   objects_sub <- objects %>%
     str_subset(pattern, .negate) %>%
-    sort
+    sort()
 
   return(objects_sub)
 }
 
-list_data <- function(dir){
+list_data <- function(dir) {
   path <- here("data", "clean", dir)
   files <- list.files(path)
 
@@ -23,7 +23,7 @@ list_data <- function(dir){
 
 here_data <- function(type, dir, file) {
   path <- here("data", type, dir, file)
-  
+
   return(path)
 }
 
@@ -35,7 +35,7 @@ read_data <- function(type, dir, file) {
   } else {
     data <- fread(file_path)
   }
-  
+
   print_obj_size(data)
 
   return(data)
@@ -51,7 +51,7 @@ ls_data <- function(env = .GlobalEnv) {
 
   is_data <- map_lgl(
     obj,
-    ~is.data.frame(get(.))
+    ~ is.data.frame(get(.))
   )
 
   data_obj <- obj[is_data]
@@ -59,7 +59,28 @@ ls_data <- function(env = .GlobalEnv) {
   return(data_obj)
 }
 
-read_model <- function(file){
+ls_utils <- function(env = .GlobalEnv) {
+  obj <- ls(env)
+
+  is_function <- map_lgl(
+    obj,
+    ~ is.function(get(.))
+  )
+
+  function_obj <- obj[is_function]
+
+  return(function_obj)
+}
+
+ls_sub <- function(pattern, env = .GlobalEnv) {
+  obj <- ls(env)
+
+  obj_sub <- str_subset(obj, pattern)
+
+  return(obj_sub)
+}
+
+read_model <- function(file) {
   fit <- read_rds(
     here("models", "fit", file)
   )
@@ -71,7 +92,7 @@ read_model <- function(file){
 
 write_model <- function(model, file) {
   print_obj_size(model)
-  
+
   write_rds(
     model,
     here("models", "fit", file)
@@ -83,10 +104,10 @@ run_module <- function(domain, module) {
     paste0("running module ", module, "...")
   )
 
-  if(domain == "data"){
+  if (domain == "data") {
     build_repo(module)
   }
-  
+
   module_script <- paste0(module, ".R")
 
   path <- here("source", domain, "modules", module_script)
@@ -100,7 +121,7 @@ run_module <- function(domain, module) {
   )
 }
 
-reset_env <- function(init_env, packages){
+reset_env <- function(init_env, packages) {
   final_env <- ls(.GlobalEnv)
 
   rm(
@@ -111,7 +132,7 @@ reset_env <- function(init_env, packages){
   gc()
 }
 
-save_fig <- function(pl, domain, file, width = 5, height = 3, ...){
+save_fig <- function(pl, domain, file, width = 5, height = 3, ...) {
   print(pl)
 
   ggplot2::ggsave(
@@ -126,8 +147,8 @@ save_fig <- function(pl, domain, file, width = 5, height = 3, ...){
 # ==============================================================================
 # data io
 # ==============================================================================
-show_cols <- function(data){
-  cols <- colnames(data) %>% 
+show_cols <- function(data) {
+  cols <- colnames(data) %>%
     sort()
 
   return(cols)
@@ -139,35 +160,35 @@ fread <- partial(
   integer64 = c("character")
 )
 
-list_files <- function(path, pattern){
+list_files <- function(path, pattern) {
   files <- map2(
     path,
     pattern,
     list.files
-  ) %>% 
-    flatten_chr
-  
+  ) %>%
+    flatten_chr()
+
   return(files)
 }
 
 # ==============================================================================
 # data cleaning
 # ==============================================================================
-scale_z <- function(col){
+scale_z <- function(col) {
   as.vector(scale(col))
 }
 
-fix_scale <- function(data){
-  scaled_data <- data %>% 
-  mutate_if(
-    is.double,
-    scale_z
-  )
+fix_scale <- function(data) {
+  scaled_data <- data %>%
+    mutate_if(
+      is.double,
+      scale_z
+    )
 
   return(scaled_data)
 }
 
-fix_na <- function(data){
+fix_na <- function(data) {
   data_na_fix <- data %>%
     mutate_all(
       ~ na_if(., "")
@@ -177,92 +198,93 @@ fix_na <- function(data){
 }
 
 # tidy and ggcoef
-tidyfit <- function(fit, vars = '.'){
+tidyfit <- function(fit, vars = ".") {
   broom::tidy(fit) %>%
     filter(
       !str_detect(term, "Intercept|as.factor|Observation.Residual"),
       str_detect(term, vars)
     ) %>%
     mutate(
-      conf.low = estimate - 1.96*std.error,
-      conf.high = estimate + 1.96*std.error
+      conf.low = estimate - 1.96 * std.error,
+      conf.high = estimate + 1.96 * std.error
     )
 }
 
 # table of results
-mstar <- function(..., font.size = "small", float = F, no.space = T, keep.stat = c("n", "rsq")){
+mstar <- function(..., font.size = "small", float = F, no.space = T, keep.stat = c("n", "rsq")) {
   stargazer::stargazer(
     ...,
-    font.size = font.size, 
-    float = float, 
-    no.space = no.space, 
+    font.size = font.size,
+    float = float,
+    no.space = no.space,
     keep.stat = keep.stat
   )
 }
 
 # summarize props with c.i.
-summarise_prop <- function(data, var){
+summarise_prop <- function(data, var) {
   summarise(
     .data = data,
     prop = mean(get(var), na.rm = T),
     n = n(),
-    se = sqrt(prop*(1 - prop)/n),
-    upper = prop + 1.96*se,
-    lower = prop - 1.96*se
+    se = sqrt(prop * (1 - prop) / n),
+    upper = prop + 1.96 * se,
+    lower = prop - 1.96 * se
   )
 }
 
 # create group summary
-group_summarise <- function(data, group_vars, summarise_vars, ...){
+group_summarise <- function(data, group_vars, summarise_vars, ...) {
   out <- data %>%
     group_by(
-      across({{group_vars}})
+      across({{ group_vars }})
     ) %>%
     summarise(
-      across({{summarise_vars}},
-      ...
+      across(
+        {{ summarise_vars }},
+        ...
       ),
-      .groups = 'drop'
+      .groups = "drop"
     )
 
-    return(out)
+  return(out)
 }
 
-summarise_stats <- function(data, ...){
+summarise_stats <- function(data, ...) {
   vars <- enquos(...)
-  
-  data_count <- data %>% 
-    count
-  
-  data %<>% 
+
+  data_count <- data %>%
+    count()
+
+  data %<>%
     summarise_at(
       .vars = vars(!!!vars),
       .funs = list(
         mean = mean,
-        sum = sum, 
-        med = median, 
+        sum = sum,
+        med = median,
         sd = sd
       ),
       na.rm = T
-    ) %>% 
+    ) %>%
     ungroup()
-  
+
   data %<>%
     left_join(
       data_count
     )
-  
+
   return(data)
 }
 
-count_freq <- function(data, ...){
+count_freq <- function(data, ...) {
   vars <- enquos(...)
-  
-  data <- data %>% 
-    group_by(!!! vars) %>% 
-    summarise(n = n()) %>% 
-    mutate(freq = n/sum(n))
-  
+
+  data <- data %>%
+    group_by(!!!vars) %>%
+    summarise(n = n()) %>%
+    mutate(freq = n / sum(n))
+
   return(data)
 }
 
@@ -288,26 +310,26 @@ theme_clean <- theme(
 
 group_split <- function(data, ...) {
   vars <- enquos(...)
-  
-  data <- data %>% 
+
+  data <- data %>%
     group_by(!!!vars)
-  
-  group_names <- group_keys(data) %>% 
+
+  group_names <- group_keys(data) %>%
     pull()
-  
-  data %>% 
-    dplyr::group_split() %>% 
+
+  data %>%
+    dplyr::group_split() %>%
     set_names(
       group_names
     )
 }
 
 
-tidycoef <- function(fit, vars = ".", ...){
+tidycoef <- function(fit, vars = ".", ...) {
   tidyfit(fit, vars) %>%
     ggcoef(
       mapping = aes_string(
-        y = "term", 
+        y = "term",
         x = "estimate",
         ...
       ),
@@ -322,7 +344,7 @@ tidycoef <- function(fit, vars = ".", ...){
 }
 
 # add mandate year vertical lines
-mandate_year <- function(years = seq(2005, 2013, 4)){
+mandate_year <- function(years = seq(2005, 2013, 4)) {
   geom_vline(
     xintercept = years,
     linetype = "dotted",
@@ -331,7 +353,7 @@ mandate_year <- function(years = seq(2005, 2013, 4)){
 }
 
 # summarize by mun
-summarise_fun <- function(data, var){
+summarise_fun <- function(data, var) {
   data %>%
     group_by(
       region,
@@ -364,14 +386,14 @@ summarise_fun <- function(data, var){
 
 
 geom_errorbar_tidy <- geom_errorbarh(
-    aes(
-      xmin = conf.low,
-      xmax = conf.high
-    ),
-    height = 0,
-    linetype = "solid",
-    position = ggstance::position_dodgev(height=0.3)
-  )
+  aes(
+    xmin = conf.low,
+    xmax = conf.high
+  ),
+  height = 0,
+  linetype = "solid",
+  position = ggstance::position_dodgev(height = 0.3)
+)
 
 # missingness
 gg_miss_var <- partial(
@@ -380,7 +402,7 @@ gg_miss_var <- partial(
 )
 
 # hex
-gg_hex <- function(data, mapping = aes(), n_bin = 30, ...){
+gg_hex <- function(data, mapping = aes(), n_bin = 30, ...) {
   ggplot(
     data = data,
     mapping
@@ -394,9 +416,9 @@ gg_hex <- function(data, mapping = aes(), n_bin = 30, ...){
       direction = -1
     )
 }
-  
+
 # histogram
-gg_histogram <- function(data, mapping = aes(), ...){
+gg_histogram <- function(data, mapping = aes(), ...) {
   ggplot(
     data = data,
     mapping
@@ -405,11 +427,11 @@ gg_histogram <- function(data, mapping = aes(), ...){
       ...,
       col = "#375b7c",
       fill = "steelblue3",
-      aes(y = stat(width*density))
+      aes(y = stat(width * density))
     )
 }
 
-gg_point <- function(data, mapping = aes(), ...){
+gg_point <- function(data, mapping = aes(), ...) {
   ggplot(
     data = data,
     mapping
@@ -417,8 +439,8 @@ gg_point <- function(data, mapping = aes(), ...){
     geom_point(...)
 }
 
-gg_summary <- function(data, x, y, fun = 'mean', size = 2, geom = 'point', color = matte_indigo, smooth = T, ...){
-  plot <- data %>% 
+gg_summary <- function(data, x, y, fun = "mean", size = 2, geom = "point", color = matte_indigo, smooth = T, ...) {
+  plot <- data %>%
     ggplot(
       aes(
         !!enquo(x),
@@ -432,16 +454,26 @@ gg_summary <- function(data, x, y, fun = 'mean', size = 2, geom = 'point', color
       color = color,
       ...
     )
-  
-  if(smooth == T){
+
+  if (smooth == T) {
     plot <- plot +
       geom_smooth(
-        method = 'gam',
+        method = "gam",
         formula = y ~ splines::bs(x, 3)
-      ) 
+      )
   }
-  
+
   return(plot)
+}
+
+generate_love_plot <- function(x, limits = NULL, labels = NULL){
+  cobalt::love.plot(x, colors = matte_indigo, threshold = .1) + 
+    theme(legend.position = "none") + 
+    scale_y_discrete(
+    limits = limits,
+    labels = labels
+  ) +
+    ggtitle("")
 }
 
 # change default ggplot settings
@@ -476,22 +508,24 @@ update_geom_defaults(
 # ==============================================================================
 ivreg <- AER::ivreg
 
-add_felm <- function(formula, fe, instrument = 0, cluster){
+add_felm <- function(formula, fe, instrument = 0, cluster) {
   felm_formula <- paste(
     deparse(formula, width.cutoff = 500),
     fe,
     instrument,
     cluster,
-    sep = "|") %>%
-    as.formula
-  
+    sep = "|"
+  ) %>%
+    as.formula()
+
   return(felm_formula)
 }
 
 formulate_models <- function(response, predictor, fe, controls) {
   formulae <- c(
     formulate(
-      response, predictor, controls = NULL, fe
+      response, predictor,
+      controls = NULL, fe
     ),
     formulate(
       response, predictor, controls, fe
@@ -501,26 +535,26 @@ formulate_models <- function(response, predictor, fe, controls) {
   return(formulae)
 }
 
-formulate <- function(response, predictor, controls, fe){
+formulate <- function(response, predictor, controls, fe) {
   formula <- reformulate(
-      c(predictor, controls, fe), response
-    )
+    c(predictor, controls, fe), response
+  )
 
   return(formula)
 }
 
 # logit
-logit <- function(f, data){
+logit <- function(f, data) {
   fit <- glm(
     formula = f,
     data = data,
-    family = 'binomial'
+    family = "binomial"
   )
 }
 
 # election years
-add_election <- function(data){
-  data %>% 
+add_election <- function(data) {
+  data %>%
     mutate(
       election_year = case_when(
         between(year, 2001, 2004) ~ 2000,
@@ -532,21 +566,21 @@ add_election <- function(data){
 }
 
 # covariates
-join_covariate <- function(data){
-  data %>% 
+join_covariate <- function(data) {
+  data %>%
     left_join(
       read_rds(
         here("data/clean/finbra/finbra.rds")
       ),
       by = c("cod_ibge_6", "year")
-    ) %>% 
+    ) %>%
     left_join(
       read_rds(
         here("data/clean/censo_br/censo_2000.rds")
       ),
       by = c("cod_ibge_6")
-    ) %>% 
-    add_election() %>% 
+    ) %>%
+    add_election() %>%
     left_join(
       read_rds(
         here("data/clean/tse/election.rds")

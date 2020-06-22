@@ -95,7 +95,7 @@ plot_model_turnover <- estimate_hlm %>%
   coord_flip(
     xlim = c(-0.2, 0.2)
   )
-
+  
 save_fig(
   plot_model_turnover,
   file = "model_turnover_learning.pdf"

@@ -30,50 +30,7 @@ walk(
 # # explaining turnover -----------------------------------------------------
 
 # # covariate balance -------------------------------------------------------
-# weight_out <- weightit(
-#   turnover_index ~ saeb_principal_female + saeb_principal_education + saeb_principal_appointment +
-#     education_teacher + saeb_wage_teacher + year_as_teacher + 
-#     parent_attend_college_student + parents_school_meeting_student + fridge_student + failed_school_year_student +
-#     toilet + meal +
-#     censo_median_wage + censo_log_pop + censo_rural + censo_lit_rate,
-#   data = saeb_hierarchical %>% 
-#     filter(!is.na(turnover_index)),
-#   method = 'ps',
-#   missing = 'ind'
-# )
 
-# love.plot(
-#   weight_out,
-#   threshold = .1, 
-#   abs = TRUE,
-#   var.order = "unadjusted",
-#   line = TRUE
-# )
-
-# ggsave(
-#   filename = p_file_here('figs', 'balance_hlm.pdf')
-# )
-
-# weight_out <- weightit(
-#   coalition_share ~rais_permanent + rais_size + I(budget_education/censo_pop) + 
-#     censo_median_wage+ censo_log_pop+ mayor_edu,
-#   data = rais_edu_mun %>% 
-#     filter(!is.na(coalition_share)),
-#   method = 'ps',
-#   missing = 'ind'
-# )
-
-# love.plot(
-#   weight_out,
-#   threshold = .1, 
-#   abs = TRUE,
-#   var.order = "unadjusted",
-#   line = TRUE
-# )
-
-# ggsave(
-#   filename = p_file_here('figs', 'balance_felm.pdf')
-# )
 
 # # rdd ---------------------------------------------------------------------
 # formula_rdd <- fm(
