@@ -506,8 +506,6 @@ update_geom_defaults(
 # ==============================================================================
 # models aux. functions
 # ==============================================================================
-ivreg <- AER::ivreg
-
 add_felm <- function(formula, fe, instrument = 0, cluster) {
   felm_formula <- paste(
     deparse(formula, width.cutoff = 500),
@@ -541,7 +539,7 @@ update_formula_iv <- function(formula, endogenous, instrument) {
     sep = " | "
   )
 
-  return(iv_formuola)
+  return(iv_formula)
 }
 
 formulate_models <- function(response, predictor, fe, controls) {

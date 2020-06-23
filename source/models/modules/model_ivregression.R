@@ -3,59 +3,70 @@
 # note that this relies on the exclusion restriction, which is fundamentally
 # unobservable.
 # ==============================================================================
-print("import data")
+print("importing pre-processed saeb hierarchical")
 
-saeb_hierarchical <- read_data(
-    "saeb",
-    "saeb_hierarchical.rds"
+run_module(
+    "preprocess_saeb_hierarchical.R"
 )
+
+# add dummy for first year of the electoral term
+saeb_hierarchical <- saeb_hierarchical %>%
+    mutate(
+        first_year = if_else(year == election_year + 1, 1, 0)
+    )
 
 print("begin estimation of instrumental variables model")
 
 fe <- c(
-  "as.factor(year)",
-  "as.factor(state)"
+    "as.factor(year)",
+    "as.factor(state)"
 )
 
+predictor <- "turnover_index"
+response <- "grade_exam"
+
 controls <- c(
-  teacher_covariates,
-  principal_covariates,
-  student_covariates,
-  school_covariates,
-  mun_covariates,
-  fe
+    teacher_covariates,
+    principal_covariates,
+    student_covariates,
+    school_covariates,
+    mun_covariates,
+    fe
 )
 
 formula_iv <- reformulate(
-    controls,
-    "grade_exam"
+    c(predictor, controls),
+    response
 )
 
-fit_iv <- AER::ivreg(
-  grade_exam ~ turnover_index + saeb_principal_female + saeb_principal_education + saeb_principal_appointment +
-    education_teacher + saeb_wage_teacher +
-    parent_attend_college_student + parents_school_meeting_student + fridge_student + failed_school_year_student +
-    toilet + meal + 
-    censo_median_wage + censo_log_pop + censo_rural + censo_lit_rate| 
-    coalition_share + saeb_principal_female + saeb_principal_education + saeb_principal_appointment +
-    education_teacher + saeb_wage_teacher + 
-    parent_attend_college_student + parents_school_meeting_student + fridge_student + failed_school_year_student +
-    toilet + meal + 
-    censo_median_wage + censo_log_pop + censo_rural + censo_lit_rate,
-  data = saeb_hierarchical
+formula_iv_coalition <- formula_iv %>%
+    update_formula_iv(
+        endogenous = "turnover_index",
+        instrument = "coalition_share"
+    )
+
+formula_iv_first_term <- formula_iv %>%
+    update_formula_iv(
+        endogenous = "turnover_index",
+        instrument = "mayor_reelected"
+    )
+
+fit_iv_coalition <- AER::ivreg(
+    formula_iv_coalition,
+    data = saeb_hierarchical
 )
 
-fit_iv_2 <- AER::ivreg(
-  grade_exam ~ turnover_index + saeb_principal_female + saeb_principal_education + saeb_principal_appointment +
-    education_teacher + saeb_wage_teacher +
-    parent_attend_college_student + parents_school_meeting_student + fridge_student + failed_school_year_student +
-    toilet + meal + 
-    censo_median_wage + censo_log_pop + censo_rural + censo_lit_rate| 
-    first_year + saeb_principal_female + saeb_principal_education + saeb_principal_appointment +
-    education_teacher + saeb_wage_teacher + 
-    parent_attend_college_student + parents_school_meeting_student + fridge_student + failed_school_year_student +
-    toilet + meal + 
-    censo_median_wage + censo_log_pop + censo_rural + censo_lit_rate,
-  data = saeb_hierarchical %>% 
-    mutate(first_year = if_else(year == election_year + 1, 1, 0))
+fit_iv_first_term <- AER::ivreg(
+    formula_iv_first_term,
+    data = saeb_hierarchical
+)
+
+write_model(
+    fit_iv_coalition,
+    "fit_ivreg_coalition.rds"
+)
+
+write_model(
+    fit_iv_first_term,
+    "fit_ivreg_first_term.rds"
 )
