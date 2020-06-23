@@ -466,13 +466,13 @@ gg_summary <- function(data, x, y, fun = "mean", size = 2, geom = "point", color
   return(plot)
 }
 
-generate_love_plot <- function(x, limits = NULL, labels = NULL){
-  cobalt::love.plot(x, colors = matte_indigo, threshold = .1) + 
-    theme(legend.position = "none") + 
+generate_love_plot <- function(x, limits = NULL, labels = NULL) {
+  cobalt::love.plot(x, colors = matte_indigo, threshold = .1) +
+    theme(legend.position = "none") +
     scale_y_discrete(
-    limits = limits,
-    labels = labels
-  ) +
+      limits = limits,
+      labels = labels
+    ) +
     ggtitle("")
 }
 
@@ -519,6 +519,29 @@ add_felm <- function(formula, fe, instrument = 0, cluster) {
     as.formula()
 
   return(felm_formula)
+}
+
+update_formula_iv <- function(formula, endogenous, instrument) {
+  controls <- labels(terms(formula))
+
+  controls_minus_endogenous <- str_subset(
+    controls,
+    endogenous,
+    negate = T
+  )
+
+  control_vars <- paste(
+    c(controls_minus_endogenous, instrument),
+    collapse = " + "
+  )
+
+  iv_formula <- paste(
+    deparse(formula, width.cutoff = 500),
+    control_vars,
+    sep = " | "
+  )
+
+  return(iv_formuola)
 }
 
 formulate_models <- function(response, predictor, fe, controls) {
