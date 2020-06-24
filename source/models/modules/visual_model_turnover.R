@@ -1,14 +1,20 @@
 # ==============================================================================
 # visualize combined results from saeb hierarchical and spaece models
 # ==============================================================================
+library(stargazer)
+
 fit_lmer <- read_model("fit_saeb_hierarchical.rds")
 fit_spaece <- read_model("fit_spaece.rds")
+fit_ivreg <- map(
+  c("fit_ivreg_coalition.rds", "fit_ivreg_first_term.rds"),
+  read_model
+)
 
-sink(here("replication", "results", "student_learning.tex"))
+sink(here("replication", "tables", "student_learning.tex"))
 mstar(
-  c(fit_lmer, fit_spaece),
+  fit_lmer, fit_spaece, fit_spaece, fit_ivreg,
   keep = c("turnover_index", "saeb_principal_experience", "saeb_teacher_work_school"),
-  add.lines = list(c("Controls", rep(c("\\_", "\\checkmark"), 3))),
+  add.lines = list(c("Controls", rep(c("\\_", "\\checkmark"), 4))),
   dep.var.labels.include = F,
   covariate.labels = c(
     "Turnover index", "Turnover index $\\times$ Grade 9",
@@ -17,7 +23,7 @@ mstar(
   ),
   dep.var.caption = "Student learning",
   column.labels = c("SAEB test score", "SPAECE test score"),
-  column.separate = c(4, 2),
+  column.separate = c(6, 2),
   model.names = FALSE,
   keep.stat = "n"
 )

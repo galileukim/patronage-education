@@ -5,8 +5,8 @@ print("loading datasets")
 
 f <- stats::as.formula
 
-run_module(
-  "preprocess_saeb_hierarchical.R"
+source(
+    here("source/models/modules/preprocess_saeb_hierarchical.R")
 )
 
 # ==============================================================================
@@ -57,7 +57,7 @@ names(fit_lmer) <- map(
 ) %>%
   flatten_chr()
 
-print("wriing out model output")
+print("writing out model output")
 
 fit_lmer %>%
   write_model(

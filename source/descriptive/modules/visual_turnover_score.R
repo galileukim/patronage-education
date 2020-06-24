@@ -84,7 +84,7 @@ plot_turnover <- map2_dfr(
 ) %>%
   mutate(
     state = str_sub(cod_ibge_6, 1, 2),
-    test = recode(test, `1` = "spaece", `2` = "saeb")
+    test = dplyr::recode(test, `1` = "spaece", `2` = "saeb")
   ) %>%
   group_by(state, year, test) %>%
   mutate(

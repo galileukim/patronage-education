@@ -9,7 +9,7 @@ source(
 modules <- c(
   "model_turnover_saeb",
   "model_turnover_spaece",
-  "visual_model_turnover",
+  "model_turnover_ivreg.R",
   "model_coalition_turnover",
   "visual_regression_discontinuity"
   )

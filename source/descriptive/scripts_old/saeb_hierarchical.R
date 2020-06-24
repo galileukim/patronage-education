@@ -68,7 +68,7 @@ saeb_hlm %<>%
 saeb_hlm %<>%
   mutate(
     saeb_teacher_work_school = if_else(year_working_school_teacher == "", NA_character_, year_working_school_teacher),
-    grade = recode(grade, `4` = "5", `8` = "9")
+    grade = dplyr::recode(grade, `4` = "5", `8` = "9")
   )
 
 saeb_hlm %>% 

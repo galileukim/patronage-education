@@ -1,6 +1,5 @@
 # present set of covariance balance visualizations to ensure that the treatment var
 # is not strongly correlated with other independent variables
-
 source(here::here("source/models/setup.R"))
 
 print("loading data")
@@ -128,4 +127,4 @@ love_plot_education <- generate_love_plot(
     )
 )
 
-save_fig(love_plot_education, "love_plot_education.pdf")
+save_fig(love_plot_education, "love_plot_education_test.pdf")
