@@ -104,6 +104,15 @@ list_files <- function(path, pattern) {
 }
 
 # data manipulation -------------------------------------------------------
+# remove null cpf candidates
+remove_na_cpf <- function(data){
+  data_remove_na_cpf <- data %>%
+ mutate_all(na_if, "") %>% 
+  filter(!is.na(cpf_candidate))
+
+  return(data_remove_na_cpf)
+}
+
 # check if vector of ids is unique
 check_if_id_unique <- function(data, .group_vars) {
   data_count <- data %>%

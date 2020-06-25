@@ -1,39 +1,35 @@
+print("importing data")
 
-# patronage ---------------------------------------------------------------
-election <- fread(
-  here("data/tse/election.csv")
+election <- read_data(
+  "tse",
+  "election.rds"
 )
 
-mayor <- fread(
-  here("data/tse/mayor.csv")
+mayor <- read_data(
+  "tse",
+  "mayor.rds"
 ) %>% 
   remove_na_cpf()
 
-mayor %<>%
-  group_by(
-    cod_ibge_6,
-    election_year
-  ) %>% 
-  filter(
-    !any(round == 2)
-  ) %>% 
-  ungroup()
-
-vereador <- fread(
-  here('data/tse/vereador.csv.gz')
+vereador <- read_data(
+  "tse",
+  "vereador.rds"
 ) 
 
 vereador %<>%
   remove_na_cpf()
 
-rais_mun <- fread(
-  here("data/rais/rais_mun.csv.gz")
+rais_mun <- read_data(
+  "rais",
+  "rais_mun.rds"
 )
 
-censo <- fread(
-  here("data/censo_br/censo_2000.csv")
+censo <- read_data(
+  "censo_br",
+  "censo_2000.rds"
 )
 
+print("creating summary table for rais")
 patronage_mun <- rais_mun %>% 
   filter(
     !is.na(cbo_category) & cbo_category != ""
@@ -50,9 +46,11 @@ patronage_mun <- rais_mun %>%
   summarise(
     prop_hired = sum(mean_hired*total)/sum(total),
     prop_fired = sum(mean_fired*total)/sum(total),
-    total = sum(total)
-  ) %>% 
-  ungroup
+    total = sum(total),
+    .groups = "drop"
+  )
+
+print("joining patronage data with politicians")
 
 patronage_mayor <- mayor %>% 
   filter(
@@ -109,6 +107,8 @@ patronage_councilor <- patronage_councilor %>%
     !is.na(mayor_coalition_member)
   )
 
+print("add municipal covariates")
+
 patronage_councilor %<>%
   inner_join(
     patronage_mun %>% 
@@ -130,6 +130,7 @@ patronage_councilor %<>%
     as.factor
   ) 
 
+print("create patronage_reelection table")
 patronage_reelection <- bind_rows(
   patronage_mayor,
   patronage_councilor
@@ -152,8 +153,14 @@ patronage_reelection %<>%
     )
   )
 
-patronage_reelection %>% 
-  fwrite(
-    here('data/patronage/patronage_reelection.csv.gz'),
-    compress = 'gzip'
+patronage_reelection <- patronage_reelection %>% 
+  # filter(cbo_category == 'education') %>% 
+  mutate_at(
+    vars(election_year, state),
+    as.factor
+  ) %>% 
+  mutate(
+    mayor_coalition_member = fct_relevel(mayor_coalition_member, "non_coalition_member")
   )
+
+print("pre-processing complete!")

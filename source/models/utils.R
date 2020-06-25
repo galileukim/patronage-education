@@ -461,6 +461,11 @@ gg_summary <- function(data, x, y, fun = "mean", size = 2, geom = "point", color
         method = "gam",
         formula = y ~ splines::bs(x, 3)
       )
+  }else{
+    plot <- plot + 
+      geom_smooth(
+        method = "lm"
+      )
   }
 
   return(plot)

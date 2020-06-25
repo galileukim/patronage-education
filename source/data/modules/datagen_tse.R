@@ -48,6 +48,17 @@ mayor <- election %>%
     position == "prefeito"
   )
 
+# eliminate municipalities with a second round
+mayor %<>%
+  group_by(
+    cod_ibge_6,
+    election_year
+  ) %>% 
+  filter(
+    !any(round == 2)
+  ) %>% 
+  ungroup()
+
 vereador <- election %>%
   filter(
     election_year %in% seq(2000, 2016, 4),
