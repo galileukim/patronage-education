@@ -30,6 +30,7 @@ censo <- read_data(
 )
 
 print("creating summary table for rais")
+
 patronage_mun <- rais_mun %>% 
   filter(
     !is.na(cbo_category) & cbo_category != ""
@@ -93,13 +94,18 @@ patronage_councilor <- patronage_councilor %>%
   left_join(
     mayor %>% 
       filter(elected == 1) %>% 
-      transmute(cod_ibge_6, election_year = election_year + 4, mayor_coalition = coalition),
+      transmute(
+        cod_ibge_6,
+        election_year = election_year + 4,
+        mayor_coalition = coalition
+      ),
     by = c('cod_ibge_6', 'election_year')
   ) %>% 
   mutate(
     mayor_coalition_member = if_else(
       str_detect(mayor_coalition, paste0("\\b", party_lag, "\\b")),
-      'coalition_member', 'non_coalition_member'
+      'coalition_member', 
+      'non_coalition_member'
     ) %>% 
       fct_relevel('non_coalition_member')
   ) %>% 
@@ -131,6 +137,7 @@ patronage_councilor %<>%
   ) 
 
 print("create patronage_reelection table")
+
 patronage_reelection <- bind_rows(
   patronage_mayor,
   patronage_councilor
@@ -147,7 +154,7 @@ patronage_reelection %<>%
       fct_relevel(
         "mayor"
       ),
-    party_fct = case_when(
+    party_factor = case_when(
       !(party %in% c('pt', 'psdb', 'pmdb')) ~ 'other',
       T ~ party
     )

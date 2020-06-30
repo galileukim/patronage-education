@@ -5,6 +5,10 @@
 # ==============================================================================
 source("source/models/modules/preprocess_patronage_reelection.R")
 
+library(margins)
+
+print("produce motivating descriptives on differential returns to patronage")
+
 plot_patronage <- patronage_reelection %>%
   gg_summary(
     prop_hired,
@@ -22,28 +26,30 @@ save_fig(
   plot_patronage,
   "patronage_reelection.pdf"
 )
-# estimation
+
+print("estimate probability of being reelected differential")
+
 fe <- c("state", "election_year")
 
 politician_covariates <- c(
-  "campaign", "edu", "gender"
+  "campaign", "edu", "gender", "party_factor"
+)
+
+censo_covariates <- c(
+  "censo_median_wage", "censo_log_pop",
+  "censo_rural", "censo_lit_rate"
 )
 
 controls <- c(
-  c("state", "election_year"),
-  
-)
-f_reelection <- reformulate(
-  
+  politician_covariates,
+  censo_covariates
 )
 
-f_reelection <- fm(
-  dv = reelected, 
-  predictor = prop_hired,
-  state, election_year,
-  campaign,
-  edu, gender, party_fct,
-  censo_rural, censo_median_wage, censo_log_pop
+f_reelection <- formulate(
+  "reelected",
+  "prop_hired",
+  controls,
+  fe
 )
 
 fit_reelection_mayor <- glm(
@@ -67,25 +73,15 @@ marginal_mayor <- margins(
   variables = 'prop_hired'
 )
 
-# marginal_councilor <- margins(
-#   fit_reelection_councilor,
-#   variables = 'prop_hired',
-#   at = list(
-#     mayor_coalition_member = c('coalition_member', 'non_coalition_member')
-#   )
-# )
-# 
-# write_rds(
-#   marginal_councilor,
-#   p_file_here('results', 'marginal_effects_councilor.rds'),
-#   compress = 'gz'
-# )
-
-marginal_councilor <- read_rds(
-  p_file_here('results', 'marginal_effects_councilor.rds')
+marginal_councilor <- margins(
+  fit_reelection_councilor,
+  variables = 'prop_hired',
+  at = list(
+    mayor_coalition_member = c('coalition_member', 'non_coalition_member')
+  )
 )
 
-ame <- list(
+average_marginal_effects <- list(
   mayor = marginal_mayor,
   councilor = marginal_councilor
 ) %>% 
@@ -105,7 +101,7 @@ ame <- list(
       )
   )
 
-plot_ame <- ame %>% 
+plot_ame <- average_marginal_effects %>% 
   ggplot() + 
   geom_linerange(
     aes(
@@ -126,46 +122,43 @@ plot_ame <- ame %>%
   ) + 
   coord_cartesian(ylim = c(-0.025, 0.04))
 
-ggsave(
-  p_file_here(
-    'figs', 'patronage_ame.pdf'
-  ),
-  plot_ame
+save_fig(
+  plot_ame,
+  "reelection_marginal_effect_plots.pdf"
 )
 
-# vote share
-patronage_reelection <- patronage_reelection %>%
-  group_by(
-    cod_ibge_6, position, election_year
-  ) %>% 
-  mutate(
-    total_vote = sum(vote)
-  ) %>% 
-  ungroup() %>% 
-  mutate(
-    vote_share = vote/total_vote
-  )
+# print("estimate reelection probability with vote share")
 
-f_vote <- update(
-  f_reelection,
-  vote_share ~ prop_hired*mayor_coalition_member + .
-)
+# patronage_reelection <- patronage_reelection %>%
+#   group_by(
+#     cod_ibge_6, position, election_year
+#   ) %>% 
+#   mutate(
+#     total_vote = sum(vote)
+#   ) %>% 
+#   ungroup() %>% 
+#   mutate(
+#     vote_share = vote/total_vote
+#   )
 
-lm_councilor <- lm(
-  f_vote,
-  data = patronage_reelection %>% 
-    filter(position == 'vereador')
-)
+# patronage_reelection_scaled <- patronage_reelection %>%
+#   mutate(
+#     across(where(is.double), scale_z)
+#   )
 
-plot_model(
-  lm_councilor,
-  type = 'pred',
-  terms = c('prop_hired', 'mayor_coalition_member[coalition_member, non_coalition_member]')
-)
+# f_vote <- update(
+#   f_reelection,
+#   vote_share ~ prop_hired*mayor_coalition_member + .
+# )
 
-patronage_reelection %>% 
-  filter(elected == 1) %>% 
-  group_by(position) %>% 
-  summarise(
-    vote = sum(vote)
-  )
+# lm_councilor <- lm(
+#   f_vote,
+#   data = patronage_reelection_scaled %>% 
+#     filter(position == 'vereador')
+# )
+
+# plot_vote_share <- sjPlot::plot_model(
+#   lm_councilor,
+#   type = 'pred',
+#   terms = c('prop_hired', 'mayor_coalition_member[coalition_member, non_coalition_member]')
+# )

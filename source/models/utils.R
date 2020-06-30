@@ -174,6 +174,15 @@ list_files <- function(path, pattern) {
 # ==============================================================================
 # data cleaning
 # ==============================================================================
+# remove null cpf candidates
+remove_na_cpf <- function(data){
+  data_remove_na_cpf <- data %>%
+ mutate_all(na_if, "") %>% 
+  filter(!is.na(cpf_candidate))
+
+  return(data_remove_na_cpf)
+}
+
 scale_z <- function(col) {
   as.vector(scale(col))
 }
@@ -249,6 +258,22 @@ group_summarise <- function(data, group_vars, summarise_vars, ...) {
 
   return(out)
 }
+
+group_demean <- function(data, group_vars, summarise_vars){
+  demeaned_data <- data %>%
+    group_by(
+      across({{ group_vars }})
+    ) %>%
+    mutate(
+      across(
+        {{ summarise_vars }},
+        function(x) x - mean(x, na.rm = T)
+      )
+    ) %>%
+    ungroup()
+
+  return(demeaned_data)
+} 
 
 summarise_stats <- function(data, ...) {
   vars <- enquos(...)

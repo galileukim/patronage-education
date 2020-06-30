@@ -1,12 +1,16 @@
-# turnover spaece ---------------------------------------------------------
+# ==============================================================================
+# visualize the correlation between staffturnover and student test scores
+# ==============================================================================
+print("load-in data")
 saeb <- read_data(
   "saeb",
   "saeb_hierarchical.rds"
 ) %>%
   select(
+    state,
     cod_ibge_6,
-    school_id,
     year,
+    school_id,
     grade_level,
     grade_exam
   )
@@ -49,118 +53,49 @@ spaece_turnover <- spaece %>%
     by = c("cod_ibge_6", "year", "school_id", "grade_level")
   )
 
-plots_turnover_score <- map2(
-  list(
-    spaece_turnover,
-    saeb_turnover
-  ),
-  c("spaece_mean", "grade_exam"),
-  ~ mutate(
-    .x,
-    grade_level = as.factor(grade_level)
-  ) %>%
-    ggplot(
-      aes_string(
-        "turnover_index",
-        .y,
-        group = "grade_level",
-        col = "grade_level"
-      )
-    ) +
-    geom_smooth(
-      method = lm, formula = y ~ splines::bs(x, 3),
-      se = F
-    )
-) %>%
-  set_names(
-    c("spaece", "saeb")
-  )
+print("data visualization")
+test_turnover <- list(spaece = spaece_turnover, saeb = saeb_turnover)
+exams <- c(quo(spaece_mean), quo(grade_exam))
 
-plot_turnover <- map2_dfr(
-  list(spaece_turnover, saeb_turnover),
-  c(quo(spaece_mean), quo(grade_exam)),
+test_turnover_scaled <- map2_dfr(
+  test_turnover,
+  exams,
   .f = ~ mutate(.x, score = all_of(!!.y)),
   .id = "test"
 ) %>%
   mutate(
     state = str_sub(cod_ibge_6, 1, 2),
-    test = dplyr::recode(test, `1` = "spaece", `2` = "saeb")
+    grade_level = as.factor(grade_level),
   ) %>%
-  group_by(state, year, test) %>%
+  group_by(test, state, year) %>%
   mutate(
     turnover_index = scale_z(turnover_index),
     score = scale_z(score)
-  )
+  ) %>%
+  ungroup()
 
-plot_turnover %>%
+plot_turnover <- test_turnover_scaled %>%
   ggplot(
     aes(
       turnover_index, score,
       group = grade_level,
-      col = as.factor(grade_level)
+      col = grade_level
     )
   ) +
   geom_smooth(
-    method = lm, formula = y ~ splines::bs(x, 2),
+    method = lm,
+    formula = y ~ splines::bs(x, 3),
     se = F
   ) +
-  facet_wrap(test ~ .)
+  coord_cartesian(xlim = c(-1.5, 1.5)) +
+  facet_wrap(test ~ .) +
+  labs(
+    x = "Teacher turnover",
+    y = "Student-test scores (z-score)"
+  )
 
-# plot_turnover_spaece <- plots_turnover_score %>%
-#   pluck("spaece") +
-#   annotate(
-#     "text",
-#     label = "5th grade",
-#     size = 4,
-#     col = "grey65",
-#     0.6, 200
-#   ) +
-#   annotate(
-#     "text",
-#     label = "9th grade",
-#     size = 4,
-#     col = "grey65",
-#     0.7, 225
-#   ) +
-#   labs(
-#     x = "Teacher turnover (index)",
-#     y = "Test scores (SPAECE)"
-#   ) +
-#   theme(
-#     legend.position = "none"
-#   )
-
-# plot_turnover_saeb <- plot_turnover_score %>%
-#   pluck("saeb") +
-#   annotate(
-#     "text",
-#     label = "5th grade",
-#     size = 4,
-#     col = "grey65",
-#     0.6, 165
-#   ) +
-#   annotate(
-#     "text",
-#     label = "9th grade",
-#     size = 4,
-#     col = "grey65",
-#     0.7, 178
-#   ) +
-#   labs(
-#     x = "Teacher turnover (index)",
-#     y = "Test scores (SPAECE)"
-#   ) +
-#   theme(
-#     legend.position = "none"
-#   )
-
-plot_turnover_score <- gridExtra::grid.arrange(
-  plot_turnover_spaece,
-  plot_turnover_saeb,
-  ncol = 2
-)
-
-ggsave(
-  plot_spaece,
-  filename = p_file_here("figs", "turnover_spaece.pdf")
+print("write-out plot")
+save_fig(
+  plot_turnover,
+  "plot_turnover_effect_on_test_score.pdf"
 )
