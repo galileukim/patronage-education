@@ -7,19 +7,18 @@ source(
 
 # run tasks
 modules <- c(
-  # "visual_map",
-  # "visual_global_edu",
-  # "visual_budget",
-  # "visual_bureaucracy",
-  # "visual_electoral",
-  # "visual_turnover",
+  "visual_budget",
+  "visual_bureaucracy",
+  "visual_electoral",
+  "visual_global_edu",
+  "visual_map",
+  "visual_staff_turnover",
+  "visual_test_scores",
   "visual_turnover_score"
-  # "model_turnover_saeb",
-  # "model_turnover_spaece",
-  # "visual_model_turnover"
   )
 
-walk(
+plan(multicore)
+future_map(
   modules,
   ~run_module(.)
 )

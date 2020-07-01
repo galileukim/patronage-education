@@ -41,7 +41,7 @@ source(
 
 run_module <- partial(
   run_module,
-  domain = "replication"
+  domain = "descriptive"
 )
 
 read_data <- partial(

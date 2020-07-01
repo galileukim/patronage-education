@@ -28,11 +28,12 @@ visual_modules <- c(
   "visual_regression_discontinuity"
 )
 
-map(
+plan(multicore, workers = 4)
+walk(
   c(
     preprocess_modules,
     model_modules,
     visual_modules
   ),
-  run_module
+  future_map(., run_module)
 )

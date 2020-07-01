@@ -1,7 +1,5 @@
 # present set of covariance balance visualizations to ensure that the treatment var
 # is not strongly correlated with other independent variables
-source(here::here("source/models/setup.R"))
-
 print("loading data")
 saeb_hierarchical <- read_data(
   "saeb",
@@ -39,21 +37,10 @@ rais_edu_mun <- read_data(
 
 print("join datasets and prepare covariate data")
 
-covariate_balance_data <- saeb_hierarchical %>%
-  left_join(
-    censo_school_turnover,
-    by = c("state", "cod_ibge_6", "year", "school_id", "grade_level")
-  ) %>%
-  left_join(
-    finbra_budget,
-    by = c("cod_ibge_6", "year")
-  ) %>%
-  left_join(
-    censo_school,
-    by = c("cod_ibge_6", "school_id", "year")
-  )
-  
-covariate_balance_data <- covariate_balance_data %>%
+covariate_balance_data <- reduce(
+  list(saeb_hierarchical, censo_school_turnover, finbra_budget, censo_school),
+  left_join
+) %>%
   filter(
     !is.na(turnover_index)
   ) %>%

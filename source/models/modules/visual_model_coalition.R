@@ -119,8 +119,3 @@ plot_turnover <- grid.arrange(
   ),
   ncol = 2
 )
-
-ggsave(
-  plot_turnover,
-  filename = p_file_here('figs', "plot_pred.pdf")
-)

@@ -1,5 +1,5 @@
 # test scores -------------------------------------------------------------
-saeb_dep <- read_data(
+saeb_school <- read_data(
     "saeb",
     "saeb_school.rds"
 )
@@ -20,6 +20,7 @@ saeb_public %>%
       year,
       grade_mean
     )
+
 saeb_public %>% 
   ggplot(
     aes(

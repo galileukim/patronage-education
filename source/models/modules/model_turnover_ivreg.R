@@ -36,7 +36,7 @@ controls <- c(
     fe
 )
 
-formula_controls <- reformulate(
+formula_iv <- reformulate(
     c(predictor, controls),
     response
 )
@@ -53,12 +53,12 @@ formula_iv_first_term <- formula_iv %>%
         instrument = "mayor_reelected"
     )
 
-fit_iv_coalition <- ivreg(
+fit_iv_coalition <- AER::ivreg(
     formula_iv_coalition,
     data = saeb_hierarchical
 )
 
-fit_iv_first_term <- ivreg(
+fit_iv_first_term <- AER::ivreg(
     formula_iv_first_term,
     data = saeb_hierarchical
 )

@@ -114,8 +114,6 @@ reset_env <- function(init_env, packages){
 }
 
 save_fig <- function(pl, file, width = 5, height = 3, ...){
-  print(pl)
-
   ggplot2::ggsave(
     filename = here("replication", "figs", file),
     pl,
