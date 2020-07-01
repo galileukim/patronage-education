@@ -21,7 +21,7 @@ controls <- c(
 
 f_logit <- formulate(
   "rais_hired",
-  "coalition_share*rais_category",
+  "coalition_share + rais_category",
   controls,
   fe = c("state", "year")
 )
@@ -81,7 +81,7 @@ model_rais_mun <- rais_edu_mun %>%
 # ============================================================================== 
 fit_turnover <- map(
     formulae_logit,
-    ~logit(., data = model_rais_micro)
+    ~logit(., data = model_rais_micro, model = F)
   )
 
 # municipal fe model

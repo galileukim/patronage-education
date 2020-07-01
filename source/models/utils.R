@@ -595,11 +595,12 @@ formulate <- function(response, predictor, controls, fe) {
 }
 
 # logit
-logit <- function(f, data) {
+logit <- function(f, data, ...) {
   fit <- glm(
     formula = f,
     data = data,
-    family = "binomial"
+    family = "binomial",
+    ...
   )
 }
 
