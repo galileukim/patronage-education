@@ -18,104 +18,151 @@ mstar(
 )
 sink()
 
-plot_mun <- fit_hired_mun%>% 
+plot_hired <- plot_model(
+  fit_hired,
+  type = "pred",
+  terms = c("coalition_share [all]")
+) +
+  coord_cartesian(
+    ylim = c(0.05, 0.07)
+  )
+
+plot_fired <- plot_model(
+  fit_fired,
+  type = "pred",
+  terms = c("coalition_share [all]")
+)
+
+plot_logit_int <- map(
+  c(
+    "rural" = "censo_rural[0.25, 0.5, 0.75]", 
+    "population" = "censo_pop[1e4, 5e4, 1e5]",
+    "wage" = "censo_median_wage [172.12, 250.77, 341.896]"
+  ),
+  ~plot_model(fit_hired, type = "pred", title = NULL, terms = c("coalition_share [all]", .))
+)
+
+walk2(
+  plot_logit_int,
+  names(plot_logit_int),
+  ~ggsave(
+    .x,
+    filename = p_file_here("figs", paste0("plot_logit_", .y, ".pdf"))
+  )
+)
+
+# print plot
+plot_logit <- fit_hired %>%
   tidycoef(
     vars = "coalition|mayor_reelected|censo_log_pop|censo_median_wage"
   ) +
-  # scale_y_discrete(
-  #   labels = rev(c("Share of legislative seats", "Population size (logged)", "Median wage", "Size of coalition", "Reelected", "Share of legislative seats (sq.)"))
-  # ) +
   theme(
     axis.title = element_blank()
   )
 
 ggsave(
-  plot_mun,
-  filename = p_file_here('figs', "fit_mun.pdf")
-)
-
-plot_hired <- plot_grid(
   plot_logit,
-  plot_mun,
-  nrow = 2,
-  labels = c("Logit", "OLS"),
-  label_size = 7.5
+  filename = p_file_here("figs", "fit_logit.pdf")
 )
 
-ggsave(
-  plot_hired,
-  filename = p_file_here('figs', "hired_fit.pdf")
-)
+# plot_mun <- fit_hired_mun %>% 
+#   tidycoef(
+#     vars = "coalition|mayor_reelected|censo_log_pop|censo_median_wage"
+#   ) +
+#   # scale_y_discrete(
+#   #   labels = rev(c("Share of legislative seats", "Population size (logged)", "Median wage", "Size of coalition", "Reelected", "Share of legislative seats (sq.)"))
+#   # ) +
+#   theme(
+#     axis.title = element_blank()
+#   )
 
-# predicted vals
-model_fit_hired_mun <- model.frame(
-  fit_hired_mun
-) 
+# ggsave(
+#   plot_mun,
+#   filename = p_file_here('figs', "fit_mun.pdf")
+# )
 
-plot_hired <- model_fit_hired_mun %>% 
-  mutate(
-    predict = fit_hired_mun$fitted.values
-  ) %>% 
-  group_by(coalition_share) %>% 
-  mutate(predict_mean = mean(rais_hired, na.rm = T)) %>% 
-  ggplot(
-    aes(x = coalition_share)
-  ) +
-  geom_count(
-    aes(y = predict_mean),
-    alpha = 0.1
-  ) +
-  geom_smooth(
-    aes(y = predict),
-    method = lm,
-    formula = y ~ x,
-    col = "coral3"
-  ) +
-  coord_cartesian(
-    ylim = c(0.05, 0.125)
-  ) +
-  labs(
-    x = "Share of legislative seats",
-    y = "Proportion of new hires"
-  ) +
-  theme(legend.position = 'none')
+# plot_hired <- plot_grid(
+#   plot_logit,
+#   plot_mun,
+#   nrow = 2,
+#   labels = c("Logit", "OLS"),
+#   label_size = 7.5
+# )
 
-model_fit_fired_mun <- model.frame(
-  fit_fired_mun
-) 
+# ggsave(
+#   plot_hired,
+#   filename = p_file_here('figs', "hired_fit.pdf")
+# )
 
-plot_fired <- model_fit_fired_mun %>% 
-  mutate(
-    predict = fit_fired_mun$fitted.values
-  ) %>% 
-  group_by(coalition_share) %>% 
-  mutate(predict_mean = mean(rais_fired, na.rm = T)) %>% 
-  ggplot(
-    aes(x = coalition_share)
-  ) +
-  geom_count(
-    aes(y = predict_mean),
-    alpha = 0.1
-  ) +
-  geom_smooth(
-    aes(y = predict),
-    method = lm,
-    formula = y ~ x,
-    col = "coral3"
-  ) +
-  coord_cartesian(
-    ylim = c(0, 0.075)
-  ) +
-  labs(
-    x = "Share of legislative seats",
-    y = "Proportion of dismissals"
-  ) +
-  theme(legend.position = 'none')
+# # predicted vals
+# model_fit_hired_mun <- model.frame(
+#   fit_hired_mun
+# ) 
 
-plot_turnover <- grid.arrange(
-  grobs = list(
-    plot_hired,
-    plot_fired
-  ),
-  ncol = 2
-)
+# plot_hired <- model_fit_hired_mun %>% 
+#   mutate(
+#     predict = fit_hired_mun$fitted.values
+#   ) %>% 
+#   group_by(coalition_share) %>% 
+#   mutate(predict_mean = mean(rais_hired, na.rm = T)) %>% 
+#   ggplot(
+#     aes(x = coalition_share)
+#   ) +
+#   geom_count(
+#     aes(y = predict_mean),
+#     alpha = 0.1
+#   ) +
+#   geom_smooth(
+#     aes(y = predict),
+#     method = lm,
+#     formula = y ~ x,
+#     col = "coral3"
+#   ) +
+#   coord_cartesian(
+#     ylim = c(0.05, 0.125)
+#   ) +
+#   labs(
+#     x = "Share of legislative seats",
+#     y = "Proportion of new hires"
+#   ) +
+#   theme(legend.position = 'none')
+
+# model_fit_fired_mun <- model.frame(
+#   fit_fired_mun
+# ) 
+
+# plot_fired <- model_fit_fired_mun %>% 
+#   mutate(
+#     predict = fit_fired_mun$fitted.values
+#   ) %>% 
+#   group_by(coalition_share) %>% 
+#   mutate(predict_mean = mean(rais_fired, na.rm = T)) %>% 
+#   ggplot(
+#     aes(x = coalition_share)
+#   ) +
+#   geom_count(
+#     aes(y = predict_mean),
+#     alpha = 0.1
+#   ) +
+#   geom_smooth(
+#     aes(y = predict),
+#     method = lm,
+#     formula = y ~ x,
+#     col = "coral3"
+#   ) +
+#   coord_cartesian(
+#     ylim = c(0, 0.075)
+#   ) +
+#   labs(
+#     x = "Share of legislative seats",
+#     y = "Proportion of dismissals"
+#   ) +
+#   theme(legend.position = 'none')
+
+# plot_turnover <- grid.arrange(
+#   grobs = list(
+#     plot_hired,
+#     plot_fired
+#   ),
+#   ncol = 2
+# )

@@ -343,35 +343,13 @@ formulate_models <- function(response, predictor, fe, controls) {
   return(formulae)
 }
 
-# ols
-fit_felm <- function(
-  repo,
-  dv,
-  predictor = c("coalition_share"),
-  control = c("mayor_age", "as.factor(mayor_party)", "mayor_coalition_size", "mayor_campaign", "median_wage", "rais_mun_size", "rais_permanent", "mean_edu", "effective_parties"),
-  cluster = c("state + year"),
-  data
-){
-  fit <- data %>%
-    felm(
-      formula = formula(
-        paste(
-          dv, "~", predictor, "+", str_c(control, collapse = "+"),
-          "|", cluster, "| 0"
-        )
-      ),
-      data = .
-    )
-  
-  return(fit)
-}
-
 # logit
-logit <- function(f, data){
+logit <- function(f, data, ...){
   fit <- glm(
     formula = f,
     data = data,
-    family = 'binomial'
+    family = 'binomial',
+    ...
   )
 }
 
