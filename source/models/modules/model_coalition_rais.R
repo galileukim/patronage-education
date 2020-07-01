@@ -21,14 +21,14 @@ controls <- c(
 
 f_logit <- formulate(
   "rais_hired",
-  "coalition_share + rais_category",
+  "coalition_share*rais_category",
   controls,
   fe = c("state", "year")
 )
 
 formulae_logit <- c(
-  f_logit,
-  update(f_logit, rais_fired ~ .)
+  f_logit
+  # update(f_logit, rais_fired ~ .)
 )
 
 formulae_felm <- map(
@@ -43,10 +43,7 @@ formulae_felm <- map(
 # ==============================================================================
 print("reshape data for estimation")
 # ==============================================================================
-model_rais_micro <- rais_edu %>% 
-  filter(
-    year >= 2003
-  ) %>%
+model_rais_micro <- rais_edu %>%
   join_covariate() %>%
   mutate(
     state = str_sub(cod_ibge_6, 1, 2),

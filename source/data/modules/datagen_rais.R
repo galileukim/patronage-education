@@ -23,7 +23,10 @@ rais_mun %>%
 # teacher and school principal data
 rais_edu <- read_data(
     "raw", "rais", "rais_edu.csv.gz"
-)
+) %>%
+    filter(
+        year > 2002 # restructuring of the cbo makes data more reliable
+    )
 
 rais_edu %>%
     write_data(

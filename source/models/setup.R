@@ -97,6 +97,6 @@ chamber_covariates <- c(
 rais_covariates <- c(
   "rais_edu",
   "rais_wage",
-  "rais_permanent",
-  "rais_time"
+  "rais_permanent"
+  # "rais_time"
 )
