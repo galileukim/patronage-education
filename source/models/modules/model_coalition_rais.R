@@ -1,7 +1,6 @@
 # ==============================================================================
-# set-up
-# ==============================================================================
 # construct data to estimate effect of coalition on edu staff turnover
+# ==============================================================================
 rais_edu <- read_data(
   "rais",
   "rais_edu.rds"
@@ -27,23 +26,24 @@ f_logit <- formulate(
 )
 
 formulae_logit <- c(
-  f_logit
-  # update(f_logit, rais_fired ~ .)
+  f_logit,
+  update(f_logit, rais_fired ~ .)
 )
 
 formulae_felm <- map(
   c("rais_hired", "rais_fired"),
-  ~formulate(., "coalition_share", fe = NULL, controls) %>%
+  ~formulate(., "coalition_share*rais_category", fe = NULL, controls) %>%
     update(. ~ . - rais_edu + rais_higher_edu)
 ) %>%
   map(
-    ~add_felm(., fe = "state + year + rais_category", cluster = "cod_ibge_6")
+    ~add_felm(., fe = "state + year", cluster = "cod_ibge_6")
   )
 
 # ==============================================================================
 print("reshape data for estimation")
 # ==============================================================================
 model_rais_micro <- rais_edu %>%
+  sample_frac(1/4) %>%
   join_covariate() %>%
   mutate(
     state = str_sub(cod_ibge_6, 1, 2),
@@ -78,7 +78,7 @@ model_rais_mun <- rais_edu_mun %>%
 # ============================================================================== 
 fit_turnover <- map(
     formulae_logit,
-    ~logit(., data = model_rais_micro, model = F)
+    ~logit(., data = model_rais_micro)
   )
 
 # municipal fe model
@@ -91,7 +91,7 @@ fit_felm <- map(
 print("write-out data")
 # ==============================================================================
 fit_turnover %>%
-  write_model("logit_turnover_coalition.rds")
+  write_model("fit_logit_turnover_coalition.rds")
 
 fit_felm %>%
-  write_model("felm_turnover_coalition.rds")
+  write_model("fit_felm_turnover_coalition.rds")

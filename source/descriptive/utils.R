@@ -157,7 +157,7 @@ fix_na <- function(data){
   return(data_na_fix)
 }
 
-# tidy and ggcoef
+# tidy and GGally::ggcoef
 tidyfit <- function(fit, vars = '.'){
   broom::tidy(fit) %>%
     filter(
@@ -268,7 +268,7 @@ theme_clean <- theme(
 
 tidycoef <- function(fit, vars = ".", ...){
   tidyfit(fit, vars) %>%
-    ggcoef(
+    GGally::ggcoef(
       mapping = aes_string(
         y = "term", 
         x = "estimate",

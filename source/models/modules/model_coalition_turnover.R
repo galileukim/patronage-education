@@ -56,5 +56,5 @@ fit_turnover <- map(
 
 write_model(
   fit_turnover,
-  "fit_turnover.rds"
+  "fit_coalition_turnover.rds"
 )
