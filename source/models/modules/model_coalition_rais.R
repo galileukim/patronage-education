@@ -43,7 +43,7 @@ formulae_felm <- map(
 print("reshape data for estimation")
 # ==============================================================================
 model_rais_micro <- rais_edu %>%
-  sample_frac(1/4) %>%
+  sample_frac(1/5) %>%
   join_covariate() %>%
   mutate(
     state = str_sub(cod_ibge_6, 1, 2),

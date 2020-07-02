@@ -981,7 +981,7 @@ patronage_category %>%
 # programmatic party
 patronage %>%
   mutate(
-    mayor_party = if_else(
+     mayor_party = if_else(
       mayor_party %in% c('pt', 'psdb', 'pmdb'),
       mayor_party,
       'other'

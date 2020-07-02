@@ -87,7 +87,8 @@ mun_covariates <- c(
 mayor_covariates <- c(
   "mayor_reelected",
   "mayor_campaign",
-  "mayor_coalition_size"
+  "mayor_coalition_size",
+  "mayor_party"
 )
 
 chamber_covariates <- c(
@@ -96,5 +97,6 @@ chamber_covariates <- c(
 
 rais_covariates <- c(
   "rais_edu",
-  "rais_wage"
+  "rais_wage",
+  "rais_permanent"
 )

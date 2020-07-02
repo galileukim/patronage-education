@@ -15,6 +15,11 @@ chamber <- chamber %>%
   ) %>%
   ungroup() %>%
   mutate(
+    mayor_party = if_else(
+      mayor_party %in% c('pt', 'psdb', 'pmdb'),
+      mayor_party,
+      'other'
+    ),
     party_turnover = if_else(mayor_party != mayor_party_lag, 1, 0)
   )
 

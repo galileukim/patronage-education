@@ -56,6 +56,11 @@ save_fig(
   "plot_interactions_logit.pdf"
 )
 
+# ==============================================================================
+# incorporate additional municipal covariates to disentangle effect
+# ==============================================================================
+
+
 # rural_terciles <- fit_logit %>%
 #   pluck(1, "model") %>%
 
