@@ -15,7 +15,8 @@ model_modules <- c(
   "model_turnover_saeb",
   "model_turnover_spaece",
   "model_turnover_ivreg",
-  "model_coalition_rais",
+  "model_coalition_rais_logit",
+  "model_coalition_rais_felm",
   "model_coalition_turnover",
   "model_accountability",
   "model_patronage_reelection"

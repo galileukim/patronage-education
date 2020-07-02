@@ -41,14 +41,32 @@ mstar(
 )
 sink()
 
-plot_interactions_logit <- map(
+plot_interactions_logit <- map2(
   fit_logit,
+  c("hired", "fired"),
   ~ sjPlot::plot_model(
     .,
     type = "pred",
     terms = c("coalition_share [all]", "rais_category"),
-    title = NULL
+    title = ""
+  ) +
+  labs(
+    x = "share of legislative seats",
+    y = "percentage"
   )
+)
+
+n <- 100
+predict_logit <- tibble(
+  coalition_share = seq(0, 1, length.out = n * 2)
+  rais_category = 
+)
+
+fit_logit[[1]]$model %>% ggplot(aes(coalition_share, rais_hired)) + geom_smooth(method = "glm", method.args = list(family = "binomial")) + facet_wrap(. ~ rais_category)
+
+gridExtra::grid.arrange(
+  grobs = plot_interactions_logit,
+  nrow = 2
 )
 
 save_fig(
