@@ -11,40 +11,40 @@ fit_felm <- read_model(
 
 fit_turnover <- read_model(
   "fit_coalition_turnover.rds"
-) %>%
-pluck(2) # extract model with controls
+) # extract model with controls
 
 # turn into debugging
 fit_logit <- fit_logit %>%
   map(
     . %>%
-      modify_at(c("model"), ~sample_frac(., 0.01))
+      modify_at(c("model"), ~ sample_frac(., 0.01))
   )
 
 models_table <- list(
-    fit_turnover,
-    fit_logit,
-    fit_felm
-  )
+  fit_turnover,
+  fit_felm,
+  fit_logit
+)
 
 sink(here("replication", "results", "turnover_result.tex"))
 mstar(
-  type = "text",
   models_table,
-  keep = c('coalition_share', 'rais_category'),
-  add.lines = list(c("Controls", rep("\\checkmark", 5))),
-  covariate.labels = c('Executive share of seats', 'School principal', 'Executive share of seats X School principal'),
+  keep = c("coalition_share", "rais_category"),
+  add.lines = list(
+    c("Controls", rep(c("", "\\checkmark"), 3)),
+    c("State and year FE", rep("\\checkmarck", 6))
+  ),
+  dep.var.caption = "Outcome",
+  covariate.labels = c("Share of legislative seats", "School principal", "Executive share of seats X School principal"),
   dep.var.labels.include = F,
-  column.labels = c('Turnover index', 'Hired (Logit)', 'Fired (Logit)', 'Hired (FE)', 'Fired (FE)'),
-  column.separate = rep(1, 5),
+  column.labels = c("Turnover index (municipal)", "Hires (municipal)", "Hires (individual)"),
+  column.separate = rep(2, 3),
   model.names = FALSE
 )
 sink()
 
-plot_interactions_logit <- map2(
-  fit_logit,
-  c("hired", "fired"),
-  ~ sjPlot::plot_model(
+plot_interactions_logit <- fit_logit[["controls"]] %>%
+  sjPlot::plot_model(
     .,
     type = "pred",
     terms = c("coalition_share [all]", "rais_category"),
@@ -52,22 +52,10 @@ plot_interactions_logit <- map2(
   ) +
   labs(
     x = "share of legislative seats",
-    y = "percentage"
-  )
-)
-
-n <- 100
-predict_logit <- tibble(
-  coalition_share = seq(0, 1, length.out = n * 2)
-  rais_category = 
-)
-
-fit_logit[[1]]$model %>% ggplot(aes(coalition_share, rais_hired)) + geom_smooth(method = "glm", method.args = list(family = "binomial")) + facet_wrap(. ~ rais_category)
-
-gridExtra::grid.arrange(
-  grobs = plot_interactions_logit,
-  nrow = 2
-)
+    y = "probability of hire",
+    color = "occupation category"
+  ) +
+  scale_color_discrete()
 
 save_fig(
   plot_interactions_logit,
@@ -101,23 +89,20 @@ save_fig(
 # )
 
 print("plots of coefficients")
-plot_logit <- fit_logit %>%
-  map(
-    ~ tidycoef(
-      .,
-    vars = "coalition|mayor_reelected|censo_log_pop|censo_median_wage"
+plot_logit <- fit_logit[["controls"]] %>%
+  tidycoef(
+    vars = "coalition|mayor_reelected|rais|censo_log_pop|censo_median_wage|party"
   ) +
   theme(
     axis.title = element_blank()
   )
-  )
-
 
 # ==============================================================================
 print("visualize association between coalition share and patronage (municipal)")
 # ==============================================================================
-coef_mun <- fit_felm %>%
-  set_names(c("hired", "fired")) %>%
+coef_mun <- models_table %>%
+  map(pluck("controls")) %>%
+  set_names(c("turnover", "hired (logit)", "hired (felm)")) %>%
   map_dfr(broom::tidy, conf.int = T, .id = "model")
 
 plot_coef_mun <- coef_mun %>%

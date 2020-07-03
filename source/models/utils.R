@@ -574,11 +574,11 @@ update_formula_iv <- function(formula, endogenous, instrument) {
 
 formulate_models <- function(response, predictor, fe, controls) {
   formulae <- c(
-    formulate(
+    baseline = formulate(
       response, predictor,
       controls = NULL, fe
     ),
-    formulate(
+    controls = formulate(
       response, predictor, controls, fe
     )
   )

@@ -13,22 +13,21 @@ controls <- c(
   mun_covariates, rais_covariates, mayor_covariates, chamber_covariates
 )
 
-f_logit <- formulate(
+formulae_logit <- formulate_models(
   "rais_hired",
   "coalition_share*rais_category",
   controls,
   fe = c("state", "year")
-)
+) %>%
+  set_names(
+    c("baseline", "controls")
+  )
 
-formulae_logit <- c(
-  f_logit,
-  update(f_logit, rais_fired ~ .)
-)
 # ==============================================================================
 print("reshape data for estimation")
 # ==============================================================================
 model_rais_micro <- rais_edu %>%
-  sample_frac(1/3) %>%
+  sample_frac(1/5) %>%
   join_covariate() %>%
   mutate(
     state = str_sub(cod_ibge_6, 1, 2),
@@ -37,7 +36,7 @@ model_rais_micro <- rais_edu %>%
     across(c(state, year), as.factor)
     ) %>%
   model.frame(
-    formula = update(f_logit, . ~ . + rais_fired),
+    formula = formulae_logit[["controls"]],
     data = .
   ) %>%
   fix_scale()

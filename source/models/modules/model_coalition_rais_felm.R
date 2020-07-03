@@ -9,15 +9,21 @@ rais_edu_mun <- read_data(
 # ==============================================================================
 print("model specification")
 # ==============================================================================
+rais_covariates <- c("rais_higher_edu", "rais_wage", "rais_permanent")
+municipal_covariates <- c("cod_ibge_6", mun_covariates)
+
 controls <- c(
-  mun_covariates, rais_covariates, mayor_covariates, chamber_covariates
+  municipal_covariates, rais_covariates, mayor_covariates, chamber_covariates
 )
 
-formulae_felm <- map(
-  c("rais_hired", "rais_fired"),
-  ~formulate(., "coalition_share*rais_category", fe = NULL, controls) %>%
-    update(. ~ . - rais_edu + rais_higher_edu)
-) %>%
+formulae_no_fe <- formulate_models(
+  "rais_hired",
+  "coalition_share*rais_category",
+  controls,
+  fe = NULL
+)
+
+formulae_felm <- formulae_no_fe %>%
   map(
     ~add_felm(., fe = "state + year", cluster = "cod_ibge_6")
   )
@@ -35,7 +41,8 @@ model_rais_mun <- rais_edu_mun %>%
   ) %>%
   model.frame(
     formula = update(
-      f_logit, . ~ . + cod_ibge_6 - rais_edu + rais_higher_edu + rais_fired
+      formulae_no_fe[["controls"]],
+      . ~ . + state + year
     ),
     data = .
   ) %>%
