@@ -41,7 +41,7 @@ read_data <- partial(
 
 save_fig <- partial(
   save_fig,
-  domain = "replication"
+  domain = "figures"
 )
 
 theme_set(

@@ -26,7 +26,7 @@ models_table <- list(
   fit_logit
 )
 
-sink(here("replication", "results", "turnover_result.tex"))
+sink(here("figures", "results", "turnover_result.tex"))
 mstar(
   models_table,
   keep = c("coalition_share", "rais_category"),

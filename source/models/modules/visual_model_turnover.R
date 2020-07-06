@@ -10,7 +10,7 @@ fit_ivreg <- map(
   read_model
 )
 
-sink(here("replication", "tables", "student_learning.tex"))
+sink(here("figures", "tables", "student_learning.tex"))
 mstar(
   fit_lmer, fit_spaece, fit_spaece, fit_ivreg,
   keep = c("turnover_index", "saeb_principal_experience", "saeb_teacher_work_school"),

@@ -63,7 +63,7 @@ ls_data <- function(env = .GlobalEnv) {
 
 read_model <- function(file){
   fit <- read_rds(
-    here("replication", "models", file)
+    here("figures", "models", file)
   )
 
   print_obj_size(fit)
@@ -76,7 +76,7 @@ write_model <- function(model, file) {
   
   write_rds(
     model,
-    here("replication", "models", file)
+    here("figures", "models", file)
   )
 }
 
@@ -115,7 +115,7 @@ reset_env <- function(init_env, packages){
 
 save_fig <- function(pl, file, width = 5, height = 3, ...){
   ggplot2::ggsave(
-    filename = here("replication", "figs", file),
+    filename = here("figures", "figs", file),
     pl,
     width = width,
     height = height,

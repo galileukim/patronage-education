@@ -29,7 +29,7 @@ update_geom_defaults(
   list(color = "steelblue3", size = 0.7)
 )
 
-path_figs <- "papers/paper_cp_2020/figs/"
+path_figs <- "papers/paper_cp_2020/plots/"
 
 opts_chunk$set(echo = FALSE, out.width = "230px", cache = F, root.dir = here())
 ```
@@ -46,7 +46,7 @@ opts_chunk$set(echo = FALSE, out.width = "230px", cache = F, root.dir = here())
 
 ```{r out.width = '240px'}
 include_graphics(
-  'figs/plot_global_1.pdf'
+  'plots/plot_global_1.pdf'
 )
 ```
 
@@ -54,7 +54,7 @@ include_graphics(
 
 ```{r out.width = '240px'}
 include_graphics(
-  'figs/plot_global_2.pdf'
+  'plots/plot_global_2.pdf'
 )
 ```
 
@@ -70,7 +70,7 @@ include_graphics(
 
 ```{r, fig.cap= "Municipal variation in the quality of education (2015). Polygons represent municipalities, warmer colors indicate higher municipal average in standardized test scores.", out.width = "180px"}
 include_graphics(
-  "figs/saeb_map.pdf"
+  "plots/saeb_map.pdf"
 )
 ```
 
@@ -160,7 +160,7 @@ include_graphics(
 
 ```{r fig.cap = "A decentralized system. Lower school education is primarily under the responsibility of municipalities."}
 include_graphics(
-  "figs/enrollment_dep.pdf"
+  "plots/enrollment_dep.pdf"
 )
 ```
 
@@ -214,7 +214,7 @@ $$\text{turnover}_{sjt} = \gamma \text{coalition seats}_{jt} + \mu P_{jt} + \zet
 
 ```{r staff, fig.cap = 'Municipal bureaucracies. Total number of bureaucrats and hiring/dismissal rates for bureaucratic staff over time. Disaggregated by department.'}
 include_graphics(
-  'figs/turnover_category.pdf'
+  'plots/turnover_category.pdf'
 )
 ```
 
@@ -240,7 +240,7 @@ include_graphics(
 
 ```{r, fig.cap= "Relative impact of bureaucratic turnover. Point estimates and confidence intervals retrieved from models with controls.", out.width = "210px"}
 include_graphics(
-  "figs/turnover_fit.pdf"
+  "plots/turnover_fit.pdf"
 )
 ```
 
@@ -259,7 +259,7 @@ include_graphics(
 
 ```{r fig.cap = "Predicted and actual values for bureaucratic turnover. The line graph plots the predicted proportion of educational staff hired or firede. Circles' size is proportional to the number of observations contained in the data."}
 include_graphics(
-  "figs/plot_pred.pdf"
+  "plots/plot_pred.pdf"
 )
 ```
 

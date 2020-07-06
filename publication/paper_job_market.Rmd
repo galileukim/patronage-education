@@ -43,7 +43,7 @@ How can we improve the quality of education? In large part, the answers are dome
 
 ```{r fig.cap = "Global enrollment rates and PISA test scores. Net enrollment rates calculated for primary education. PISA test scores based on a sample design."}
 include_graphics(
-  "figs/plot_global.pdf"
+  "plots/plot_global.pdf"
 )
 ```
 
@@ -140,7 +140,7 @@ In Brazil, responsibility for primary education is delegated to local government
 
 ```{r enrollment, fig.cap = "A decentralized system. Lower school education is primarily under the responsibility of municipalities, with important consequences for early cognitive development."}
 include_graphics(
-  "figs/enrollment_dep.pdf"
+  "plots/enrollment_dep.pdf"
 )
 ```
 
@@ -168,7 +168,7 @@ Brazil collects fine-grained data on education and makes it publicly available f
 
 ```{r map, fig.cap="Uneven quality. Polygons represent municipalities, warmer colors indicate higher municipal average in standardized test scores. Averages are weighted by participation rate."}
 include_graphics(
-  "figs/saeb_map.pdf"
+  "plots/saeb_map.pdf"
 ) 
 ```
 
@@ -180,7 +180,7 @@ Figure \ref{fig:staff} provides descriptive statistics on bureaucratic personnel
 
 ```{r staff, fig.cap = 'Municipal bureaucracies. Total number of bureaucrats and hiring/dismissal rates for bureaucratic staff over time. Disaggregated by department.'}
 include_graphics(
-  'figs/turnover_category.pdf'
+  'plots/turnover_category.pdf'
 )
 ```
 
@@ -192,7 +192,7 @@ Information on mayor, city councilors and mayoral coalitions are made available 
 
 ```{r coalition, fig.cap = 'Empirical distribution of share of legislative seats in the mayoral coalition. The unit of analysis is the city council.'}
 include_graphics(
-  "figs/hist_coalition.pdf"
+  "plots/hist_coalition.pdf"
 )
 ```
 
@@ -257,7 +257,7 @@ For visual intuition, I present the predicted values for models 4 and 5, respect
 
 \begin{figure}[H]
     \centering
-    \includegraphics{figs/plot_pred}
+    \includegraphics{plots/plot_pred}
     \caption{Predicted values for bureaucratic turnover. The graph plots the proportion of educational staff either hired or fired for any given year against the share of seats controlled by the executive. The circles' size is proportional to the number of observations contained at each value of the legislative share of seats.}
     \label{fig:turnover}
 \end{figure}
@@ -382,7 +382,7 @@ The optimal amount of investment in state capacity in the first term is analogou
 
 ```{r}
 include_graphics(
-  "figs/balance_hlm.pdf"
+  "plots/balance_hlm.pdf"
 )
 ```
 
@@ -390,7 +390,7 @@ include_graphics(
 
 ```{r}
 include_graphics(
-  "figs/balance_felm.pdf"
+  "plots/balance_felm.pdf"
 )
 ```
 

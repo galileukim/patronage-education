@@ -1,4 +1,4 @@
 # data cleaning
-# replication (estimation, visualization)
+# figures (estimation, visualization)
 # publication (relatorio)
 # presentation

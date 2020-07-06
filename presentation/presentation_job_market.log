@@ -1460,28 +1460,28 @@ LaTeX Font Info:    Font shape `T1/Cabin-TLF/condensed/n' will be
 [2
 
 ]
-<figs/plot_global_1.pdf, id=56, 361.35pt x 216.81pt>
-File: figs/plot_global_1.pdf Graphic file (type pdf)
-<use figs/plot_global_1.pdf>
-Package pdftex.def Info: figs/plot_global_1.pdf  used on input line 199.
+<plots/plot_global_1.pdf, id=56, 361.35pt x 216.81pt>
+File: plots/plot_global_1.pdf Graphic file (type pdf)
+<use plots/plot_global_1.pdf>
+Package pdftex.def Info: plots/plot_global_1.pdf  used on input line 199.
 (pdftex.def)             Requested size: 240.90088pt x 144.54074pt.
 [3
 
- <./figs/plot_global_1.pdf>]
-<figs/plot_global_2.pdf, id=70, 361.35pt x 216.81pt>
-File: figs/plot_global_2.pdf Graphic file (type pdf)
-<use figs/plot_global_2.pdf>
-Package pdftex.def Info: figs/plot_global_2.pdf  used on input line 206.
+ <./plots/plot_global_1.pdf>]
+<plots/plot_global_2.pdf, id=70, 361.35pt x 216.81pt>
+File: plots/plot_global_2.pdf Graphic file (type pdf)
+<use plots/plot_global_2.pdf>
+Package pdftex.def Info: plots/plot_global_2.pdf  used on input line 206.
 (pdftex.def)             Requested size: 240.90088pt x 144.54074pt.
 [4
 
- <./figs/plot_global_2.pdf>] [5
+ <./plots/plot_global_2.pdf>] [5
 
 ]
-<figs/saeb_map.pdf, id=91, 361.35pt x 361.35pt>
-File: figs/saeb_map.pdf Graphic file (type pdf)
-<use figs/saeb_map.pdf>
-Package pdftex.def Info: figs/saeb_map.pdf  used on input line 247.
+<plots/saeb_map.pdf, id=91, 361.35pt x 361.35pt>
+File: plots/saeb_map.pdf Graphic file (type pdf)
+<use plots/saeb_map.pdf>
+Package pdftex.def Info: plots/saeb_map.pdf  used on input line 247.
 (pdftex.def)             Requested size: 180.67566pt x 180.67456pt.
 LaTeX Font Info:    Font shape `T1/Cabin-TLF/boldcondensed/n' will be
 (Font)              scaled to size 8.0pt on input line 247.
@@ -1491,7 +1491,7 @@ Overfull \vbox (1.62262pt too high) detected at line 247
 
 [6
 
- <./figs/saeb_map.pdf>] [7
+ <./plots/saeb_map.pdf>] [7
 
 ] [8
 
@@ -1510,14 +1510,14 @@ Overfull \vbox (1.62262pt too high) detected at line 247
 ] [15
 
 ]
-<figs/enrollment_dep.pdf, id=181, 361.35pt x 216.81pt>
-File: figs/enrollment_dep.pdf Graphic file (type pdf)
-<use figs/enrollment_dep.pdf>
-Package pdftex.def Info: figs/enrollment_dep.pdf  used on input line 533.
+<plots/enrollment_dep.pdf, id=181, 361.35pt x 216.81pt>
+File: plots/enrollment_dep.pdf Graphic file (type pdf)
+<use plots/enrollment_dep.pdf>
+Package pdftex.def Info: plots/enrollment_dep.pdf  used on input line 533.
 (pdftex.def)             Requested size: 230.86334pt x 138.51973pt.
 [16
 
- <./figs/enrollment_dep.pdf>] [17
+ <./plots/enrollment_dep.pdf>] [17
 
 ] [18
 
@@ -1526,14 +1526,14 @@ Package pdftex.def Info: figs/enrollment_dep.pdf  used on input line 533.
 ] [20
 
 ]
-<figs/turnover_category.pdf, id=233, 433.62pt x 180.675pt>
-File: figs/turnover_category.pdf Graphic file (type pdf)
-<use figs/turnover_category.pdf>
-Package pdftex.def Info: figs/turnover_category.pdf  used on input line 680.
+<plots/turnover_category.pdf, id=233, 433.62pt x 180.675pt>
+File: plots/turnover_category.pdf Graphic file (type pdf)
+<use plots/turnover_category.pdf>
+Package pdftex.def Info: plots/turnover_category.pdf  used on input line 680.
 (pdftex.def)             Requested size: 230.86334pt x 96.19287pt.
 [21
 
- <./figs/turnover_category.pdf>] [22
+ <./plots/turnover_category.pdf>] [22
 
 ] (./tables/student_learning.tex
 LaTeX Font Info:    Font shape `T1/Cabin-TLF/condensed/it' will be
@@ -1544,24 +1544,24 @@ LaTeX Font Info:    Font shape `T1/Cabin-TLF/boldcondensed/n' will be
 [23
 
 ]
-<figs/turnover_fit.pdf, id=269, 361.35pt x 216.81pt>
-File: figs/turnover_fit.pdf Graphic file (type pdf)
-<use figs/turnover_fit.pdf>
-Package pdftex.def Info: figs/turnover_fit.pdf  used on input line 735.
+<plots/turnover_fit.pdf, id=269, 361.35pt x 216.81pt>
+File: plots/turnover_fit.pdf Graphic file (type pdf)
+<use plots/turnover_fit.pdf>
+Package pdftex.def Info: plots/turnover_fit.pdf  used on input line 735.
 (pdftex.def)             Requested size: 210.78827pt x 126.47438pt.
 [24
 
- <./figs/turnover_fit.pdf>] (./tables/turnover_result.tex) [25
+ <./plots/turnover_fit.pdf>] (./tables/turnover_result.tex) [25
 
 ]
-<figs/plot_pred.pdf, id=296, 361.35pt x 216.81pt>
-File: figs/plot_pred.pdf Graphic file (type pdf)
-<use figs/plot_pred.pdf>
-Package pdftex.def Info: figs/plot_pred.pdf  used on input line 763.
+<plots/plot_pred.pdf, id=296, 361.35pt x 216.81pt>
+File: plots/plot_pred.pdf Graphic file (type pdf)
+<use plots/plot_pred.pdf>
+Package pdftex.def Info: plots/plot_pred.pdf  used on input line 763.
 (pdftex.def)             Requested size: 230.86334pt x 138.51973pt.
 [26
 
- <./figs/plot_pred.pdf>] [27
+ <./plots/plot_pred.pdf>] [27
 
 ]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 811.
