@@ -136,7 +136,7 @@ save_fig <- function(pl, domain, file, width = 5, height = 3, ...) {
   print(pl)
 
   ggplot2::ggsave(
-    filename = here(domain, "figs", file),
+    filename = here(domain, "plots", file),
     pl,
     width = width,
     height = height,

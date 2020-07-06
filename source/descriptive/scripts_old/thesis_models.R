@@ -206,5 +206,5 @@ boot_lm <- boot(
 
 # ggsave(
 #   plot_hlm,
-#   filename = here(path_figs, "turnover_fit.pdf")
+#   filename = here(path_plots, "turnover_fit.pdf")
 # )

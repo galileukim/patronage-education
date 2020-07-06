@@ -29,7 +29,7 @@ update_geom_defaults(
   list(color = "steelblue3", size = 0.7)
 )
 
-path_figs <- "papers/paper_cp_2020/plots/"
+path_plots <- "papers/paper_cp_2020/plots/"
 
 opts_chunk$set(echo = FALSE, out.width = "230px", cache = F, root.dir = here())
 ```

@@ -139,5 +139,5 @@ plot_accountability <- ggplot(
 
 ggsave(
   plot_accountability,
-  filename = p_file_here('figs', "accountability_fit.pdf")
+  filename = p_file_here('plots', "accountability_fit.pdf")
 )

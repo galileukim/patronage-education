@@ -84,7 +84,7 @@ save_fig(
 #   names(plot_logit_int),
 #   ~ ggsave(
 #     .x,
-#     filename = p_file_here("figs", paste0("plot_logit_", .y, ".pdf"))
+#     filename = p_file_here("plots", paste0("plot_logit_", .y, ".pdf"))
 #   )
 # )
 

@@ -101,7 +101,7 @@ rdd_plots <- pmap(
 
 
         ggsave(
-            here("models", "figs", paste0("visual_rdd_", names, ".pdf"))
+            here("models", "plots", paste0("visual_rdd_", names, ".pdf"))
         )
     }
 )

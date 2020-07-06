@@ -360,7 +360,7 @@ patronage_reelection <- fread(
 #   limits = c(100, 250)
 # ) +
 #   ggplot2::ggsave(
-#     p_file_here('figs', "saeb_map.pdf"),
+#     p_file_here('plots', "saeb_map.pdf"),
 #     width = 5,
 #     height = 5
 #   )
@@ -438,7 +438,7 @@ plot_global <- cowplot::plot_grid(
 
 ggsave(
   plot_global,
-  filename = p_file_here('figs', 'plot_global.pdf')
+  filename = p_file_here('plots', 'plot_global.pdf')
 )
 
 plot_enroll <- edu_global %>%
@@ -514,7 +514,7 @@ plot_edu_1 <- cowplot::plot_grid(
 
 ggsave(
   plot_edu_1,
-  filename = p_file_here('figs', 'plot_global_1.pdf')
+  filename = p_file_here('plots', 'plot_global_1.pdf')
 )
 
 plot_enroll_type <- edu_global %>%
@@ -609,7 +609,7 @@ plot_edu_2 <- cowplot::plot_grid(
 
 ggsave(
   plot_edu_2,
-  filename = p_file_here('figs', 'plot_global_2.pdf')
+  filename = p_file_here('plots', 'plot_global_2.pdf')
 )
 
 # descriptive statistics --------------------------------------------------
@@ -642,7 +642,7 @@ plot_budget <- finbra %>%
 
 plot_budget %>% 
   ggsave(
-    filename = p_file_here('figs', "budget.pdf")
+    filename = p_file_here('plots', "budget.pdf")
   )
 
 # student coverage by administratioon
@@ -690,7 +690,7 @@ plot_dep <- censo_class %>%
   )
 
 ggsave(
-  p_file_here('figs', 'enrollment_dep.pdf')
+  p_file_here('plots', 'enrollment_dep.pdf')
 )
 
 # rais by category
@@ -754,7 +754,7 @@ plot_cat_total <- rais_category %>%
   ) +
   theme(legend.title = element_blank()) +
   ggsave(
-    filename = p_file_here('figs', 'rais_cat_total.pdf')
+    filename = p_file_here('plots', 'rais_cat_total.pdf')
   )
 
 plot_cat_turnover <- rais_category %>% 
@@ -790,7 +790,7 @@ plot_cat_turnover <- rais_category %>%
     legend.title = element_blank()
   ) +
   ggsave(
-    filename = p_file_here('figs', "turnover_cat.pdf")
+    filename = p_file_here('plots', "turnover_cat.pdf")
   )
 
 # test scores -------------------------------------------------------------
@@ -901,7 +901,7 @@ plot_turnover_edu <- rais_edu %>%
 
 ggsave(
   plot_turnover_edu,
-  filename = p_file_here('figs', "turnover.pdf")
+  filename = p_file_here('plots', "turnover.pdf")
 )
 
 plot_turnover_index <- censo_school_turnover %>% 
@@ -921,7 +921,7 @@ plot_turnover_index <- censo_school_turnover %>%
 
 ggsave(
   plot_turnover_index,
-  filename = p_file_here('figs', "turnover_index.pdf")
+  filename = p_file_here('plots', "turnover_index.pdf")
 )
 
 patronage_category <- patronage %>% 
@@ -955,7 +955,7 @@ patronage_category %>%
   ) + 
   ggsave(
     p_file_here(
-      'figs', 'hire_by_category'
+      'plots', 'hire_by_category'
     )
   )
 
@@ -1062,7 +1062,7 @@ election %>%
   )
 
 ggsave(
-  filename = p_file_here('figs', "hist_coalition.pdf")
+  filename = p_file_here('plots', "hist_coalition.pdf")
 )
 
 # hierarchical model ------------------------------------------------------
@@ -1240,7 +1240,7 @@ plot_hlm <- estimate_hlm %>%
 
 ggsave(
   plot_hlm,
-  filename = p_file_here('figs', "turnover_fit.pdf")
+  filename = p_file_here('plots', "turnover_fit.pdf")
 )
 # 
 # fit_hlm <- invoke_map(
@@ -1317,7 +1317,7 @@ plot_spaece <- censo_turnover_score %>%
 
 ggsave(
   plot_spaece,
-  filename = p_file_here('figs', "turnover_spaece.pdf")
+  filename = p_file_here('plots', "turnover_spaece.pdf")
 )
 
 # explaining turnover -----------------------------------------------------
@@ -1402,7 +1402,7 @@ walk2(
   names(plot_logit_int),
   ~ggsave(
     .x,
-    filename = p_file_here('figs', paste0('plot_logit_', .y, '.pdf'))
+    filename = p_file_here('plots', paste0('plot_logit_', .y, '.pdf'))
   )
 )
 
@@ -1417,7 +1417,7 @@ plot_logit <- fit_hired %>%
 
 ggsave(
   plot_logit,
-  filename = p_file_here('figs', "fit_logit.pdf")
+  filename = p_file_here('plots', "fit_logit.pdf")
 )
 
 # municipal fe model
@@ -1476,7 +1476,7 @@ plot_mun <- fit_hired_mun%>%
 
 ggsave(
   plot_mun,
-  filename = p_file_here('figs', "fit_mun.pdf")
+  filename = p_file_here('plots', "fit_mun.pdf")
 )
 
 plot_hired <- plot_grid(
@@ -1489,7 +1489,7 @@ plot_hired <- plot_grid(
 
 ggsave(
   plot_hired,
-  filename = p_file_here('figs', "hired_fit.pdf")
+  filename = p_file_here('plots', "hired_fit.pdf")
 )
 
 # predicted vals
@@ -1567,7 +1567,7 @@ plot_turnover <- grid.arrange(
 
 ggsave(
   plot_turnover,
-  filename = p_file_here('figs', "plot_pred.pdf")
+  filename = p_file_here('plots', "plot_pred.pdf")
 )
 
 # accountability ----------------------------------------------------------
@@ -1624,7 +1624,7 @@ plot_accountability <- ggplot(
 
 ggsave(
   plot_accountability,
-  filename = p_file_here('figs', "accountability_fit.pdf")
+  filename = p_file_here('plots', "accountability_fit.pdf")
 )
 
 # covariate balance -------------------------------------------------------
@@ -1649,7 +1649,7 @@ love.plot(
 )
 
 ggsave(
-  filename = p_file_here('figs', 'balance_hlm.pdf')
+  filename = p_file_here('plots', 'balance_hlm.pdf')
 )
 
 weight_out <- weightit(
@@ -1670,7 +1670,7 @@ love.plot(
 )
 
 ggsave(
-  filename = p_file_here('figs', 'balance_felm.pdf')
+  filename = p_file_here('plots', 'balance_felm.pdf')
 )
 
 # rdd ---------------------------------------------------------------------
@@ -1848,7 +1848,7 @@ plot_patronage <- patronage_reelection %>%
   theme_clean
 
 pdf(
-  p_file_here('figs', 'patronage.pdf'),
+  p_file_here('plots', 'patronage.pdf'),
   width = 5,
   height = 3
 )
@@ -1947,7 +1947,7 @@ plot_ame <- ame %>%
 
 ggsave(
   p_file_here(
-    'figs', 'patronage_ame.pdf'
+    'plots', 'patronage_ame.pdf'
   ),
   plot_ame
 )

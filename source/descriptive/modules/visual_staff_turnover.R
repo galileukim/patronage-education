@@ -116,7 +116,7 @@ save_fig(
 #     ) +
 #     ggsave(
 #         p_file_here(
-#             "figs", "hire_by_category"
+#             "plots", "hire_by_category"
 #         )
 #     )
 
