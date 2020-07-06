@@ -36,5 +36,5 @@ walk(
     model_modules,
     visual_modules
   ),
-  future_map(., run_module)
+  ~future_map(., run_module)
 )

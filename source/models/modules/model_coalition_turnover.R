@@ -54,6 +54,11 @@ fit_turnover <- map(
   ~ lfe::felm(., data = model_school_turnover)
 )
 
+fit_turnover %>%
+  set_names(
+    c("baseline", "controls")
+  )
+
 write_model(
   fit_turnover,
   "fit_coalition_turnover.rds"
