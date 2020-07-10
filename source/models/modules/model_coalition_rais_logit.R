@@ -41,6 +41,11 @@ model_rais_micro <- rais_edu %>%
   ) %>%
   fix_scale()
 
+model_rais_micro_second_term <- model_rais_micro %>%
+  filter(
+    mayor_reelected == 1
+  )
+
 # ==============================================================================
 # estimation of effect of coalition share on staff turnover
 # ============================================================================== 
@@ -49,8 +54,16 @@ fit_turnover <- map(
     ~logit(., data = model_rais_micro)
   )
 
+fit_turnover_second_term <- logit(
+  formulae_logit$controls %>% update(., . ~ . - mayor_reelected),
+  data = model_rais_micro_second_term
+)
+
 # ==============================================================================
 print("write-out data")
 # ==============================================================================
 fit_turnover %>%
   write_model("fit_logit_turnover_coalition.rds")
+
+fit_turnover_second_term %>%
+  write_model("fit_logit_turnover_coalition_second_term.rds")

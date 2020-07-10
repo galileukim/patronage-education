@@ -28,6 +28,13 @@ formulae_felm <- formulae_no_fe %>%
     ~add_felm(., fe = "state + year", cluster = "cod_ibge_6")
   )
 
+formula_felm_second_term <- reformulate(
+  c("coalition_share*rais_category", controls),
+  "rais_hired"
+) %>%
+  update(. ~ . - mayor_reelected) %>%
+  add_felm(., fe = "state + year", cluster = "cod_ibge_6")
+
 # ==============================================================================
 print("reshape data for estimation")
 # ==============================================================================
@@ -48,6 +55,11 @@ model_rais_mun <- rais_edu_mun %>%
   ) %>%
   fix_scale()
 
+model_rais_mun_second_term <- model_rais_mun %>%
+  filter(
+    mayor_reelected == 1
+  )
+
 # ==============================================================================
 # estimation of effect of coalition share on staff turnover
 # ============================================================================== 
@@ -57,8 +69,16 @@ fit_felm <- map(
   ~lfe::felm(., data = model_rais_mun)
 )
 
+fit_felm_second_term <- lfe::felm(
+  formula_felm_second_term,
+  data = model_rais_mun_second_term
+)
+
 # ==============================================================================
 print("write-out data")
 # ==============================================================================
 fit_felm %>%
   write_model("fit_felm_turnover_coalition.rds")
+
+fit_felm_second_term %>%
+  write_model("fit_felm_turnover_coalition_second_term.rds")
