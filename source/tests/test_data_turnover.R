@@ -3,11 +3,13 @@
 # ==============================================================================
 context("testing turnover utils")
 
+# every test is independent from every other test
+# clean slate for each unit test and have it self-contained
+
 nrows <- 2
 complete_years <- 2005:2008
 .group_vars <- c("school_id", "year")
 .vars <- c("turnover_exit", "turnover_transfer", "turnover_extinct", "turnover_entry", "n")
-
 
 turnover_data <- tibble(
     school_id = "a",
@@ -27,6 +29,7 @@ turnover_sum <- turnover_data %>%
     )
 
 completed_data <- turnover_sum %>%
+# complete missing years by group
     complete_year_by_group(
         "school_id",
         complete_years
@@ -47,7 +50,6 @@ turnover_complete  <- create_teacher_turnover_index(
 test_that("check if calc_turnover_by_group returns correct object", {
     n_groupings <- nrow(distinct(turnover_data, across(.group_vars)))
     n_cols <- length(.vars) + length(.group_vars)
-
     max_turnover <- max(turnover_index_data$turnover_index, na.rm = T)
     manual_max_turnover <- with(
         turnover_index_data,

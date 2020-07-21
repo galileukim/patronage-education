@@ -1,17 +1,24 @@
 # ==============================================================================
 # set-up
 # ==============================================================================
+# what am I looking for:
+# something that is not obvious
+# something that is hackey: regular expression
+# what was the question that generated the answer
+# anything that is not obvious and contextually important
+
+# load packages
 pacman::p_load(
-  tidyverse,
-  data.table,
-  here,
-  furrr
+  tidyverse, # data manipulation
+  data.table, # data importing
+  here, # set-up here directory
+  furrr # tools for parallelizing
 )
 
 knitr::opts_chunk$set(
   eval = T,
   cache = T,
-  cache.lazy = F,
+  cache.lazy = F, # performance improvement
   message = F,
   warning = F,
   echo = F,

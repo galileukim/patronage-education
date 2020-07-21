@@ -43,6 +43,8 @@ formulae <- c(
   )
 )
 
+print("estimating hierarchical linear model")
+
 fit_lmer <- map(
   formulae,
   ~ lme4::lmer(
