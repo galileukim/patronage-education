@@ -21,14 +21,8 @@ list_data <- function(dir) {
   return(files)
 }
 
-here_data <- function(type, dir, file) {
-  path <- here("data", type, dir, file)
-
-  return(path)
-}
-
 read_data <- function(type, dir, file) {
-  file_path <- here_data(type, dir, file)
+  file_path <- here("data", type, dir, file)
 
   if (str_detect(file, ".rds$")) {
     data <- read_rds(file_path)
@@ -348,7 +342,6 @@ group_split <- function(data, ...) {
       group_names
     )
 }
-
 
 tidycoef <- function(fit, vars = ".", ...) {
   tidyfit(fit, vars) %>%
