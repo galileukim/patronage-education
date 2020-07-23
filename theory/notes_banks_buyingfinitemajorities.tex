@@ -72,12 +72,26 @@ To further simplify the analysis, Banks introduces the folowing sets of assumpti
 
 $A_1$ implies that absent any bribes by $A$, $y$ will defeat $x$. Therefore $A$ must bribe at least one voter. $A_2$ further implies that $A$ must bribe at least a majority of voters, otherwise $B$ will have sufficient resources to bribe $(n+1)/2$ voters and win.
 
-Banks then proceeds to show that there are monotonic bribing schedules contained within the solution for equation \ref{eqn:solution}. For any $a \in \real$ let $k(a) = \lvert C(a) \rvert$. Suppose that $a\in U^l(\mathbf{v}, W_B)$ is such that $v_i \geq v_j$ and $j \in C(a)$ but $i \notin C(a)$. Then, under $A_2$, there exists $a' \in U^l(\mathbf{v}, W_B)$ with $S(a') \leq S(a)$, $k(a') = k(a)$ and $i \in C(a')$ but $j \notin C(a')$ by simply swapping $i$ for $j$. Note that since $v_i \geq v_j$, we have that $t(a) - v_i \leq  t(a) - v_j$, i.e. $a'_i \leq a_j$. $A_2$ guarantees that $a'_i \geq 0$, in other words every $i \in C(a)$ is receiving a non-negative bribe.
+Banks then proceeds to show that there are monotonic bribing schedules contained within the solution for equation \ref{eqn:solution}. For any $a \in \real$ let $k(a) = \lvert C(a) \rvert$. Suppose that $a\in U^l(\mathbf{v}, W_B)$ is such that $v_i \geq v_j$ and $j \in C(a)$ but $i \notin C(a)$. Then, under $A_2$, there exists $a' \in U^l(\mathbf{v}, W_B)$ with $S(a') \leq S(a)$, $k(a') = k(a)$ and $i \in C(a')$ but $j \notin C(a')$ by simply swapping $i$ for $j$.\footnote{Note that since $v_i \geq v_j$, we have that $t(a) - v_i \leq  t(a) - v_j$, i.e. $a'_i \leq a_j$. $A_2$ guarantees that $a'_i$ or $a_j$ are non-negative.}
 
 Generalizing, and recalling that $v_1 \geq ... \geq v_n$, we see that for all $a \in U^l(\mathbf{v}, W_b)$ there exists a bribe schedule $a' \in U^l(\mathbf{v}, W_b)$ such that $S(a') \leq S(a)$ and $C(a') = \{1, ..., k(a)\}$. Therefore, we can without loss of generality restrict attention to schedules $a$ by $A$ which bribe the first $k(a)$ voters. Call these monotonic leveling schedules and let $U_m^l \subseteq U(\mathbf{v}, W_B)$.
 
 Therefore, when $A_2$ holds,
 
 $$\min\{S(a): a \in U(\mathbf{v}, W_B)\} = \min\{S(a): a \in U^l_m(\mathbf{v}, W_B)\}$$
+
+We can now further simplify the total expenditure $S(a)$
+
+\begin{equation*}
+    S(a) = \sum_{i \in C(a)}a_i = k(a) \cdot t(a) - \sum_{i \leq k(a)}v_i
+\end{equation*}
+
+Note that the choice of $k(a)$ and $t(a)$ fully characterize any schedule $a \in U_m^l(\mathbf{v}, W_B$. We can thus fully characterize the optimization problem of $A$ as
+
+\begin{equation*}
+    \min_{k,t} k \cdot t- \sum_{i \leq k} v_i
+\end{equation*}
+
+subject to the constraint that the induced schedule $a \in U_m^l$. Banks then reformulates this as an unconstrained problem by noting the following. First, if $a(k, t, \mathbf{v})$ is unbeatable, it must be that $k \geq (n + 1)/2$, so by $A_1$ it must be that if $a_i(k, t, \mathbf{v}) = 0$, then $v_i < 0$. Therefore, $B$ receives all non-bribed voters for free. For $a(k, t, \mathbf{v})$ to be unbeatable, then, it must be that $B$ cannot afford the remaining $(n + 1)/2 - (n - k)$ 
 
 \end{document}
