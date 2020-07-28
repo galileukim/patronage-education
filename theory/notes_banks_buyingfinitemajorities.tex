@@ -22,6 +22,11 @@
 \usepackage{appendix}
 \usepackage{titletoc}
 
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}{Proposition}
+\renewcommand{\theproposition}{\arabic{proposition}}
+\newtheorem{corollary}[theorem]{Corollary}
 \newcommand{\real}{\mathbb{R}_+^n}
 
 \begin{document}
@@ -128,6 +133,7 @@ Next, suppose that $\Delta(k)$ is increasing in $k$. The following algorithm can
 We can therefore search for the optimal $k^*$ with the following algorithm:
 
 \begin{align}
+    \label{eqn:optimal_k}
     k^* = 
     \begin{cases}
         (n + 1)/2 & \text{if } \Delta((n + 1)/2) \geq 0 \\
@@ -139,8 +145,32 @@ Banks also shows that $\Delta(k)$ is indeed nondecreasing.
 
 \begin{align}
     \Delta(k)  & = \left[\frac{(k + 1)W_B}{k + 1 - (n - 1)/2} - \sum_{i \leq k + 1}v_i \right]\\
+    \label{eqn:delta_k}
     & = \frac{-W_B (n - 1)}{2(k + 1 - (n - 1)/2)(k - (n - 1)/2)} - v_{k + 1}\\
+    \label{eqn:def_delta_k}
     & \equiv T(k, W_B) - v_{k + 1}
 \end{align}
+
+Note that because $v_1 \geq ... \geq v_n$, $-v_{k + 1}$ is non-decreasing in $k$. Also, taking the first term as a continuous variable and differentiating w.r.t. $k$, we note that it is also increasing in $k$.
+
+Generating an explicit characterization of $k$ is not straightforward. Instead, Banks opts to show the conditions which need to hold in order for the coalition to be universal or minimal. Using equation \ref{eqn:optimal_k} and substituting in equation \ref{eqn:delta_k} we have the following.
+
+\begin{proposition}
+    (a) $k^*(\mathbf{v}, W_B) = (n + 1)/2$ if and only if $v_{(n + 3)/2} \leq -W_B(n - 1)/4$; (b) $k^*(\mathbf{v}, W_B) = n$ if and only if $v_n > -2W_B/(n + 1)$.
+\end{proposition}
+
+Banks also identifies how the optimal coalition $k^*$ respond to marginal changes in voter prefence intensity. Given an arbitrary amount $W_B$ and preference profile $\mathbf{v}'$, let $k' = k^*(\mathbf{v}, W_B)$. If $k' = (n + 1)/2$, then we know that $k' \leq k*(\mathbf{v}, W_B)$ for all $\mathbf{v}$, so suppose $k' > (n + 1)/2$.
+
+From equation \ref{eqn:optimal_k} we infer that $\Delta(k - 1, \mathbf{v}', W_B) < 0)$, which from equations \ref{eqn:delta_k} and \ref{eqn:def_delta_k} is equivalent to $v_k' > T(k' - 1, W_B)$. Now suppose that the preference profile changes from $\mathbf{v}'$ to $\mathbf{v}$, and $v_{k'}$ is such that $v_{k'} \geq v'_k$. Then, $v_{k'} > T(k' - 1, W_B)$, and hence $\Delta(k' - 1, \mathbf{v}, W_B) < 0$. But then from equation \ref{eqn:optimal_k} it must be the case that $k^*(\mathbf{v}, W_B) \geq k'$. Therefore, the following holds:
+
+\begin{proposition}
+    For all $W_B$, if $\mathbf{v}$ and $\mathbf{v}'$ are such that $v_{k'} \geq v'_{k'}$, where $k' = k^*(\mathbf{v}', W_B)$, then $k^*(\mathbf{v}, W_B) \geq k^*(\mathbf{v}', W_B)$
+\end{proposition}
+
+In words, if the preference intensity of the marginal bribed voter weakly increases, then the optimal coalition size also weakly increases. Substantively, the number of voters bribed by $A$ weakly increases as the voter who receives the largest bribe finds $A$'s preferred alternative, $x$, more attractive. Similarly
+
+\begin{proposition}
+    For all $W_B$, if $\mathbf{v}$ and $\mathbf{v}'$ are such that $v_{k' + 1} \leq v'_{k' + 1}$, where $k' = k^*(\mathbf{v}', W_B)$, then $k^*(\mathbf{v}, W_B) \leq k^*(\mathbf{v}', W_B)$
+\end{proposition}
 
 \end{document}
