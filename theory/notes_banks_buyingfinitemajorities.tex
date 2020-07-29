@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{setspace} \onehalfspacing
-\usepackage[top = 1in, bottom = 1in, left = 1in, right = 1in]{geometry}
+\usepackage[top = 1.25in, bottom = 1.25in, left = 1.25in, right = 1.25in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -25,8 +25,8 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
 \renewcommand{\theproposition}{\arabic{proposition}}
-\newtheorem{corollary}[theorem]{Corollary}
 \newcommand{\real}{\mathbb{R}_+^n}
 
 \begin{document}
@@ -172,5 +172,24 @@ In words, if the preference intensity of the marginal bribed voter weakly increa
 \begin{proposition}
     For all $W_B$, if $\mathbf{v}$ and $\mathbf{v}'$ are such that $v_{k' + 1} \leq v'_{k' + 1}$, where $k' = k^*(\mathbf{v}', W_B)$, then $k^*(\mathbf{v}, W_B) \leq k^*(\mathbf{v}', W_B)$
 \end{proposition}
+
+The "convexity" of $E$ guarantees that local information is sufficient to generate comparative statistics regarding changes in preferences $\mathbf{v}' \rightarrow \mathbf{v}$. Here, this local information is summarized by the preferences of the marginal voter $v_k$ and non-bribed voter $v_{k + 1}$. In order to identify these voters, one needs to solve for the optimal coalition size. Instead, Banks takes an alternative route and characterizes a weaker comparative statistic result which holds globally. Given two preferences $\mathbf{v}$ and $\mathbf{v}'$, write $\mathbf{v}$ and $\mathbf{v}'$, write $\mathbf{v} \geq \mathbf{v}'$ if $v_i \geq v'_i$ for all $i \in N$.
+
+\begin{corollary}
+    \label{cor:change_k}
+    For all $\mathrm{W_B}$, if $\mathbf{v} \geq \mathbf{v}'$ then $\mathrm{k}^*(\mathbf{v}, \mathrm{W_B}) \geq \mathrm{k}^*(v', \mathrm{W_B})$
+\end{corollary}
+
+Thus, the optimal number of voters bribed by $A$ and hence the optimal size of $A$'s optimal coalition, weakly increases as voters find $A$'s preferred alternative, $x$, more attractive. Although $A$'s total expenditure will decrease as $x$ becomes more attractive to the legislature, the optimal way to allocate this lower amount is to spread it more widely among voters.
+
+We can also characterize the change in total expenditures as a result of a shift in voter preferences. From equation \ref{eqn:total_expenditure} we have
+
+\begin{align*}
+    E(k, \mathbf{v}, W_B) - E(k, \mathbf{v}', W_B) & = \\
+    &= k \cdot t(k, W_B) - \sum_{i \leq k} v_i - \left[k \cdot t(k, W_B) - \sum_{i \leq k} v'_i\right]\\
+    &= \sum_{i \leq k}(v'_i - v_i)
+\end{align*}
+
+Since $v_i - v'_i \geq 0$, the difference in expenditure between a more favorable and unfavorable legislature is always non-positive.
 
 \end{document}
