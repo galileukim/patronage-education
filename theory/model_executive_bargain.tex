@@ -1,0 +1,47 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{setspace} \onehalfspacing
+\usepackage[top = 1.25in, bottom = 1.25in, left = 1.25in, right = 1.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{pdflscape}
+\usepackage[hyphens]{url}
+\usepackage{enumitem}
+\usepackage[table]{xcolor}
+\usepackage{authblk}
+\usepackage{appendix}
+\usepackage{titletoc}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\renewcommand{\theproposition}{\arabic{proposition}}
+\newcommand{\real}{\mathbb{R}_+^n}
+
+\begin{document}
+
+The following model is adapted, with little to no modifications, from Banks (2000). We can model the executive bargain with the legislature as follows. A mayor wants to pass her proposal $x$. We can include under this category a set of policy proposals: a new legislation, an infrastructure project or budgetary approval. In order to implement her proposal, she must pass it in the city council through a simple majority rule. However, the mayor does not govern alone. An opposition wants to block the mayor's proposal and maintain the status quo, denoted as $y$. 
+
+Each city councilor is characterized by a proposal valuation parameter $v_i$ for all $i \in N$, where $v_i > 0$ means that the mayor's proposal $x$ is preferred. Payoff gets realized when city councilor $i$ votes, independent of the outcome. For each councilor, the mayor and opposition set a bribe schedule
+
+\begin{align*}
+    a \in (a_1, ..., a_n) \in \real\\
+    b \in (b_1, ..., b_n) \in \real+
+\end{align*}
+
+Solving through backward induction, given a bribe schedule $(a, b)$, councilor $i$ prefers to vote for the mayor's proposal ($x$) if $a_i + v_i > b_i$ and to maintain the status quo ($y$) otherwise. Since indifferent councilors vote for the status quo, party $b$ needs to only match bribes from $A$, adjusting for individual preferences, i.e. $b_i = a_i + v_i$. Therefore, the opposition solves
+
+
+
+\end{document}
