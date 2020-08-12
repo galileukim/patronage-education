@@ -28,29 +28,39 @@
 \newtheorem{corollary}{Corollary}
 \renewcommand{\theproposition}{\arabic{proposition}}
 \newcommand{\real}{\mathbb{R}_+^n}
+\newcommand{\bfv}{\mathbf{v}}
 
 \begin{document}
 
 \section*{Theory}
 
-\begin{itemize}
-    \item Patronage is a political currency to buy legislative votes. 
-    \item Mayor has to compete with an opposition that wants to block her proposals.
-    \item Variation in the amount of support by the city councilors.
-    \item City councils that are more favorable to the mayor are cheaper to buy.
-    \item This is independent of which term the mayor is in. Mechanism sld still operate in the second term. That is exactly what we find.
-\end{itemize}
-
-In this section, I use the canonical vote-buying model proposed by Groseclose and Snyder (1996) and Banks (2000) to analyze how mayors engage in patronage in Brazil. For any given term, a mayor wants to enact her preferred policy, which requires winning over potential resistance by the city council. The preferences of these legislators may vary: in some municipalities a mayor enjoys widespread political support ("base política"), while in others, the opposition ("oposição") garners more seats. In this battle over votes, patronage is the currency used to buy legislative votes.
+In this section, I use the canonical vote-buying model proposed by Groseclose and Snyder (1996) and Banks (2000) to model how mayors engage in patronage in Brazil. For any given term, a mayor wants to enact her preferred policy, which requires winning over potential resistance by the city council. The preferences of these legislators may vary: in some municipalities a mayor enjoys widespread political support ("base política"), while in others, the opposition ("oposição") garners more seats. In this battle over votes, patronage is the currency used to buy legislative votes.
 
 I show that, in equilibrium, the cost of passing the mayor's preferred policy decreases monotonically as the legislative support for the mayor increases. Substantively, the model predicts that municipalities in which the mayor has more (less) councilors favorable to her, we should observe less (more) patronage. Below, I outline the setting of the model and derive key comparative statics that guide the empirical estimation of this paper.
 
 \subsection*{The Setting}
 
-A mayor $M$ wants to pass her preferred policy proposal $x$. The definition of said proposal is flexible: it can include a new law, a development project or approval for that fiscal year's budget. In order to implement her policy she must gain the approval of the city council, comprised of an odd $N$ number of voters, through a simple majority rule. Blocking her efforts, an opposition $O$ wants to maintain the status quo, denoted as $y$.
+The mayor $M$ and opposition $O$ compete over legislative votes to enact their preferred policies. There are two possible outcomes: a policy $x$ favored by the mayor, and the status quo, denote as $y$, preferred by the opposition. In order to implement her policy the mayor must gain the approval of the city council, comprised of an odd $N$ number of voters, through a simple majority rule. The mayor and opposition spend political resources $W_M$ and $W_O$ to win over votes, which for the mayor includes patronage appointments into the public sector.
 
-Each city councilor is characterized by a policy preference parameter $v_i$ for all $i \in N$, where $v_i > 0$ entails that the mayor's proposal $x$ is preferred. Note that there are no sharp boundaries between pro-mayor and opposition legislators. Payoff gets realized when city councilor $i$ votes, independent of the outcome of the voting procedure. For each councilor, the mayor and opposition set a bribe schedule $a \in (a_1, ..., a_n) \in \real$, $b \in (b_1, ..., b_n) \in \real+$.
+Each city councilor is characterized by a publicly observed policy preference $v_i$ for all $i \in N$, where $v_i > 0$ entails that the mayor's proposal $x$ is preferred. Let $\mathbf{v} = (v_1, ..., v_n)$ denote a preference profile for the city council. Let $v_i$ measure the degree to which an individual city councilor supports the mayor, with higher values denoting stronger support for the mayor and vice versa. Payoff gets realized when city councilor $i$ votes, independent of the outcome of the voting procedure.
 
-Solving through backward induction, given a bribe schedule $(a, b)$, councilor $i$ prefers to vote for the mayor's proposal ($x$) if $a_i + v_i > b_i$ and to maintain the status quo ($y$) otherwise. Since indifferent councilors vote for the status quo, party $b$ needs to only match bribes from $A$, adjusting for individual preferences, i.e. $b_i = a_i + v_i$. Therefore, the opposition solves
+We solve the game through backward induction. The timing of the game is as follows:
+
+\begin{enumerate}
+    \item Mayor $M$ offers a bribe schedule $m \in (m_1, ..., m_n) \in \real$.
+    \item Opposition $O$ observes the bribe schedule $m$ and makes a counter-offer $o \in (o_1, ..., o_n) \in \real$.
+    \item City councilors cast their votes and payoffs are realized.
+\end{enumerate}
+
+Given a bribe schedule $(a, b)$, councilor $i$ prefers to vote for the mayor's proposal $x$ if $a_i + v_i > b_i$ and the status quo $y$ otherwise. Since indifferent councilors vote for the status quo, the opposition needs to only match bribes from $M$, adjusting for individual preferences, i.e. $o_i = m_i + v_i$. For the mayor, she needs to construct the cheapest winning coalition in order to beat the opposition. 
+
+Following Groseclose and Snyder (1996) and Banks we focus our analysis on the set of equilibria in which the mayor wins. In this context, the amount of patronage resources $W_M$ is sufficiently large relative to $W_O$ and $\bfv$ that the mayor's preferred policy $x$ is implemented over $y$. Let $U(\bfv, W_O)$ denote the set of unbeatable patronage schedules for the mayor, and for any patronage schedule let $S(m) = \sum_{i = 1}^n m_i$ be the total amount of patronage disbursed. The mayor then solves
+
+\begin{equation}
+    \label{eqn:solution}
+    \min_a\{S(a) : a \in U(\mathbf{v}, W_B) \}
+\end{equation}
+
+Note that for any equilibrium strategy, it must be the case that mayor $M$ uses a leveling schedule: every city councilor in her coalition $C$ is equally expensive for the opposition $O$ to bribe.
 
 \end{document}
