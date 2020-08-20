@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.25)  20 AUG 2020 17:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.25)  20 AUG 2020 17:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/gali/gdrive/princeton/dissertation/papers/patronage_education/theory/model_executive_bargain.tex
-(/home/gali/gdrive/princeton/dissertation/papers/patronage_education/theory/model_executive_bargain.tex
+**/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.tex
+(/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 5 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -566,7 +566,7 @@ Package: titletoc 2011/12/15 v1.6 TOC entries
 \c@theorem=\count119
 \c@proposition=\count120
 \c@corollary=\count121
- (/home/gali/gdrive/princeton/dissertation/papers/patronage_education/theory/model_executive_bargain.aux)
+ (/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.aux)
 \openout1 = `model_executive_bargain.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
@@ -672,16 +672,13 @@ Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 
-Package natbib Warning: Author undefined for citation`groseclose_1996_buying' 
-(natbib)                on page 1 on input line 38.
+Package natbib Warning: Citation `groseclose_1996_buying' on page 1 undefined on input line 38.
 
 
-Package natbib Warning: Author undefined for citation`banks_2000_buying' 
-(natbib)                on page 1 on input line 38.
+Package natbib Warning: Citation `banks_2000_buying' on page 1 undefined on input line 38.
 
 
-Package natbib Warning: Author undefined for citation`robinson_political_2013' 
-(natbib)                on page 1 on input line 40.
+Package natbib Warning: Citation `robinson_political_2013' on page 1 undefined on input line 40.
 
 LaTeX Font Info:    Try loading font information for U+msa on input line 46.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -692,20 +689,65 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 46.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (/home/gali/gdrive/princeton/dissertation/papers/patronage_education/theory/model_executive_bargain.bbl [2]) [3] (/home/gali/gdrive/princeton/dissertation/papers/patronage_education/theory/model_executive_bargain.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+
+LaTeX Warning: Reference `eqn:minimal_expenditure' on page 4 undefined on input line 122.
+
+
+LaTeX Warning: Reference `eqn:solution' on page 4 undefined on input line 122.
+
+
+LaTeX Warning: Reference `eqn:total_expenditure' on page 4 undefined on input line 122.
+
+[4]
+
+LaTeX Warning: Reference `eqn:optimal_k' on page 5 undefined on input line 153.
+
+
+LaTeX Warning: Reference `eqn:deltAk' on page 5 undefined on input line 153.
+
+[5]
+
+LaTeX Warning: Reference `eqn:optimal_k' on page 6 undefined on input line 161.
+
+
+LaTeX Warning: Reference `eqn:deltAk' on page 6 undefined on input line 161.
+
+
+LaTeX Warning: Reference `eqn:def_deltAk' on page 6 undefined on input line 161.
+
+
+LaTeX Warning: Reference `eqn:optimal_k' on page 6 undefined on input line 161.
+
+
+LaTeX Warning: Reference `eqn:total_expenditure' on page 6 undefined on input line 182.
+
+[6]
+No file model_executive_bargain.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+[7] (/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6046 strings out of 494880
- 85124 string characters out of 6179601
- 159466 words of memory out of 5000000
- 9243 multiletter control sequences out of 15000+600000
- 10771 words of font info for 40 fonts, out of 8000000 for 9000
+ 6063 strings out of 494880
+ 85094 string characters out of 6179601
+ 161414 words of memory out of 5000000
+ 9257 multiletter control sequences out of 15000+600000
+ 13397 words of font info for 51 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 41i,5n,38p,923b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/gali/gdrive/princeton/dissertation/papers/patronage_education/theory/model_executive_bargain.pdf (3 pages, 95178 bytes).
+ 41i,17n,38p,1161b,200s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.pdf (7 pages, 176367 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 35 compressed objects within 1 object stream
+ 92 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
