@@ -124,8 +124,6 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
@@ -149,10 +147,11 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-OUTPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.pdf
-INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
+OUTPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.pdf
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
@@ -164,6 +163,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.bbl
 INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.bbl
 INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.aux
