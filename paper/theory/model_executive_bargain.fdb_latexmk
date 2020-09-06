@@ -1,5 +1,5 @@
 # Fdb version 3
-["bibtex model_executive_bargain"] 1598385585 "model_executive_bargain.aux" "model_executive_bargain.bbl" "model_executive_bargain" 1598411921
+["bibtex model_executive_bargain"] 1598385585 "model_executive_bargain.aux" "model_executive_bargain.bbl" "model_executive_bargain" 1598411927
   "../dissertation.bib" 1597958779 184447 f9189dc7eec789ebf9918dabf00b0902 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1480098435 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
   "model_executive_bargain.aux" 1598411905 804 3ab804a612397d3f01effe4e4d1e05ad ""
@@ -7,10 +7,10 @@
   (generated)
   "model_executive_bargain.blg"
   "model_executive_bargain.bbl"
-["pdflatex"] 1598411905 "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.tex" "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.pdf" "model_executive_bargain" 1598411921
+["pdflatex"] 1598411905 "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.tex" "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.pdf" "model_executive_bargain" 1598411927
   "/etc/texmf/web2c/texmf.cnf" 1585227716 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.aux" 1598411905 804 3ab804a612397d3f01effe4e4d1e05ad ""
-  "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.tex" 1598411921 16568 568fe7dfe8c4beec8165d34dacad23d1 ""
+  "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.tex" 1598411926 16568 568fe7dfe8c4beec8165d34dacad23d1 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -118,10 +118,10 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1593121643 859410 7e9db4a2b17af51ef47308844b7ed2cf ""
   "model_executive_bargain.aux" 1598411905 804 3ab804a612397d3f01effe4e4d1e05ad ""
   "model_executive_bargain.bbl" 1598385585 1117 d1f30acd916d13d1f18146cfa2fbb390 "bibtex model_executive_bargain"
-  "model_executive_bargain.tex" 1598411921 16568 568fe7dfe8c4beec8165d34dacad23d1 ""
+  "model_executive_bargain.tex" 1598411926 16568 568fe7dfe8c4beec8165d34dacad23d1 ""
   (generated)
-  "model_executive_bargain.aux"
-  "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.pdf"
-  "model_executive_bargain.log"
   "model_executive_bargain.pdf"
+  "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.pdf"
   "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.log"
+  "model_executive_bargain.aux"
+  "model_executive_bargain.log"
