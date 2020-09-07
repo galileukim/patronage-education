@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex model_executive_bargain"] 1599489705 "model_executive_bargain.aux" "model_executive_bargain.bbl" "model_executive_bargain" 1599489857
+["bibtex model_executive_bargain"] 1599491143 "model_executive_bargain.aux" "model_executive_bargain.bbl" "model_executive_bargain" 1599493188
   "../dissertation.bib" 1599486736 184447 f9189dc7eec789ebf9918dabf00b0902 ""
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1233624470 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
-  "model_executive_bargain.aux" 1599489853 828 f12d781d5564bb4bfa3dd42c8a7681ec "pdflatex"
+  "model_executive_bargain.aux" 1599493186 737 1f66012b13334aba860361c349a7ef40 "pdflatex"
   (generated)
   "model_executive_bargain.bbl"
   "model_executive_bargain.blg"
-["pdflatex"] 1599489853 "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.tex" "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.pdf" "model_executive_bargain" 1599489857
-  "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.aux" 1599489853 828 f12d781d5564bb4bfa3dd42c8a7681ec ""
-  "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.tex" 1599489856 16695 9f9fe18b55298f560c4ec03379377bdb ""
+["pdflatex"] 1599493185 "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.tex" "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.pdf" "model_executive_bargain" 1599493188
+  "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.aux" 1599493186 737 1f66012b13334aba860361c349a7ef40 ""
+  "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.tex" 1599493188 17307 e25da5672468b02229cee9b498b42aaa ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -39,9 +39,7 @@
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmti12.tfm" 1136768653 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
-  "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
-  "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
@@ -111,12 +109,12 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1557342086 4259635 562fc36ec496993777a6c428d8bfb811 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "model_executive_bargain.aux" 1599489853 828 f12d781d5564bb4bfa3dd42c8a7681ec "pdflatex"
-  "model_executive_bargain.bbl" 1599489706 1117 d1f30acd916d13d1f18146cfa2fbb390 "bibtex model_executive_bargain"
-  "model_executive_bargain.tex" 1599489856 16695 9f9fe18b55298f560c4ec03379377bdb ""
+  "model_executive_bargain.aux" 1599493186 737 1f66012b13334aba860361c349a7ef40 "pdflatex"
+  "model_executive_bargain.bbl" 1599491144 1117 d1f30acd916d13d1f18146cfa2fbb390 "bibtex model_executive_bargain"
+  "model_executive_bargain.tex" 1599493188 17307 e25da5672468b02229cee9b498b42aaa ""
   (generated)
-  "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.pdf"
-  "model_executive_bargain.log"
-  "model_executive_bargain.aux"
   "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.log"
+  "model_executive_bargain.aux"
+  "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/theory/model_executive_bargain.pdf"
   "model_executive_bargain.pdf"
+  "model_executive_bargain.log"

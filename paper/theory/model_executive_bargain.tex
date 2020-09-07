@@ -92,7 +92,7 @@ Note that the choice of $k(a)$ and $t(a)$ fully characterize any schedule $a \in
     \min_{k,t} k \cdot t- \sum_{i \leq k} v_i
 \end{equation*}
 
-subject to the constraint that the induced schedule $a \in U_m^l$. Banks then reformulates this as an unconstrained problem by noting the following. First, if $a(k, t, \mathbf{v})$ is unbeatable, it must be that $k \geq (n + 1)/2$, so by $A1$ it must be that if $a_i(k, t, \mathbf{v}) = 0$, then $v_i < 0$. Therefore, $B$ receives all non-bribed voters for free. For $a(k, t, \mathbf{v})$ to be unbeatable, then, it must be that $B$ cannot afford the remaining $(n + 1)/2 - (n - k) = k - (n - 1)/2$ voters, or
+subject to the constraint that the induced schedule $a \in U_m^l$. We can reformulate this as an unconstrained problem by noting the following. First, if $a(k, t, \mathbf{v})$ is unbeatable, it must be that $k \geq (n + 1)/2$, so by $A1$ it must be that if $a_i(k, t, \mathbf{v}) = 0$, then $v_i < 0$. Therefore, $B$ receives all non-bribed voters for free. For $a(k, t, \mathbf{v})$ to be unbeatable, then, it must be that $B$ cannot afford the remaining $(n + 1)/2 - (n - k) = k - (n - 1)/2$ voters, or
 
 $$t \cdot (k - (n - 1)/2) \geq W_B$$
 
@@ -119,7 +119,7 @@ we can state $A$'s problem as
 
 Denote the solution to expression \ref{eqn:minimal_expenditure} as $k^*(\mathbf{v}, W_B)$. This solution implicitly generates a solution to expression \ref{eqn:solution} through expression \ref{eqn:total_expenditure} and the induced bribe schedule above. Therefore, characterizing the optimal $k^*$ is sufficient to fully characterize the optimal behavior of the mayor.
 
-\section{Results}
+\subsection*{Results}
 
 First, characterize a solution for $k^*$. Because $k$ is finite, calculus cannot be employed. Instead, we deploy a discrete version of these techniques. First let's define $\Delta(k) = E(k + 1) - E(k)$ as the difference in expenditure from adding another coalition member. Note that if $\Delta(k) \geq 0$ then $A$ does not want to add another member to the coalition. Conversely, if $\Delta(k) < 0$, then $A$ is strictly better off by adding the $k + 1$th member of the coalition.
 
@@ -146,15 +146,15 @@ We can also further characterize the change in minimum winning expenditures in e
     & \equiv T(k, W_B) - v_{k + 1}
 \end{align}
 
-Generating an explicit characterization of $k$ is not straightforward.\footnote{Note that because $v_1 \geq ... \geq v_n$, $-v_{k + 1}$ is non-decreasing in $k$. Also, taking the first term as a continuous variable and differentiating w.r.t. $k$, we note that it is also increasing in $k$.} Instead, Banks opts to show the conditions which need to hold in order for the coalition to be universal or minimal. Using equation \ref{eqn:optimal_k} and substituting in equation \ref{eqn:deltAk} we have the following.
+Using equation \ref{eqn:optimal_k} and substituting in equation \ref{eqn:deltAk} we have the following.
 
 \begin{proposition}
     (a) $k^*(\mathbf{v}, W_B) = (n + 1)/2$ if and only if $v_{(n + 3)/2} \leq -W_B(n - 1)/4$; (b) $k^*(\mathbf{v}, W_B) = n$ if and only if $v_n > -2W_B/(n + 1)$.
 \end{proposition}
 
-Banks also identifies how the optimal coalition $k^*$ respond to marginal changes in voter prefence intensity. Given an arbitrary amount $W_B$ and preference profile $\mathbf{v}'$, let $k' = k^*(\mathbf{v}, W_B)$. If $k' = (n + 1)/2$, then we know that $k' \leq k*(\mathbf{v}, W_B)$ for all $\mathbf{v}$, so suppose $k' > (n + 1)/2$.
+Banks also identifies how the optimal coalition $k^*$ respond to marginal changes in voter prefence intensity. Given an arbitrary amount $W_B$ and preference profile $\mathbf{v}'$, let $k' = k^*(\mathbf{v'}, W_B)$. If $k' = (n + 1)/2$, then we know that $k' \leq k^*(\mathbf{v}, W_B)$ for all $\mathbf{v}$, so suppose $k' > (n + 1)/2$.
 
-From equation \ref{eqn:optimal_k} we infer that $\Delta(k - 1, \mathbf{v}', W_B) < 0)$, which from equations \ref{eqn:deltAk} and \ref{eqn:def_deltAk} is equivalent to $v_k' > T(k' - 1, W_B)$. Now suppose that the preference profile changes from $\mathbf{v}'$ to $\mathbf{v}$, and $v_{k'}$ is such that $v_{k'} \geq v'_k$. Then, $v_{k'} > T(k' - 1, W_B)$, and hence $\Delta(k' - 1, \mathbf{v}, W_B) < 0$. But then from equation \ref{eqn:optimal_k} it must be the case that $k^*(\mathbf{v}, W_B) \geq k'$. Therefore, the following holds:
+From equation \ref{eqn:optimal_k} we infer that $\Delta(k' - 1, \mathbf{v}', W_B) < 0$, which from equations \ref{eqn:deltAk} and \ref{eqn:def_deltAk} is equivalent to $v_k' > T(k' - 1, W_B)$. Now suppose that the preference profile changes from $\mathbf{v}'$ to $\mathbf{v}$, and $v_{k'}$ is such that $v_{k'} \geq v'_k$. Then, $v_{k'} > T(k' - 1, W_B)$, and hence $\Delta(k' - 1, \mathbf{v}, W_B) < 0$. But then from equation \ref{eqn:optimal_k} it must be the case that $k^*(\mathbf{v}, W_B) \geq k'$. Therefore, the following holds:
 
 \begin{proposition}
     For all $W_B$, if $\mathbf{v}$ and $\mathbf{v}'$ are such that $v_{k'} \geq v'_{k'}$, where $k' = k^*(\mathbf{v}', W_B)$, then $k^*(\mathbf{v}, W_B) \geq k^*(\mathbf{v}', W_B)$
@@ -166,16 +166,7 @@ In words, if the preference intensity of the marginal bribed voter weakly increa
     For all $W_B$, if $\mathbf{v}$ and $\mathbf{v}'$ are such that $v_{k' + 1} \leq v'_{k' + 1}$, where $k' = k^*(\mathbf{v}', W_B)$, then $k^*(\mathbf{v}, W_B) \leq k^*(\mathbf{v}', W_B)$
 \end{proposition}
 
-The "convexity" of $E$ guarantees that local information is sufficient to generate comparative statistics regarding changes in preferences $\mathbf{v}' \rightarrow \mathbf{v}$. Here, this local information is summarized by the preferences of the marginal voter $v_k$ and non-bribed voter $v_{k + 1}$. In order to identify these voters, one needs to solve for the optimal coalition size. Instead, Banks takes an alternative route and characterizes a weaker comparative statistic result which holds globally. Given two preferences $\mathbf{v}$ and $\mathbf{v}'$, write $\mathbf{v}$ and $\mathbf{v}'$, write $\mathbf{v} \geq \mathbf{v}'$ if $v_i \geq v'_i$ for all $i \in N$.
-
-\begin{corollary}
-    \label{cor:change_k}
-    For all $\mathrm{W_B}$, if $\mathbf{v} \geq \mathbf{v}'$ then $\mathrm{k}^*(\mathbf{v}, \mathrm{W_B}) \geq \mathrm{k}^*(v', \mathrm{W_B})$
-\end{corollary}
-
-Thus, the optimal number of voters bribed by $A$ and hence the optimal size of $A$'s optimal coalition, weakly increases as voters find $A$'s preferred alternative, $x$, more attractive. Although $A$'s total expenditure will decrease as $x$ becomes more attractive to the legislature, the optimal way to allocate this lower amount is to spread it more widely among voters.
-
-We can also characterize the change in total expenditures as a result of a shift in voter preferences. From equation \ref{eqn:total_expenditure} we have
+The ``convexity" of $E$ guarantees that local information is sufficient to generate comparative statistics regarding changes in preferences $\mathbf{v}' \rightarrow \mathbf{v}$. We can characterize the change in total expenditures as a result of a shift in voter preferences. Given two preferences $\mathbf{v}$ and $\mathbf{v}'$, write $\mathbf{v}$ and $\mathbf{v}'$ if $v_i \geq v'_i$ for all $i \in N$. From equation \ref{eqn:total_expenditure} we have
 
 \begin{align*}
     E(k, \mathbf{v}, W_B) - E(k, \mathbf{v}', W_B) & = \\
@@ -183,7 +174,15 @@ We can also characterize the change in total expenditures as a result of a shift
     &= \sum_{i \leq k}(v'_i - v_i)
 \end{align*}
 
-Since $v_i - v'_i \geq 0$, the difference in expenditure between a more favorable and unfavorable legislature is always non-positive.
+Since $v'_i - v_i \leq 0$, the difference in expenditure between moving from a favorable to a less favorable legislature is always non-positive, i.e. the government has to spend less resources to pass her preferred policy. This holds despite the fact that when these preferences shift there is an increase in the overall size of the coalition. This result has a similar flavor to \citet{groseclose_1996_buying}, who motivate their model by stating that it may be optimal to increase the size of the coalition (instead of buying a simple majority) because doing so overall can lead to a reduction in the amount of expenditures by the vote-buyer.
+
+\subsection*{Discussion}
+
+Enacting policy requires the exchange of political currency for votes. Whether it be in presidential coalitionism, or in the local city council politics, mayors who wish to govern have to engage in transactions with the legislature. What I showed in this section was that political misalignment between the government and the legislature can in fact be counterproductive: more patronage occurs, leading to worse public service outcomes.
+
+The model also highlights a key aspect of clientelism that is often neglected electoral accountability models: voters have a limited voice. Ultimately, the exchanges which occur between the legislature and the mayor have little to do with the voter at the end of the pipeline, and more to do with the city councilors. The first order requirement for the government is to ensure that it has enough legislative votes in order to enact the very policies that the voter may or may not desire. This transactional cost is not illegal: rather, it is necessary for democratic relations between different branches of government.
+
+In the next section, I test whether the empirical implication of the model is correct: does more patronage occur in municipalities with greater political misalignment between the mayors and city councilors. I test additional implications of the model, including whether shifts in the resources controlled by the opposition can affect the government's patronage strategy.
 
 \bibliography{../dissertation}
 
