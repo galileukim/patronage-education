@@ -35,19 +35,19 @@
 
 \section*{Theory}
 
-In this section, I use a canonical vote-buying model in legislatures \citep{groseclose_1996_buying, banks_2000_buying} to model mayor's strategy to use patronage to buy legislative votes. For any given electoral term, a mayor wants to enact her preferred policy, but to do so needs to pass it through a simple majority in the city council. To guarantee her victory, the mayor offers appointment positions to voters, in this case, city councilors, who in exchange vote in favor of the bill.
+In this section, I use a canonical vote-buying model in legislatures \citep{groseclose_1996_buying, banks_2000_buying} to model mayor's strategy to use patronage to buy legislative votes. For any given electoral term, a mayor wants to enact her preferred policy, but to do so needs to pass it through a simple majority in the city council. To ensure victory, the mayor offers appointment positions to voters, in this case, city councilors, who in exchange vote in favor of the bill.
 
-The amount of patronage the mayor offers responds to the composition of the city council. When city councilors are predominantly in favor of the mayor's policy, we should expect less patronage, and vice versa. The intuition is straightforward: if the city councilors are already likely to support the bill, there is no additional need to offer them additional side payments. Note that there is no claim about the presence or complete absence of patronage \citep{stokes_brokers_2013, grindle_jobs_2012}, but rather its degrees: how many appointments must the mayor give out in order to guarantee her victory at the voting of the policy.
+An important feature of the model is the presence of an opposition party that competes with the mayor for legislative votes. In this setting, passing a policy proposal requires outbidding the opposition, which generates interesting results regarding the optimal size of the coalition and conditions under which we should observe minimal, super and universal coalitions. In particular, the amount of resources that the opposition controls can force the mayor's hands and increase the amount of patronage necessary to pass the bill. We pursue these empirical implications of the model further in our results section.
 
-An important feature of the model is the presence of an opposition party that competes with the mayor for legislative votes. In this setting, passing a policy proposal requires outbidding the competitor, which generates interesting results regarding the optimal size of the coalition and conditions under which we should observe minimal, super and universal coalitions. In particular, the amount of resources that the opposition controls can force the mayor's hands and increase the amount of patronage necessary to pass the bill. We pursue these empirical implications of the model further in our results section.
+The amount of public sector positions the mayor offers to these city councilors responds to the composition of the city council. The intuition is straightforward: if the city councilors are already likely to support the bill, there is no need to offer them additional side payments. Note that there is no claim about a dichotomy of clientelism, in which there is or is not patronage \citep{stokes_brokers_2013, grindle_jobs_2012}, but rather a variation in degrees: how many appointments must the mayor give out in order to govern on her preferred policy.
 
 For the remainder of this section, I outline the setting of the model and derive key comparative statics that guide the empirical estimation of this paper. I conclude with a discussion of the model and how it applies to the Brazilian municipal context.
 
 \subsection*{The Setting}
 
-The mayor's government $G$ and opposition $O$ compete over legislative votes to enact their preferred policies. There are two possible outcomes: a policy $x$ favored by the government, and the status quo, denote as $y$, preferred by the opposition. In order to implement her policy the mayor must pass a simple majority vote in the city council, comprised of an odd number $N$ of legislators. The total amount of political resources available is $W_G$ and $W_O$, which for the mayor includes patronage appointments into the public sector.
+The government $G$ and opposition $O$ compete over legislative votes to enact their preferred policies.\footnote{Note that I use the terms \emph{mayor} and \emph{government} interchangeably.} There are two possible outcomes: a policy $x$ favored by the government, and the status quo, denote as $y$, preferred by the opposition. In order to implement her policy the mayor must pass a simple majority vote in the city council, comprised of an odd number $N$ of legislators. The total amount of political resources available is $W_G$ and $W_O$, which for the mayor includes public sector appointments.
 
-Each city councilor is fully characterized by a publicly observed policy preference $v_i$ for all $i \in N$, where $v_i > 0$ entails that the mayor's proposal $x$ is preferred. Let $\mathbf{v} = (v_1, ..., v_n)$ describe the preference profile for the city council. In this setting, $v_i$ measures the degree to which an individual city councilor supports the mayor, with higher values of $v$ denoting stronger support for the mayor and vice versa. Payoff are realized when city councilor $i$ votes, independent of the outcome of the voting procedure. This sincere voting preference forecloses the possibility of general equilibria in which $i$'s voting behavior affect $j$.
+Each city councilor is characterized by a publicly observed policy preference $v_i$ for all $i \in N$, where $v_i > 0$ entails that the mayor's proposal $x$ is preferred. Let $\mathbf{v} = (v_1, ..., v_n)$ describe the preference profile for the city council. In this setting, $v_i$ measures the degree to which an individual city councilor supports the mayor, with higher values of $v$ denoting stronger support for the mayor and vice versa. Payoff are realized when city councilor $i$ votes, independent of the outcome of the voting procedure. This sincere voting preference forecloses the possibility of general equilibria in which $i$'s voting behavior affect $j$.
 
 We solve the game through backward induction. The timing of the game is as follows:
 
@@ -67,7 +67,7 @@ Following Groseclose and Snyder (1996) and Banks (2000) we focus our analysis on
     \min_a\{S(a) : a \in U(\mathbf{v}, W_B) \}
 \end{equation}
 
-Note that for any equilibrium strategy, it must be the case that mayor $M$ uses a leveling schedule: every city councilor in her coalition $C$ is equally expensive for the opposition $O$ to bribe. More formally, for any $a \in \mathbb{R}_+^n$, let $C(a) = \{i \in N : a_i > 0\}$ denote the set of individuals who receive a bribe from from the government $G$. One can show that there is a bribe schedule $a'$ such that for any $i,j \in C(a)$, $a'_i + v_i = a'_j + v_j$. The intuition is that the mayor has no incentive to make voters differentially expensive, because the opposition $O$ will simply ignore the more expensive voters and target the least favorable members of the coalition. Following G+S and BKS we refer to these strategies as leveling schedules.
+Note that for any equilibrium strategy, it must be the case that mayor $M$ uses a leveling schedule: every city councilor in her coalition $C$ is equally expensive for the opposition $O$ to bribe. More formally, for any $a \in \mathbb{R}_+^n$, let $C(a) = \{i \in N : a_i > 0\}$ denote the set of individuals who receive a bribe from from the government $G$. One can show that there is a bribe schedule $a'$ such that for any $i,j \in C(a)$, $a'_i + v_i = a'_j + v_j$. The intuition is that the mayor has no incentive to make voters differentially expensive, because the opposition $O$ will simply ignore the more expensive voters and target the least favorable members of the coalition. We refer to these strategies as leveling schedules.
 
 We can characterize the set of equilibria in the game by introducing additional notation. Let $U^l(\mathbf{v}, W_O) \subseteq U(\mathbf{v}, W_O)$ denote the set of unbeatable leveling schedules. These are bribe schedules such that $a_i + v_i = a_j + v_j  \equiv t(a)$. The bribe $a_i = t(a) - v_i$ is the sum of two terms. The first is the common "transfer" among all voters in $C(a)$, the second ($-v_i$) is individual specific. The latter term makes voters indifferent between $x$ and $y$ absent any bribe from $B$; the former represents the per capita amount necessary to make $C(a)$, together with any unbribed voters, unaffordable for $B$.
 
@@ -78,19 +78,15 @@ I impose the following two assumptions:
 \end{align*}
 $A1$ implies that absent any bribes by $A$, $y$ will defeat $x$. Therefore $A$ must bribe at least one voter. $A2$ implies that $A$ must bribe at least a majority of voters, otherwise $B$ will have sufficient resources to bribe $(n+1)/2$ voters and win. $A2$ also implies that for all $a \in U^l(\mathbf{v}, W_B)$, it must be that $t(a) \geq 2W_B/(n + 1)$, otherwise $B$ can bribe a majority from $C(a)$ itself and win the vote.
 
-For any $a \in \real$ let $k(a) = \lvert C(a) \rvert$. Suppose that $a\in U^l(\mathbf{v}, W_B)$ is such that $v_i \geq v_j$ and $j \in C(a)$ but $i \notin C(a)$. Then, under $A2$, there exists $a' \in U^l(\mathbf{v}, W_B)$ with $S(a') \leq S(a)$, $k(a') = k(a)$ and $i \in C(a')$ but $j \notin C(a')$ by simply swapping $i$ for $j$: $a'_i = t(a) - v_i$, $a'_j = 0$ and $a'_m = a_m$ for all $m \notin i, j$.\footnote{Note that since $v_i \geq v_j$, we have that $t(a) - v_i \leq  t(a) - v_j$, i.e. $a'_i \leq a_j$. Also, because of $A2$ $a'_j \leq a_j$, since it guarantees $a_j$ is non-negative.} Generalizing, and recalling that $v_1 \geq ... \geq v_n$, we see that for all $a \in U^l(\mathbf{v}, W_b)$ there exists a bribe schedule $a' \in U^l(\mathbf{v}, W_b)$ such that $S(a') \leq S(a)$ and $C(a') = \{1, ..., k(a)\}$. Therefore, we can without loss of generality restrict attention to schedules $a$ by $A$ which bribe the first $k(a)$ voters. Call these monotonic leveling schedules and let $U_m^l \subseteq U(\mathbf{v}, W_B)$.
+% For any $a \in \real$ let $k(a) = \lvert C(a) \rvert$. Suppose that $a\in U^l(\mathbf{v}, W_B)$ is such that $v_i \geq v_j$ and $j \in C(a)$ but $i \notin C(a)$. Then, under $A2$, there exists $a' \in U^l(\mathbf{v}, W_B)$ with $S(a') \leq S(a)$, $k(a') = k(a)$ and $i \in C(a')$ but $j \notin C(a')$ by simply swapping $i$ for $j$: $a'_i = t(a) - v_i$, $a'_j = 0$ and $a'_m = a_m$ for all $m \notin i, j$.\footnote{Note that since $v_i \geq v_j$, we have that $t(a) - v_i \leq  t(a) - v_j$, i.e. $a'_i \leq a_j$. Also, because of $A2$ $a'_j \leq a_j$, since it guarantees $a_j$ is non-negative.} Generalizing, and recalling that $v_1 \geq ... \geq v_n$, we see that for all $a \in U^l(\mathbf{v}, W_b)$ there exists a bribe schedule $a' \in U^l(\mathbf{v}, W_b)$ such that $S(a') \leq S(a)$ and $C(a') = \{1, ..., k(a)\}$. Therefore, we can without loss of generality restrict attention to schedules $a$ by $A$ which bribe the first $k(a)$ voters. Call these monotonic leveling schedules and let $U_m^l \subseteq U(\mathbf{v}, W_B)$.
 
-Therefore, when $A2$ holds,
-
-$$\min\{S(a): a \in U(\mathbf{v}, W_B)\} = \min\{S(a): a \in U^l_m(\mathbf{v}, W_B)\}$$
-
-We can now further simplify the total expenditure $S(a)$
+These assumptions allow us to restrict our analysis to unbeatable monotonic leveling schedules, which we denote as $U_m^l$.\footnote{Details as to why can be found in the appendix.} We can simplify the total expenditure on patronage by the government, $S(a)$, as
 
 \begin{equation*}
     S(a) = \sum_{i \in C(a)}a_i = k(a) \cdot t(a) - \sum_{i \leq k(a)}v_i
 \end{equation*}
 
-Note that the choice of $k(a)$ and $t(a)$ fully characterize any schedule $a \in U_m^l(\mathbf{v}, W_B)$. We can thus fully characterize the optimization problem of $A$ as
+Note that the choice of $k(a)$ and $t(a)$ fully characterize any schedule $a \in U_m^l(\mathbf{v}, W_B)$. We can thus fully characterize the optimization problem of $A$ in equation \ref{eqn:solution} as
 
 \begin{equation*}
     \min_{k,t} k \cdot t- \sum_{i \leq k} v_i
@@ -121,7 +117,7 @@ we can state $A$'s problem as
 \min_k \{E(k, \mathbf{v}, W_B) : k \in {(n + 1/2), ..., n}\}
 \end{align}
 
-Denote the solution to expression \ref{eqn:minimal_expenditure} as $k^*(\mathbf{v}, W_B)$. This solution implicitly generates a solution to expression \ref{eqn:solution} through expression \ref{eqn:total_expenditure} and the induced bribe schedule above. Therefore, characterizing the optimal $k^*$ is sufficient to fully characterize the optimal behavior of the government $G$.
+Denote the solution to expression \ref{eqn:minimal_expenditure} as $k^*(\mathbf{v}, W_B)$. This solution implicitly generates a solution to expression \ref{eqn:solution} through expression \ref{eqn:total_expenditure} and the induced bribe schedule above. Therefore, characterizing the optimal $k^*$ is sufficient to fully characterize the optimal behavior of the mayor.
 
 \section{Results}
 
@@ -140,7 +136,7 @@ We can therefore search for the optimal $k^*$ with the following algorithm:
     \end{cases}
 \end{align}
 
-Banks also shows that $\Delta(k)$ is indeed nondecreasing.
+We can also further characterize the change in minimum winning expenditures in equation \ref{eqn:total_expenditure} as
 
 \begin{align}
     \Delta(k)  & = \left[\frac{(k + 1)W_B}{k + 1 - (n - 1)/2} - \sum_{i \leq k + 1}v_i \right]\\
@@ -150,9 +146,7 @@ Banks also shows that $\Delta(k)$ is indeed nondecreasing.
     & \equiv T(k, W_B) - v_{k + 1}
 \end{align}
 
-Note that because $v_1 \geq ... \geq v_n$, $-v_{k + 1}$ is non-decreasing in $k$. Also, taking the first term as a continuous variable and differentiating w.r.t. $k$, we note that it is also increasing in $k$.
-
-Generating an explicit characterization of $k$ is not straightforward. Instead, Banks opts to show the conditions which need to hold in order for the coalition to be universal or minimal. Using equation \ref{eqn:optimal_k} and substituting in equation \ref{eqn:deltAk} we have the following.
+Generating an explicit characterization of $k$ is not straightforward.\footnote{Note that because $v_1 \geq ... \geq v_n$, $-v_{k + 1}$ is non-decreasing in $k$. Also, taking the first term as a continuous variable and differentiating w.r.t. $k$, we note that it is also increasing in $k$.} Instead, Banks opts to show the conditions which need to hold in order for the coalition to be universal or minimal. Using equation \ref{eqn:optimal_k} and substituting in equation \ref{eqn:deltAk} we have the following.
 
 \begin{proposition}
     (a) $k^*(\mathbf{v}, W_B) = (n + 1)/2$ if and only if $v_{(n + 3)/2} \leq -W_B(n - 1)/4$; (b) $k^*(\mathbf{v}, W_B) = n$ if and only if $v_n > -2W_B/(n + 1)$.
