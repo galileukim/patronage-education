@@ -1,0 +1,45 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Haggard and Kaufman(2008)]{haggard_development_2008}
+Stephan Haggard and Robert~R. Kaufman.
+\newblock \emph{Development, democracy, and welfare states: {Latin} {America},
+  {East} {Asia}, and eastern {Europe}}.
+\newblock Princeton University Press, 2008.
+
+\bibitem[Kaufman and Segura-Ubiergo(2001)]{kaufman_globalization_2001}
+Robert~R. Kaufman and Alex Segura-Ubiergo.
+\newblock Globalization, domestic politics, and social spending in {Latin}
+  {America}: a time-series cross-section analysis, 1973–97.
+\newblock \emph{World politics}, 53\penalty0 (4):\penalty0 553--587, 2001.
+
+\bibitem[Falleti(2010)]{falleti_decentralization_2010}
+Tulia~G. Falleti.
+\newblock \emph{Decentralization and subnational politics in {Latin}
+  {America}}.
+\newblock Cambridge University Press, 2010.
+
+\bibitem[Arretche(1996)]{arretche_mitos_1996}
+Marta~TS Arretche.
+\newblock Mitos da descentralização: mais democracia e eficiência nas
+  políticas públicas.
+\newblock \emph{Revista brasileira de ciências sociais}, 11\penalty0
+  (31):\penalty0 44--66, 1996.
+
+\bibitem[Gulzar and Pasquale(2017)]{gulzar_politicians_2017}
+Saad Gulzar and Benjamin~J. Pasquale.
+\newblock Politicians, bureaucrats, and development: {Evidence} from {India}.
+\newblock \emph{American Political Science Review}, 111\penalty0 (1):\penalty0
+  162--183, 2017.
+
+\bibitem[Min(2015)]{min_power_2015}
+Brian Min.
+\newblock \emph{Power and the {Vote}: {Elections} and {Electricity} in the
+  {Developing} {World}}.
+\newblock Cambridge University Press, 2015.
+
+\end{thebibliography}
