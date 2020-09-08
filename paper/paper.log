@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  8 SEP 2020 15:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  8 SEP 2020 15:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -381,375 +381,48 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
+ [1
 
-
-Package natbib Warning: Citation `gulzar_politicians_2017' on page 1 undefined on input line 50.
-
-
-Package natbib Warning: Citation `duflo_incentives_2012' on page 1 undefined on input line 50.
-
-
-Package natbib Warning: Citation `finan_personnel_2015' on page 1 undefined on input line 50.
-
-
-Package natbib Warning: Citation `laver_coalitions_1990' on page 1 undefined on input line 52.
-
-
-Package natbib Warning: Citation `power_optimism_2010' on page 1 undefined on input line 52.
-
-
-Package natbib Warning: Citation `ferejohn_incumbent_1986' on page 1 undefined on input line 52.
-
-[1
-
-{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package natbib Warning: Citation `pepinsky_bureaucracy_2017' on page 2 undefined on input line 58.
-
-
-Package natbib Warning: Citation `finan_personnel_2015' on page 2 undefined on input line 58.
-
-
-Package natbib Warning: Citation `gulzar_politicians_2017' on page 2 undefined on input line 58.
-
-
-Package natbib Warning: Citation `ferraz_corrupting_2012' on page 2 undefined on input line 58.
-
-
-Package natbib Warning: Citation `kohli_state-directed_2004' on page 2 undefined on input line 58.
-
-
-Package natbib Warning: Citation `evans_embedded_1995' on page 2 undefined on input line 58.
-
-
-Package natbib Warning: Citation `centeno_unpacking_2017' on page 2 undefined on input line 68.
-
-
-Package natbib Warning: Citation `kohli_state-directed_2004' on page 2 undefined on input line 68.
-
-
-Package natbib Warning: Citation `johnson_miti_1982' on page 2 undefined on input line 68.
-
-
-Package natbib Warning: Citation `kohli_state-directed_2004' on page 2 undefined on input line 68.
-
-
-Package natbib Warning: Citation `evans_bureaucracy_1999' on page 2 undefined on input line 68.
-
-
-Package natbib Warning: Citation `gulzar_politicians_2017' on page 2 undefined on input line 70.
-
-
-Package natbib Warning: Citation `akhtari_political_2015' on page 2 undefined on input line 70.
-
-[2]
-
-Package natbib Warning: Citation `grindle_jobs_2012' on page 3 undefined on input line 76.
-
-
-Package natbib Warning: Citation `mccarty_appointments_2004' on page 3 undefined on input line 76.
-
-
-Package natbib Warning: Citation `raile_executive_2011' on page 3 undefined on input line 76.
-
-
-Package natbib Warning: Citation `power_optimism_2010' on page 3 undefined on input line 76.
-
-
-Package natbib Warning: Citation `raile_executive_2011' on page 3 undefined on input line 78.
-
-
-Package natbib Warning: Citation `ames_electoral_1995' on page 3 undefined on input line 78.
-
-
-Package natbib Warning: Citation `lucas_ideological_2010' on page 3 undefined on input line 78.
-
-
-Package natbib Warning: Citation `batista_o_2013' on page 3 undefined on input line 78.
-
-
-Package natbib Warning: Citation `neto_presidential_2006' on page 3 undefined on input line 78.
-
-
-Package natbib Warning: Citation `figueiredo_executivo_1999' on page 3 undefined on input line 78.
-
+{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
 LaTeX Font Info:    Try loading font information for U+msa on input line 82.
-(/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 82.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [3]
+)
 
-Package natbib Warning: Citation `gailmard_slackers_2007' on page 4 undefined on input line 86.
-
-
-Package natbib Warning: Citation `clotfelter_teacher_2007' on page 4 undefined on input line 86.
+Package caption Warning: \label without proper reference on input line 101.
+See the caption package documentation for explanation.
 
 
-Package natbib Warning: Citation `akhtari_political_2015' on page 4 undefined on input line 86.
-
-
-Package natbib Warning: Citation `colonnelli_patronage_2017' on page 4 undefined on input line 86.
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:96: Missing $ inserted.
-<inserted text> 
-                $
-l.96 ... delegated to local governments (paschoal_
-                                                  historia_2009). The munici...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-LaTeX Warning: Reference `fig:enrollment' on page 4 undefined on input line 96.
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:97: Missing $ inserted.
-<inserted text> 
-                $
-l.97 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (468.36688pt too wide) in paragraph at lines 96--97
-\OT1/cmr/m/n/12 (paschoal$[]\OML/cmm/m/it/12 istoria[]\OT1/cmr/m/n/12 009)\OML/cmm/m/it/12 :Themunicipaleducationalsystemhasincreasedinrelevanceoverthepastfewdecades; asmunicipalitiestookonalargerproportionofstudentsfromstate \OMS/cmsy/m/n/12 ^^@
- []
-
-
-Overfull \hbox (671.0498pt too wide) in paragraph at lines 96--97
-\OML/cmm/m/it/12 levelgovernments:Figure[]plotsthetotalnumberofstudentsinprimaryeducationpergovernmentlevel; includingprivateschools:Asof\OT1/cmr/m/n/12 2016\OML/cmm/m/it/12 ; over\OT1/cmr/m/n/12 25\OML/cmm/m/it/12 millionstudentswereenrolledinover\OT1/cmr/m/n/12 115\OML/cmm/m/it/12 thousandmunicipalschools:$ 
- []
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:98: Missing $ inserted.
-<inserted text> 
-                $
-l.98 \blue{plots/enrollment_dep.pdf}
-                                    
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:98: Extra }, or forgotten $.
-\@textcolor ...otect \leavevmode {\color #1{#2}#3}
-                                                  
-l.98 \blue{plots/enrollment_dep.pdf}
-                                    
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:99: Missing $ inserted.
-<inserted text> 
-                $
-l.99 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+LaTeX Warning: Reference `fig:enrollment' on page 4 undefined on input line 98.
 
 [4]
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:100: Missing $ inserted.
-<inserted text> 
-                $
-l.100 ... mayor or secretary of education (brollo_
-                                                  political_2017). Teachers ...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:101: Missing $ inserted.
-<inserted text> 
-                $
-l.101 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (1445.299pt too wide) in paragraph at lines 100--101
-\OT1/cmr/m/n/12 (brollo$[]\OML/cmm/m/it/12 olitical[]\OT1/cmr/m/n/12 017)\OML/cmm/m/it/12 :Teachersusuallyenterthepublicservicethroughapublicexamandareeligiblefortenureaftertwoyears\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 gatti[]ormacao[]\OT1/cmr/m/n/12 010)\OML/cmm/m/it/12 Howevermunicipalitiesincreasinglyresorttotemporarycontractstohirenewteachersasbudgetarypressuresamount:Municipalteachersandschoolprincipalsareoverseenbyalocaldepartmentofeducation\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 militao[]ducacao[]\OT1/cmr/m/n/12 014)\OML/cmm/m/it/12 :$ 
- []
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:102: Missing $ inserted.
-<inserted text> 
-                $
-l.102 ...ipalities which do not reach the target.^
-                                                  [For more details on the F...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:103: Missing $ inserted.
-<inserted text> 
-                $
-l.103 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (51.03546pt too wide) in paragraph at lines 102--103
-\OT1/cmr/m/n/12 mu-nic-i-pal-i-ties which do not reach the target.$[]\OML/cmm/m/it/12 FormoredetailsontheFundeb; see\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 here\OT1/cmr/m/n/12 )[\OML/cmm/m/it/12 https \OT1/cmr/m/n/12 :
- []
-
-
-Overfull \hbox (663.69685pt too wide) in paragraph at lines 102--103
-\OML/cmm/m/it/12 programa=sobre \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 o \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 fundeb\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 Whilemunicipalitiesmaybeauditedtoverifywhetherfundsarebeingproperlyused; personneldecisionsanddailyoperationsarefullyundermunicipaldiscretion\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ferraz[]orrupting[]\OT1/cmr/m/n/12 012)\OML/cmm/m/it/12 :$ 
- []
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:106: Missing $ inserted.
-<inserted text> 
-                $
-l.106 ... the possibility of reelection for both.^
-                                                  [The last municipal electi...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:107: Missing $ inserted.
-<inserted text> 
-                $
-l.107 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (2059.00952pt too wide) in paragraph at lines 106--107
-\OT1/cmr/m/n/12 ev-ery four years, with the pos-si-bil-ity of re-elec-tion for both.$[]\OML/cmm/m/it/12 Thelastmunicipalelectionswerein\OT1/cmr/m/n/12 2016\OML/cmm/m/it/12 :Thesetakeplace\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 Theexecutiveisresponsiblefortheimplementationofsocialpoliciessuchaseducation; aswellasdraftingthemunicipalbudget:Thecitycouncil; ontheotherhand; overseeslegislationandapprovesthebudgetforthefiscalyear:Asnotedbysouza[]eforma[]\OT1/cmr/m/n/12 004\OML/cmm/m/it/12 ; decisionsoverhowtomanageeducationareprimarilyinthehandsofthemayor; butthecitycouncilorsexertsignificantpressure:$ 
- []
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:108: Missing $ inserted.
-<inserted text> 
-                $
-l.108 ...lliances with local party labels (dantas_
-                                                  eleicoes_2013). These mayo...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:109: Missing $ inserted.
-<inserted text> 
-                $
-l.109 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (1076.2188pt too wide) in paragraph at lines 108--109
-\OT1/cmr/m/n/12 elec-toral al-liances with lo-cal party la-bels (dantas$[]\OML/cmm/m/it/12 leicoes[]\OT1/cmr/m/n/12 013)\OML/cmm/m/it/12 :Thesemayoralcoalitions; onceingovernment; areanimportantbasisforapprovingbudgetsand; moregenerally; executivecontroloverthelegislativechamber:Interviewswithcitycouncilorsindicatethatthelegislatureisdividedintoapro \OMS/cmsy/m/n/12 ^^@
- []
-
-
-Overfull \hbox (1257.58205pt too wide) in paragraph at lines 108--109
-\OML/cmm/m/it/12 government\OT1/cmr/m/n/12 ([])\OML/cmm/m/it/12 andopposition\OT1/cmr/m/n/12 ([])\OML/cmm/m/it/12 groups\OT1/cmr/m/n/12 ([])\OML/cmm/m/it/12 :Whiletheseelectoralcoalitionsdonotnecessarilyremainintactoncegovernmentsareformed; fragmentationisgenerallyonthemargins; withmayorsswappingdefectinglegislatorsfornewones:[]InterviewwithC; formerchiefofstaffofmunicipalityJ:September\OT1/cmr/m/n/12 2018\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 ]$ 
- []
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:114: Missing $ inserted.
-<inserted text> 
-                $
-l.114 ...uncilor and the department of education.^
-                                                  [Interview with the admini...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex:115: Missing $ inserted.
-<inserted text> 
-                $
-l.115 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (157.67255pt too wide) in paragraph at lines 114--115
-\OT1/cmr/m/n/12 and the de-part-ment of education.$[]\OML/cmm/m/it/12 InterviewwiththeadministrativeboardofschoolA:; municipalityJ:August\OT1/cmr/m/n/12 2019]$ 
- []
-
-[5]
-
-Package natbib Warning: Citation `groseclose_1996_buying' on page 6 undefined on input line 120.
-
-
-Package natbib Warning: Citation `banks_2000_buying' on page 6 undefined on input line 120.
-
-
-Package natbib Warning: Citation `stokes_brokers_2013' on page 6 undefined on input line 124.
-
-
-Package natbib Warning: Citation `grindle_jobs_2012' on page 6 undefined on input line 124.
-
-[6] [7] [8]
-
-LaTeX Warning: Reference `eqn:solution' on page 9 undefined on input line 171.
-
-
-LaTeX Warning: Reference `eqn:minimal_expenditure' on page 9 undefined on input line 202.
-
-
-LaTeX Warning: Reference `eqn:solution' on page 9 undefined on input line 202.
-
-
-LaTeX Warning: Reference `eqn:total_expenditure' on page 9 undefined on input line 202.
-
-[9]
-
-LaTeX Warning: Reference `eqn:total_expenditure' on page 10 undefined on input line 221.
-
-
-LaTeX Warning: Reference `eqn:optimal_k' on page 10 undefined on input line 231.
-
-
-LaTeX Warning: Reference `eqn:deltAk' on page 10 undefined on input line 231.
-
-[10]
-
-LaTeX Warning: Reference `eqn:optimal_k' on page 11 undefined on input line 239.
-
-
-LaTeX Warning: Reference `eqn:deltAk' on page 11 undefined on input line 239.
-
-
-LaTeX Warning: Reference `eqn:def_deltAk' on page 11 undefined on input line 239.
-
-
-LaTeX Warning: Reference `eqn:optimal_k' on page 11 undefined on input line 239.
-
-
-LaTeX Warning: Reference `eqn:total_expenditure' on page 11 undefined on input line 251.
-
-
-Package natbib Warning: Citation `groseclose_1996_buying' on page 11 undefined on input line 259.
-
-[11]
-No file paper.bbl.
-
-Package natbib Warning: There were undefined citations.
-
-[12] (/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.aux)
+<plots/descriptive_enrollment.pdf, id=21, 361.35pt x 216.81pt>
+File: plots/descriptive_enrollment.pdf Graphic file (type pdf)
+<use plots/descriptive_enrollment.pdf>
+Package pdftex.def Info: plots/descriptive_enrollment.pdf  used on input line 102.
+(pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
+ [5 </Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_enrollment.pdf>] [6] [7] [8] [9] [10] (/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.bbl [11] [12]) [13] (/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- )
-(\end occurred inside a group at level 1)
-
-### simple group (level 1) entered at line 98 ({)
-### bottom level 
+ ) 
 Here is how much of TeX's memory you used:
- 6086 strings out of 492616
- 88169 string characters out of 6129482
- 175498 words of memory out of 5000000
- 9874 multiletter control sequences out of 15000+600000
- 14444 words of font info for 54 fonts, out of 8000000 for 9000
+ 6181 strings out of 492616
+ 90982 string characters out of 6129482
+ 176700 words of memory out of 5000000
+ 9967 multiletter control sequences out of 15000+600000
+ 13743 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,17n,38p,1123b,254s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,17n,38p,1123b,264s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf (12 pages, 188591 bytes).
+Output written on /Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf (13 pages, 194000 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
