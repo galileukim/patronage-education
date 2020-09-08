@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex paper"] 1599583185 "paper.aux" "paper.bbl" "paper" 1599583199
+["bibtex paper"] 1599592315 "paper.aux" "paper.bbl" "paper" 1599592403
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1233624470 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
   "dissertation.bib" 1599486736 184447 f9189dc7eec789ebf9918dabf00b0902 ""
-  "paper.aux" 1599583187 541 a85d791c643cb41a011c9c5ffc5ea5c2 "pdflatex"
+  "paper.aux" 1599592325 1246 2f966f340dabf7e2511b700a22423ff0 "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
-["pdflatex"] 1599583187 "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex" "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf" "paper" 1599583199
-  "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.aux" 1599583187 541 a85d791c643cb41a011c9c5ffc5ea5c2 ""
-  "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex" 1599583199 42784 cc004a755de02cdd86fcc4a9b4b363e6 ""
+["pdflatex"] 1599592325 "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex" "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf" "paper" 1599592403
+  "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.aux" 1599592325 1246 2f966f340dabf7e2511b700a22423ff0 ""
+  "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex" 1599592403 43778 b899c2bb1d738947cd5d86815a02fb45 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
@@ -76,12 +76,12 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1557342086 4259635 562fc36ec496993777a6c428d8bfb811 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "paper.aux" 1599583187 541 a85d791c643cb41a011c9c5ffc5ea5c2 "pdflatex"
-  "paper.bbl" 1599583185 1336 7aca2c267ff527debcb8abf609a098d7 "bibtex paper"
-  "paper.tex" 1599583199 42784 cc004a755de02cdd86fcc4a9b4b363e6 ""
+  "paper.aux" 1599592325 1246 2f966f340dabf7e2511b700a22423ff0 "pdflatex"
+  "paper.bbl" 1599592315 2786 b0ae27943a0297709221e0bda20b9d88 "bibtex paper"
+  "paper.tex" 1599592403 43778 b899c2bb1d738947cd5d86815a02fb45 ""
   (generated)
   "paper.pdf"
-  "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf"
-  "paper.log"
   "paper.aux"
   "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.log"
+  "paper.log"
+  "/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf"
