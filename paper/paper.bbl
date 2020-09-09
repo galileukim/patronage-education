@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -169,9 +169,67 @@ Jaqueline~Delgado Paschoal and Maria Cristina~Gomes Machado.
 \newblock \emph{Revista Histedbr on-line}, 9\penalty0 (33):\penalty0 78--95,
   2009.
 
+\bibitem[Brollo et~al.(2017)Brollo, Forquesato, and Gozzi]{brollo_victor_2017}
+Fernanda Brollo, Pedro Forquesato, and Juan~Carlos Gozzi.
+\newblock To the {Victor} {Belongs} the {Spoils}? {Party} {Membership} and
+  {Public} {Sector} {Employment} in {Brazil}.
+\newblock Technical report, University of Warwick, Department of Economics,
+  2017.
+
+\bibitem[Gatti(2010)]{gatti_formacao_2010}
+Bernardete~A. Gatti.
+\newblock Formação de professores no {Brasil}: características e problemas.
+\newblock \emph{Educação \& Sociedade}, 31\penalty0 (113), 2010.
+
+\bibitem[Militão et~al.(2014)Militão, Militão, and
+  Perboni]{militao_educacao_2014}
+Silvio Cesar~Nunes Militão, Andréia~Nunes Militão, and Fábio Perboni.
+\newblock {EDUCAÇÃO} {MUNICIPAL}: {PROTAGONISMO} {E} {DESAFIOS}.
+\newblock \emph{Pedagogia em Foco}, \penalty0 (8), 2014.
+
+\bibitem[Souza and Faria(2004)]{souza_reforma_2004}
+Donaldo Bello~de Souza and Lia Ciomar Macedo~de Faria.
+\newblock Reforma do estado, descentralização e municipalização do ensino
+  no {Brasil}: a gestão política dos sistemas públicos de ensino pós-{LDB}
+  9.394/96.
+\newblock \emph{Ensaio: avaliação e políticas públicas em educação},
+  12\penalty0 (45):\penalty0 925--944, 2004.
+
+\bibitem[DANTAS(2013)]{dantas_eleicoes_2013}
+Humberto DANTAS.
+\newblock Eleições municipais 2012 e o padrão de coligação entre os
+  partidos para a disputa de prefeituras.
+\newblock \emph{Cadernos Adenauer}, 2013.
+
+\bibitem[Pereira~Junior and Oliveira(2016)]{pereira_junior_indicadores_2016}
+Edmilson~Antonio Pereira~Junior and Dalila~Andrade Oliveira.
+\newblock Indicadores de retenção e rotatividade dos docentes da educação
+  básica.
+\newblock \emph{Cadernos de Pesquisa}, 46\penalty0 (160):\penalty0 312--332,
+  2016.
+
 \bibitem[Groseclose and Snyder~Jr(1996)]{groseclose_1996_buying}
 Tim Groseclose and James~M Snyder~Jr.
 \newblock Buying supermajorities.
 \newblock \emph{American Political Science Review}, pages 303--315, 1996.
+
+\bibitem[DiPrete and Forristal(1994)]{diprete_multilevel_1994}
+Thomas~A. DiPrete and Jerry~D. Forristal.
+\newblock Multilevel models: methods and substance.
+\newblock \emph{Annual review of sociology}, 20\penalty0 (1):\penalty0
+  331--357, 1994.
+
+\bibitem[Lee(2000)]{lee_using_2000}
+Valerie~E. Lee.
+\newblock Using hierarchical linear modeling to study social contexts: {The}
+  case of school effects.
+\newblock \emph{Educational psychologist}, 35\penalty0 (2):\penalty0 125--141,
+  2000.
+
+\bibitem[Imai and Ratkovic(2014)]{imai_covariate_2014}
+Kosuke Imai and Marc Ratkovic.
+\newblock Covariate balancing propensity score.
+\newblock \emph{Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 76\penalty0 (1):\penalty0 243--263, 2014.
 
 \end{thebibliography}
