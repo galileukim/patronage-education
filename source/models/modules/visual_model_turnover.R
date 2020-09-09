@@ -70,7 +70,7 @@ plot_model_turnover <- estimate_hlm %>%
   ) +
   geom_point(
     position = ggstance::position_dodgev(height = 0.3),
-    size = 2
+    size = 4
   ) +
   geom_errorbar_tidy +
   theme(
@@ -82,24 +82,24 @@ plot_model_turnover <- estimate_hlm %>%
     limits = c(
       "turnover_index",
       "saeb_principal_experienceless than 2 years",
-      "saeb_teacher_work_schoolless than 2",
-      "saeb_principal_appointmentpublic exam",
-      "saeb_principal_educationhigher education",
-      "education_teacherhigher education",
-      "saeb_wage_teachermore than 3000"
+      "saeb_teacher_work_schoolless than 2"
+      # "saeb_principal_appointmentpublic exam",
+      # "saeb_principal_educationhigher education",
+      # "education_teacherhigher education",
+      # "saeb_wage_teachermore than 3000"
     ),
     labels = c(
       "turnover_index" = "Turnover index",
       "saeb_principal_experienceless than 2 years" = "Principal rotation",
-      "saeb_teacher_work_schoolless than 2" = "Teacher rotation",
-      "saeb_principal_appointmentpublic exam" = "Principal public exam",
-      "saeb_principal_educationhigher education" = "Principal higher education",
-      "education_teacherhigher education" = "Teacher higher education",
-      "saeb_wage_teachermore than 3000" = "Teacher wage more than $750"
+      "saeb_teacher_work_schoolless than 2" = "Teacher rotation"
+      # "saeb_principal_appointmentpublic exam" = "Principal public exam",
+      # "saeb_principal_educationhigher education" = "Principal higher education",
+      # "education_teacherhigher education" = "Teacher higher education",
+      # "saeb_wage_teachermore than 3000" = "Teacher wage more than $750"
     )
   ) +
   coord_flip(
-    xlim = c(-0.2, 0.2)
+    xlim = c(-0.1, 0.05)
   )
   
 save_fig(

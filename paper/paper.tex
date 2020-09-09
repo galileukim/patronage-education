@@ -338,37 +338,13 @@ Despite the use of different educational quality and staff turnover metrics, add
 
 \subsection*{Results}
 
-Teacher and school principal turnover have significant, negative effects on average test scores, highlighting the potential dangers of bureaucratic turnover on student learning. These results are robust to alternative specifications of turnover, as well as the use of different quality metrics (SAEB, SPAECE) in our estimations. Table \ref{tbl:hlm_mods} presents the results of the estimation on SAEB test scores. We present two specifications for turnover. Turnover index measures the amount of turnover in teachers at the school level. Work experience for teachers and school principals serve as an alternative measure of turnover. Personnel who has only recently entered the school recently amass a shorter amount of work experience (less than two years).
+I first turn to testing the main proposition of this paper: that turnover in educational staff stems indeed from coalitional dynamics. There is strong evidence that mayors who control more (less) seats in the city council resort to less (more) patronage. Figure \ref{tbl:turnover} presents the results of the estimation. The first model regresses turnover index on coalition share, where the unit of analysis is a grade-level per school. Models 2 and 3 estimate the effect of the share of legislative seats on hiring or dismissal of individual bureaucrats. The third set of models (4 and 5) estimate the change in the share of new hires and dismissals at the municipal level. All models suggest that an increase in the executive share of legislative seats decrease turnover.
 
 \begin{figure}[h]
-  \centering
-  \footnotesize
-  \includegraphics{plots/model_turnover_learning.pdf}
-  \caption{{\bf Bureaucratic turnover and student learning} Teacher and school principal turnover have a negative effect on student learning. Models 1 and 2 present results for teacher turnover index constructed at the school level. Models 3 and 4 estimate the effect of new teachers and school principals entering the school (less than two years). All models include year and state fixed effects.}
-  \label{fig:hlm_mods}
+  \includegraphics{plots/plot_coalition_coef_mun.pdf}
+  \caption{{\bf Executive coalitions and staff turnover.} An increase in the share of legislative seats held by the mayoral coalition decrease the amount of turnover for teachers and school principals, including hires or dismissals. Model 1 presents results on the turnover index. Models 2 and 3 are logistic regressions at the individual, bureaucrat level. Models 4 and 5 are aggregated at the municipal level. where the outcome of interest is the proportion of staff either hired or dismissed at a given year. Models 1, 3, and 5 include year and state fixed effects.}
+  \label{fig:coalition_turnover}
 \end{figure}
-
-% Additionally, I present results for the SPAECE standardized exam in table \ref{tbl:spaece}. Differently than the SAEB, the SPAECE takes place annually and the average test scores are calculated at the grade, rather than the classroom level. The annual frequency of this exam allows us to retrieve more precise estiamtes with respect to the effect of teacher turnover on student test scores, as opposed to the biannual frequency of the SAEB. Note that for both estimations, we standardize the outcome of interest. Coefficients are therefore interpretable as a standard deviation change in student test with respect to the covariate.
-
-% \begin{table}[t]
-%   \centering
-%   \footnotesize
-%   \input{tables/spaece_result}
-%   \caption{{\bf Turnover and student learning in Ceará.} Teacher turnover have a negative effect on student learning. Models 1 and 2 present results for teacher turnover index constructed at the school level.}
-%   \label{tbl:spaece}
-% \end{table}
-
-% I now turn to testing the main proposition of this paper: that turnover in educational staff stems indeed from coalitional dynamics. There is strong evidence that mayors who control more (less) seats in the city council resort to less (more) patronage. Table \ref{tbl:turnover} presents the results of the estimation. The first model regresses turnover index on coalition share, where the unit of analysis is a grade-level per school. Models 2 and 3 estimate the effect of the share of legislative seats on hiring or dismissal of individual bureaucrats. The third set of models (4 and 5) estimate the change in the share of new hires and dismissals at the municipal level. All models suggest that an increase in the executive share of legislative seats decrease turnover.
-
-% \begin{landscape}
-% \begin{table}[t]
-%   \centering
-%   \footnotesize
-%   \input{tables/turnover_result}
-%   \caption{{\bf Executive coalitions and staff turnover.} An incrase in the share of legislative seats held by the mayoral coalition decrease the amount of turnover for teachers and school principals, including hires or dismissals. Model 1 presents results on the turnover index. Models 2 and 3 are logistic regressions at the individual, bureaucrat level. Models 4 and 5 are aggregated at the municipal level. where the outcome of interest is the proportion of staff either hired or dismissed at a given year. Models 1, 3, and 5 include year and state fixed effects.}
-%   \label{tbl:turnover}
-% \end{table}
-% \end{landscape}
 
 % For visual intuition, I present the predicted values for models 4 and 5, respectively the share of hired and dismissed bureaucrats against the share of executive seats in the city council. Albeit by construction the bivariate relationship is linear, it demonstrates that the amount of patronage is decreasing as executive coalition controls more seats in the legislature. Overall, these results suggest that weaker executive control over the legislature increases patronage, with potentially negative effects for public service delivery in municipalities in Brazil.
 
@@ -379,21 +355,34 @@ Teacher and school principal turnover have significant, negative effects on aver
 %     \label{fig:turnover}
 % \end{figure}
 
+
+Teacher and school principal turnover have significant, negative effects on average test scores, highlighting the potential dangers of bureaucratic turnover on student learning. These results are robust to alternative specifications of turnover, as well as the use of different quality metrics (SAEB, SPAECE) in our estimations. Table \ref{fig:hlm_mods} presents the results of the estimation on SAEB test scores. We present two specifications for turnover. Turnover index measures the amount of turnover in teachers at the school level. Work experience for teachers and school principals serve as an alternative measure of turnover. Personnel who has only recently entered the school recently amass a shorter amount of work experience (less than two years).
+
+\begin{figure}[h]
+  \centering
+  \footnotesize
+  \includegraphics{plots/model_turnover_learning.pdf}
+  \caption{{\bf Bureaucratic turnover and student learning} Teacher and school principal turnover have a negative effect on student learning. Models 1 and 2 present results for teacher turnover index constructed at the school level. Models 3 and 4 estimate the effect of new teachers and school principals entering the school (less than two years). All models include year and state fixed effects.}
+  \label{fig:hlm_mods}
+\end{figure}
+
+\blue{Include some reference coefs in order for the audience to assess the magnitude of the effects}
+
 % As a final note, this set of estimations are based on observational data and therefore suffer from well-known concerns of endogeneity. It is in these circumstances that validating causal mechanisms through fieldwork and careful data analysis can increase the validity of a causal claim. In-depth interviews with local actors involved in managing education, as well as the use of different measurements for both educational staff turnover and student learning, provides strong evidence that staff turnover has a negative impact on student learning. Bureaucratic turnover stems from political considerations.
 
 % ## Mechanisms
 
 % The question remains: why do city councilors engage in patronage. Previous studies have found that citizens directly access 
 
-% # Conclusion
+\section{Conclusion}
 
-% Improving the quality of education received by children across the world remains a challenge. This paper proposes an analytical framework and estimation strategy to understand the decision-making process behind the administration of educational services in Brazil. In a decentralized context, subnational political actors have a direct say on how educational services are managed, with profound implications for the quality of public services delivered to citizens. These actors interact with bureaucracies and other local elites in complex ways that are only beginning to be mapped.
+Improving the quality of education received by children across the world remains a challenge. This paper proposes an analytical framework and estimation strategy to understand the decision-making process behind the administration of educational services in Brazil. In a decentralized context, subnational political actors have a direct say on how educational services are managed, with profound implications for the quality of public services delivered to citizens. These actors interact with bureaucracies and other local elites in complex ways that are only beginning to be mapped.
 
-% In this study I theorize and demonstrate that staff turnover stems from the executive's need to garner support from legislators in the city council. This process of coalition building is consolidated through employment offers to city councilors and their constituencies. As the share of seats held by the executive coalition decreases, the costlier it becomes to coopt legislators to support the executive. As a result, the amount of patronage we observe should increase. That is precisely what the data indicates, with teacher turnover increasing in schools, as well as increased hiring and dismissals of teachers and school principals.
+In this study I theorize and demonstrate that staff turnover stems from the executive's need to garner support from legislators in the city council. This process of coalition building is consolidated through employment offers to city councilors and their constituencies. As the share of seats held by the executive coalition decreases, the costlier it becomes to coopt legislators to support the executive. As a result, the amount of patronage we observe should increase. That is precisely what the data indicates, with teacher turnover increasing in schools, as well as increased hiring and dismissals of teachers and school principals.
 
-% This bureaucratic turnover has important consequences for the quality of education delivered in municipalities. I find that turnover has a negative effect on student learning, across a set of specifications for turnover and different evaluation metrics for student learning. The evidence therefore seems to point out that mayors with a weaker hold on the city council resort to greater patronage, with negative consequences for student learning. This set of findings contribute to an emergent literature on the ambiguous consequences of stronger competition in weakly institutionalized contexts (gottlieb_countervailing_2019).
+This bureaucratic turnover has important consequences for the quality of education delivered in municipalities. I find that turnover has a negative effect on student learning, across a set of specifications for turnover and different evaluation metrics for student learning. The evidence therefore seems to point out that mayors with a weaker hold on the city council resort to greater patronage, with negative consequences for student learning. This set of findings contribute to an emergent literature on the ambiguous consequences of stronger competition in weakly institutionalized contexts \citep{gottlieb_countervailing_2019}.
 
-% Future research on patronage and public service delivery would benefit from a clearer treatment of the institutional context in which local political actors operate. Important insights have been derived on executive leaders, but these actors seldom govern alone. Incorporating other local elites paints a more complex and accurate understanding of the strategic considerations taking place in the political management of education, and public services more broadly.
+Future research on patronage and public service delivery would benefit from a clearer treatment of the institutional context in which local political actors operate. Important insights have been derived on executive leaders, but these actors seldom govern alone. Incorporating other local elites paints a more complex and accurate understanding of the strategic considerations taking place in the political management of education, and public services more broadly.
 
 % \pagebreak 
 
