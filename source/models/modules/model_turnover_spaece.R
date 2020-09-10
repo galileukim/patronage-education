@@ -96,7 +96,7 @@ formulae_spaece <- formulate_models(
   controls
 ) %>%
   map(
-    ~add_felm(., fe = "year", cluster = "0" )
+    ~add_felm(., fe = "year", cluster = "0")
   )
 
 fit_spaece <- map(

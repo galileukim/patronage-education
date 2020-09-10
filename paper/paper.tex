@@ -395,7 +395,7 @@ For visual intuition, I present the predicted values for models 4 and 5, respect
     \label{fig:turnover}
 \end{figure}
 
-Finally, I show that the executive-legislative bargain extends to second-term mayors. This finding suggests that patronage is not motivated solely by reelection concerns. Rather, patronage achieves an important policy goal for incumbent mayors who seek to implement their preferred policy, regardless of whether they are just initiating their mandate or concluding it.
+Finally, I show that the executive-legislative bargain extends to second-term mayors. I subset the data used for the above analysis to only mayors who are reelected, and re-run the previous analyses with the same specification. I find that the results are similar in magnitude and precision to those presented above. This finding suggests that patronage is not motivated solely by reelection concerns. Rather, patronage achieves an important policy goal for incumbent mayors who seek to implement their preferred policy, regardless of whether they are just initiating their mandate or concluding it.
 
 \begin{figure}[h]
     \centering
@@ -403,7 +403,19 @@ Finally, I show that the executive-legislative bargain extends to second-term ma
     \caption{\bf{hello}}
 \end{figure}
 
-Moving on to characterizing the downstream effects of patronage, I find that teacher and school principal turnover have significant, negative effects on average test scores. These results are robust to alternative specifications of turnover, as well as the use of different quality metrics (SAEB, SPAECE) in our estimations. Table \ref{fig:hlm_mods} presents the results of the estimation on SAEB test scores. We present two specifications for turnover. Turnover index measures the amount of turnover in teachers at the school level. Work experience for teachers and school principals serve as an alternative measure of turnover. Personnel who has only recently entered the school recently amass a shorter amount of work experience (less than two years).
+Moving on to characterizing the downstream effects of patronage, I find that teacher and school principal turnover have significant, negative effects on average test scores. These results are robust to alternative specifications of turnover, as well as the use of different quality metrics (SAEB, SPAECE) in our estimations. Table \ref{tbl:student_learning} presents the results of the estimation on SAEB and SPAECE test scores. We present two specifications for turnover. Turnover index measures the amount of turnover in teachers at the school level. Work experience for teachers and school principals serve as an alternative measure of turnover. Personnel who has only recently entered the school recently amass a shorter amount of work experience (less than two years).
+
+\begin{landscape}
+    \begin{table}[t]
+      \centering
+      \footnotesize
+      \input{results/student_learning.tex}
+      \caption{{\bf Bureaucratic turnover and student learning} Teacher and school principal turnover have a negative effect on student learning. Models 1 and 2 present results for teacher turnover index constructed at the school level. Models 3 and 4 estimate the effect of new teachers and school principals entering the school (less than two years). All models include year and state fixed effects.}
+      \label{tbl:student_learning}
+    \end{table}
+\end{landscape}
+
+
 
 \begin{figure}[h]
   \centering
