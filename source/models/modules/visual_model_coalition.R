@@ -198,19 +198,19 @@ plot_coef_mun_second <- coef_mun %>%
   ggplot(
     aes(
       x = model,
-      y = estimate,
-      color = model
+      y = estimate
     )
   ) +
   geom_point(
-    position = position_dodge()
+      color = matte_indigo
   ) +
   geom_pointrange(
     aes(
       ymin = conf.low,
       ymax = conf.high
     ),
-    position = position_dodge(.5)
+    color = matte_indigo
+    # position = position_dodge(.5)
   ) +
   geom_hline(
     yintercept = 0,

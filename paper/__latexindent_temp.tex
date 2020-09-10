@@ -36,7 +36,6 @@
     urlcolor=blue,
     citecolor=blue
 }
-\captionsetup[figure]{font=small,labelfont=small}
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \onehalfspacing
@@ -381,9 +380,9 @@ For visual intuition, I present the estimated coefficients for the models with c
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{plots/plot_coalition_coef_mun.pdf}
-    \caption{{\bf Political alignment and staff turnover.} An increase in the share of legislative seats held by the mayoral coalition decrease the amount of turnover for teachers and school principals, including hires or dismissals. Model 1 presents results on the turnover index. Models 2 and 3 are logistic regressions at the individual, bureaucrat level. Models 4 and 5 are aggregated at the municipal level. where the outcome of interest is the proportion of staff either hired or dismissed at a given year. Models 1, 3, and 5 include year and state fixed effects.}
-    \label{fig:coalition_turnover}
+  \includegraphics[width=0.6\linewidth]{plots/plot_coalition_coef_mun.pdf}
+  \caption{{\bf Political alignment and staff turnover.} An increase in the share of legislative seats held by the mayoral coalition decrease the amount of turnover for teachers and school principals, including hires or dismissals. Model 1 presents results on the turnover index. Models 2 and 3 are logistic regressions at the individual, bureaucrat level. Models 4 and 5 are aggregated at the municipal level. where the outcome of interest is the proportion of staff either hired or dismissed at a given year. Models 1, 3, and 5 include year and state fixed effects.}
+  \label{fig:coalition_turnover}
 \end{figure}
 
 For visual intuition, I present the predicted values for models 4 and 5, respectively the share of hired and dismissed bureaucrats against the share of executive seats in the city council. The reduction in new hires is more pronounced for school principals than teachers, suggesting that exposure to patronage is more concentrated in the leadership positions at the school level. Overall, these results suggest that weaker executive control over the legislature increases patronage, with potentially negative effects for public service delivery in municipalities in Brazil.
@@ -395,11 +394,11 @@ For visual intuition, I present the predicted values for models 4 and 5, respect
     \label{fig:turnover}
 \end{figure}
 
-Finally, I show that the executive-legislative bargain extends to second-term mayors. This finding suggests that patronage is not motivated solely by reelection concerns. Rather, patronage achieves an important policy goal for incumbent mayors who seek to implement their preferred policy, regardless of whether they are just initiating their mandate or concluding it.
+Finally, I show that the executive-legislative bargain extends to second-term mayors. This finding suggests that patronage is not motivated solely by reelection concerns. Rather, it achieves an important policy goal for incumbent mayors who seek to implement their preferred policy.
 
-\begin{figure}[h]
+\begin{figure}
     \centering
-    \includegraphics[width=0.6\linewidth]{plots/plot_coalition_coef_mun_second.pdf}
+    \includegraphics{plots/plot_coalition_coef_mun_second.pdf}
     \caption{\bf{hello}}
 \end{figure}
 
@@ -415,7 +414,7 @@ Moving on to characterizing the downstream effects of patronage, I find that tea
 
 \blue{Include some reference coefs in order for the audience to assess the magnitude of the effects}
 
-As a final note, this set of estimations are based on observational data and therefore suffer from well-known concerns of endogeneity. It is in these circumstances that validating causal mechanisms through fieldwork and careful data analysis can increase the validity of a causal claim. In-depth interviews with local actors involved in managing education, as well as the use of different measurements for both educational staff turnover and student learning, provides strong evidence that staff turnover has a negative impact on student learning. Bureaucratic turnover stems from political considerations.
+% As a final note, this set of estimations are based on observational data and therefore suffer from well-known concerns of endogeneity. It is in these circumstances that validating causal mechanisms through fieldwork and careful data analysis can increase the validity of a causal claim. In-depth interviews with local actors involved in managing education, as well as the use of different measurements for both educational staff turnover and student learning, provides strong evidence that staff turnover has a negative impact on student learning. Bureaucratic turnover stems from political considerations.
 
 % ## Mechanisms
 

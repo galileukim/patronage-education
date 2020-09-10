@@ -12,9 +12,9 @@ fit_ivreg <- map(
 
 sink(here("figures", "tables", "student_learning.tex"))
 mstar(
-  fit_lmer, fit_spaece, fit_spaece, fit_ivreg,
+  fit_lmer, fit_spaece, fit_ivreg,
   keep = c("turnover_index", "saeb_principal_experience", "saeb_teacher_work_school"),
-  add.lines = list(c("Controls", rep(c("\\_", "\\checkmark"), 4))),
+  add.lines = list(c("Controls", rep(c("\\_", "\\checkmark"), 3))),
   dep.var.labels.include = F,
   covariate.labels = c(
     "Turnover index", "Turnover index $\\times$ Grade 9",
