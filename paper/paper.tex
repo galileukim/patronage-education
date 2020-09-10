@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{setspace}
-\usepackage[top = 1.25in, bottom = 1.25in, left = 1.25in, right = 1.25in]{geometry}
+\usepackage[top = 1in, bottom = 1in, left = 1in, right = 1in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -51,13 +51,27 @@
 \newcommand{\blue}{\textcolor{blue}}
 
 \bibliographystyle{unsrtnat}
+
+\title{Governing through patronage: the bargain for education in decentralized Brazil}
+\date{\today}
+
+\author{Galileu Kim}
+\affil{Princeton University}
+
 \begin{document}
 
+\maketitle
+
+\begin{abstract}
+    Why do politicians engage in patronage and what are its consequences for public service delivery? I find that staff turnover in educational staff results from mayors attempt to exchange public sector jobs for support from local legislators. Leveraging fieldwork evidence and administrative data, I demonstrate that mayors with a weaker hold on the local legislature resort to patronage to co-opt legislators. Educational staff turnover has negative downstream effects on student learning, but limited electoral backlash. Weak electoral accountability channels suggests that patronage is primarily a political elite game, with little involvement by the electorate. These findings point to the dangers of elite capture of public services and its downstream consequences for social welfare.
+\end{abstract}
+
+\newpage
 \section{Introduction}
 
 % Across the world, vulnerable populations rely on governments for access to basic public services such as education. In many countries, particularly in the developing world, the quality of public education remains woefully low: functional illiteracy remains widespread, mathematical operations, elusive. Clearly, politicians play an important role in delivering these services \citep{gulzar_politicians_2017,besley_political_2003}, but what are the incentives they face and what are their implications for bureaucratic institutions responsible for delivering them. \citep{cochrane_policies_1983, falleti_decentralization_2010}. How can local governments improve the quality the of public services they deliver? In particular, how do political actors reshape bureaucratic institutions, and what are their downstream consequences for student learning?
 
-The quality of public education in the across the world, and particularly in the developing world, remains low: functional illiteracy is widespread, and children do not master basic arithmetic operations. How can these educational outcomes be improved? Previous studies have found that incentives, whether these be electoral or performance-related, can help raise the quality of public services \citep{gulzar_politicians_2017,duflo_incentives_2012}. Often relying on quasi-experimental research designs, these studies provide compelling evidence that actors respond to policy interventions.\citep{finan_personnel_2015} But it remains unclear how these incentives connect to the broader institutional environment: who delivers public services and what political institutions shape their behavior?
+The quality of public education in the across the world, and particularly in the developing world, remains low: functional illiteracy is widespread, and children do not master basic arithmetic operations. How can these educational outcomes be improved? Previous studies have found that individual incentives, whether these be electoral or performance-related, can help raise the quality of public services \citep{gulzar_politicians_2017,duflo_incentives_2012}. Often relying on quasi-experimental research designs, these studies provide compelling evidence that political and bureaucratic actors respond to policy interventions.\citep{finan_personnel_2015} But it remains unclear how these incentives connect to the broader institutional environment: who delivers public services and what political institutions shape their behavior?
 
 In this paper, I build on extensive fieldwork research across Brazil to argue that the executive-legislative bargain shapes public education, leading to capture by local political elites. Similar to coalition building in presidential contexts, mayors bargain for legislative support for their policy agenda through the allocation of public sector positions to city councilors and their constituencies \citep{laver_coalitions_1990, power_optimism_2010}. This effectively crowds out electoral accountability, as mayors prioritize building support by other political elites over voter welfare \citep{ferejohn_incumbent_1986}. By catering to the city council through patronage appointments, mayors ultimately cause instability in the local educational bureaucracy, with negative downstream consequences for public school students.
 
@@ -338,7 +352,7 @@ Despite the use of different educational quality and staff turnover metrics, add
 
 \subsection*{Results}
 
-I first turn to testing the main proposition of this paper: that turnover in educational staff stems indeed from coalitional dynamics. There is strong evidence that mayors who control more (less) seats in the city council resort to less (more) patronage. Figure \ref{tbl:turnover} presents the results of the estimation. The first model regresses turnover index on coalition share, where the unit of analysis is a grade-level per school. Models 2 and 3 estimate the effect of the share of legislative seats on hiring or dismissal of individual bureaucrats. The third set of models (4 and 5) estimate the change in the share of new hires and dismissals at the municipal level. All models suggest that an increase in the executive share of legislative seats decrease turnover.
+I first turn to testing the main proposition of this paper: that turnover in educational responds to the degree of political alignment between the mayor and politician. There is strong evidence that mayors who control more (less) seats in the city council resort to less (more) patronage. Figure \ref{tbl:turnover} presents the results of the estimation. The first model regresses turnover index on coalition share, where the unit of analysis is a grade-level per school. Models 2 and 3 estimate the effect of the share of legislative seats on hiring or dismissal of individual bureaucrats. The third set of models (4 and 5) estimate the change in the share of new hires and dismissals at the municipal level. All models suggest that an increase in the executive share of legislative seats decrease turnover.
 
 \begin{figure}[h]
   \includegraphics{plots/plot_coalition_coef_mun.pdf}
@@ -346,15 +360,14 @@ I first turn to testing the main proposition of this paper: that turnover in edu
   \label{fig:coalition_turnover}
 \end{figure}
 
-% For visual intuition, I present the predicted values for models 4 and 5, respectively the share of hired and dismissed bureaucrats against the share of executive seats in the city council. Albeit by construction the bivariate relationship is linear, it demonstrates that the amount of patronage is decreasing as executive coalition controls more seats in the legislature. Overall, these results suggest that weaker executive control over the legislature increases patronage, with potentially negative effects for public service delivery in municipalities in Brazil.
+For visual intuition, I present the predicted values for models 4 and 5, respectively the share of hired and dismissed bureaucrats against the share of executive seats in the city council. Albeit by construction the bivariate relationship is linear, it demonstrates that the amount of patronage is decreasing as executive coalition controls more seats in the legislature. Overall, these results suggest that weaker executive control over the legislature increases patronage, with potentially negative effects for public service delivery in municipalities in Brazil.
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics{plots/plot_pred}
-%     \caption{Predicted values for bureaucratic turnover. The graph plots the proportion of educational staff either hired or fired for any given year against the share of seats controlled by the executive. The circles' size is proportional to the number of observations contained at each value of the legislative share of seats.}
-%     \label{fig:turnover}
-% \end{figure}
-
+\begin{figure}[h]
+    \centering
+    \includegraphics{plots/plot_interactions_logit}
+    \caption{Predicted values for bureaucratic turnover. The graph plots the proportion of educational staff either hired or fired for any given year against the share of seats controlled by the executive. The circles' size is proportional to the number of observations contained at each value of the legislative share of seats.}
+    \label{fig:turnover}
+\end{figure}
 
 Teacher and school principal turnover have significant, negative effects on average test scores, highlighting the potential dangers of bureaucratic turnover on student learning. These results are robust to alternative specifications of turnover, as well as the use of different quality metrics (SAEB, SPAECE) in our estimations. Table \ref{fig:hlm_mods} presents the results of the estimation on SAEB test scores. We present two specifications for turnover. Turnover index measures the amount of turnover in teachers at the school level. Work experience for teachers and school principals serve as an alternative measure of turnover. Personnel who has only recently entered the school recently amass a shorter amount of work experience (less than two years).
 
