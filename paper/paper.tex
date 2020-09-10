@@ -154,7 +154,6 @@ Interviews with secretaries of education and mayors provide evidence that city c
 
 These accounts, along with previous case studies of municipalities in Brazil, suggest that city councilors play an important role in nominating staff. To verify these claims in a broader set of municipalities, as well as outlining the research design, I apply a theory of legislative vote-buying that illustrates the  employ extensive administrative and electoral data collected by the Brazilian federal government. In the next section I describe the data, where it is publicly available, as well as the preparation necessary for the set of estimations presented in the study.
 
-
 \subsection{Data}
 
 Brazil collects fine-grained data on education and makes it publicly available for research. For this study, data on education are collected from two main sources: the SAEB and School Census.\footnote{These can be accessed \hyperlink{http://portal.inep.gov.br/web/guest/dados}{here}.} The SAEB (National System for Educational Assessment) is a biannual standardized exam administered by the INEP (National Institute fosr Educational Studies and Research) to all public schools and a sample of private schools. In 2017, over 5 million students, in 5th and 9th grade, took the exam, testing their proficiency in both mathematics and Portuguese. In this study, test scores are the primary metric for assessing the quality of education received by students.
@@ -363,7 +362,21 @@ Despite the use of different educational quality and staff turnover metrics, add
 
 \subsection*{Results}
 
-I first turn to testing the main proposition of this paper: that turnover in educational responds to the degree of political alignment between the mayor and politician. There is strong evidence that mayors who control more (less) seats in the city council resort to less (more) patronage. Figure \ref{tbl:turnover} presents the results of the estimation. The first model regresses turnover index on coalition share, where the unit of analysis is a grade-level per school. Models 2 and 3 estimate the effect of the share of legislative seats on hiring or dismissal of individual bureaucrats. The third set of models (4 and 5) estimate the change in the share of new hires and dismissals at the municipal level. All models suggest that an increase in the executive share of legislative seats decrease turnover.
+I first turn to testing the main proposition of this paper: that turnover in educational staff responds to the degree of political alignment between the mayor and politician. In line with theory, there is strong evidence that mayors who are electoral allies with more (less) seats in the city council resort to less (more) patronage. This is robust to a set of specifications, including state-year fixed effects and alternative measures of turnover in educational staff. 
+
+Table \ref{tbl:turnover} presents the results of the estimation. Model 1 regresses turnover index on coalition share, where the unit of analysis is a grade-level per school. Models 2 and 3 estimate the effect of the share of legislative seats on hiring of new bureaucrats aggregated at the municipal level. The third set of models (5 and 6) estimate the change probability of new bureaucratic hires at the individual level. All models suggest that an increase in the executive share of legislative seats decrease turnover.
+
+\begin{landscape}
+    \begin{table}[t]
+      \centering
+      \footnotesize
+      \input{results/turnover_result}
+      \caption{{\bf Executive coalitions and staff turnover.} An increase in the share of legislative seats held by the mayoral coalition decrease the amount of turnover for teachers and school principals, including hires or dismissals. Models 1 and 2 present results on the turnover index at the school level. Models 2 and 3 are aggregate hiring rates at the municipal level. Models 5 and 6 are logistic regressions at the individual, bureaucrat level. where the outcome of interest is the proportion of staff either hired or dismissed at a given year. Models 1, 3, and 5 include year and state fixed effects.}
+      \label{tbl:turnover}
+    \end{table}
+\end{landscape}
+
+For visual intuition, I present the estimated coefficients for the models with controls -- models 2, 4, and 6 -- in context with other coefficients for demographic/contextual variables. Note that while the share of allied seats is a precise predictor of the degree of turnover in educational staff, other important factors such as the level of economic development -- municipal median wage -- are less informative. Literacy rate, although unprecise, is negatively associated with staff turnover, suggesting that a more educated electorate may exert some pressure to retain teachers and school principals. 
 
 \begin{figure}[h]
   \includegraphics{plots/plot_coalition_coef_mun.pdf}
@@ -371,7 +384,7 @@ I first turn to testing the main proposition of this paper: that turnover in edu
   \label{fig:coalition_turnover}
 \end{figure}
 
-For visual intuition, I present the predicted values for models 4 and 5, respectively the share of hired and dismissed bureaucrats against the share of executive seats in the city council. Albeit by construction the bivariate relationship is linear, it demonstrates that the amount of patronage is decreasing as executive coalition controls more seats in the legislature. Overall, these results suggest that weaker executive control over the legislature increases patronage, with potentially negative effects for public service delivery in municipalities in Brazil.
+For visual intuition, I present the predicted values for models 4 and 5, respectively the share of hired and dismissed bureaucrats against the share of executive seats in the city council. The reduction in new hires is more pronounced for school principals than teachers, suggesting that exposure to patronage is more concentrated in the leadership positions at the school level. Overall, these results suggest that weaker executive control over the legislature increases patronage, with potentially negative effects for public service delivery in municipalities in Brazil.
 
 \begin{figure}[h]
     \centering
@@ -380,7 +393,9 @@ For visual intuition, I present the predicted values for models 4 and 5, respect
     \label{fig:turnover}
 \end{figure}
 
-Teacher and school principal turnover have significant, negative effects on average test scores, highlighting the potential dangers of bureaucratic turnover on student learning. These results are robust to alternative specifications of turnover, as well as the use of different quality metrics (SAEB, SPAECE) in our estimations. Table \ref{fig:hlm_mods} presents the results of the estimation on SAEB test scores. We present two specifications for turnover. Turnover index measures the amount of turnover in teachers at the school level. Work experience for teachers and school principals serve as an alternative measure of turnover. Personnel who has only recently entered the school recently amass a shorter amount of work experience (less than two years).
+Finally, I demonstrate that 
+
+Moving on to characterizing the downstream effects of patronage, I find that teacher and school principal turnover have significant, negative effects on average test scores. These results are robust to alternative specifications of turnover, as well as the use of different quality metrics (SAEB, SPAECE) in our estimations. Table \ref{fig:hlm_mods} presents the results of the estimation on SAEB test scores. We present two specifications for turnover. Turnover index measures the amount of turnover in teachers at the school level. Work experience for teachers and school principals serve as an alternative measure of turnover. Personnel who has only recently entered the school recently amass a shorter amount of work experience (less than two years).
 
 \begin{figure}[h]
   \centering

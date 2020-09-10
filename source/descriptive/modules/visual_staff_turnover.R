@@ -65,15 +65,13 @@ hist_turnover_index <- censo_school_turnover %>%
     ggplot(
         aes(
             turnover_index,
-            # y = stat(width * density),
-            group = year,
-            color = year
+            ..scaled..,
+            group = as.factor(year),
+            color = as.factor(year)
         )
     ) +
-    geom_density() +
-    scale_y_continuous(
-        labels = scales::percent_format()
-    ) +
+    geom_line(stat="density", size = 1) +
+    # scale_y_continuous(labels = scales::percent, name = "percent") +
     labs(
         x = "Distribution of turnover index",
         y = "Count"
@@ -83,7 +81,6 @@ save_fig(
     hist_turnover_index,
     "hist_turnover_index.pdf"
 )
-
 
 # patronage_category <- patronage %>%
 #     mutate(
