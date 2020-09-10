@@ -158,3 +158,66 @@ save_fig(
   plot_coef_mun,
   "plot_coalition_coef_mun.pdf"
 )
+
+# ---------------------------------------------------------------------------- #
+message("visualize effects for the second term")
+
+fit_logit_second_term <- read_model(
+  "fit_logit_turnover_coalition_second_term.rds"
+)
+
+fit_felm_second_term <- read_model(
+  "fit_felm_turnover_coalition_second_term.rds"
+)
+
+fit_turnover_second_term <- read_model(
+  "fit_coalition_turnover_second_term.rds"
+)
+
+models_complete <- list(
+  fit_logit %>% pluck("controls"),
+  fit_logit_second_term,
+  fit_felm %>% pluck("controls"),
+  fit_felm_second_term,
+  fit_turnover %>% pluck("controls"),
+  fit_turnover_second_term
+)
+
+coef_mun_second <- models_complete %>%
+  set_names(c("hired (individual)", "hired (individual - second)", "hired (municipal)", "hired (municipal - second)", "turnover", "turnover (second)")) %>%
+  map_dfr(broom::tidy, .id = "model") %>%
+  mutate(
+    conf.low = estimate - 1.96*std.error,
+    conf.high = estimate + 1.96*std.error
+  )
+
+plot_coef_mun_second <- coef_mun %>%
+  filter(
+    term == "coalition_share"
+  ) %>%
+  ggplot(
+    aes(
+      x = model,
+      y = estimate,
+      color = model
+    )
+  ) +
+  geom_point(
+    position = position_dodge()
+  ) +
+  geom_pointrange(
+    aes(
+      ymin = conf.low,
+      ymax = conf.high
+    ),
+    position = position_dodge(.5)
+  ) +
+  geom_hline(
+    yintercept = 0,
+    linetype = "dashed"
+  ) 
+
+save_fig(
+  plot_coef_mun_second,
+  "plot_coalition_coef_mun_second.pdf"
+)
