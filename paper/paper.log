@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.25)  9 SEP 2020 22:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.25)  10 SEP 2020 09:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -686,20 +686,20 @@ Package footmisc Info: Declaring symbol style lamport*-robust on input line 924.
  (/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -765,7 +765,7 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring ON on input line 61.
+Package hyperref Info: Link coloring ON on input line 62.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -773,18 +773,18 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count140
 )
-LaTeX Info: Redefining \ref on input line 61.
-LaTeX Info: Redefining \pageref on input line 61.
-LaTeX Info: Redefining \nameref on input line 61.
+LaTeX Info: Redefining \ref on input line 62.
+LaTeX Info: Redefining \pageref on input line 62.
+LaTeX Info: Redefining \nameref on input line 62.
  (/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.out) (/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.out)
 \@outlinefile=\write3
 \openout3 = `paper.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 64.
+LaTeX Font Info:    Try loading font information for U+msa on input line 65.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 64.
+LaTeX Font Info:    Try loading font information for U+msb on input line 65.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -793,96 +793,98 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <plots/descriptive_enrollment.pdf, id=163, 361.35pt x 216.81pt>
 File: plots/descriptive_enrollment.pdf Graphic file (type pdf)
 <use plots/descriptive_enrollment.pdf>
-Package pdftex.def Info: plots/descriptive_enrollment.pdf  used on input line 123.
-(pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
+Package pdftex.def Info: plots/descriptive_enrollment.pdf  used on input line 125.
+(pdftex.def)             Requested size: 271.7835pt x 163.07025pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5] [6 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_enrollment.pdf>]
-<plots/saeb_map.pdf, id=214, 361.35pt x 361.35pt>
+[5]
+<plots/descriptive_staff_breakdown.pdf, id=188, 361.35pt x 216.81pt>
+File: plots/descriptive_staff_breakdown.pdf Graphic file (type pdf)
+<use plots/descriptive_staff_breakdown.pdf>
+Package pdftex.def Info: plots/descriptive_staff_breakdown.pdf  used on input line 136.
+(pdftex.def)             Requested size: 271.7835pt x 163.07025pt.
+ [6 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_enrollment.pdf> </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_staff_breakdown.pdf>] [7]
+<plots/saeb_map.pdf, id=231, 361.35pt x 361.35pt>
 File: plots/saeb_map.pdf Graphic file (type pdf)
 <use plots/saeb_map.pdf>
-Package pdftex.def Info: plots/saeb_map.pdf  used on input line 155.
-(pdftex.def)             Requested size: 361.34912pt x 361.34912pt.
+Package pdftex.def Info: plots/saeb_map.pdf  used on input line 164.
+(pdftex.def)             Requested size: 271.7835pt x 271.78375pt.
+ [8 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/saeb_map.pdf>]
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[7] [8 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/saeb_map.pdf>]
-
-Package caption Warning: \label without proper reference on input line 168.
+Package caption Warning: \label without proper reference on input line 178.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:staff_turnover' on page 9 undefined on input line 164.
+LaTeX Warning: Reference `fig:staff_turnover' on page 9 undefined on input line 173.
 
-<plots/descriptive_staff_turnover.pdf, id=238, 361.35pt x 216.81pt>
+<plots/descriptive_staff_turnover.pdf, id=246, 361.35pt x 216.81pt>
 File: plots/descriptive_staff_turnover.pdf Graphic file (type pdf)
 <use plots/descriptive_staff_turnover.pdf>
-Package pdftex.def Info: plots/descriptive_staff_turnover.pdf  used on input line 167.
-(pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
+Package pdftex.def Info: plots/descriptive_staff_turnover.pdf  used on input line 177.
+(pdftex.def)             Requested size: 0.0pt x 0.0pt.
 [9 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_staff_turnover.pdf>]
-<plots/hist_coalition.pdf, id=261, 361.35pt x 216.81pt>
+<plots/hist_coalition.pdf, id=271, 361.35pt x 216.81pt>
 File: plots/hist_coalition.pdf Graphic file (type pdf)
 <use plots/hist_coalition.pdf>
-Package pdftex.def Info: plots/hist_coalition.pdf  used on input line 179.
-(pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
+Package pdftex.def Info: plots/hist_coalition.pdf  used on input line 190.
+(pdftex.def)             Requested size: 271.7835pt x 163.07025pt.
  [10 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/hist_coalition.pdf>]
-Overfull \hbox (11.06192pt too wide) in paragraph at lines 199--200
+Overfull \hbox (11.06192pt too wide) in paragraph at lines 210--211
 []\OT1/cmr/m/n/12 Opposition $\OML/cmm/m/it/12 O$ \OT1/cmr/m/n/12 ob-serves the bribe sched-ule $\OML/cmm/m/it/12 m$ \OT1/cmr/m/n/12 and makes a counter-offer $\OML/cmm/m/it/12 b \OMS/cmsy/m/n/12 2 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 b[]; :::; b[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
  []
 
 [11] [12] [13] [14] [15] [16]
 
-LaTeX Warning: Reference `tbl:turnover' on page 17 undefined on input line 355.
+LaTeX Warning: Reference `tbl:turnover' on page 17 undefined on input line 366.
 
-<plots/plot_coalition_coef_mun.pdf, id=359, 361.35pt x 216.81pt>
+<plots/plot_coalition_coef_mun.pdf, id=369, 361.35pt x 216.81pt>
 File: plots/plot_coalition_coef_mun.pdf Graphic file (type pdf)
 <use plots/plot_coalition_coef_mun.pdf>
-Package pdftex.def Info: plots/plot_coalition_coef_mun.pdf  used on input line 358.
+Package pdftex.def Info: plots/plot_coalition_coef_mun.pdf  used on input line 369.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [17]
-<plots/plot_interactions_logit.pdf, id=367, 361.35pt x 216.81pt>
+<plots/plot_interactions_logit.pdf, id=377, 361.35pt x 216.81pt>
 File: plots/plot_interactions_logit.pdf Graphic file (type pdf)
 <use plots/plot_interactions_logit.pdf>
-Package pdftex.def Info: plots/plot_interactions_logit.pdf  used on input line 367.
+Package pdftex.def Info: plots/plot_interactions_logit.pdf  used on input line 378.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<plots/model_turnover_learning.pdf, id=369, 361.35pt x 216.81pt>
+<plots/model_turnover_learning.pdf, id=379, 361.35pt x 216.81pt>
 File: plots/model_turnover_learning.pdf Graphic file (type pdf)
 <use plots/model_turnover_learning.pdf>
-Package pdftex.def Info: plots/model_turnover_learning.pdf  used on input line 377.
+Package pdftex.def Info: plots/model_turnover_learning.pdf  used on input line 388.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [18 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/plot_coalition_coef_mun.pdf>] [19 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/plot_interactions_logit.pdf>] (/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.bbl [20 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/model_turnover_learning.pdf>] [21] [22])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 420.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 431.
  [23]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 420.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 431.
  (/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 420.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 420.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 431.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 431.
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: BFA995E562DD0D4534736BAF8E4D9DE9;512.
+(rerunfilecheck)             Checksum: 2851585C848683C1DC2190732C6372FB;522.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 420.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 431.
  ) 
 Here is how much of TeX's memory you used:
- 9928 strings out of 494880
- 146833 string characters out of 6179601
- 246397 words of memory out of 5000000
- 12968 multiletter control sequences out of 15000+600000
+ 9938 strings out of 494880
+ 147181 string characters out of 6179601
+ 246751 words of memory out of 5000000
+ 12975 multiletter control sequences out of 15000+600000
  16065 words of font info for 61 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  41i,17n,39p,1122b,498s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -896,9 +898,9 @@ pdfTeX warning (dest): name{Hfootnote.10} has been referenced but does not exist
 
 pdfTeX warning (dest): name{http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1} has been referenced but does not exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist, replaced by a fixed one
-
 pdfTeX warning (dest): name{http://trabalho.gov.br/dados-abertos} has been referenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist, replaced by a fixed one
 
@@ -910,9 +912,9 @@ pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist,
 
 pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{https://www.fnde.gov.br/index.php/financiamento/fundeb/sobre-o-plano-ou-programa/sobre-o-fundeb} has been referenced but does not exist, replaced by a fixed one
-
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{https://www.fnde.gov.br/index.php/financiamento/fundeb/sobre-o-plano-ou-programa/sobre-o-fundeb} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist, replaced by a fixed one
 
@@ -921,10 +923,10 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf (23 pages, 2470677 bytes).
+Output written on /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf (23 pages, 2476284 bytes).
 PDF statistics:
- 506 PDF objects out of 1000 (max. 8388607)
- 445 compressed objects within 5 object streams
- 118 named destinations out of 1000 (max. 500000)
- 108 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 516 PDF objects out of 1000 (max. 8388607)
+ 453 compressed objects within 5 object streams
+ 120 named destinations out of 1000 (max. 500000)
+ 113 words of extra memory for PDF output out of 10000 (max. 10000000)
 

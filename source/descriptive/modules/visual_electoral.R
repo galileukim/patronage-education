@@ -17,7 +17,9 @@ rais <- read_data(
 hist_coalition <- election %>%
     gg_histogram(
         aes(coalition_share * 100),
-        bins = 20
+        bins = 20,
+        color = "#e2735d",
+        fill = "coral3"
     ) +
     labs(
         x = "Share of seats (percentage)",

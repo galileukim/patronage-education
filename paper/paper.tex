@@ -49,6 +49,7 @@
 \newcommand{\real}{\mathbb{R}_+^n}
 \newcommand{\bfv}{\mathbf{v}}
 \newcommand{\blue}{\textcolor{blue}}
+% \renewcommand{\includegraphics}{\includegraphics[width=0.6\linewidth]}
 
 \bibliographystyle{unsrtnat}
 
@@ -115,18 +116,25 @@ Negotiations between executive and the legislative thus have a knock-on effect o
 
 \section{Institutional context and data}
 
-\subsection{Education in Brazil}
+\subsection{Municipal education in Brazil}
 
 In Brazil, responsibility for primary education is delegated to local governments \citet{paschoal_historia_2009}. The municipal educational system has increased in relevance over the past few decades, as municipalities took on a larger proportion of students from state-level governments. Figure \ref{fig:enroll} plots the total number of students in primary education per government level, including private schools. As of 2016, over 25 million students were enrolled in over 115 thousand municipal schools.
 
 \begin{figure}[h]
-    \includegraphics{plots/descriptive_enrollment.pdf}
+    \centering
+    \includegraphics[width=0.6\linewidth]{plots/descriptive_enrollment.pdf}
     \caption{enrollment}
     \label{fig:enroll}
-    \centering
 \end{figure}
 
-The local executive branch has sole jurisdiction over the hiring and firing of teachers and school principals. School principals are considered positions of trust (\textit{cargos de confiança}) and usually appointed by the mayor or secretary of education \citet{brollo_victor_2017}. Teachers usually enter the public service through a public exam and are eligible for tenure after two years \citet{gatti_formacao_2010}. However municipalities increasingly resort to temporary contracts to hire new teachers as budgetary pressures amount. Municipal teachers and school principals are overseen by a local department of education \citet{militao_educacao_2014}.
+The local executive branch has sole jurisdiction over the hiring and firing of teachers and school principals. School principals are considered positions of trust (\textit{cargos de confiança}) and usually appointed by the mayor or secretary of education \citet{brollo_victor_2017}. Teachers usually enter the public service through a public exam and are eligible for tenure after two years \citet{gatti_formacao_2010}. However municipalities increasingly resort to temporary contracts to hire new teachers as budgetary pressures amount. Municipal teachers and school principals are overseen by a local department of education \citep{militao_educacao_2014}.
+
+Positions in the educational sector are politically valuable. As a department, it comprises over 25 percent of local public sector jobs. Due to their relatively high compensation and social status compared to other positions in the local bureaucracy, educational staff positions are particularly valuable for constituencies seeking employment. Additionally, anecdotal evidence collected during fieldwork suggests that teachers play an important role in local party networks, leading electoral campaigns and brokering votes, similar to dynamics found by \citet{oliveros_making_2016} in Argentina's campaigning teachers.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{plots/descriptive_staff_breakdown}
+\end{figure}
 
 Funding for municipal education relies primarily on federal transfers, the Fundeb, derived from 10 percent of tax revenues for each level of government to education. At the municipal level, 25 percent of the local budget must be allocated to education, and compensatory federal transfers are institutionalized by law to those municipalities which do not reach the target.\footnote{For more details on the Fundeb, see \hyperlink{https://www.fnde.gov.br/index.php/financiamento/fundeb/sobre-o-plano-ou-programa/sobre-o-fundeb}{here}}. While municipalities may be audited to verify whether funds are being properly used, personnel decisions and daily operations are fully under municipal discretion \citet{ferraz_corrupting_2012}.
 
@@ -152,8 +160,9 @@ These accounts, along with previous case studies of municipalities in Brazil, su
 Brazil collects fine-grained data on education and makes it publicly available for research. For this study, data on education are collected from two main sources: the SAEB and School Census.\footnote{These can be accessed \hyperlink{http://portal.inep.gov.br/web/guest/dados}{here}.} The SAEB (National System for Educational Assessment) is a biannual standardized exam administered by the INEP (National Institute fosr Educational Studies and Research) to all public schools and a sample of private schools. In 2017, over 5 million students, in 5th and 9th grade, took the exam, testing their proficiency in both mathematics and Portuguese. In this study, test scores are the primary metric for assessing the quality of education received by students.
 
 \begin{figure}[h]
-    \includegraphics{plots/saeb_map.pdf}
-    \caption{hello}
+    \centering
+    \includegraphics[width=0.6\linewidth]{plots/saeb_map.pdf}
+    \caption{Uneven quality of municipal education. Polygons represent municipalities, warmer colors indicate higher municipal average in standardized test scores. Averages are weighted by student participation rate.}
     \label{fig:saeb_map}
 \end{figure}
 
@@ -164,9 +173,10 @@ Employment data on educational staff, including teachers and school principals, 
 Figure \ref{fig:staff_turnover} provides descriptive statistics on bureaucratic personnel in Brazil, segmented by department. Educational staff, in this case school principals and teachers, comprise approximately a third of municipal public sector jobs, totaling around 2 million in 2015. While comparable to administrative staff, this total significantly exceeds that for healthcare services. Focusing on turnover, we note that new hiring and dismissals in education staff is relatively high. While lower than that for administrative staff, new hires can represent over 10 percent of extant staff. The past two decades was a moment of rapid expansion of municipal staff, and hiring has far exceeded dismissals in that time period.
 
 \begin{figure}[h]
-    \includegraphics{plots/descriptive_staff_turnover.pdf}
+    \centering
+    \includegraphics[width=0.\linewidth]{plots/descriptive_staff_turnover.pdf}
     \label{fig:staff_turnover}
-    \caption{hello}
+    \caption{Proportion of public sector jobs by department. Note that I only keep the top 5 categorie}
 \end{figure}
 
 I propose three different specifications for measuring bureaucratic turnover. From the RAIS I obtain the percentage of teachers and principals who are dismissed and hired at any given year. Using school census data, it is possible to track individual teachers across time and schools. With that data I calculate a turnover index for school $s$, in municipality $j$ at year $t$, based on an index proposed by \citet{pereira_junior_indicadores_2016}. The number of teachers leaving and entering the school at a given year are summed and divided by the total number of teachers in the current and previous period.
@@ -176,8 +186,9 @@ $$\text{turnover}_{sjt} = \frac{\text{exit}_{sjt} + \text{entry}_{sjt}}{N_{sjt} 
 Information on mayor, city councilors and mayoral coalitions are made available by the Supreme Electoral Court (TSE), the national authority responsible for overseeing elections.\footnote{Available \hyperlink{http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1}{here}.} In order to calculate the share of legislative seats held by the mayoral coalition, I match the partisanship of each city councilor to the mayoral electoral coalition. The distribution of share of coalition seats is depicted in figure \ref{fig:hist_coalition}. Note that although most city councils are controlled by the mayor, in over 40 percent of municipalities the mayoral coalition is a minority government.
 
 \begin{figure}
-    \includegraphics{plots/hist_coalition.pdf}
-    \caption{hello}
+    \centering
+    \includegraphics[width=0.6\linewidth]{plots/hist_coalition.pdf}
+    \caption{Distribution of share of legislative seats allied with the mayor during the electoral campaign for the elecoral period of 2002-2016.}
     \label{fig:hist_coalition}
 \end{figure}
 

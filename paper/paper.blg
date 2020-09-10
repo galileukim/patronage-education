@@ -6,45 +6,45 @@ Database file #1: dissertation.bib
 Warning--empty journal in akhtari_political_2015
 Warning--empty journal in colonnelli_patronage_2017
 Warning--there's a number but no volume in militao_educacao_2014
-You've used 37 entries,
+You've used 38 entries,
             2481 wiz_defined-function locations,
-            767 strings with 10685 characters,
-and the built_in function-call counts, 13122 in all, are:
-= -- 1173
-> -- 517
-< -- 29
-+ -- 218
-- -- 144
-* -- 946
-:= -- 2055
-add.period$ -- 111
-call.type$ -- 37
-change.case$ -- 71
-chr.to.int$ -- 37
-cite$ -- 40
-duplicate$ -- 709
-empty$ -- 1278
-format.name$ -- 207
-if$ -- 2798
+            772 strings with 10857 characters,
+and the built_in function-call counts, 13473 in all, are:
+= -- 1207
+> -- 524
+< -- 30
++ -- 222
+- -- 146
+* -- 971
+:= -- 2108
+add.period$ -- 114
+call.type$ -- 38
+change.case$ -- 73
+chr.to.int$ -- 38
+cite$ -- 41
+duplicate$ -- 728
+empty$ -- 1316
+format.name$ -- 210
+if$ -- 2873
 int.to.chr$ -- 1
-int.to.str$ -- 38
-missing$ -- 40
-newline$ -- 193
-num.names$ -- 111
-pop$ -- 300
+int.to.str$ -- 39
+missing$ -- 41
+newline$ -- 198
+num.names$ -- 114
+pop$ -- 307
 preamble$ -- 1
-purify$ -- 37
+purify$ -- 38
 quote$ -- 0
-skip$ -- 427
+skip$ -- 438
 stack$ -- 0
-substring$ -- 660
-swap$ -- 91
+substring$ -- 687
+swap$ -- 93
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 244
+type$ -- 251
 warning$ -- 3
-while$ -- 125
+while$ -- 129
 width$ -- 0
-write$ -- 478
+write$ -- 491
 (There were 3 warnings)

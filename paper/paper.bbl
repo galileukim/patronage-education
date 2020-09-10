@@ -1,4 +1,4 @@
-\begin{thebibliography}{37}
+\begin{thebibliography}{38}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -186,6 +186,13 @@ Bernardete~A. Gatti.
 Silvio Cesar~Nunes Militão, Andréia~Nunes Militão, and Fábio Perboni.
 \newblock {EDUCAÇÃO} {MUNICIPAL}: {PROTAGONISMO} {E} {DESAFIOS}.
 \newblock \emph{Pedagogia em Foco}, \penalty0 (8), 2014.
+
+\bibitem[Oliveros(2016)]{oliveros_making_2016}
+Virginia Oliveros.
+\newblock Making it personal: {Clientelism}, favors, and the personalization of
+  public administration in {Argentina}.
+\newblock \emph{Comparative Politics}, 48\penalty0 (3):\penalty0 373--391,
+  2016.
 
 \bibitem[Souza and Faria(2004)]{souza_reforma_2004}
 Donaldo Bello~de Souza and Lia Ciomar Macedo~de Faria.
