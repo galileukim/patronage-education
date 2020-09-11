@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex paper"] 1599848872 "paper.aux" "paper.bbl" "paper" 1599849086
+["bibtex paper"] 1599853286 "paper.aux" "paper.bbl" "paper" 1599853395
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1480098435 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
   "dissertation.bib" 1597958779 184447 f9189dc7eec789ebf9918dabf00b0902 ""
-  "paper.aux" 1599848917 13528 8ed43be0ee71968ba033a43d5650d05a ""
+  "paper.aux" 1599853330 13661 2a00696791bec836a23add9f7b439ac4 ""
   "paper.bcf" 0 -1 0 ""
   (generated)
   "paper.blg"
   "paper.bbl"
-["pdflatex"] 1599848917 "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex" "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf" "paper" 1599849086
+["pdflatex"] 1599853329 "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex" "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf" "paper" 1599853395
   "/etc/texmf/web2c/texmf.cnf" 1585227716 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.aux" 1599848917 13528 8ed43be0ee71968ba033a43d5650d05a ""
-  "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex" 1599849085 56234 60193d1322cbd2fb4137791a582a324c ""
+  "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.aux" 1599853330 13661 2a00696791bec836a23add9f7b439ac4 ""
+  "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex" 1599853395 57095 7899cfa309b464fc6e30cdb44c41f8d9 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -129,10 +129,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1585227723 127853 b41f58aff49fe1af38af8d065f49d51c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1593121643 859410 7e9db4a2b17af51ef47308844b7ed2cf ""
-  "paper.aux" 1599848917 13528 8ed43be0ee71968ba033a43d5650d05a ""
-  "paper.bbl" 1599848872 10693 ae495953920f28c9a981939d9fdce379 "bibtex paper"
-  "paper.out" 1599848917 522 2851585c848683c1dc2190732c6372fb ""
-  "paper.tex" 1599849085 56234 60193d1322cbd2fb4137791a582a324c ""
+  "paper.aux" 1599853330 13661 2a00696791bec836a23add9f7b439ac4 ""
+  "paper.bbl" 1599853286 10721 cd2ed710421adba58efb664dbdb01c7b "bibtex paper"
+  "paper.out" 1599853330 522 2851585c848683c1dc2190732c6372fb ""
+  "paper.tex" 1599853395 57095 7899cfa309b464fc6e30cdb44c41f8d9 ""
   "plots/descriptive_enrollment.pdf" 1599674462 6329 3fc4ae58f260b5f393601446aef9555c ""
   "plots/descriptive_staff_breakdown.pdf" 1599674462 5137 f47a7da52092f7d434bbaf104f2b6ab5 ""
   "plots/descriptive_staff_turnover.pdf" 1599674462 6368 46a66d70dccfd82d491da3f48e46b88f ""
@@ -145,9 +145,9 @@
   "results/student_learning.tex" 1599763793 1963 9458fd0290bdece5b68ce15f266a1dd8 ""
   "results/turnover_result.tex" 1599747746 1508 8b9c1979c0ac24b2c8981c4bbf5854c7 ""
   (generated)
-  "paper.pdf"
   "paper.log"
-  "paper.aux"
+  "paper.pdf"
   "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.log"
+  "paper.aux"
   "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf"
   "paper.out"
