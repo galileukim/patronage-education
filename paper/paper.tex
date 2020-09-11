@@ -395,7 +395,7 @@ For visual intuition, I present the predicted values for models 4 and 5, respect
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth]{plots/plot_interactions_logit}
-    \caption{Predicted values for bureaucratic turnover. The graph plots the proportion of educational staff either hired or fired for any given year against the share of seats controlled by the executive. The circles' size is proportional to the number of observations contained at each value of the legislative share of seats.}
+    \caption{\textbf{Differential reductions in patronage in teachers and school principals}. Predicted values for bureaucratic turnover plotted against the proportion of educational staff either hired or fired for any given year against the share of seats controlled by the executive.}
     \label{fig:turnover}
 \end{figure}
 
@@ -404,10 +404,10 @@ Finally, I show that the executive-legislative bargain extends to second-term ma
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth]{plots/plot_coalition_coef_mun_second.pdf}
-    \caption{\bf{hello}}
+    \caption{\textbf{Patronage continues into the second term.} All models include a full set of controls, as well as year and state fixed effects.}
 \end{figure}
 
-Moving on to characterizing the downstream effects of patronage, I find that teacher and school principal turnover have significant, negative effects on average test scores. These results are robust to alternative specifications of turnover, as well as the use of different quality metrics (SAEB, SPAECE) in our estimations. Table \ref{tbl:student_learning} presents the results of the estimation on SAEB and SPAECE test scores. We present two specifications for turnover. Turnover index measures the amount of turnover in teachers at the school level. Work experience for teachers and school principals serve as an alternative measure of turnover. Personnel who has only recently entered the school recently amass a shorter amount of work experience (less than two years).
+Moving on to characterizing the downstream effects of patronage, I find that teacher and school principal turnover have significant, negative effects on average test scores. These results are robust to alternative specifications of turnover, as well as the use of different quality metrics (SAEB, SPAECE) in our estimations. Table \ref{tbl:student_learning} presents the results of the estimation on SAEB and SPAECE test scores. We present two specifications for turnover. Turnover index measures the amount of turnover in teachers at the school level. Work experience for teachers and school principals serve as an alternative measure of turnover.
 
 \begin{landscape}
     \begin{table}[t]
@@ -419,16 +419,22 @@ Moving on to characterizing the downstream effects of patronage, I find that tea
     \end{table}
 \end{landscape}
 
+I also present the coefficients for the regression exercise above in figure \ref{fig:hlm_mods}. Note that the results are consistent across the board, providing strong evidence that staff turnover has negative downstream consequences for student learning.
 
 \begin{figure}[h]
   \centering
-  \footnotesize
-  \includegraphics{plots/model_turnover_learning.pdf}
-  \caption{{\bf Bureaucratic turnover and student learning} Teacher and school principal turnover have a negative effect on student learning. Models 1 and 2 present results for teacher turnover index constructed at the school level. Models 3 and 4 estimate the effect of new teachers and school principals entering the school (less than two years). All models include year and state fixed effects.}
+  \includegraphics[width=0.6\linewidth]{plots/model_turnover_learning.pdf}
+  \caption{{\bf Bureaucratic turnover and student learning} Teacher and school principal turnover have a negative effect on student learning, across different sets of exams (\emph{SAEB} and \emph{SPAECE}). All models include a full set of controls, as well as year and state fixed effects.}
   \label{fig:hlm_mods}
 \end{figure}
 
-\blue{Include some reference coefs in order for the audience to assess the magnitude of the effects}
+Finally, I present some evidence of differential returns to patronage, in particular for city councilors. For each position (mayor, city councilor) I estimate the probability of being reelected conditional on the amount of patronage occurred in the first term manda While mayors themselves do not directly benefit from greater patronage, city councilors who are not members of the electoral base of the mayor seem to be negatively affected by patronage appointments into education.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\linewidth]{plots/reelection_marginal_effect_plots.pdf}
+    \caption{\textbf{Differential returns to patronage}. Mayors who engage in patronage do not directly benefit from it. Instead, city councilors in the mayoral ally base seem to be benefiting from it at the expense of non-allied city councilors.}
+\end{figure}
 
 As a final note, this set of estimations are based on observational data and therefore suffer from well-known concerns of endogeneity. It is in these circumstances that validating causal mechanisms through fieldwork and careful data analysis can increase the validity of a causal claim. In-depth interviews with local actors involved in managing education, as well as the use of different measurements for both educational staff turnover and student learning, provides strong evidence that staff turnover has a negative impact on student learning. Bureaucratic turnover stems from political considerations.
 
@@ -446,9 +452,9 @@ This bureaucratic turnover has important consequences for the quality of educati
 
 Future research on patronage and public service delivery would benefit from a clearer treatment of the institutional context in which local political actors operate. Important insights have been derived on executive leaders, but these actors seldom govern alone. Incorporating other local elites paints a more complex and accurate understanding of the strategic considerations taking place in the political management of education, and public services more broadly.
 
-% \pagebreak 
+\pagebreak 
 
-% # Appendix
+\section*{Appendix}
 
 % \pagebreak
 
