@@ -119,12 +119,12 @@ Negotiations between executive and the legislative thus have a knock-on effect o
 
 \subsection{Municipal education in Brazil}
 
-In Brazil, responsibility for primary education is delegated to local governments \citet{paschoal_historia_2009}. The municipal educational system has increased in relevance over the past few decades, as municipalities took on a larger proportion of students from state-level governments. Figure \ref{fig:enroll} plots the total number of students in primary education per government level, including private schools. As of 2016, over 25 million students were enrolled in over 115 thousand municipal schools.
+In Brazil, the responsibility to provide public, primary education is primarily delegated to local governments \citet{paschoal_historia_2009}. In this critical learning period, students acquire skills such as reading/writing, as well as foundational concepts in math such as addition and substraction. The municipal educational system has increased in relevance over the past few decades, and currently over 60 percent of lower school strudents attend a public school. Figure \ref{fig:enroll} plots the total number of students in primary education per government level, including private schools. As of 2016, over 25 million students were enrolled in over 115 thousand municipal schools.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth]{plots/descriptive_enrollment.pdf}
-    \caption{enrollment}
+    \caption{\textbf{Student enrollment by administration.}}
     \label{fig:enroll}
 \end{figure}
 
@@ -182,6 +182,8 @@ Figure \ref{fig:staff_turnover} provides descriptive statistics on bureaucratic 
 I propose three different specifications for measuring bureaucratic turnover. From the RAIS I obtain the percentage of teachers and principals who are dismissed and hired at any given year. Using school census data, it is possible to track individual teachers across time and schools. With that data I calculate a turnover index for school $s$, in municipality $j$ at year $t$, based on an index proposed by \citet{pereira_junior_indicadores_2016}. The number of teachers leaving and entering the school at a given year are summed and divided by the total number of teachers in the current and previous period.
 
 $$\text{turnover}_{sjt} = \frac{\text{exit}_{sjt} + \text{entry}_{sjt}}{N_{sjt} + N_{sjt-1}}$$
+
+\blue{Insert more information and descriptive paragraph on turnover index here}
 
 Information on mayor, city councilors and mayoral coalitions are made available by the Supreme Electoral Court (TSE), the national authority responsible for overseeing elections.\footnote{Available \hyperlink{http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1}{here}.} In order to calculate the share of legislative seats held by the mayoral coalition, I match the partisanship of each city councilor to the mayoral electoral coalition. The distribution of share of coalition seats is depicted in figure \ref{fig:hist_coalition}. Note that although most city councils are controlled by the mayor, in over 40 percent of municipalities the mayoral coalition is a minority government.
 
