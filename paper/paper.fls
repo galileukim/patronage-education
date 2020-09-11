@@ -202,7 +202,6 @@ INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/
 INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/hist_coalition.pdf
 INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/hist_coalition.pdf
 INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/hist_coalition.pdf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
@@ -234,6 +233,15 @@ INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/
 INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/reelection_marginal_effect_plots.pdf
 INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/reelection_marginal_effect_plots.pdf
 INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/reelection_marginal_effect_plots.pdf
+INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/covariate_balance.pdf
+INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/covariate_balance.pdf
+INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/covariate_balance.pdf
+INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/accountability_fit.pdf
+INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/accountability_fit.pdf
+INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/accountability_fit.pdf
+INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/visual_rdd_legislative_seat_flip.pdf
+INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/visual_rdd_legislative_seat_flip.pdf
+INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/visual_rdd_legislative_seat_flip.pdf
 INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.bbl
 INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.bbl
 INPUT /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.aux
@@ -255,6 +263,5 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb

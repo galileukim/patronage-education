@@ -1,4 +1,4 @@
-\begin{thebibliography}{39}
+\begin{thebibliography}{38}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -246,11 +246,5 @@ Valerie~E. Lee.
   case of school effects.
 \newblock \emph{Educational psychologist}, 35\penalty0 (2):\penalty0 125--141,
   2000.
-
-\bibitem[Imai and Ratkovic(2014)]{imai_covariate_2014}
-Kosuke Imai and Marc Ratkovic.
-\newblock Covariate balancing propensity score.
-\newblock \emph{Journal of the Royal Statistical Society: Series B (Statistical
-  Methodology)}, 76\penalty0 (1):\penalty0 243--263, 2014.
 
 \end{thebibliography}

@@ -107,10 +107,10 @@ fit_accountability <- map(
     )
 )
 
-plot_accountability <- fit_acc %>% 
+plot_accountability <- fit_accountability %>% 
   map2_df(
     names(.),
-    ~tidy(.x, conf.int = T) %>% 
+    ~broom::tidy(.x, conf.int = T) %>% 
       filter(
         str_detect(
           term,
@@ -137,7 +137,7 @@ plot_accountability <- ggplot(
   ) +
   geom_errorbar_tidy
 
-ggsave(
+save_fig(
   plot_accountability,
-  filename = p_file_here('plots', "accountability_fit.pdf")
+  "accountability_fit.pdf"
 )
