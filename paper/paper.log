@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  16 SEP 2020 11:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  16 SEP 2020 11:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -480,12 +480,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
-<plots/descriptive_enrollment.pdf, id=203, 361.35pt x 216.81pt>
+<plots/descriptive_enrollment.pdf, id=207, 361.35pt x 216.81pt>
 File: plots/descriptive_enrollment.pdf Graphic file (type pdf)
 <use plots/descriptive_enrollment.pdf>
 Package pdftex.def Info: plots/descriptive_enrollment.pdf  used on input line 130.
 (pdftex.def)             Requested size: 271.7835pt x 163.07025pt.
-<plots/descriptive_staff_breakdown.pdf, id=212, 361.35pt x 216.81pt>
+<plots/descriptive_staff_breakdown.pdf, id=216, 361.35pt x 216.81pt>
 File: plots/descriptive_staff_breakdown.pdf Graphic file (type pdf)
 <use plots/descriptive_staff_breakdown.pdf>
 Package pdftex.def Info: plots/descriptive_staff_breakdown.pdf  used on input line 141.
@@ -495,7 +495,7 @@ Package pdftex.def Info: plots/descriptive_staff_breakdown.pdf  used on input li
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [6 </Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_enrollment.pdf>] [7 </Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_staff_breakdown.pdf>]
-<plots/saeb_map.pdf, id=259, 361.35pt x 361.35pt>
+<plots/saeb_map.pdf, id=263, 361.35pt x 361.35pt>
 File: plots/saeb_map.pdf Graphic file (type pdf)
 <use plots/saeb_map.pdf>
 Package pdftex.def Info: plots/saeb_map.pdf  used on input line 168.
@@ -512,7 +512,7 @@ See the caption package documentation for explanation.
 
 LaTeX Warning: Reference `fig:staff_turnover' on page 9 undefined on input line 177.
 
-<plots/descriptive_staff_turnover.pdf, id=272, 361.35pt x 216.81pt>
+<plots/descriptive_staff_turnover.pdf, id=276, 361.35pt x 216.81pt>
 File: plots/descriptive_staff_turnover.pdf Graphic file (type pdf)
 <use plots/descriptive_staff_turnover.pdf>
 Package pdftex.def Info: plots/descriptive_staff_turnover.pdf  used on input line 181.
@@ -521,7 +521,7 @@ Package pdftex.def Info: plots/descriptive_staff_turnover.pdf  used on input lin
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [9 </Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/saeb_map.pdf>]
-<plots/hist_coalition.pdf, id=288, 361.35pt x 216.81pt>
+<plots/hist_coalition.pdf, id=292, 361.35pt x 216.81pt>
 File: plots/hist_coalition.pdf Graphic file (type pdf)
 <use plots/hist_coalition.pdf>
 Package pdftex.def Info: plots/hist_coalition.pdf  used on input line 196.
@@ -532,12 +532,12 @@ Overfull \hbox (11.06192pt too wide) in paragraph at lines 216--217
  []
 
 [11] [12] [13] [14] [15] [16] [17] (/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/results/turnover_result.tex) [18]
-<plots/plot_coalition_coef_mun.pdf, id=409, 361.35pt x 216.81pt>
+<plots/plot_coalition_coef_mun.pdf, id=413, 361.35pt x 216.81pt>
 File: plots/plot_coalition_coef_mun.pdf Graphic file (type pdf)
 <use plots/plot_coalition_coef_mun.pdf>
 Package pdftex.def Info: plots/plot_coalition_coef_mun.pdf  used on input line 391.
 (pdftex.def)             Requested size: 271.7835pt x 163.07025pt.
-<plots/plot_interactions_logit.pdf, id=412, 361.35pt x 216.81pt>
+<plots/plot_interactions_logit.pdf, id=416, 361.35pt x 216.81pt>
 File: plots/plot_interactions_logit.pdf Graphic file (type pdf)
 <use plots/plot_interactions_logit.pdf>
 Package pdftex.def Info: plots/plot_interactions_logit.pdf  used on input line 400.
@@ -546,7 +546,7 @@ Package pdftex.def Info: plots/plot_interactions_logit.pdf  used on input line 4
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<plots/plot_coalition_coef_mun_second.pdf, id=413, 361.35pt x 216.81pt>
+<plots/plot_coalition_coef_mun_second.pdf, id=417, 361.35pt x 216.81pt>
 File: plots/plot_coalition_coef_mun_second.pdf Graphic file (type pdf)
 <use plots/plot_coalition_coef_mun_second.pdf>
 Package pdftex.def Info: plots/plot_coalition_coef_mun_second.pdf  used on input line 409.
@@ -558,12 +558,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
  </Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/plot_coalition_coef_mun.pdf>] [20 </Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/plot_interactions_logit.pdf> </Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/plot_coalition_coef_mun_second.pdf>] (/Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/results/student_learning.tex) [21]
-<plots/model_turnover_learning.pdf, id=454, 361.35pt x 216.81pt>
+<plots/model_turnover_learning.pdf, id=458, 361.35pt x 216.81pt>
 File: plots/model_turnover_learning.pdf Graphic file (type pdf)
 <use plots/model_turnover_learning.pdf>
 Package pdftex.def Info: plots/model_turnover_learning.pdf  used on input line 429.
 (pdftex.def)             Requested size: 271.7835pt x 163.07025pt.
-<plots/reelection_marginal_effect_plots.pdf, id=457, 361.35pt x 216.81pt>
+<plots/reelection_marginal_effect_plots.pdf, id=461, 361.35pt x 216.81pt>
 File: plots/reelection_marginal_effect_plots.pdf Graphic file (type pdf)
 <use plots/reelection_marginal_effect_plots.pdf>
 Package pdftex.def Info: plots/reelection_marginal_effect_plots.pdf  used on input line 438.
@@ -572,19 +572,19 @@ Package pdftex.def Info: plots/reelection_marginal_effect_plots.pdf  used on inp
 
 
  </Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/model_turnover_learning.pdf> </Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/reelection_marginal_effect_plots.pdf>] [23]
-<plots/covariate_balance.pdf, id=484, 361.35pt x 216.81pt>
+<plots/covariate_balance.pdf, id=488, 361.35pt x 216.81pt>
 File: plots/covariate_balance.pdf Graphic file (type pdf)
 <use plots/covariate_balance.pdf>
 Package pdftex.def Info: plots/covariate_balance.pdf  used on input line 467.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
  [24 </Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/covariate_balance.pdf>]
-<plots/accountability_fit.pdf, id=497, 361.35pt x 216.81pt>
+<plots/accountability_fit.pdf, id=501, 361.35pt x 216.81pt>
 File: plots/accountability_fit.pdf Graphic file (type pdf)
 <use plots/accountability_fit.pdf>
 Package pdftex.def Info: plots/accountability_fit.pdf  used on input line 477.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
  [25 </Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/accountability_fit.pdf>]
-<plots/visual_rdd_legislative_seat_flip.pdf, id=510, 504.88625pt x 504.88625pt>
+<plots/visual_rdd_legislative_seat_flip.pdf, id=514, 504.88625pt x 504.88625pt>
 File: plots/visual_rdd_legislative_seat_flip.pdf Graphic file (type pdf)
 <use plots/visual_rdd_legislative_seat_flip.pdf>
 Package pdftex.def Info: plots/visual_rdd_legislative_seat_flip.pdf  used on input line 486.
@@ -655,10 +655,10 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf (29 pages, 2516428 bytes).
+Output written on /Users/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf (29 pages, 2516579 bytes).
 PDF statistics:
- 625 PDF objects out of 1000 (max. 8388607)
- 543 compressed objects within 6 object streams
+ 629 PDF objects out of 1000 (max. 8388607)
+ 547 compressed objects within 6 object streams
  141 named destinations out of 1000 (max. 500000)
  162 words of extra memory for PDF output out of 10000 (max. 10000000)
 
