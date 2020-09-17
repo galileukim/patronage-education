@@ -91,7 +91,7 @@ controls <- c(school_covariates, mun_covariates)
 
 formulae_spaece <- formulate_models(
   "spaece_mean",
-  "turnover_index + grade_level + participation_rate",
+  "turnover_index*grade_level",
   fe = NULL,
   controls
 ) %>%

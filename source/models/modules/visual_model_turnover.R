@@ -2,6 +2,7 @@
 # visualize combined results from saeb hierarchical and spaece models
 # ==============================================================================
 library(stargazer)
+library(broom.mixed)
 
 fit_lmer <- read_model("fit_saeb_hierarchical.rds")
 fit_spaece <- read_model("fit_spaece.rds")
