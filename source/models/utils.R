@@ -402,7 +402,6 @@ summarise_fun <- function(data, var) {
     )
 }
 
-
 geom_errorbar_tidy <- geom_errorbarh(
   aes(
     xmin = conf.low,

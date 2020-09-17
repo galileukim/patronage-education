@@ -81,7 +81,8 @@ plot_model_turnover <- estimate_hlm %>%
   geom_errorbar_tidy +
   theme(
     legend.position = "bottom",
-    legend.title = element_blank()
+    legend.title = element_blank(),
+    axis.title.x = element_blank()
   ) +
   geom_vline(xintercept = 0) +
   scale_y_discrete(
