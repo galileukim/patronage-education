@@ -29,16 +29,18 @@ plot_turnover_edu <- rais_edu %>%
             pch = rais_category
         )
     ) +
-    geom_point(
-        size = 4
-    ) +
-    facet_wrap(
-        . ~ rais_category,
-        labeller = labeller(
-            rais_category = c(principal = "Principal", teacher = "Teacher")
-        ),
-        ncol = 1
-    ) +
+    geom_point(size = 2) + 
+    geom_line() +
+    # geom_point(
+    #     size = 4
+    # ) +
+    # facet_wrap(
+    #     . ~ rais_category,
+    #     labeller = labeller(
+    #         rais_category = c(principal = "Principal", teacher = "Teacher")
+    #     ),
+    #     ncol = 1
+    # ) +
     mandate_year(
         seq(2001, 2013, 4)
     ) +
