@@ -1,4 +1,4 @@
-\begin{thebibliography}{38}
+\begin{thebibliography}{41}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -10,6 +10,25 @@ Saad Gulzar and Benjamin~J. Pasquale.
 \newblock Politicians, bureaucrats, and development: {Evidence} from {India}.
 \newblock \emph{American Political Science Review}, 111\penalty0 (1):\penalty0
   162--183, 2017.
+
+\bibitem[Besley and Case(2003)]{besley_political_2003}
+Timothy Besley and Anne Case.
+\newblock Political institutions and policy choices: evidence from the {United}
+  {States}.
+\newblock \emph{Journal of Economic Literature}, 41\penalty0 (1):\penalty0
+  7--73, 2003.
+
+\bibitem[Cochrane(1983)]{cochrane_policies_1983}
+Glynn Cochrane.
+\newblock \emph{Policies for strengthening local government in developing
+  countries}.
+\newblock World Bank, 1983.
+
+\bibitem[Falleti(2010)]{falleti_decentralization_2010}
+Tulia~G. Falleti.
+\newblock \emph{Decentralization and subnational politics in {Latin}
+  {America}}.
+\newblock Cambridge University Press, 2010.
 
 \bibitem[Duflo et~al.(2012)Duflo, Hanna, and Ryan]{duflo_incentives_2012}
 Esther Duflo, Rema Hanna, and Stephen~P. Ryan.
