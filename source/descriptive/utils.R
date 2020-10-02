@@ -504,7 +504,13 @@ scale_colour_discrete <- function(...) scale_color_brewer(palette = "OrRd", dire
 scale_fill_discrete <- function(...) scale_fill_brewer(palette = "OrRd", direction = -1, ...)
 
 matte_indigo <- "#375b7c"
+matte_indigo2 <- "#4c6e8d"
 tulip_red <- "#E64538"
+
+update_geom_defaults(
+  "bar",
+  list(color = matte_indigo, fill = matte_indigo2)
+)
 
 update_geom_defaults(
   "point",
