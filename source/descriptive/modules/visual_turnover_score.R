@@ -74,28 +74,60 @@ test_turnover_scaled <- map2_dfr(
   ) %>%
   ungroup()
 
-plot_turnover <- test_turnover_scaled %>%
+# plot_turnover <- test_turnover_scaled %>%
+#   ggplot(
+#     aes(
+#       turnover_index, score,
+#       group = grade_level,
+#       col = grade_level
+#     )
+#   ) +
+#   geom
+#   geom_smooth(
+#     method = lm,
+#     formula = y ~ splines::bs(x, 3),
+#     se = F
+#   ) +
+#   coord_cartesian(xlim = c(-1.5, 1.5)) +
+#   facet_wrap(test ~ .) +
+  # labs(
+  #   x = "Teacher turnover",
+  #   y = "Student-test scores (z-score)"
+  # )
+
+plot_turnover_score <- test_turnover_scaled %>%
+  # filter(test == "saeb") %>% 
   ggplot(
     aes(
-      turnover_index, score,
-      group = grade_level,
-      col = grade_level
+      turnover_index,
+    score,
+    color = grade_level,
+    group = grade_level
     )
   ) +
-  geom_smooth(
-    method = lm,
-    formula = y ~ splines::bs(x, 3),
-    se = F
+  stat_summary_bin(
+      fun = "mean",
+      size = 2,
+      geom = "point"
   ) +
-  coord_cartesian(xlim = c(-1.5, 1.5)) +
-  facet_wrap(test ~ .) +
-  labs(
+  geom_smooth(
+    color = tulip_red,
+    method = "lm"
+  ) +
+  facet_wrap(
+    test ~ . 
+  ) +
+  coord_cartesian(
+    ylim = c(-1, 1),
+    xlim = c(-2, 2)
+  ) +
+    labs(
     x = "Teacher turnover",
     y = "Student-test scores (z-score)"
   )
 
 print("write-out plot")
 save_fig(
-  plot_turnover,
+  plot_turnover_score,
   "plot_turnover_effect_on_test_score.pdf"
 )

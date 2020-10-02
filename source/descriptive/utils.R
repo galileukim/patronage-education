@@ -472,20 +472,20 @@ gg_point <- function(data, mapping = aes(), ...){
     geom_point(...)
 }
 
-gg_summary <- function(data, x, y, fun = 'mean', size = 2, geom = 'point', color = matte_indigo, smooth = T, ...){
+gg_summary <- function(data, x, y, fun = 'mean', color = matte_indigo, smooth = T, ...){
   plot <- data %>% 
     ggplot(
       aes(
         !!enquo(x),
-        !!enquo(y)
+        !!enquo(y),
+        color,
+        ...
       )
     ) +
     stat_summary_bin(
       fun = fun,
-      size = size,
-      geom = geom,
-      color = color,
-      ...
+      size = 0.2,
+      geom = "point"
     )
   
   if(smooth == T){
