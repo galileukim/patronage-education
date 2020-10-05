@@ -14,7 +14,8 @@ modules <- c(
   "visual_map",
   "visual_staff_turnover",
   "visual_test_scores",
-  "visual_turnover_score"
+  "visual_turnover_score",
+  "visual_electoral_diff"
   )
 
 plan(multicore)
