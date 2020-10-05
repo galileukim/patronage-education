@@ -1,4 +1,4 @@
-\begin{thebibliography}{43}
+\begin{thebibliography}{45}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,12 +11,25 @@ Emiliana Vegas and Jenny Petrow.
   the 21st century}.
 \newblock The World Bank, 2007.
 
+\bibitem[Kaufman and Segura-Ubiergo(2001)]{kaufman_globalization_2001}
+Robert~R. Kaufman and Alex Segura-Ubiergo.
+\newblock Globalization, domestic politics, and social spending in {Latin}
+  {America}: a time-series cross-section analysis, 1973–97.
+\newblock \emph{World politics}, 53\penalty0 (4):\penalty0 553--587, 2001.
+
 \bibitem[Pepinsky et~al.(2017)Pepinsky, Pierskalla, and
   Sacks]{pepinsky_bureaucracy_2017}
 Thomas~B. Pepinsky, Jan~H. Pierskalla, and Audrey Sacks.
 \newblock Bureaucracy and service delivery.
 \newblock \emph{Annual Review of Political Science}, 20:\penalty0 249--268,
   2017.
+
+\bibitem[Rasul and Rogger(2018)]{rasul2018management}
+Imran Rasul and Daniel Rogger.
+\newblock Management of bureaucrats and public service delivery: Evidence from
+  the nigerian civil service.
+\newblock \emph{The Economic Journal}, 128\penalty0 (608):\penalty0 413--446,
+  2018.
 
 \bibitem[Gulzar and Pasquale(2017)]{gulzar_politicians_2017}
 Saad Gulzar and Benjamin~J. Pasquale.
