@@ -31,7 +31,7 @@ election_vote_share <- election %>%
     ) %>%
     ungroup()
 
-election_vote_share %>%
+plot_vote_share <- election_vote_share %>%
     ggplot(
         aes(
             x = percentage_vote,
@@ -45,13 +45,22 @@ election_vote_share %>%
         # aes(percentage_vote, y = ..density..),
         size = 1
     ) +
-    scale_y_continuous(labels = percent, name = "percent") +
+    scale_y_continuous(labels = percent) +
     annotate(
         "text",
-        x = c(15, 65),
-        y = c(0.18, 0.05),
+        x = c(17, 65),
+        y = c(0.15, 0.05),
         label = c("city councilors", "mayors")
     ) +
     theme(
         legend.position = "none"
+    ) +
+    labs(
+        x = "Vote share",
+        y = "Frequency (percent)"
     )
+
+save_fig(
+    plot_vote_share,
+    file = "plot_vote_share_by_position.pdf"
+)
