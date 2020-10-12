@@ -1,4 +1,4 @@
-\begin{thebibliography}{44}
+\begin{thebibliography}{46}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -22,6 +22,18 @@ Alberto Alesina, Reza Baqir, and William Easterly.
 \newblock Public goods and ethnic divisions.
 \newblock \emph{The Quarterly Journal of Economics}, 114\penalty0 (4):\penalty0
   1243--1284, 1999.
+
+\bibitem[Boix(2003)]{boix_democracy_2003}
+Carles Boix.
+\newblock \emph{Democracy and redistribution}.
+\newblock Cambridge University Press, 2003.
+
+\bibitem[Dixit and Londregan(1996)]{dixit_determinants_1996}
+Avinash Dixit and John Londregan.
+\newblock The determinants of success of special interests in redistributive
+  politics.
+\newblock \emph{the Journal of Politics}, 58\penalty0 (4):\penalty0 1132--1155,
+  1996.
 
 \bibitem[Pepinsky et~al.(2017)Pepinsky, Pierskalla, and
   Sacks]{pepinsky_bureaucracy_2017}
