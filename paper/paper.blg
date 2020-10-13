@@ -1,51 +1,50 @@
-This is BibTeX, Version 0.99d (TeX Live 2019)
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: paper.aux
 The style file: unsrtnat.bst
 Database file #1: dissertation.bib
-Warning--I didn't find a database entry for ""
 Warning--empty journal in akhtari_political_2015
 Warning--empty journal in colonnelli_patronage_2017
 Warning--there's a number but no volume in militao_educacao_2014
-You've used 46 entries,
+You've used 44 entries,
             2481 wiz_defined-function locations,
-            818 strings with 12301 characters,
-and the built_in function-call counts, 16380 in all, are:
-= -- 1460
-> -- 668
-< -- 35
-+ -- 278
-- -- 186
-* -- 1194
-:= -- 2572
-add.period$ -- 138
-call.type$ -- 46
-change.case$ -- 88
-chr.to.int$ -- 46
-cite$ -- 49
-duplicate$ -- 875
-empty$ -- 1585
-format.name$ -- 268
-if$ -- 3487
+            808 strings with 12117 characters,
+and the built_in function-call counts, 15732 in all, are:
+= -- 1400
+> -- 652
+< -- 32
++ -- 270
+- -- 182
+* -- 1156
+:= -- 2475
+add.period$ -- 132
+call.type$ -- 44
+change.case$ -- 85
+chr.to.int$ -- 44
+cite$ -- 47
+duplicate$ -- 837
+empty$ -- 1515
+format.name$ -- 258
+if$ -- 3345
 int.to.chr$ -- 1
-int.to.str$ -- 47
-missing$ -- 50
-newline$ -- 238
-num.names$ -- 138
-pop$ -- 372
+int.to.str$ -- 45
+missing$ -- 47
+newline$ -- 228
+num.names$ -- 132
+pop$ -- 353
 preamble$ -- 1
-purify$ -- 46
+purify$ -- 44
 quote$ -- 0
-skip$ -- 524
+skip$ -- 500
 stack$ -- 0
-substring$ -- 825
-swap$ -- 108
+substring$ -- 790
+swap$ -- 104
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 301
+type$ -- 290
 warning$ -- 3
-while$ -- 155
+while$ -- 149
 width$ -- 0
-write$ -- 593
-(There were 4 warnings)
+write$ -- 568
+(There were 3 warnings)
