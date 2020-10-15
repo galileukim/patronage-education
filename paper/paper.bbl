@@ -1,4 +1,4 @@
-\begin{thebibliography}{44}
+\begin{thebibliography}{42}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -23,27 +23,6 @@ Frederico Finan, Benjamin~A. Olken, and Rohini Pande.
 \newblock The personnel economics of the state.
 \newblock Technical report, National Bureau of Economic Research, 2015.
 
-\bibitem[Duflo et~al.(2012)Duflo, Hanna, and Ryan]{duflo_incentives_2012}
-Esther Duflo, Rema Hanna, and Stephen~P. Ryan.
-\newblock Incentives work: {Getting} teachers to come to school.
-\newblock \emph{American Economic Review}, 102\penalty0 (4):\penalty0 1241--78,
-  2012.
-
-\bibitem[Dal~B{\'o} et~al.(2013)Dal~B{\'o}, Finan, and
-  Rossi]{dal2013strengthening}
-Ernesto Dal~B{\'o}, Frederico Finan, and Mart{\'\i}n~A Rossi.
-\newblock Strengthening state capabilities: The role of financial incentives in
-  the call to public service.
-\newblock \emph{The Quarterly Journal of Economics}, 128\penalty0 (3):\penalty0
-  1169--1218, 2013.
-
-\bibitem[Rasul and Rogger(2018)]{rasul2018management}
-Imran Rasul and Daniel Rogger.
-\newblock Management of bureaucrats and public service delivery: Evidence from
-  the nigerian civil service.
-\newblock \emph{The Economic Journal}, 128\penalty0 (608):\penalty0 413--446,
-  2018.
-
 \bibitem[Evans and Rauch(1999)]{evans_bureaucracy_1999}
 Peter Evans and James~E. Rauch.
 \newblock Bureaucracy and growth: {A} cross-national analysis of the effects
@@ -56,18 +35,12 @@ Atul Kohli.
   industrialization in the global periphery}.
 \newblock Cambridge University Press, 2004.
 
-\bibitem[Centeno et~al.(2017)Centeno, Kohli, and
-  Yashar]{centeno_unpacking_2017}
-Miguel~Angel Centeno, Atul Kohli, and Deborah~J. Yashar.
-\newblock Unpacking {States} in the {Developing} {World}: {Capacity},
-  {Performance}, and {Politics}.
-\newblock \emph{States in the Developing World}, page~1, 2017.
-
-\bibitem[Bersch et~al.(2017)Bersch, Praça, and Taylor]{bersch_state_2017}
-Katherine Bersch, Sérgio Praça, and Matthew~M. Taylor.
-\newblock State capacity, bureaucratic politicization, and corruption in the
-  {Brazilian} state.
-\newblock \emph{Governance}, 30\penalty0 (1):\penalty0 105--124, 2017.
+\bibitem[Akhtari et~al.(2015)Akhtari, Moreira, and
+  Trucco]{akhtari_political_2015}
+Mitra Akhtari, Diana Moreira, and Laura~Carolina Trucco.
+\newblock Political {Turnover}, {Bureaucratic} {Turnover}, and the {Quality} of
+  {Public} {Services}.
+\newblock 2015.
 
 \bibitem[Gulzar and Pasquale(2017)]{gulzar_politicians_2017}
 Saad Gulzar and Benjamin~J. Pasquale.
@@ -81,30 +54,47 @@ Pia Raffler.
   {Field} experimental evidence from an electoral autocracy.
 \newblock Technical report, Working paper, Yale University, 2016.
 
-\bibitem[Boas and Hidalgo(2019)]{boas_electoral_2019}
-Taylor~C. Boas and F.~Daniel Hidalgo.
-\newblock Electoral incentives to combat mosquito-borne illnesses:
-  {Experimental} evidence from {Brazil}.
-\newblock \emph{World Development}, 113:\penalty0 89--99, 2019.
+\bibitem[Grindle(2012)]{grindle_jobs_2012}
+Merilee~S. Grindle.
+\newblock \emph{Jobs for the {Boys}}.
+\newblock Harvard University Press, 2012.
 
-\bibitem[Besley and Case(2003)]{besley_political_2003}
-Timothy Besley and Anne Case.
-\newblock Political institutions and policy choices: evidence from the {United}
-  {States}.
-\newblock \emph{Journal of Economic Literature}, 41\penalty0 (1):\penalty0
-  7--73, 2003.
+\bibitem[Centeno et~al.(2017)Centeno, Kohli, and
+  Yashar]{centeno_unpacking_2017}
+Miguel~Angel Centeno, Atul Kohli, and Deborah~J. Yashar.
+\newblock Unpacking {States} in the {Developing} {World}: {Capacity},
+  {Performance}, and {Politics}.
+\newblock \emph{States in the Developing World}, page~1, 2017.
 
 \bibitem[Francois et~al.(2015)Francois, Rainer, and Trebbi]{francois_how_2015}
 Patrick Francois, Ilia Rainer, and Francesco Trebbi.
 \newblock How is power shared in {Africa}?
 \newblock \emph{Econometrica}, 83\penalty0 (2):\penalty0 465--503, 2015.
 
-\bibitem[Stokes et~al.(2013)Stokes, Dunning, Nazareno, and
-  Brusco]{stokes_brokers_2013}
-Susan~C. Stokes, Thad Dunning, Marcelo Nazareno, and Valeria Brusco.
-\newblock \emph{Brokers, voters, and clientelism: {The} puzzle of distributive
-  politics}.
-\newblock Cambridge University Press, 2013.
+\bibitem[Cameron and McCarty(2004)]{cameron_models_2004}
+Charles Cameron and Nolan McCarty.
+\newblock Models of vetoes and veto bargaining.
+\newblock \emph{Annu. Rev. Polit. Sci.}, 7:\penalty0 409--435, 2004.
+
+\bibitem[Gottlieb and Kosec(2019)]{gottlieb_countervailing_2019}
+Jessica Gottlieb and Katrina Kosec.
+\newblock The {Countervailing} {Effects} of {Competition} on {Public} {Goods}
+  {Provision}: {When} {Bargaining} {Inefficiencies} {Lead} to {Bad} {Outcomes}.
+\newblock \emph{American Political Science Review}, 113\penalty0 (1):\penalty0
+  88--107, 2019.
+
+\bibitem[Power(2010)]{power_optimism_2010}
+Timothy~J. Power.
+\newblock Optimism, pessimism, and coalitional presidentialism: {Debating} the
+  institutional design of {Brazilian} democracy.
+\newblock \emph{Bulletin of Latin American Research}, 29\penalty0 (1):\penalty0
+  18--33, 2010.
+
+\bibitem[Amorim~Neto(2000)]{amorim_neto_presidential_2000}
+Octavio Amorim~Neto.
+\newblock Presidential cabinets, electoral cycles, and coalition discipline in
+  {Brazil}.
+\newblock \emph{Dados}, 43\penalty0 (3):\penalty0 479--519, 2000.
 
 \bibitem[Oliveros(2016)]{oliveros_making_2016}
 Virginia Oliveros.
@@ -113,12 +103,17 @@ Virginia Oliveros.
 \newblock \emph{Comparative Politics}, 48\penalty0 (3):\penalty0 373--391,
   2016.
 
-\bibitem[Akhtari et~al.(2015)Akhtari, Moreira, and
-  Trucco]{akhtari_political_2015}
-Mitra Akhtari, Diana Moreira, and Laura~Carolina Trucco.
-\newblock Political {Turnover}, {Bureaucratic} {Turnover}, and the {Quality} of
-  {Public} {Services}.
-\newblock 2015.
+\bibitem[Evans(1995)]{evans_embedded_1995}
+Peter Evans.
+\newblock \emph{Embedded autonomy: {States} and industrial transformation}.
+\newblock Princeton University Press, 1995.
+
+\bibitem[Stokes et~al.(2013)Stokes, Dunning, Nazareno, and
+  Brusco]{stokes_brokers_2013}
+Susan~C. Stokes, Thad Dunning, Marcelo Nazareno, and Valeria Brusco.
+\newblock \emph{Brokers, voters, and clientelism: {The} puzzle of distributive
+  politics}.
+\newblock Cambridge University Press, 2013.
 
 \bibitem[Colonnelli et~al.(2017)Colonnelli, Prem, and
   Teso]{colonnelli_patronage_2017}
@@ -139,24 +134,16 @@ Michael Laver and Kenneth~A. Shepsle.
 \newblock \emph{American Political Science Review}, 84\penalty0 (3):\penalty0
   873--890, 1990.
 
-\bibitem[Power(2010)]{power_optimism_2010}
-Timothy~J. Power.
-\newblock Optimism, pessimism, and coalitional presidentialism: {Debating} the
-  institutional design of {Brazilian} democracy.
-\newblock \emph{Bulletin of Latin American Research}, 29\penalty0 (1):\penalty0
-  18--33, 2010.
-
 \bibitem[Ferejohn(1986)]{ferejohn_incumbent_1986}
 John Ferejohn.
 \newblock Incumbent performance and electoral control.
 \newblock \emph{Public choice}, 50\penalty0 (1-3):\penalty0 5--25, 1986.
 
-\bibitem[Gottlieb and Kosec(2019)]{gottlieb_countervailing_2019}
-Jessica Gottlieb and Katrina Kosec.
-\newblock The {Countervailing} {Effects} of {Competition} on {Public} {Goods}
-  {Provision}: {When} {Bargaining} {Inefficiencies} {Lead} to {Bad} {Outcomes}.
-\newblock \emph{American Political Science Review}, 113\penalty0 (1):\penalty0
-  88--107, 2019.
+\bibitem[Duflo et~al.(2012)Duflo, Hanna, and Ryan]{duflo_incentives_2012}
+Esther Duflo, Rema Hanna, and Stephen~P. Ryan.
+\newblock Incentives work: {Getting} teachers to come to school.
+\newblock \emph{American Economic Review}, 102\penalty0 (4):\penalty0 1241--78,
+  2012.
 
 \bibitem[Ferraz et~al.(2012)Ferraz, Finan, and Moreira]{ferraz_corrupting_2012}
 Claudio Ferraz, Frederico Finan, and Diana~B. Moreira.
@@ -164,11 +151,6 @@ Claudio Ferraz, Frederico Finan, and Diana~B. Moreira.
   in {Brazil}.
 \newblock \emph{Journal of Public Economics}, 96\penalty0 (9-10):\penalty0
   712--726, 2012.
-
-\bibitem[Evans(1995)]{evans_embedded_1995}
-Peter Evans.
-\newblock \emph{Embedded autonomy: {States} and industrial transformation}.
-\newblock Princeton University Press, 1995.
 
 \bibitem[Johnson(1982)]{johnson_miti_1982}
 Chalmers Johnson.
