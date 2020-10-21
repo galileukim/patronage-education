@@ -10,22 +10,33 @@ rais_edu_mun <- read_data(
 print("model specification")
 # ==============================================================================
 rais_covariates <- c("rais_higher_edu", "rais_wage", "rais_permanent")
-municipal_covariates <- c("cod_ibge_6", mun_covariates)
+municipal_covariates <- c(mun_covariates)
 
 controls <- c(
   municipal_covariates, rais_covariates, mayor_covariates, chamber_covariates
 )
 
-formulae_no_fe <- formulate_models(
+formulae_baseline <- formulate_models(
   "rais_hired",
   "coalition_share*rais_category",
-  controls,
+  c("cod_ibge_6", controls),
   fe = NULL
 )
 
-formulae_felm <- formulae_no_fe %>%
+robustness_specification <- sprintf(
+    "%s*coalition_share*rais_category",
+    c("censo_log_pop", "censo_median_wage", "censo_rural")
+  )
+
+formulae_robustness <- robustness_specification %>%
   map(
-    ~add_felm(., fe = "state + year", cluster = "cod_ibge_6")
+    ~ reformulate(., "rais_hired") %>%
+      add_felm(fe = "state + year", cluster = "cod_ibge_6")
+  )
+
+formulae_felm <- formulae_baseline %>%
+  map(
+    ~ add_felm(., fe = "state + year", cluster = "cod_ibge_6")
   )
 
 formula_felm_second_term <- reformulate(
@@ -38,7 +49,7 @@ formula_felm_second_term <- reformulate(
 # ==============================================================================
 print("reshape data for estimation")
 # ==============================================================================
-model_rais_mun <- rais_edu_mun %>% 
+model_rais_mun <- rais_edu_mun %>%
   join_covariate() %>%
   mutate(
     state = str_sub(cod_ibge_6, 1, 2),
@@ -62,11 +73,16 @@ model_rais_mun_second_term <- model_rais_mun %>%
 
 # ==============================================================================
 # estimation of effect of coalition share on staff turnover
-# ============================================================================== 
+# ==============================================================================
 # municipal fe model
 fit_felm <- map(
   formulae_felm,
-  ~lfe::felm(., data = model_rais_mun)
+  ~ lfe::felm(., data = model_rais_mun)
+)
+
+fit_felm_robustness <- map(
+  formulae_robustness,
+  ~ lfe::felm(., data = model_rais_mun)
 )
 
 fit_felm_second_term <- lfe::felm(
