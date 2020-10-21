@@ -26,12 +26,14 @@ formulae_baseline <- formulate_models(
 robustness_specification <- sprintf(
     "%s*coalition_share*rais_category",
     c("censo_log_pop", "censo_median_wage", "censo_rural")
+  ) %>%
+  map(
+    ~c(., c(controls, "year", "state"))
   )
 
 formulae_robustness <- robustness_specification %>%
   map(
-    ~ reformulate(., "rais_hired") %>%
-      add_felm(fe = "state + year", cluster = "cod_ibge_6")
+    ~ reformulate(., "rais_hired")
   )
 
 formulae_felm <- formulae_baseline %>%
@@ -59,7 +61,7 @@ model_rais_mun <- rais_edu_mun %>%
   ) %>%
   model.frame(
     formula = update(
-      formulae_no_fe[["controls"]],
+      formulae_baseline[["controls"]],
       . ~ . + state + year
     ),
     data = .
@@ -82,8 +84,8 @@ fit_felm <- map(
 
 fit_felm_robustness <- map(
   formulae_robustness,
-  ~ lfe::felm(., data = model_rais_mun)
-)
+  ~ lm(., data = model_rais_mun)
+) 
 
 fit_felm_second_term <- lfe::felm(
   formula_felm_second_term,
@@ -95,6 +97,9 @@ print("write-out data")
 # ==============================================================================
 fit_felm %>%
   write_model("fit_felm_turnover_coalition.rds")
+
+fit_felm_robustness %>%
+  write_model("fit_felm_turnover_coalition_robustness.rds")
 
 fit_felm_second_term %>%
   write_model("fit_felm_turnover_coalition_second_term.rds")
