@@ -67,7 +67,18 @@ save_fig(
 # ---------------------------------------------------------------------------- #
 message("interaction with municipal covariates")
 
-ggeffects::ggpredict(
-    fit_felm_robustness[[1]],
-    terms = c("chamber_size")
+subgroups <- names(fit_felm_robustness)
+vars_subgroups <- c("censo_log_pop", "censo_median_wage", "censo_rural")
+
+terciles_pop <- fit_felm_robustness[["population"]] %>%
+    pluck("model") %>%
+    pull("censo_log_pop") %>%
+    quantile(seq(1/3, 1, 1/3))
+
+plot_int_pop <- ggeffects::ggpredict(
+    fit_felm_robustness[["population"]],
+    terms = c(
+        "coalition_share", 
+        sprintf_vec("censo_log_pop[%1$f, %2$f, %3$f]", terciles_pop)
+    )
 )

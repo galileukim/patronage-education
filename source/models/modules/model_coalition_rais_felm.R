@@ -29,6 +29,9 @@ robustness_specification <- sprintf(
   ) %>%
   map(
     ~c(., c(controls, "year", "state"))
+  ) %>%
+  set_names(
+    c("population", "economic_development", "rurality")
   )
 
 formulae_robustness <- robustness_specification %>%
@@ -85,7 +88,9 @@ fit_felm <- map(
 fit_felm_robustness <- map(
   formulae_robustness,
   ~ lm(., data = model_rais_mun)
-) 
+)
+
+names()
 
 fit_felm_second_term <- lfe::felm(
   formula_felm_second_term,

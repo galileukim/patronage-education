@@ -632,3 +632,19 @@ join_covariate <- function(data) {
       by = c("cod_ibge_6", "election_year")
     )
 }
+
+sprintf_vec <- function(text, vector){
+  # create vectorized sprint for sprintf
+  sprint <- do.call(sprintf, c(list(text), vector))
+  
+  return(sprint)
+}
+
+create_tercile <- function(model, var){
+  quantile <- model %>%
+    pluck("model") %>%
+    pull(var) %>%
+    quantile(seq(1/3, 1, 1/3))
+
+  return(quantile)
+}
