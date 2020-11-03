@@ -73,7 +73,10 @@ vars_subgroups <- c("censo_log_pop", "censo_median_wage", "censo_rural")
 terciles_pop <- fit_felm_robustness[["population"]] %>%
     pluck("model") %>%
     pull("censo_log_pop") %>%
-    quantile(seq(1/3, 1, 1/3))
+    quantile(seq(1/3, 1, 1/3)) %>%
+    set_names(
+      c("low", "medium", "high")
+    )
 
 plot_int_pop <- ggeffects::ggpredict(
     fit_felm_robustness[["population"]],
@@ -82,3 +85,10 @@ plot_int_pop <- ggeffects::ggpredict(
         sprintf_vec("censo_log_pop[%1$f, %2$f, %3$f]", terciles_pop)
     )
 )
+
+plot_int_pop %>%
+  ggplot(
+    aes(x, predicted, color = group, group = group)
+  ) +
+  geom_line()
+
