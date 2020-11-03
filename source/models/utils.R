@@ -169,10 +169,10 @@ list_files <- function(path, pattern) {
 # data cleaning
 # ==============================================================================
 # remove null cpf candidates
-remove_na_cpf <- function(data){
+remove_na_cpf <- function(data) {
   data_remove_na_cpf <- data %>%
- mutate_all(na_if, "") %>% 
-  filter(!is.na(cpf_candidate))
+    mutate_all(na_if, "") %>%
+    filter(!is.na(cpf_candidate))
 
   return(data_remove_na_cpf)
 }
@@ -253,7 +253,7 @@ group_summarise <- function(data, group_vars, summarise_vars, ...) {
   return(out)
 }
 
-group_demean <- function(data, group_vars, summarise_vars){
+group_demean <- function(data, group_vars, summarise_vars) {
   demeaned_data <- data %>%
     group_by(
       across({{ group_vars }})
@@ -267,7 +267,7 @@ group_demean <- function(data, group_vars, summarise_vars){
     ungroup()
 
   return(demeaned_data)
-} 
+}
 
 summarise_stats <- function(data, ...) {
   vars <- enquos(...)
@@ -478,8 +478,8 @@ gg_summary <- function(data, x, y, fun = "mean", size = 2, geom = "point", color
         method = "gam",
         formula = y ~ splines::bs(x, 3)
       )
-  }else{
-    plot <- plot + 
+  } else {
+    plot <- plot +
       geom_smooth(
         method = "lm"
       )
@@ -496,6 +496,32 @@ generate_love_plot <- function(x, limits = NULL, labels = NULL) {
       labels = labels
     ) +
     ggtitle("")
+}
+
+generate_robustness_plot <- function(model, subgroup) {
+  terciles <- fit_felm_robustness[[subgroups]] %>%
+    pluck("model") %>%
+    pull("censo_log_pop") %>%
+    quantile(seq(1 / 3, 1, 1 / 3))
+
+  plot_data <- ggeffects::ggpredict(
+    fit_felm_robustness[[subgroups]],
+    terms = c(
+      "coalition_share",
+      sprintf_vec("censo_log_pop[%1$f, %2$f, %3$f]", terciles)
+    )
+  )
+
+  plot <- plot_data %>%
+    ggplot(
+      aes(x, predicted, color = group, group = group)
+    ) +
+    geom_line() +
+    scale_colour_discrete(
+      labels = c("low", "medium", "high")
+    )
+
+  return(plot)
 }
 
 # change default ggplot settings
@@ -633,18 +659,18 @@ join_covariate <- function(data) {
     )
 }
 
-sprintf_vec <- function(text, vector){
+sprintf_vec <- function(text, vector) {
   # create vectorized sprint for sprintf
   sprint <- do.call(sprintf, c(list(text), vector))
-  
+
   return(sprint)
 }
 
-create_tercile <- function(model, var){
+create_tercile <- function(model, var) {
   quantile <- model %>%
     pluck("model") %>%
     pull(var) %>%
-    quantile(seq(1/3, 1, 1/3))
+    quantile(seq(1 / 3, 1, 1 / 3))
 
   return(quantile)
 }
