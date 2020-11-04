@@ -70,19 +70,30 @@ message("interaction with municipal covariates")
 subgroups <- names(fit_felm_robustness)
 plot_interaction <- list()
 
-for (group in subgroups) {
-  terciles_pop <- fit_felm_robustness[[group]] %>%
-    pluck("model") %>%
-    pull("censo_log_pop") %>%
+terciles_covariates <- map2(
+  fit_felm_robustness,
+  subgroups,
+  ~ pluck(.x, "model") %>%
+    pull(.y) %>%
     quantile(seq(1 / 3, 1, 1 / 3))
+)
 
-  plot_int_pop <- ggeffects::ggpredict(
-    fit_felm_robustness[[group]],
+plot_interactions <- map2_dfr(
+  fit_felm_robustness,
+  terciles_covariates,
+  ~ ggeffects::ggpredict(
+    .x,
     terms = c(
       "coalition_share",
-      sprintf_vec("censo_log_pop[%1$f, %2$f, %3$f]", terciles_pop)
+      sprintf_vec("censo_log_pop[%1$f, %2$f, %3$f]", .y)
     )
-  )
+  ),
+  .id = "model"
+)
+
+
+for (group in subgroups) {
+  
 
   plot_interaction[[group]] <- plot_int_pop %>%
     ggplot(
@@ -96,9 +107,6 @@ for (group in subgroups) {
       x = "Share of allied seats",
       y = "Predicted"
     )
-
-  save_fig(
-    plot_interaction[[group]],
-    sprintf("plot_interaction_%s.pdf", group)
-  )
 }
+
+gg

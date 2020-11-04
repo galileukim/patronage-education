@@ -10,6 +10,10 @@ rais_edu_mun <- read_data(
 print("model specification")
 # ==============================================================================
 rais_covariates <- c("rais_higher_edu", "rais_wage", "rais_permanent")
+robustness_covariates <- c(
+    "censo_log_pop", "censo_median_wage",
+    "censo_rural", "mayor_coalition_size"
+  )
 municipal_covariates <- c(mun_covariates)
 
 controls <- c(
@@ -24,14 +28,14 @@ formulae_baseline <- formulate_models(
 )
 
 robustness_specification <- sprintf(
-    "%s*coalition_share*rais_category",
-    c("censo_log_pop", "censo_median_wage", "censo_rural")
-  ) %>%
+  "%s*coalition_share*rais_category",
+  robustness_covariates
+) %>%
   map(
-    ~c(., c(controls, "year", "state"))
+    ~ c(., c(controls, "year", "state"))
   ) %>%
   set_names(
-    c("censo_log_pop", "censo_median_wage", "censo_rural")
+    robustness_covariates
   )
 
 formulae_robustness <- robustness_specification %>%
