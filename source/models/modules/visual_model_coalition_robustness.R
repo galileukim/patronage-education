@@ -68,35 +68,31 @@ save_fig(
 message("interaction with municipal covariates")
 
 subgroups <- names(fit_felm_robustness)
-plot_interaction <- list()
 
-terciles_covariates <- map2(
+predict_interactions <- map2_dfr(
   fit_felm_robustness,
   subgroups,
-  ~ pluck(.x, "model") %>%
-    pull(.y) %>%
-    quantile(seq(1 / 3, 1, 1 / 3))
-)
-
-plot_interactions <- map2_dfr(
-  fit_felm_robustness,
-  terciles_covariates,
   ~ ggeffects::ggpredict(
     .x,
     terms = c(
       "coalition_share",
-      sprintf_vec("censo_log_pop[%1$f, %2$f, %3$f]", .y)
+      .y
     )
   ),
   .id = "model"
 )
 
-
-for (group in subgroups) {
-  
-
-  plot_interaction[[group]] <- plot_int_pop %>%
-    ggplot(
+plot_interactions <- predict_interactions %>%
+  mutate(
+    model = recode(
+      model,
+      "censo_log_pop" = "population",
+      "censo_median_wage" = "economic development",
+      "censo_rural" = "rural population",
+      "mayor_coalition_size" = "size of coalition"
+    )
+  ) %>%
+  ggplot(
       aes(x, predicted, color = group, group = group)
     ) +
     geom_line() +
@@ -106,7 +102,12 @@ for (group in subgroups) {
     labs(
       x = "Share of allied seats",
       y = "Predicted"
+    ) +
+    facet_wrap(
+      model ~ .
     )
-}
 
-gg
+save_fig(
+  plot_interactions,
+  "plot_coalition_robustness.pdf"
+)

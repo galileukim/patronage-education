@@ -75,6 +75,14 @@ model_rais_mun <- rais_edu_mun %>%
   ) %>%
   fix_scale()
 
+model_rais_robustness <- model_rais_mun %>%
+  mutate(
+    across(
+      all_of(robustness_covariates),
+      ~ cut_number(., 3, labels = c("low", "medium", "high"))
+    )
+  )
+
 model_rais_mun_second_term <- model_rais_mun %>%
   filter(
     mayor_reelected == 1
@@ -91,7 +99,7 @@ fit_felm <- map(
 
 fit_felm_robustness <- map(
   formulae_robustness,
-  ~ lm(., data = model_rais_mun)
+  ~ lm(., data = model_rais_robustness)
 )
 
 fit_felm_second_term <- lfe::felm(

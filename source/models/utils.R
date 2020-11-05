@@ -508,7 +508,7 @@ generate_robustness_plot <- function(model, subgroup) {
     fit_felm_robustness[[subgroups]],
     terms = c(
       "coalition_share",
-      sprintf_vec("censo_log_pop[%1$f, %2$f, %3$f]", terciles)
+      sprintf_vec("%1s[%1$f, %2$f, %3$f]", terciles)
     )
   )
 
