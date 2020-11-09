@@ -14,7 +14,8 @@ repos <- c(
   "saeb",
   "tse",
   "spaece",
-  "worldbank"
+  "worldbank",
+  "censo_magisterio"
 )
 
 walk(
