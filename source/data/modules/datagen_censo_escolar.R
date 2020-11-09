@@ -13,7 +13,7 @@ censo_school <- read_data(
 )
 
 # keep only active schools and generate municipal table
-censo_school_mun <- censo_school %>%
+censo_school <- censo_school %>%
   filter(
     str_detect(active, "(1|2|ativ)")
   ) %>%
@@ -36,7 +36,7 @@ censo_school_mun <- censo_school %>%
       high_sch_normal,
       na.rm = T
     ),
-     prop_electricity = 1 - mean(
+    prop_electricity = 1 - mean(
       electricity_inexistent,
       na.rm = T
     ),
@@ -55,7 +55,7 @@ censo_school_mun <- censo_school %>%
     prop_kitchen = mean(
       kitchen,
       na.rm = T
-    ),    
+    ),
     prop_rural = mean(
       location == "rural",
       na.rm = T
@@ -88,33 +88,13 @@ censo_school_mun <- censo_school %>%
   ungroup()
 
 # fix entries
-censo_school_mun <- censo_school_mun %>%
+censo_school <- censo_school %>%
   mutate(
     n_pta = if_else(year == 2004, n_pta, NA_integer_),
     n_tchr_unions = if_else(year == 2004, n_tchr_unions, NA_integer_)
   )
 
-censo_school_mun %>%
-  write_data(
-    "censo_escolar", "censo_school_mun.rds"
-  )
-
 censo_school %>%
-  transmute(
-    cod_ibge_6,
-    year,
-    dep,
-    school_id,
-    school_name,
-    active,
-    association_parents_tchrs,
-    access_electricity = 1 - electricity_inexistent,
-    access_water = 1 - water_inexistent,
-    library,
-    lab_info,
-    meal,
-    toilet
-  ) %>%
   write_data(
     "censo_escolar",
     "censo_school.rds"
@@ -127,49 +107,70 @@ reset_env(init_env)
 # missing data for rio grande do sul and santa catarina
 init_env <- ls()
 
-teacher <- read_data(
-  "raw",
-  "censo_escolar",
-  "censo_teacher_sample.csv.gz"
+teacher_files <- c(
+  "censo_teacher_sample.csv.gz",
+  "docente_mun.csv.gz"
+)
+
+teacher <- map(
+  teacher_files,
+  ~ read_data(
+    "raw",
+    "censo_escolar",
+    .
+  )
 )
 
 teacher_summary <- teacher %>%
-  group_by(
-    year,
-    cod_ibge_6,
-    dep,
-    school_id
-  ) %>%
-  summarise(
-    n_teacher = n_distinct(teacher_id),
-    n_classes = n_distinct(classroom_id, na.rm = T),
-    prop_higher_edu = mean(
-      edu_desc == "higher edu complete",
-      na.rm = T
-    ),
-    prop_commute = mean(
-      cod_ibge_6 != str_sub(mun_residence, 1, 6),
-      na.rm = T
-    ),
-    prop_female = mean(
-      gender == "f",
-      na.rm = T
-    ),
-    mean_age = mean(
-      age,
-      na.rm = T
-    ),
-    mean_n_class_per_teacher = mean(
-      n_classes / n_teacher,
-      na.rm = T
-    )
-  ) %>%
-  ungroup()
+  map(
+    . %>%
+      group_by(
+        year,
+        cod_ibge_6,
+        dep,
+        school_id
+      ) %>%
+      summarise(
+        n_teacher = n_distinct(teacher_id),
+        n_classes = n_distinct(classroom_id, na.rm = T),
+        prop_higher_edu = mean(
+          edu_desc == "higher edu complete",
+          na.rm = T
+        ),
+        prop_commute = mean(
+          cod_ibge_6 != str_sub(mun_residence, 1, 6),
+          na.rm = T
+        ),
+        prop_female = mean(
+          gender == "f",
+          na.rm = T
+        ),
+        mean_age = mean(
+          age,
+          na.rm = T
+        ),
+        mean_n_class_per_teacher = mean(
+          n_classes / n_teacher,
+          na.rm = T
+        )
+      ) %>%
+      ungroup()
+  )
 
-teacher_summary %>%
-  write_data(
-    "censo_escolar",
-    "censo_teacher_dep.rds"
+teacher_files_output <- c(
+  "censo_teacher_dep.rds",
+  "censo_teacher_mun_dep.rds"
+)
+
+# write-out teacher data
+walk2(
+  teacher_summary,
+  teacher_files_output,
+    ~write_data(
+      .x,
+      "censo_escolar",
+      .y
+    )
   )
 
 reset_env(init_env)
