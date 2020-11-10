@@ -76,9 +76,7 @@ saeb_principal <- saeb_principal %>%
     saeb_principal_appointment = case_when(
       saeb_principal_how_assume == "" ~ NA_character_,
       saeb_principal_how_assume == "Eleicao" ~ "election",
-      saeb_principal_how_assume == "Indicacao apenas." | 
-        saeb_principal_how_assume == "Indicacao de politicos." 
-        ~ "political appointment",
+      str_detect(saeb_principal_how_assume, "[iI]ndicac") ~ "political appointment",
       str_detect(
         saeb_principal_how_assume, "^Exame| Concurso Publico"
       ) ~ "selection exam",
