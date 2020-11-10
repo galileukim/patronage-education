@@ -64,6 +64,47 @@ saeb_school %>%
     "saeb_school.rds"
   )
 
+# school principal
+saeb_principal <- read_data(
+  "raw",
+  "saeb",
+  "saeb_principal.csv.gz"
+)
+
+saeb_principal <- saeb_principal %>%
+  mutate(
+    saeb_principal_appointment = case_when(
+      saeb_principal_how_assume == "" ~ NA_character_,
+      saeb_principal_how_assume == "Eleicao" ~ "election",
+      saeb_principal_how_assume == "Indicacao apenas." | 
+        saeb_principal_how_assume == "Indicacao de politicos." 
+        ~ "political appointment",
+      str_detect(
+        saeb_principal_how_assume, "^Exame| Concurso Publico"
+      ) ~ "selection exam",
+      str_detect(
+        saeb_principal_how_assume, "^Processo seletivo"
+      ) ~ "selection process",
+      TRUE ~ "other"
+    )
+  ) %>%
+  select(
+    cod_ibge_6,
+    year,
+    cod_school,
+    saeb_principal_female,
+    saeb_principal_age,
+    saeb_principal_education,
+    saeb_principal_experience,
+    saeb_principal_appointment
+  )
+
+saeb_principal %>%
+  write_data(
+    "saeb",
+    "saeb_principal.rds"
+  )
+
 # hierarchical model
 saeb_hierarchical <- read_data(
   "raw",
