@@ -50,7 +50,7 @@
 \newcommand{\real}{\mathbb{R}_+^n}
 \newcommand{\bfv}{\mathbf{v}}
 \newcommand{\blue}{\textcolor{blue}}
-% \renewcommand{\includegraphics}{\includegraphics[width=0.6\linewidth]}
+% \renewcommand{\includegraphics}{\includegraphics}
 
 \bibliographystyle{unsrtnat}
 
@@ -129,9 +129,9 @@ Negotiations between executive and the legislative thus have a knock-on effect o
 
 \subsection{Local governance and mayoral coalitions}
 
-Brazil's local level of government is composed of over 5 thousand municipalities, each with their own mayorship (\emph{prefeitura}) and city council (\emph{c\^{a}mara dos vereadores}). Mayors and city councillors (\textit{vereadores}) are democratically elected every four years, open to reelection for both offices.\footnote{The last municipal elections were in 2016. These take place every 4 years.} The executive is responsible for the management of public services such as education, with exclusive rights over public administration in general, and personnel appointment in particular \citep{akhtari_political_2015,brollo_victor_2017}. As noted by \citet{souza_reforma_2004}, decisions over whom to appoint into the educational sector are primarily in the hands of the mayor and her secretary of education. The city council, on the other hand, oversees legislation and approves the budget for the fiscal year, providing a local checks and balances on the executive.
+Brazil's local level of government is composed of over 5 thousand municipalities, each with their own city hall (\emph{prefeitura}) and city council (\emph{c\^{a}mara dos vereadores}). Mayors and city councilors (\textit{vereadores}) are democratically elected every four years, open to reelection for both offices.\footnote{The last municipal elections were in 2016. These take place every 4 years.} The executive is responsible for the management of public services such as education, with exclusive rights over public administration in general, and personnel appointment in particular \citep{akhtari_political_2015,brollo_victor_2017}. As noted by \citet{souza_reforma_2004}, decisions over whom to appoint into the educational sector are primarily in the hands of the mayor and her secretary of education. The city council, on the other hand, oversees legislation and approves the budget for the fiscal year, providing a local checks and balances on the executive.
 
-At the federal level, this instituitonal arrangement gives rise to a phenomenon dscribed as presidential coalitionism \citet{raile_executive_2011, power_optimism_2010}. Executive leaders garner legislative support from the National Congress by exchanging key positions in the federal bureaucracy, appointing members of their legislative coalition into cabinet positions. \citep{raile_executive_2011}. In a setting characterized by weak party cohesion and programmatic commitments \citet{ames_electoral_1995, lucas_ideological_2010}, bureaucratic positions for members of the coalition provide material incentives for legislators to support the executive agenda \citet{batista_o_2013, neto_presidential_2006, figueiredo_executivo_1999}.
+At the federal level, this institutional arrangement gives rise to a phenomenon described as presidential coalitionism \citet{raile_executive_2011, power_optimism_2010}. Executive leaders garner legislative support from the National Congress by exchanging key positions in the federal bureaucracy, appointing members of their legislative coalition into cabinet positions. \citep{raile_executive_2011}. In a setting characterized by weak party cohesion and programmatic commitments \citet{ames_electoral_1995, lucas_ideological_2010}, bureaucratic positions for members of the coalition provide material incentives for legislators to support the executive agenda \citet{batista_o_2013, neto_presidential_2006, figueiredo_executivo_1999}.
 
 In order to win elections and garner support for their campaign, mayors form electoral alliances with local party labels \citet{dantas_eleicoes_2013}. These mayoral coalitions, once in government, are an important basis for approving budgets and, more generally, executive control over the legislative chamber. Interviews with city councilors indicate that the legislature is divided into a pro-government (\textit{governo}) and opposition (\textit{oposição}) groups (\textit{bancada}). While these electoral coalitions do not necessarily remain intact once governments are formed, fragmentation is generally on the margins, with mayors swapping defecting legislators for new ones.\footnote{Interview with C, former chief of staff of municipality J. September 2018.}
 
@@ -151,20 +151,12 @@ In Brazil, the responsibility to provide public, primary education is primarily 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{plots/descriptive_enrollment.pdf}
+    \includegraphics{plots/descriptive_enrollment.pdf}
     \caption{\textbf{Student enrollment by administration.}}
     \label{fig:enroll}
 \end{figure}
 
 Teachers and school principals are responsible for providing all educational services at the local level. As of 2016, in the municipal education system there were 3.7 million teachers distributed across the national territory, as well as 148 thousand school principals. TableA majority of teachers are hired with a permanent contract (\emph{estatutário}) Over the past decade, there has been an increasing 
-
-\begin{table}[h]
-    \centering
-    \footnotesize
-    \input{results/turnover_result}
-    \caption{{\bf Executive coalitions and staff turnover.} An increase in the share of legislative seats held by the mayoral coalition decrease the amount of turnover for teachers and school principals, including hires or dismissals. Models 1 and 2 present results on the turnover index at the school level. Models 2 and 3 are aggregate hiring rates at the municipal level. Models 5 and 6 are logistic regressions at the individual, bureaucrat level. where the outcome of interest is the proportion of staff either hired or dismissed at a given year. Models 1, 3, and 5 include year and state fixed effects.}
-    \label{tbl:turnover}
-  \end{table}
 
 The local executive branch has sole jurisdiction over the hiring and firing of teachers and school principals. School principals are considered positions of trust (\textit{cargos de confiança}) and usually appointed by the mayor or secretary of education \citet{brollo_victor_2017}. Teachers usually enter the public service through a public exam and are eligible for tenure after two years \citet{gatti_formacao_2010}. However municipalities increasingly resort to temporary contracts to hire new teachers as budgetary pressures amount. Municipal teachers and school principals are overseen by a local department of education \citep{militao_educacao_2014}.
 
@@ -172,7 +164,7 @@ Positions in the educational sector are politically valuable. As a department, i
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{plots/descriptive_staff_breakdown}
+    \includegraphics{plots/descriptive_staff_breakdown}
 \end{figure}
 
 Funding for municipal education relies primarily on federal transfers, the Fundeb, derived from 10 percent of tax revenues for each level of government to education. At the municipal level, 25 percent of the local budget must be allocated to education, and compensatory federal transfers are institutionalized by law to those municipalities which do not reach the target.\footnote{For more details on the Fundeb, see \hyperlink{https://www.fnde.gov.br/index.php/financiamento/fundeb/sobre-o-plano-ou-programa/sobre-o-fundeb}{here}}. While municipalities may be audited to verify whether funds are being properly used, personnel decisions and daily operations are fully under municipal discretion \citet{ferraz_corrupting_2012}.
@@ -196,7 +188,7 @@ Figure \ref{fig:staff_turnover} provides descriptive statistics on bureaucratic 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\linewidth]{plots/descriptive_staff_turnover.pdf}
+    \includegraphics{plots/descriptive_staff_turnover.pdf}
     \caption{Proportion of public sector jobs by department. Note that I only keep the top 5 categorie}
     \label{fig:staff_turnover}
 \end{figure}
@@ -211,7 +203,7 @@ Information on mayor, city councilors and mayoral coalitions are made available 
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\linewidth]{plots/hist_coalition.pdf}
+    \includegraphics{plots/hist_coalition.pdf}
     \caption{Distribution of share of legislative seats allied with the mayor during the electoral campaign for the elecoral period of 2002-2016.}
     \label{fig:hist_coalition}
 \end{figure}
@@ -406,7 +398,7 @@ For visual intuition, I present the estimated coefficients for the models with c
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{plots/plot_coalition_coef_mun.pdf}
+    \includegraphics{plots/plot_coalition_coef_mun.pdf}
     \caption{{\bf Political alignment and staff turnover.} A visual representation of results presented in table \ref{tbl:turnover}. All models include year and state fixed effects.}
     \label{fig:coalition_turnover}
 \end{figure}
@@ -415,7 +407,7 @@ For visual intuition, I present the predicted values for models 4 and 5, respect
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{plots/plot_interactions_logit}
+    \includegraphics{plots/plot_interactions_logit}
     \caption{\textbf{Differential reductions in patronage in teachers and school principals}. Predicted values for bureaucratic turnover plotted against the proportion of educational staff either hired or fired for any given year against the share of seats controlled by the executive.}
     \label{fig:turnover}
 \end{figure}
@@ -424,7 +416,7 @@ Finally, I show that the executive-legislative bargain extends to second-term ma
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{plots/plot_coalition_coef_mun_second.pdf}
+    \includegraphics{plots/plot_coalition_coef_mun_second.pdf}
     \caption{\textbf{Patronage continues into the second term.} There is strong evidence that executive-legislative bargains continue into the mayor's second term. All models include a full set of controls, as well as year and state fixed effects.}
 \end{figure}
 
@@ -444,7 +436,7 @@ I also present the coefficients for the regression exercise above in figure \ref
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.6\linewidth]{plots/model_turnover_learning.pdf}
+  \includegraphics{plots/model_turnover_learning.pdf}
   \caption{{\bf Bureaucratic turnover and student learning} Teacher and school principal turnover have a negative effect on student learning, across different sets of exams (\emph{SAEB} and \emph{SPAECE}). All models include a full set of controls, as well as year and state fixed effects.}
   \label{fig:hlm_mods}
 \end{figure}
@@ -453,7 +445,7 @@ Finally, I present some evidence of differential returns to patronage, in partic
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{plots/reelection_marginal_effect_plots.pdf}
+    \includegraphics{plots/reelection_marginal_effect_plots.pdf}
     \caption{\textbf{Differential returns to patronage}. Mayors who engage in patronage do not directly benefit from it. Instead, city councilors in the mayoral ally base seem to be benefiting from it at the expense of non-allied city councilors.}
 \end{figure}
 
@@ -505,7 +497,7 @@ Future research on patronage and public service delivery would benefit from a cl
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\linewidth]{plots/visual_rdd_legislative_seat_flip.pdf}
+    \includegraphics{plots/visual_rdd_legislative_seat_flip.pdf}
 \end{figure}
 
 % \blue{plots/balance_hlm}

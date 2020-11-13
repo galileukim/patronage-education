@@ -32,16 +32,25 @@ plot_experience <- saeb_principal %>%
     plot_histogram(
         saeb_principal_experience
     ) +
-    ggtitle("Years of Experience")
+    ggtitle("Years of experience")
 
 plot_appointment <- saeb_principal %>%
     filter(!is.na(saeb_principal_appointment)) %>%
+    mutate(
+        saeb_principal_appointment = if_else(
+            str_detect(saeb_principal_appointment, "selection"),
+            "selection process", saeb_principal_appointment
+        )
+    ) %>%
     plot_histogram(
         saeb_principal_appointment
     ) +
-    ggtitle("Appointment Process")
+    ggtitle("Appointment process")
 
 plot_education <- saeb_principal %>%
+    filter(
+        saeb_principal_education %in% c("higher education", "high school")
+    ) %>%
     plot_histogram(
         saeb_principal_education
     ) +
@@ -53,7 +62,7 @@ plot_age <- saeb_principal %>%
     ) +
     ggtitle("Age")
 
-plot_principal_descriptives <- ggpubr::ggarrange(    
+plot_principal_descriptives <- ggpubr::ggarrange(
         plot_experience,
         plot_appointment,
         plot_education,
@@ -64,5 +73,7 @@ plot_principal_descriptives <- ggpubr::ggarrange(
 
 save_fig(
     plot_principal_descriptives,
-    "plot_principal_descriptive.pdf"
+    "plot_principal_descriptive.pdf",
+    width = 9,
+    height = 5
 )
