@@ -1,5 +1,5 @@
 # Fdb version 3
-["bibtex paper"] 1605561137 "paper.aux" "paper.bbl" "paper" 1605563255
+["bibtex paper"] 1605561137 "paper.aux" "paper.bbl" "paper" 1605566925
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1480098435 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
   "dissertation.bib" 1604956462 186075 86179ec124f66506ca3dcf2f4d649039 ""
   "paper.aux" 1605562971 15021 b85890e51d1965dda8c9645462a74b9b ""
@@ -7,10 +7,10 @@
   (generated)
   "paper.blg"
   "paper.bbl"
-["pdflatex"] 1605562971 "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex" "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf" "paper" 1605563255
+["pdflatex"] 1605562971 "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex" "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf" "paper" 1605566925
   "/etc/texmf/web2c/texmf.cnf" 1585227716 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.aux" 1605562971 15021 b85890e51d1965dda8c9645462a74b9b ""
-  "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex" 1605563254 62647 b8ec3d071fde079b520776488dc77589 ""
+  "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.tex" 1605566924 62647 b8ec3d071fde079b520776488dc77589 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -130,7 +130,7 @@
   "paper.aux" 1605562971 15021 b85890e51d1965dda8c9645462a74b9b ""
   "paper.bbl" 1605561137 11939 2e20ae401710378fc8d4037a5bd7bacb "bibtex paper"
   "paper.out" 1605562971 744 d57e73dcc17fe9f6c8275e0f62f7c3c1 ""
-  "paper.tex" 1605563254 62647 b8ec3d071fde079b520776488dc77589 ""
+  "paper.tex" 1605566924 62647 b8ec3d071fde079b520776488dc77589 ""
   "plots/accountability_fit.pdf" 1605296457 4829 f3d33a06fa24c02db3db9a6563fd6db2 ""
   "plots/covariate_balance.pdf" 1605296457 4731 51ac547efe8770ab546d152d01aa6ecb ""
   "plots/descriptive_enrollment.pdf" 1605296457 6329 3fc4ae58f260b5f393601446aef9555c ""
@@ -149,9 +149,9 @@
   "results/student_learning.tex" 1605296463 1963 9458fd0290bdece5b68ce15f266a1dd8 ""
   "results/turnover_result.tex" 1605296739 1508 8b9c1979c0ac24b2c8981c4bbf5854c7 ""
   (generated)
-  "paper.out"
   "paper.pdf"
-  "paper.log"
+  "paper.out"
   "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf"
-  "paper.aux"
+  "paper.log"
   "/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.log"
+  "paper.aux"
