@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.25)  16 NOV 2020 12:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.25)  16 NOV 2020 16:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -796,58 +796,41 @@ File: plots/descriptive_enrollment.pdf Graphic file (type pdf)
 Package pdftex.def Info: plots/descriptive_enrollment.pdf  used on input line 154.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
  [7 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_enrollment.pdf>] (/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/results/descriptive_teacher.tex)
-Overfull \hbox (14.28558pt too wide) in paragraph at lines 167--168
-\OT1/cmr/m/n/12 rel-a-tively small, withttps://askubuntu.com/questions/487527/give-specific-user-permission-
- []
-
 <plots/plot_principal_descriptive.pdf, id=275, 433.62pt x 289.08pt>
 File: plots/plot_principal_descriptive.pdf Graphic file (type pdf)
 <use plots/plot_principal_descriptive.pdf>
 Package pdftex.def Info: plots/plot_principal_descriptive.pdf  used on input line 171.
 (pdftex.def)             Requested size: 433.61894pt x 289.07928pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<plots/descriptive_staff_breakdown.pdf, id=284, 361.35pt x 216.81pt>
+ [8 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/plot_principal_descriptive.pdf>]
+<plots/descriptive_staff_breakdown.pdf, id=296, 361.35pt x 216.81pt>
 File: plots/descriptive_staff_breakdown.pdf Graphic file (type pdf)
 <use plots/descriptive_staff_breakdown.pdf>
 Package pdftex.def Info: plots/descriptive_staff_breakdown.pdf  used on input line 180.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[8]
-<plots/saeb_map.pdf, id=300, 361.35pt x 361.35pt>
+ [9 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_staff_breakdown.pdf>]
+<plots/saeb_map.pdf, id=319, 361.35pt x 361.35pt>
 File: plots/saeb_map.pdf Graphic file (type pdf)
 <use plots/saeb_map.pdf>
 Package pdftex.def Info: plots/saeb_map.pdf  used on input line 191.
 (pdftex.def)             Requested size: 361.34912pt x 361.34912pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[9 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/plot_principal_descriptive.pdf>]
-<plots/descriptive_staff_turnover.pdf, id=321, 361.35pt x 216.81pt>
+ [10 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/saeb_map.pdf>]
+<plots/descriptive_staff_turnover.pdf, id=334, 361.35pt x 216.81pt>
 File: plots/descriptive_staff_turnover.pdf Graphic file (type pdf)
 <use plots/descriptive_staff_turnover.pdf>
 Package pdftex.def Info: plots/descriptive_staff_turnover.pdf  used on input line 204.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[10 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_staff_breakdown.pdf>] [11 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/saeb_map.pdf>]
-<plots/hist_coalition.pdf, id=354, 361.35pt x 216.81pt>
+ [11 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_staff_turnover.pdf>]
+<plots/hist_coalition.pdf, id=353, 361.35pt x 216.81pt>
 File: plots/hist_coalition.pdf Graphic file (type pdf)
 <use plots/hist_coalition.pdf>
 Package pdftex.def Info: plots/hist_coalition.pdf  used on input line 219.
 (pdftex.def)             Requested size: 361.34912pt x 216.80946pt.
- [12 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_staff_turnover.pdf>]
+ [12 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/hist_coalition.pdf>]
 Overfull \hbox (11.06192pt too wide) in paragraph at lines 239--240
 []\OT1/cmr/m/n/12 Opposition $\OML/cmm/m/it/12 O$ \OT1/cmr/m/n/12 ob-serves the bribe sched-ule $\OML/cmm/m/it/12 m$ \OT1/cmr/m/n/12 and makes a counter-offer $\OML/cmm/m/it/12 b \OMS/cmsy/m/n/12 2 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 b[]; :::; b[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
  []
 
-[13 </home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/plots/hist_coalition.pdf>] [14] [15] [16] [17] [18] [19] (/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/results/turnover_result.tex) [20]
+[13] [14] [15] [16] [17] [18] [19] (/home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/results/turnover_result.tex) [20]
 <plots/plot_coalition_coef_mun.pdf, id=468, 361.35pt x 216.81pt>
 File: plots/plot_coalition_coef_mun.pdf Graphic file (type pdf)
 <use plots/plot_coalition_coef_mun.pdf>
@@ -938,17 +921,17 @@ pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exist
 
 pdfTeX warning (dest): name{Hfootnote.12} has been referenced but does not exist, replaced by a fixed one
 
+pdfTeX warning (dest): name{Hfootnote.11} has been referenced but does not exist, replaced by a fixed one
+
 pdfTeX warning (dest): name{https://www.seduc.ce.gov.br/spaece/} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{https://siconfi.tesouro.gov.br/siconfi/pages/public/consulta_finbra/finbra_list.jsf} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{https://ces.ibge.gov.br/base-de-dados/links-base-de-dados.html} has been referenced but does not exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{Hfootnote.11} has been referenced but does not exist, replaced by a fixed one
+pdfTeX warning (dest): name{http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.10} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist, replaced by a fixed one
 
@@ -958,9 +941,9 @@ pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist,
 
 pdfTeX warning (dest): name{http://portal.inep.gov.br/web/guest/dados} has been referenced but does not exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{https://www.fnde.gov.br/index.php/financiamento/fundeb/sobre-o-plano-ou-programa/sobre-o-fundeb} has been referenced but does not exist, replaced by a fixed one
-
 pdfTeX warning (dest): name{Hfootnote.7} has been referenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{https://www.fnde.gov.br/index.php/financiamento/fundeb/sobre-o-plano-ou-programa/sobre-o-fundeb} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist, replaced by a fixed one
 
@@ -975,7 +958,7 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf (34 pages, 2528158 bytes).
+Output written on /home/gali/gdrive/princeton/dissertation/papers/patronage_education/paper/paper.pdf (34 pages, 2527915 bytes).
 PDF statistics:
  698 PDF objects out of 1000 (max. 8388607)
  608 compressed objects within 7 object streams

@@ -70,3 +70,23 @@ rais_edu_mun %>%
     write_data(
         "rais", "rais_mun_edu.rds"
     )
+
+# descriptive by year
+rais_edu_year <- rais_edu_mun %>%
+    select(-cod_ibge_6, -election_year) %>%
+    group_by(
+        rais_category,
+        year
+    ) %>%
+    summarise(
+        across(
+            everything(),
+            ~ weighted.mean(., w = rais_size, na.rm = T)
+        ),
+        .groups = "drop"
+    )
+
+rais_edu_year %>%
+    write_data(
+        "rais", "rais_year_edu.rds"
+    )
