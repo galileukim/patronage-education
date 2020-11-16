@@ -39,7 +39,11 @@ plot_experience <- saeb_principal %>%
             "more than 10" = "more than\n10 years"
         )
     ) +
-    ggtitle("Years of experience")
+    ggtitle("Years of experience") +
+    theme(
+        plot.title = element_text(size = 10, face = "bold"), 
+        legend.key.size = unit(1,"line")
+        )
 
 plot_appointment <- saeb_principal %>%
     filter(!is.na(saeb_principal_appointment)) %>%
@@ -58,7 +62,12 @@ plot_appointment <- saeb_principal %>%
             "selection process" = "selection\nprocess"
         )
     ) +
-    ggtitle("Appointment process")
+    ggtitle("Appointment process") +
+    theme(
+        plot.title = element_text(size = 10, face = "bold"), 
+        legend.key.size = unit(1,"line")
+        )
+
 
 plot_education <- saeb_principal %>%
     filter(
@@ -67,13 +76,23 @@ plot_education <- saeb_principal %>%
     plot_histogram(
         saeb_principal_education
     ) +
-    ggtitle("Education")
+    ggtitle("Education") +
+    theme(
+        plot.title = element_text(size = 10, face = "bold"), 
+        legend.key.size = unit(1,"line")
+        )
+
 
 plot_age <- saeb_principal %>%
     plot_histogram(
         saeb_principal_age
     ) +
-    ggtitle("Age")
+    ggtitle("Age") +
+    theme(
+        plot.title = element_text(size = 10, face = "bold"), 
+        legend.key.size = unit(1,"line")
+        )
+
 
 plot_principal_descriptives <- ggpubr::ggarrange(
         plot_experience,
@@ -88,5 +107,5 @@ save_fig(
     plot_principal_descriptives,
     "plot_principal_descriptive.pdf",
     width = 6,
-    height = 5
+    height = 4
 )
