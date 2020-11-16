@@ -23,6 +23,7 @@ saeb_student <- read_data(
 saeb_school <- saeb_student %>%
   filter(year >= 2007) %>%
   mutate(
+    school_id = cod_school,
     grade_level = as.factor(grade),
     brown_black_student = if_else(race_student %in% c("brown", "black"), 1, 0)
   ) %>%
@@ -30,7 +31,7 @@ saeb_school <- saeb_student %>%
     cod_ibge_6,
     year,
     dep,
-    cod_school,
+    school_id,
     grade_level
   ) %>%
   summarise(
