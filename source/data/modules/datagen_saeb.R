@@ -44,7 +44,7 @@ saeb_school <- saeb_student %>%
         pc_student,
         age_student,
         brown_black_student,
-      grade_exam
+        grade_exam
       ),
       ~ mean(as.numeric(.x), na.rm = T)
     ),
@@ -121,7 +121,7 @@ saeb_hierarchical <- saeb_hierarchical %>%
       T ~ 9L
     )
   )
-  
+
 saeb_hierarchical %>%
   write_data(
     "saeb",

@@ -7,7 +7,7 @@ saeb_school <- read_data(
 saeb_public <- saeb_school %>%
   filter(
     dep != "",
-    !is.na(grade),
+    !is.na(grade_level),
     dep != "particular",
     year >= 2003
   ) %>% 
@@ -15,16 +15,16 @@ saeb_public <- saeb_school %>%
     year = as.factor(year)
   )
 
-saeb_public %>%
+saeb_school %>%
     gg_summary(
       year,
-      grade_mean
+      grade_exam
     )
 
 saeb_public %>% 
   ggplot(
     aes(
-      year, mean_grade_exam, 
+      year, grade_exam, 
       group = dep, col = dep
     )
   ) + 

@@ -12,7 +12,6 @@ censo_school <- read_data(
     "censo_school.rds"
 )
 
-
 censo_teacher_latest <- censo_teacher %>%
     filter(dep == "municipal" & year == max(year))
 
@@ -64,7 +63,7 @@ censo_teacher_latest %>%
             "Number of classes per school",
             "Proportion of teachers w/ higher education",
             "Average age",
-            "Average nunber of classes per teacher"
+            "Average number of classes per teacher"
         ),
         omit.summary.stat = c("p25", "p75"),
         type = "latex",
