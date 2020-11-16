@@ -55,17 +55,26 @@ censo_teacher_latest %>%
 
 # create table of descriptive statistics
 censo_teacher_latest %>%
-    select(-cod_ibge_6, -year, -school_id) %>%
+    select(
+        n_teacher,
+        n_classes,
+        prop_higher_edu,
+        mean_age,
+        prop_female,
+        mean_n_class_per_teacher
+    ) %>%
     as.data.frame() %>%
-    stargazer(
+    stargazer::stargazer(
         covariate.labels = c(
             "Number of teachers per school",
             "Number of classes per school",
             "Proportion of teachers w/ higher education",
             "Average age",
+            "Proportion of women",
             "Average number of classes per teacher"
         ),
-        omit.summary.stat = c("p25", "p75"),
+        float = FALSE,
+        omit.summary.stat = c("p25", "p75", "n"),
         type = "latex",
         out = here("figures/results/descriptive_teacher.tex")
     )
