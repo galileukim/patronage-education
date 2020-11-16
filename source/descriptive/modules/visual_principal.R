@@ -32,6 +32,13 @@ plot_experience <- saeb_principal %>%
     plot_histogram(
         saeb_principal_experience
     ) +
+    scale_x_discrete(
+        labels = c(
+            "2 to 10" = "2 to 10\nyears",
+            "less than 2 years" = "less than\n 2 years",
+            "more than 10" = "more than\n10 years"
+        )
+    ) +
     ggtitle("Years of experience")
 
 plot_appointment <- saeb_principal %>%
@@ -44,6 +51,12 @@ plot_appointment <- saeb_principal %>%
     ) %>%
     plot_histogram(
         saeb_principal_appointment
+    ) +
+    scale_x_discrete(
+        labels = c(
+            "political appointment" = "political\nappointment",
+            "selection process" = "selection\nprocess"
+        )
     ) +
     ggtitle("Appointment process")
 
@@ -74,6 +87,6 @@ plot_principal_descriptives <- ggpubr::ggarrange(
 save_fig(
     plot_principal_descriptives,
     "plot_principal_descriptive.pdf",
-    width = 9,
+    width = 6,
     height = 5
 )

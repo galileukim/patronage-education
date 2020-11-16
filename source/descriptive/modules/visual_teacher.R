@@ -12,6 +12,11 @@ censo_school <- read_data(
     "censo_school.rds"
 )
 
+rais_edu <- read_data(
+    "rais",
+    "rais_mun_edu.rds"
+)
+
 censo_teacher_latest <- censo_teacher %>%
     filter(dep == "municipal" & year == max(year))
 
