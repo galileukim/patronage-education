@@ -484,7 +484,7 @@ gg_summary <- function(data, x, y, fun = 'mean', color = matte_indigo, smooth = 
     ) +
     stat_summary_bin(
       fun = fun,
-      size = 0.2,
+      size = 1,
       geom = "point"
     )
   

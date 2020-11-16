@@ -10,6 +10,15 @@ censo_school_turnover <- read_data(
   "censo_school_turnover.rds"
 )
 
+# trim data
+saeb_school <- saeb_school %>%
+  mutate(
+    grade_level = as.numeric(as.character(grade_level))
+  )
+
+censo_school_turnover <- censo_school_turnover %>%
+  filter(n > 2)
+
 saeb_school <- saeb_school %>%
   filter(
     !is.na(grade_level),
@@ -54,10 +63,10 @@ saeb_descriptive %>%
     grade_exam
   )
 
-saeb_school %>%
+plot_turnover_exam <- saeb_school %>%
   inner_join(
     censo_school_turnover,
-    by = c("cod_ibge_6", "year", "school_id")
+    by = c("cod_ibge_6", "year", "school_id", "grade_level")
   ) %>%
   mutate(
     state = str_sub(cod_ibge_6, 1, 2)
@@ -68,10 +77,22 @@ saeb_school %>%
   ) %>%
   mutate(
     turnover_index = turnover_index - mean(turnover_index, na.rm = T),
-    mean_grade_exam = mean_grade_exam - mean(mean_grade_exam, na.rm = T)
+    grade_exam = grade_exam - mean(grade_exam, na.rm = T)
   ) %>%
   ungroup() %>%
   gg_summary(
     turnover_index,
-    mean_grade_exam
+    grade_exam,
+    smooth = FALSE
+  ) +
+  geom_smooth(
+    method = "lm"
+  ) +
+  coord_cartesian(
+    ylim = c(-4, -0.5)
   )
+
+save_fig(
+  plot_turnover_exam,
+  "plot_turnover_exam.pdf"
+)
