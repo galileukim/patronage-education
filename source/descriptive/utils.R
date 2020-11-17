@@ -500,8 +500,13 @@ gg_summary <- function(data, x, y, fun = 'mean', color = matte_indigo, smooth = 
 }
 
 # change default ggplot settings
-scale_colour_discrete <- function(...) scale_color_brewer(palette = "OrRd", direction = -1, ...)
-scale_fill_discrete <- function(...) scale_fill_brewer(palette = "OrRd", direction = -1, ...)
+scale_colour_discrete <- function(palette = "OrRd", ...) scale_color_brewer(
+  palette = palette, direction = -1, ...
+)
+
+scale_fill_discrete <- function(palette = "OrRd", ...) scale_fill_brewer(
+  palette = palette, direction = -1, ...
+)
 
 matte_indigo <- "#375b7c"
 matte_indigo2 <- "#4c6e8d"

@@ -7,21 +7,27 @@ rais_edu_year <- read_data(
 
 # ---------------------------------------------------------------------------- #
 # aux funs
-ggplot_rais_by_year <- function(data, var){
+ggplot_rais_by_year <- function(data, var) {
     ggplot(
         data,
-        aes(year, {{var}}, color = rais_category)
+        aes_string("year", var, color = "rais_category")
     ) +
-    geom_point(size = 3) +
-    scale_x_continuous(
-        breaks = seq(2005, 2013, 4),
-        labels = seq(2005, 2013, 4)
-    )
+        geom_point(size = 3) +
+        geom_line() +
+        scale_x_continuous(
+            breaks = seq(2005, 2013, 4),
+            labels = seq(2005, 2013, 4)
+        )
 }
 
 plot_hired <- map(
-         c(rais_hired, rais_higher_edu, rais_wage, rais_permanent),
-        ~ ggplot_rais_by_year(rais_edu_year, .)
-    )
+    c("rais_hired", "rais_higher_edu", "rais_wage", "rais_permanent"),
+    ~ ggplot_rais_by_year(rais_edu_year, .) +
+        scale_colour_discrete(palette = "Set2")
+)
 
-plot_edu <- rais_edu_year
+plot_edu <- ggpubr::ggarrange(
+    plotlist = plot_hired,
+    ncol = 2,
+    common.legend = TRUE
+)
