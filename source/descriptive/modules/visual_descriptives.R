@@ -20,14 +20,14 @@ ggplot_rais_by_year <- function(data, var) {
         )
 }
 
-plot_hired <- map(
-    c("rais_hired", "rais_higher_edu", "rais_wage", "rais_permanent"),
+plot_descriptives_grobs <- map(
+    c("rais_time", "rais_higher_edu", "rais_wage", "rais_permanent"),
     ~ ggplot_rais_by_year(rais_edu_year, .) +
         scale_colour_discrete(palette = "Set2")
 )
 
-plot_edu <- ggpubr::ggarrange(
-    plotlist = plot_hired,
-    ncol = 2,
+plot_descriptives <- ggpubr::ggarrange(
+    plotlist = plot_descriptives_grobs,
+    # ncol = 2,
     common.legend = TRUE
 )
