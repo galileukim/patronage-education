@@ -1,0 +1,30 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Groseclose and Snyder~Jr(1996)]{groseclose_1996_buying}
+Tim Groseclose and James~M Snyder~Jr.
+\newblock Buying supermajorities.
+\newblock \emph{American Political Science Review}, pages 303--315, 1996.
+
+\bibitem[Banks(2000)]{banks_2000_buying}
+Jeffrey~S Banks.
+\newblock Buying supermajorities in finite legislatures.
+\newblock \emph{American Political Science Review}, pages 677--681, 2000.
+
+\bibitem[Stokes et~al.(2013)Stokes, Dunning, Nazareno, and
+  Brusco]{stokes_brokers_2013}
+Susan~C. Stokes, Thad Dunning, Marcelo Nazareno, and Valeria Brusco.
+\newblock \emph{Brokers, voters, and clientelism: {The} puzzle of distributive
+  politics}.
+\newblock Cambridge University Press, 2013.
+
+\bibitem[Grindle(2012)]{grindle_jobs_2012}
+Merilee~S. Grindle.
+\newblock \emph{Jobs for the {Boys}}.
+\newblock Harvard University Press, 2012.
+
+\end{thebibliography}
