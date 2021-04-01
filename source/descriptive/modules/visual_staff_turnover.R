@@ -59,25 +59,24 @@ save_fig(
 # distribution of teacher turnover index
 hist_turnover_index <- censo_school_turnover %>%
     filter(
-        between(year, 2007, 2015) &
+        between(year, 2008, 2015) &
         n >= 5
     ) %>%
     ggplot(
         aes(
             turnover_index,
-            # y = stat(width * density),
-            group = year,
-            color = year
+            y = stat(width * density)
         )
     ) +
-    geom_density() +
+    geom_histogram() +
     scale_y_continuous(
         labels = scales::percent_format()
     ) +
     labs(
-        x = "Distribution of turnover index",
+        x = "Distribution` of turnover index",
         y = "Count"
-    )
+    ) +
+    facet_wrap(year ~ .)
 
 save_fig(
     hist_turnover_index,
