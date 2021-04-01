@@ -11,7 +11,10 @@ fit_felm <- read_model(
 
 fit_turnover <- read_model(
   "fit_coalition_turnover.rds"
-) # extract model with controls
+) %>%
+  set_names(
+    c("baseline", "controls")
+  )
 
 # turn into debugging
 fit_logit <- fit_logit %>%
@@ -65,19 +68,16 @@ save_fig(
 # ==============================================================================
 # incorporate additional municipal covariates to disentangle effect
 # ==============================================================================
-
-
-# rural_terciles <- fit_logit %>%
-#   pluck(1, "model") %>%
-
 # plot_logit_int <- map(
 #   c(
 #     "rural" = "censo_rural[0.25, 0.5, 0.75]",
 #     # "population" = "censo_pop[1e4, 5e4, 1e5]",
 #     "wage" = "censo_median_wage[172.12, 250.77, 341.896]"
 #   ),
-#   ~ sjPlot::plot_model(fit_logit[[1]], type = "pred", title = NULL, terms = c("coalition_share [all]", .))
+#   ~ sjPlot::plot_model(fit_logit[["controls"]], type = "pred", title = NULL, terms = c("coalition_share [all]", .))
 # )
+
+# sjPlot::plot_model(fit_logit[["controls"]], type = "pred", title = NULL, terms = c("coalition_share [all]", "censo_median_wage[172.12, 250.77, 341.896]"))
 
 # walk2(
 #   plot_logit_int,
@@ -103,9 +103,18 @@ print("visualize association between coalition share and patronage (municipal)")
 coef_mun <- models_table %>%
   map(pluck("controls")) %>%
   set_names(c("turnover", "hired (logit)", "hired (felm)")) %>%
-  map_dfr(broom::tidy, conf.int = T, .id = "model")
+  map_dfr(broom::tidy, .id = "model") %>%
+  mutate(
+    conf.low = estimate - 1.96*std.error,
+    conf.high = estimate + 1.96*std.error
+  )
+
+select_vars <- c("coalition_share", "censo_log_pop", "censo_lit_rate", "censo_median_wage", "chamber_size")
 
 plot_coef_mun <- coef_mun %>%
+  filter(
+    term %in% select_vars
+  ) %>%
   ggplot(
     aes(
       x = term,
@@ -113,20 +122,99 @@ plot_coef_mun <- coef_mun %>%
       color = model
     )
   ) +
-  geom_point() +
+  geom_point(
+    position = position_dodge(.5)
+  ) +
   geom_pointrange(
     aes(
       ymin = conf.low,
       ymax = conf.high
-    )
+    ),
+    position = position_dodge(.5)
   ) +
   geom_hline(
     yintercept = 0,
     linetype = "dashed"
   ) +
+  scale_x_discrete(
+    limits = rev(c(
+      "coalition_share",
+      "chamber_size",
+      "censo_median_wage",
+      "censo_log_pop",
+      "censo_lit_rate"
+    )),
+    labels = c(
+      "coalition_share" = "Share of allied seats",
+      "chamber_size" = "Number of seats in city council",
+      "censo_median_wage" = "Municipal median wage",
+      "censo_log_pop" = "Municipal population (logged)",
+      "censo_lit_rate" = "Literacy rate"
+    )
+   ) +
   coord_flip()
 
 save_fig(
   plot_coef_mun,
   "plot_coalition_coef_mun.pdf"
+)
+
+# ---------------------------------------------------------------------------- #
+message("visualize effects for the second term")
+
+fit_logit_second_term <- read_model(
+  "fit_logit_turnover_coalition_second_term.rds"
+)
+
+fit_felm_second_term <- read_model(
+  "fit_felm_turnover_coalition_second_term.rds"
+)
+
+fit_turnover_second_term <- read_model(
+  "fit_coalition_turnover_second_term.rds"
+)
+
+models_complete <- list(
+  fit_logit_second_term,
+  fit_felm_second_term,
+  fit_turnover_second_term
+)
+
+coef_mun_second <- models_complete %>%
+  set_names(c("hired (individual)", "hired (municipal)", "turnover")) %>%
+  map_dfr(broom::tidy, .id = "model") %>%
+  mutate(
+    conf.low = estimate - 1.96*std.error,
+    conf.high = estimate + 1.96*std.error
+  )
+
+plot_coef_mun_second <- coef_mun_second %>%
+  filter(
+    term == "coalition_share"
+  ) %>%
+  ggplot(
+    aes(
+      x = model,
+      y = estimate
+    )
+  ) +
+  geom_point(
+      color = matte_indigo
+  ) +
+  geom_pointrange(
+    aes(
+      ymin = conf.low,
+      ymax = conf.high
+    ),
+    color = matte_indigo
+    # position = position_dodge(.5)
+  ) +
+  geom_hline(
+    yintercept = 0,
+    linetype = "dashed"
+  ) 
+
+save_fig(
+  plot_coef_mun_second,
+  "plot_coalition_coef_mun_second.pdf"
 )

@@ -1,4 +1,5 @@
 # Fdb version 3
+<<<<<<< HEAD
 ["bibtex paper"] 1617139518 "paper.aux" "paper.bbl" "paper" 1617143329
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1233624470 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
   "dissertation.bib" 1617142294 184447 f9189dc7eec789ebf9918dabf00b0902 ""
@@ -9,6 +10,18 @@
 ["pdflatex"] 1617142412 "/Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.tex" "/Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.pdf" "paper" 1617143329
   "/Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.aux" 1617142413 14630 81032febde9d7f3e3857e447e1498e3c ""
   "/Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.tex" 1617142981 58846 55a03f8a9fc032d348dd2791877eba44 ""
+=======
+["bibtex paper"] 1617139518 "paper.aux" "paper.bbl" "paper" 1617142424
+  "/usr/local/texlive/2019/texmf-dist/bibtex/bst/natbib/unsrtnat.bst" 1233624470 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
+  "dissertation.bib" 1617142294 184447 f9189dc7eec789ebf9918dabf00b0902 ""
+  "paper.aux" 1617142324 14630 81032febde9d7f3e3857e447e1498e3c "pdflatex"
+  (generated)
+  "paper.blg"
+  "paper.bbl"
+["pdflatex"] 1617142323 "/Users/gali/github/patronage_education/paper/paper.tex" "/Users/gali/github/patronage_education/paper/paper.pdf" "paper" 1617142424
+  "/Users/gali/github/patronage_education/paper/paper.aux" 1617142324 14630 81032febde9d7f3e3857e447e1498e3c ""
+  "/Users/gali/github/patronage_education/paper/paper.tex" 1617142423 58846 55a03f8a9fc032d348dd2791877eba44 ""
+>>>>>>> 88e292e783ac17f9279e5805a118a9689d5dd7b5
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -123,10 +136,17 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1557342086 4259635 562fc36ec496993777a6c428d8bfb811 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
+<<<<<<< HEAD
   "paper.aux" 1617142413 14630 81032febde9d7f3e3857e447e1498e3c "pdflatex"
   "paper.bbl" 1617142294 11098 f03270d36f556142c48d2541287d73da "bibtex paper"
   "paper.out" 1617142413 744 e4bebf0a76ca0163e4222f35de5ae2ce "pdflatex"
   "paper.tex" 1617142981 58846 55a03f8a9fc032d348dd2791877eba44 ""
+=======
+  "paper.aux" 1617142324 14630 81032febde9d7f3e3857e447e1498e3c "pdflatex"
+  "paper.bbl" 1617142294 11098 f03270d36f556142c48d2541287d73da "bibtex paper"
+  "paper.out" 1617142324 744 e4bebf0a76ca0163e4222f35de5ae2ce "pdflatex"
+  "paper.tex" 1617142423 58846 55a03f8a9fc032d348dd2791877eba44 ""
+>>>>>>> 88e292e783ac17f9279e5805a118a9689d5dd7b5
   "plots/accountability_fit.pdf" 1617142294 4829 f3d33a06fa24c02db3db9a6563fd6db2 ""
   "plots/covariate_balance.pdf" 1617142294 4731 51ac547efe8770ab546d152d01aa6ecb ""
   "plots/descriptive_enrollment.pdf" 1617142294 6329 3fc4ae58f260b5f393601446aef9555c ""
@@ -143,9 +163,18 @@
   "results/student_learning.tex" 1617142294 1963 9458fd0290bdece5b68ce15f266a1dd8 ""
   "results/turnover_result.tex" 1617142294 1508 8b9c1979c0ac24b2c8981c4bbf5854c7 ""
   (generated)
+<<<<<<< HEAD
   "/Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.log"
   "paper.log"
   "paper.aux"
   "paper.out"
   "/Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.pdf"
   "paper.pdf"
+=======
+  "/Users/gali/github/patronage_education/paper/paper.pdf"
+  "paper.out"
+  "paper.pdf"
+  "paper.log"
+  "paper.aux"
+  "/Users/gali/github/patronage_education/paper/paper.log"
+>>>>>>> 88e292e783ac17f9279e5805a118a9689d5dd7b5

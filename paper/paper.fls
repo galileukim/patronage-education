@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 PWD /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper
 INPUT /usr/local/texlive/2019/texmf.cnf
 INPUT /usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.tex
 OUTPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.log
+=======
+PWD /Users/gali/github/patronage_education/paper
+INPUT /usr/local/texlive/2019/texmf.cnf
+INPUT /usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /Users/gali/github/patronage_education/paper/paper.tex
+OUTPUT /Users/gali/github/patronage_education/paper/paper.log
+>>>>>>> 88e292e783ac17f9279e5805a118a9689d5dd7b5
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/base/size12.clo
@@ -111,9 +120,15 @@ INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/footmisc/footmisc.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/footmisc/footmisc.sty
+<<<<<<< HEAD
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.aux
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.aux
 OUTPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.aux
+=======
+INPUT /Users/gali/github/patronage_education/paper/paper.aux
+INPUT /Users/gali/github/patronage_education/paper/paper.aux
+OUTPUT /Users/gali/github/patronage_education/paper/paper.aux
+>>>>>>> 88e292e783ac17f9279e5805a118a9689d5dd7b5
 INPUT /usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
@@ -126,6 +141,7 @@ INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+<<<<<<< HEAD
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.out
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.out
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.out
@@ -134,6 +150,16 @@ OUTPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_edu
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.out
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.out
 OUTPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.out
+=======
+INPUT /Users/gali/github/patronage_education/paper/paper.out
+INPUT /Users/gali/github/patronage_education/paper/paper.out
+INPUT /Users/gali/github/patronage_education/paper/paper.out
+INPUT /Users/gali/github/patronage_education/paper/paper.out
+OUTPUT /Users/gali/github/patronage_education/paper/paper.pdf
+INPUT /Users/gali/github/patronage_education/paper/paper.out
+INPUT /Users/gali/github/patronage_education/paper/paper.out
+OUTPUT /Users/gali/github/patronage_education/paper/paper.out
+>>>>>>> 88e292e783ac17f9279e5805a118a9689d5dd7b5
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
@@ -178,6 +204,7 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+<<<<<<< HEAD
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_enrollment.pdf
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_enrollment.pdf
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/plots/descriptive_enrollment.pdf
@@ -194,20 +221,44 @@ INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_educ
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/plots/hist_coalition.pdf
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/plots/hist_coalition.pdf
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/plots/hist_coalition.pdf
+=======
+INPUT /Users/gali/github/patronage_education/paper/plots/descriptive_enrollment.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/descriptive_enrollment.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/descriptive_enrollment.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/descriptive_staff_breakdown.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/descriptive_staff_breakdown.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/descriptive_staff_breakdown.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/saeb_map.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/saeb_map.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/saeb_map.pdf
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /Users/gali/github/patronage_education/paper/plots/descriptive_staff_turnover.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/descriptive_staff_turnover.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/descriptive_staff_turnover.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/hist_coalition.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/hist_coalition.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/hist_coalition.pdf
+>>>>>>> 88e292e783ac17f9279e5805a118a9689d5dd7b5
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+<<<<<<< HEAD
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/results/turnover_result.tex
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/results/turnover_result.tex
+=======
+INPUT /Users/gali/github/patronage_education/paper/results/turnover_result.tex
+INPUT /Users/gali/github/patronage_education/paper/results/turnover_result.tex
+>>>>>>> 88e292e783ac17f9279e5805a118a9689d5dd7b5
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+<<<<<<< HEAD
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/plots/plot_coalition_coef_mun.pdf
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/plots/plot_coalition_coef_mun.pdf
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/plots/plot_coalition_coef_mun.pdf
@@ -239,6 +290,39 @@ INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_educ
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.aux
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.out
 INPUT /Volumes/GoogleDrive/My Drive/princeton/dissertation/papers/patronage_education/paper/paper.out
+=======
+INPUT /Users/gali/github/patronage_education/paper/plots/plot_coalition_coef_mun.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/plot_coalition_coef_mun.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/plot_coalition_coef_mun.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/plot_interactions_logit.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/plot_interactions_logit.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/plot_interactions_logit.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/plot_coalition_coef_mun_second.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/plot_coalition_coef_mun_second.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/plot_coalition_coef_mun_second.pdf
+INPUT /Users/gali/github/patronage_education/paper/results/student_learning.tex
+INPUT /Users/gali/github/patronage_education/paper/results/student_learning.tex
+INPUT /Users/gali/github/patronage_education/paper/plots/model_turnover_learning.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/model_turnover_learning.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/model_turnover_learning.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/reelection_marginal_effect_plots.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/reelection_marginal_effect_plots.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/reelection_marginal_effect_plots.pdf
+INPUT /Users/gali/github/patronage_education/paper/paper.bbl
+INPUT /Users/gali/github/patronage_education/paper/paper.bbl
+INPUT /Users/gali/github/patronage_education/paper/plots/covariate_balance.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/covariate_balance.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/covariate_balance.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/accountability_fit.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/accountability_fit.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/accountability_fit.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/visual_rdd_legislative_seat_flip.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/visual_rdd_legislative_seat_flip.pdf
+INPUT /Users/gali/github/patronage_education/paper/plots/visual_rdd_legislative_seat_flip.pdf
+INPUT /Users/gali/github/patronage_education/paper/paper.aux
+INPUT /Users/gali/github/patronage_education/paper/paper.out
+INPUT /Users/gali/github/patronage_education/paper/paper.out
+>>>>>>> 88e292e783ac17f9279e5805a118a9689d5dd7b5
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb

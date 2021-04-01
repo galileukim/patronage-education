@@ -5,6 +5,8 @@
 # ==============================================================================
 source(here::here("source/models/setup.R"))
 
+library(AER)
+
 print("importing pre-processed saeb hierarchical")
 
 source(
@@ -53,12 +55,12 @@ formula_iv_first_term <- formula_iv %>%
         instrument = "mayor_reelected"
     )
 
-fit_iv_coalition <- AER::ivreg(
+fit_iv_coalition <- ivreg(
     formula_iv_coalition,
     data = saeb_hierarchical
 )
 
-fit_iv_first_term <- AER::ivreg(
+fit_iv_first_term <- ivreg(
     formula_iv_first_term,
     data = saeb_hierarchical
 )

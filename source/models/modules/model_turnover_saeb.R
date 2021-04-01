@@ -9,6 +9,15 @@ source(
     here("source/models/modules/preprocess_saeb_hierarchical.R")
 )
 
+# fix categories for teacher/principal experience
+saeb_hierarchical <- saeb_hierarchical %>%
+  mutate(
+    across(
+      c(saeb_teacher_work_school, saeb_principal_experience),
+      ~relevel(., "more than 10")
+    )
+  )
+
 # ==============================================================================
 # estimation of hierarchical linear models to assess effect of teacher
 # turnover on student learning

@@ -102,7 +102,7 @@ run_module <- function(domain, module) {
   )
 }
 
-reset_env <- function(init_env, packages){
+reset_env <- function(init_env){
   final_env <- ls(.GlobalEnv)
 
   rm(

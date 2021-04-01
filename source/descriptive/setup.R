@@ -21,14 +21,14 @@ knitr::opts_chunk$set(
 )
 
 # connect to database
-con <- DBI::dbConnect(
-  odbc::odbc(),
-  driver = "PostgreSQL Unicode",
-  database = "rais",
-  UID = "gali",
-  PWD = 'gali1789!',
-  port = 5432
-)
+# con <- DBI::dbConnect(
+#   odbc::odbc(),
+#   driver = "PostgreSQL Unicode",
+#   database = "rais",
+#   UID = "gali",
+#   PWD = 'gali1789!',
+#   port = 5432
+# )
 
 set.seed(1789)
 

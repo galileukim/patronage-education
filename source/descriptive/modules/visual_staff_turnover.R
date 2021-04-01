@@ -18,26 +18,26 @@ plot_turnover_edu <- rais_edu %>%
         rais_category,
         year
     ) %>%
-    summarise_prop(
-        "rais_hired"
+    summarise(
+        prop = sum(rais_hired * rais_size)/sum(rais_size)
     ) %>%
     ggplot(
         aes(
             year,
             prop,
             col = rais_category,
-            pch = rais_category
+            pch = rais_category,
+            group = rais_category
         )
     ) +
-    geom_point(
-        size = 4
-    ) +
+    geom_point(size = 2) + 
+    geom_line() +
     facet_wrap(
         . ~ rais_category,
         labeller = labeller(
             rais_category = c(principal = "Principal", teacher = "Teacher")
         ),
-        ncol = 1
+        ncol = 2
     ) +
     mandate_year(
         seq(2001, 2013, 4)
@@ -82,7 +82,6 @@ save_fig(
     hist_turnover_index,
     "hist_turnover_index.pdf"
 )
-
 
 # patronage_category <- patronage %>%
 #     mutate(
