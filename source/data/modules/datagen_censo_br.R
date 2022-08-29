@@ -1,11 +1,10 @@
 censo_files <- list.files(
   here("data", "raw", "censo_br"),
-  full.names = T
 )
 
 for (i in seq_along(censo_files)) {
   select_cols <- c(
-    "cod_ibge_6",
+      "cod_ibge_6",
       "median_wage",
       "rural",
       "lit_rate",
@@ -19,12 +18,15 @@ for (i in seq_along(censo_files)) {
 
   censo <- censo_files[i] %>% # filename
     fread %>% # read data
-    transmute( # select cols
-      = log(pop)
+    mutate( # select cols
+      log_pop = log(pop)
+    ) %>%
+    select(
+      any_of(select_cols)
     ) %>%
     rename_with(
-      ~paste0(., "censo_"),
-      vars(-cod_ibge_6)
+      ~ paste0("censo_", .),
+      c(-cod_ibge_6)
     )
 
   # write-out

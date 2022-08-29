@@ -8,4 +8,47 @@ Bargaining for votes, however, has negative downstream consequences for student 
 
 # Repository Structure
 
+The repo contains the following folders:
+
+├───data
+│   ├───clean
+│   │   ├───censo_br
+│   │   ├───censo_escolar
+│   │   ├───censo_escolar_turnover
+│   │   ├───finbra
+│   │   ├───maps
+│   │   ├───rais
+│   │   ├───saeb
+│   │   ├───spaece
+│   │   ├───tse
+│   │   └───worldbank
+│   └───raw
+│       ├───censo_br
+│       ├───censo_escolar
+│       ├───finbra
+│       ├───rais
+│       ├───saeb
+│       ├───spaece
+│       ├───test_data
+│       ├───tse
+│       └───worldbank
+├───figures
+│   ├───plots
+│   └───results
+├───paper
+│   ├───plots
+│   ├───results
+│   ├───template
+│   └───theory
+├───presentation
+└───source
+    ├───data
+    ├───descriptive
+    ├───models
+    └───tests
+
+Note that the repository is structured around five main folders: (1) data, (2) figures, (3) paper, (4) presentation, and (5) source.
+
 # Data Sources
+
+The data used in this folder is all publicly available. As of now, they are stored in my Dropbox, but are available upon request at galileukim@worldbank.org.
