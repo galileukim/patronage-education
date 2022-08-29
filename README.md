@@ -10,6 +10,7 @@ Bargaining for votes, however, has negative downstream consequences for student 
 
 The repo contains the following folders:
 
+```bash
 ├───data
 │   ├───clean
 │   │   ├───censo_br
@@ -46,6 +47,7 @@ The repo contains the following folders:
     ├───descriptive
     ├───models
     └───tests
+```
 
 Note that the repository is structured around five main folders: (1) data, (2) figures, (3) paper, (4) presentation, and (5) source.
 
