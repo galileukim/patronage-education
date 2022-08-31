@@ -1,50 +1,55 @@
-This is BibTeX, Version 0.99d (TeX Live 2019)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: unsrtnat.bst
 Database file #1: dissertation.bib
+Warning--I didn't find a database entry for "finan2017personnel"
+Warning--I didn't find a database entry for "stokes2013brokers"
+Warning--I didn't find a database entry for "toral2019benefits"
+Warning--I didn't find a database entry for "grindle2012jobs"
+Warning--I didn't find a database entry for "o2003plus"
 Warning--empty journal in akhtari_political_2015
 Warning--empty journal in colonnelli_patronage_2017
 Warning--there's a number but no volume in militao_educacao_2014
-You've used 41 entries,
+You've used 43 entries,
             2481 wiz_defined-function locations,
-            784 strings with 11247 characters,
-and the built_in function-call counts, 14307 in all, are:
-= -- 1266
-> -- 565
-< -- 32
-+ -- 240
-- -- 158
-* -- 1017
-:= -- 2249
-add.period$ -- 123
-call.type$ -- 41
-change.case$ -- 76
-chr.to.int$ -- 41
-cite$ -- 44
-duplicate$ -- 785
-empty$ -- 1403
-format.name$ -- 225
-if$ -- 3050
+            803 strings with 11507 characters,
+and the built_in function-call counts, 15351 in all, are:
+= -- 1386
+> -- 573
+< -- 36
++ -- 246
+- -- 160
+* -- 1085
+:= -- 2383
+add.period$ -- 129
+call.type$ -- 43
+change.case$ -- 82
+chr.to.int$ -- 43
+cite$ -- 46
+duplicate$ -- 841
+empty$ -- 1505
+format.name$ -- 229
+if$ -- 3292
 int.to.chr$ -- 1
-int.to.str$ -- 42
+int.to.str$ -- 44
 missing$ -- 47
-newline$ -- 213
-num.names$ -- 123
-pop$ -- 343
+newline$ -- 223
+num.names$ -- 129
+pop$ -- 351
 preamble$ -- 1
-purify$ -- 41
+purify$ -- 43
 quote$ -- 0
-skip$ -- 467
+skip$ -- 515
 stack$ -- 0
-substring$ -- 684
-swap$ -- 99
-text.length$ -- 3
+substring$ -- 802
+swap$ -- 121
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 263
+type$ -- 283
 warning$ -- 3
-while$ -- 135
+while$ -- 149
 width$ -- 0
-write$ -- 527
-(There were 3 warnings)
+write$ -- 555
+(There were 8 warnings)

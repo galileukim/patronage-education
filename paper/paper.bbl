@@ -1,4 +1,4 @@
-\begin{thebibliography}{41}
+\begin{thebibliography}{43}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -18,17 +18,12 @@ Timothy Besley and Anne Case.
 \newblock \emph{Journal of Economic Literature}, 41\penalty0 (1):\penalty0
   7--73, 2003.
 
-\bibitem[Cochrane(1983)]{cochrane_policies_1983}
-Glynn Cochrane.
-\newblock \emph{Policies for strengthening local government in developing
-  countries}.
-\newblock World Bank, 1983.
-
-\bibitem[Falleti(2010)]{falleti_decentralization_2010}
-Tulia~G. Falleti.
-\newblock \emph{Decentralization and subnational politics in {Latin}
-  {America}}.
-\newblock Cambridge University Press, 2010.
+\bibitem[Pepinsky et~al.(2017)Pepinsky, Pierskalla, and
+  Sacks]{pepinsky_bureaucracy_2017}
+Thomas~B. Pepinsky, Jan~H. Pierskalla, and Audrey Sacks.
+\newblock Bureaucracy and service delivery.
+\newblock \emph{Annual Review of Political Science}, 20:\penalty0 249--268,
+  2017.
 
 \bibitem[Duflo et~al.(2012)Duflo, Hanna, and Ryan]{duflo_incentives_2012}
 Esther Duflo, Rema Hanna, and Stephen~P. Ryan.
@@ -41,12 +36,16 @@ Frederico Finan, Benjamin~A. Olken, and Rohini Pande.
 \newblock The personnel economics of the state.
 \newblock Technical report, National Bureau of Economic Research, 2015.
 
-\bibitem[Stokes et~al.(2013)Stokes, Dunning, Nazareno, and
-  Brusco]{stokes_brokers_2013}
-Susan~C. Stokes, Thad Dunning, Marcelo Nazareno, and Valeria Brusco.
-\newblock \emph{Brokers, voters, and clientelism: {The} puzzle of distributive
-  politics}.
-\newblock Cambridge University Press, 2013.
+\bibitem[Thelen(1999)]{thelen_historical_1999}
+Kathleen Thelen.
+\newblock Historical institutionalism in comparative politics.
+\newblock \emph{Annual review of political science}, 2\penalty0 (1):\penalty0
+  369--404, 1999.
+
+\bibitem[Francois et~al.(2015)Francois, Rainer, and Trebbi]{francois_how_2015}
+Patrick Francois, Ilia Rainer, and Francesco Trebbi.
+\newblock How is power shared in {Africa}?
+\newblock \emph{Econometrica}, 83\penalty0 (2):\penalty0 465--503, 2015.
 
 \bibitem[Oliveros(2016)]{oliveros_making_2016}
 Virginia Oliveros.
@@ -93,13 +92,6 @@ John Ferejohn.
 \newblock Incumbent performance and electoral control.
 \newblock \emph{Public choice}, 50\penalty0 (1-3):\penalty0 5--25, 1986.
 
-\bibitem[Pepinsky et~al.(2017)Pepinsky, Pierskalla, and
-  Sacks]{pepinsky_bureaucracy_2017}
-Thomas~B. Pepinsky, Jan~H. Pierskalla, and Audrey Sacks.
-\newblock Bureaucracy and service delivery.
-\newblock \emph{Annual Review of Political Science}, 20:\penalty0 249--268,
-  2017.
-
 \bibitem[Gottlieb and Kosec(2019)]{gottlieb_countervailing_2019}
 Jessica Gottlieb and Katrina Kosec.
 \newblock The {Countervailing} {Effects} of {Competition} on {Public} {Goods}
@@ -144,16 +136,18 @@ Peter Evans and James~E. Rauch.
   of" {Weberian}" state structures on economic growth.
 \newblock \emph{American sociological review}, pages 748--765, 1999.
 
-\bibitem[Grindle(2012)]{grindle_jobs_2012}
-Merilee~S. Grindle.
-\newblock \emph{Jobs for the {Boys}}.
-\newblock Harvard University Press, 2012.
-
 \bibitem[McCarty(2004)]{mccarty_appointments_2004}
 Nolan McCarty.
 \newblock The appointments dilemma.
 \newblock \emph{American Journal of Political Science}, 48\penalty0
   (3):\penalty0 413--428, 2004.
+
+\bibitem[Neto(2006)]{neto_presidential_2006}
+Octavio~Amorim Neto.
+\newblock The presidential calculus: {Executive} policy making and cabinet
+  formation in the {Americas}.
+\newblock \emph{Comparative Political Studies}, 39\penalty0 (4):\penalty0
+  415--440, 2006.
 
 \bibitem[Ames(1995)]{ames_electoral_1995}
 Barry Ames.
@@ -175,13 +169,6 @@ Mariana Batista.
   {Ministérios} no presidencialismo de coalizão brasileiro (1995-2010).
 \newblock \emph{Opinião Pública}, 19\penalty0 (2):\penalty0 449--473, 2013.
 
-\bibitem[Neto(2006)]{neto_presidential_2006}
-Octavio~Amorim Neto.
-\newblock The presidential calculus: {Executive} policy making and cabinet
-  formation in the {Americas}.
-\newblock \emph{Comparative Political Studies}, 39\penalty0 (4):\penalty0
-  415--440, 2006.
-
 \bibitem[Figueiredo and Limong(1999)]{figueiredo_executivo_1999}
 Argelina~Cheibub Figueiredo and Fernando de Magalhaes~Papaterra Limong.
 \newblock \emph{Executivo e {Legislativo} na nova ordem constitucional}.
@@ -201,6 +188,23 @@ Charles~T. Clotfelter, Helen~F. Ladd, and Jacob~L. Vigdor.
   with student fixed effects.
 \newblock \emph{Economics of Education Review}, 26\penalty0 (6):\penalty0
   673--682, 2007.
+
+\bibitem[Osborne(1993)]{osborne_reinventing_1993}
+David Osborne.
+\newblock Reinventing government.
+\newblock \emph{Public productivity \& management Review}, pages 349--356,
+  1993.
+
+\bibitem[Suleiman(2013)]{suleiman_dismantling_2013}
+Ezra~N. Suleiman.
+\newblock \emph{Dismantling democratic states}.
+\newblock Princeton University Press, 2013.
+
+\bibitem[Nunes(1997)]{nunes_gramatica_1997}
+Edson de~Oliveira Nunes.
+\newblock \emph{A gramática política do {Brasil}: clientelismo e insulamento
+  burocrático}.
+\newblock Zahar, 1997.
 
 \bibitem[Paschoal and Machado(2009)]{paschoal_historia_2009}
 Jaqueline~Delgado Paschoal and Maria Cristina~Gomes Machado.
@@ -247,6 +251,11 @@ Edmilson~Antonio Pereira~Junior and Dalila~Andrade Oliveira.
   básica.
 \newblock \emph{Cadernos de Pesquisa}, 46\penalty0 (160):\penalty0 312--332,
   2016.
+
+\bibitem[Banks(2000)]{banks_2000_buying}
+Jeffrey~S Banks.
+\newblock Buying supermajorities in finite legislatures.
+\newblock \emph{American Political Science Review}, pages 677--681, 2000.
 
 \bibitem[Groseclose and Snyder~Jr(1996)]{groseclose_1996_buying}
 Tim Groseclose and James~M Snyder~Jr.
