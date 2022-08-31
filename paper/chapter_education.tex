@@ -124,7 +124,7 @@ In Brazil, the responsibility to provide public, primary education is primarily 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{chapters/chapter_1/plots/descriptive_enrollment.pdf}
+    \includegraphics[width=0.6\linewidth]{plots/descriptive_enrollment.pdf}
     \caption{\textbf{Student enrollment by administration.}}
     \label{fig:enroll}
 \end{figure}
@@ -135,7 +135,7 @@ Positions in the educational sector are politically valuable. As a department, i
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{chapters/chapter_1/plots/descriptive_staff_breakdown}
+    \includegraphics[width=0.6\linewidth]{plots/descriptive_staff_breakdown}
 \end{figure}
 
 Funding for municipal education relies primarily on federal transfers, the Fundeb, derived from 10 percent of tax revenues for each level of government to education. At the municipal level, 25 percent of the local budget must be allocated to education, and compensatory federal transfers are institutionalized by law to those municipalities which do not reach the target.\footnote{For more details on the Fundeb, see \hyperlink{https://www.fnde.gov.br/index.php/financiamento/fundeb/sobre-o-plano-ou-programa/sobre-o-fundeb}{here}}. While municipalities may be audited to verify whether funds are being properly used, personnel decisions and daily operations are fully under municipal discretion \citet{ferraz_corrupting_2012}.
@@ -174,7 +174,7 @@ Brazil collects fine-grained data on education and makes it publicly available f
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{chapters/chapter_1/plots/saeb_map.pdf}
+    \includegraphics[width=0.6\linewidth]{plots/saeb_map.pdf}
     \caption{Uneven quality of municipal education. Polygons represent municipalities, warmer colors indicate higher municipal average in standardized test scores. Averages are weighted by student participation rate.}
     \label{fig:saeb_map}
 \end{figure}
@@ -187,7 +187,7 @@ Figure \ref{fig:staff_turnover} provides descriptive statistics on bureaucratic 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{chapters/chapter_1/plots/descriptive_staff_breakdown.pdf}
+    \includegraphics[width=0.6\linewidth]{plots/descriptive_staff_breakdown.pdf}
     \caption{Proportion of public sector jobs by department}
     \label{fig:staff_turnover}
 \end{figure}
@@ -200,7 +200,7 @@ The following example illustrates how the index operates. Suppose that in school
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{chapters/chapter_1/plots/hist_turnover_index.pdf}
+    \includegraphics[width=0.6\linewidth]{plots/hist_turnover_index.pdf}
     \caption{Distribution of turnover index by year, pooled across schools. Note that for robustness, only schools with more than 5 teachers are included.}
     \label{fig:hist_turnover}
 \end{figure}
@@ -211,7 +211,7 @@ Information on mayor, city councilors and mayoral coalitions are made available 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{chapters/chapter_1/plots/hist_coalition.pdf}
+    \includegraphics[width=0.6\linewidth]{plots/hist_coalition.pdf}
     \caption{Distribution of share of legislative seats allied with the mayor during the electoral campaign for the eletcoral period of 2002-2016.}
     \label{fig:hist_coalition}
 \end{figure}
@@ -394,7 +394,7 @@ Table \ref{tbl:turnover} presents the results of the estimation. Model 1 regress
     \begin{table}[t]
       \centering
       \footnotesize
-      \input{chapters/chapter_1/results/turnover_result}
+      \input{results/turnover_result}
       \caption{{\bf Executive coalitions and staff turnover.} An increase in the share of legislative seats held by the mayoral coalition decrease the amount of turnover for teachers and school principals, including hires or dismissals. Models 1 and 2 present results on the turnover index at the school level. Models 2 and 3 are aggregate hiring rates at the municipal level. Models 5 and 6 are logistic regressions at the individual, bureaucrat level. where the outcome of interest is the proportion of staff either hired or dismissed at a given year. Models 1, 3, and 5 include year and state fixed effects.}
       \label{tbl:turnover}
     \end{table}
@@ -404,7 +404,7 @@ For visual intuition, I present the estimated coefficients for the models with c
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{chapters/chapter_1/plots/plot_coalition_coef_mun.pdf}
+    \includegraphics[width=0.6\linewidth]{plots/plot_coalition_coef_mun.pdf}
     \caption{{\bf Political alignment and staff turnover.} A visual representation of results presented in table \ref{tbl:turnover}. All models include year and state fixed effects.}
     \label{fig:coalition_turnover}
 \end{figure}
@@ -413,7 +413,7 @@ For visual intuition, I present the predicted values for models 4 and 5, respect
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{chapters/chapter_1/plots/plot_interactions_logit}
+    \includegraphics[width=0.6\linewidth]{plots/plot_interactions_logit}
     \caption{\textbf{Differential reductions in patronage in teachers and school principals}. Predicted values for bureaucratic turnover plotted against the proportion of educational staff either hired or fired for any given year against the share of seats controlled by the executive.}
     \label{fig:turnover}
 \end{figure}
@@ -422,7 +422,7 @@ Finally, I show that the executive-legislative bargain extends to second-term ma
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{chapters/chapter_1/plots/plot_coalition_coef_mun_second.pdf}
+    \includegraphics[width=0.6\linewidth]{plots/plot_coalition_coef_mun_second.pdf}
     \caption{\textbf{Patronage continues into the second term.} There is strong evidence that executive-legislative bargains continue into the mayor's second term. All models include a full set of controls, as well as year and state fixed effects.}
 \end{figure}
 
@@ -432,7 +432,7 @@ Moving on to characterizing the downstream effects of patronage, I find that tea
     \begin{table}[t]
       \centering
       \footnotesize
-      \input{chapters/chapter_1/results/student_learning.tex}
+      \input{results/student_learning.tex}
       \caption{{\bf Bureaucratic turnover and student learning} Teacher and school principal turnover have a negative effect on student learning. Models 1 and 2 present results for teacher turnover index constructed at the school level. Models 3 and 4 estimate the effect of new teachers and school principals entering the school (less than two years). All models include year and state fixed effects.}
       \label{tbl:student_learning}
     \end{table}
@@ -442,7 +442,7 @@ I also present the coefficients for the regression exercise above in figure \ref
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.6\linewidth]{chapters/chapter_1/plots/model_turnover_learning.pdf}
+  \includegraphics[width=0.6\linewidth]{plots/model_turnover_learning.pdf}
   \caption{{\bf Bureaucratic turnover and student learning} Teacher and school principal turnover have a negative effect on student learning, across different sets of exams (\emph{SAEB} and \emph{SPAECE}). All models include a full set of controls, as well as year and state fixed effects.}
   \label{fig:hlm_mods}
 \end{figure}
@@ -451,7 +451,7 @@ Finally, I present some evidence of differential returns to patronage, in partic
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{chapters/chapter_1/plots/reelection_marginal_effect_plots.pdf}
+    \includegraphics[width=0.6\linewidth]{plots/reelection_marginal_effect_plots.pdf}
     \caption{\textbf{Differential returns to patronage}. Mayors who engage in patronage do not directly benefit from it. Instead, city councilors in the mayoral ally base seem to be benefiting from it at the expense of non-allied city councilors.}
 \end{figure}
 
@@ -480,7 +480,7 @@ Future research on patronage and public service delivery would benefit from a cl
 
 \begin{figure}[h]
     \centering
-    \includegraphics{chapters/chapter_1/plots/covariate_balance.pdf}
+    \includegraphics{plots/covariate_balance.pdf}
 \end{figure}
 
 \pagebreak
@@ -490,7 +490,7 @@ Future research on patronage and public service delivery would benefit from a cl
 
 \begin{figure}[h]
     \centering
-    \includegraphics{chapters/chapter_1/plots/accountability_fit.pdf}
+    \includegraphics{plots/accountability_fit.pdf}
 \end{figure}
 
 \pagebreak
@@ -499,13 +499,13 @@ Future research on patronage and public service delivery would benefit from a cl
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\linewidth]{chapters/chapter_1/plots/visual_rdd_legislative_seat_flip.pdf}
+    \includegraphics[width=0.7\linewidth]{plots/visual_rdd_legislative_seat_flip.pdf}
 \end{figure}
 
-% \blue{chapters/chapter_1/plots/balance_hlm}
+% \blue{plots/balance_hlm}
 
 % ### Staff turnover vs. executive share of legislative seats
 
-% \blue{chapters/chapter_1/plots/balance_felm.pdf}
+% \blue{plots/balance_felm.pdf}
 
 % \pagebreak
